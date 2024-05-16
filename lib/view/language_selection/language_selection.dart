@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/view/splash_screen/splash_screen.dart';
 
 class LanguageSelection extends StatefulWidget {
   const LanguageSelection({super.key});
@@ -33,6 +34,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                           return Container(
                             height: 350,
                             width: 330,
+                            color: Colors.white,
                             child: Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
@@ -55,11 +57,11 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                     width: 300,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: Colors.white,
+                                      color: ColorConstant.DefaultGrey,
                                       boxShadow: [
                                         BoxShadow(
                                           color: Colors.black.withOpacity(0.5),
-                                          spreadRadius: 1,
+                                          spreadRadius: 0.1,
                                           blurRadius: 5,
                                           offset: Offset(0, 5),
                                         ),
@@ -96,11 +98,11 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                     width: 300,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: Colors.white,
+                                      color: ColorConstant.DefaultGrey,
                                       boxShadow: [
                                         BoxShadow(
                                           color: Colors.black.withOpacity(0.5),
-                                          spreadRadius: 1,
+                                          spreadRadius: 0.1,
                                           blurRadius: 5,
                                           offset: Offset(0, 5),
                                         ),
@@ -138,13 +140,23 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(right: 25),
-                                        child: Text(
-                                          "Next  >",
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color(
-                                              0xff07104E,
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SplashScreen(),
+                                                ));
+                                          },
+                                          child: Text(
+                                            "Next  >",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color(
+                                                0xff07104E,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -163,7 +175,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.greenAccent,
+                    color: Color.fromARGB(255, 109, 189, 203),
                     borderRadius: BorderRadius.circular(20)),
                 height: 60,
                 width: 250,
