@@ -17,16 +17,16 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  // void initState() {
-  //   Timer(Duration(seconds: 3), () {
-  //     Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: (context) => LoginScreen(),
-  //         ));
-  //   });
-  //   super.initState();
-  // }
+  void initState() {
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ));
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              //mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   height: 222,
@@ -51,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 130),
@@ -64,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   padding: const EdgeInsets.all(15),
                   child: Text(
                     "A way to your all solutions",
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ],
