@@ -13,6 +13,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   List<String> Numbers = ["91", "966", "971", "1"];
   String dropDownValue = "1";
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -116,8 +117,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Checkbox(
-                    value: true,
-                    onChanged: (value) {},
+                    value: isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value ?? false;
+                      });
+                    },
                   ),
                   Row(
                     children: [
@@ -136,17 +141,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(
-                    color: ColorConstant.defIndigo,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text(
-                    "Register",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ));
+                },
+                child: Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      color: ColorConstant.defIndigo,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Center(
+                    child: Text(
+                      "Register",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),

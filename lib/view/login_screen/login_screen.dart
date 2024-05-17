@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
+import 'package:project_way/view/otp_screen/otp_screen.dart';
 import 'package:project_way/view/register_screen/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -46,17 +47,26 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(
-                    color: ColorConstant.defIndigo,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OtpScreen(),
+                      ));
+                },
+                child: Container(
+                  height: 50,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      color: ColorConstant.defIndigo,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Center(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
