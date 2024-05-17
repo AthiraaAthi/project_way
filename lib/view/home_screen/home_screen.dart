@@ -18,6 +18,28 @@ class _HomeScreenState extends State<HomeScreen> {
     ImageConstant.Logo,
     "assets/images/carousal.png",
   ];
+  List<String> myText = [
+    "Track Budget",
+    "Budget Goal",
+    "Categories",
+    "Reports",
+    "My Passwords",
+    "My Diary",
+    "Chats",
+    "Subscription",
+    "Shopping"
+  ];
+  List<IconData> MyIcons = [
+    Icons.analytics_outlined,
+    Icons.track_changes,
+    Icons.category,
+    Icons.description_outlined,
+    Icons.lock,
+    Icons.menu_book,
+    Icons.forum_outlined,
+    Icons.subscriptions_outlined,
+    Icons.shopping_cart_outlined
+  ];
   int currentIndex = 0;
   bool isSelected = false;
   @override
@@ -165,12 +187,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: 9,
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10),
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
                   itemBuilder: (context, index) => Container(
-                    height: 80,
-                    width: 80,
+                    // height: 80,
+                    // width: 80,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(color: Colors.grey, offset: Offset(0, 2))
@@ -183,12 +206,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Icon(
-                          Icons.graphic_eq,
-                          size: 50,
+                          MyIcons[index],
+                          size: 45,
+                          color: ColorConstant.defIndigo,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text("kwhfiw"),
+                          child: Text(
+                            myText[index],
+                            style: TextStyle(color: Colors.indigo),
+                          ),
                         ),
                       ],
                     ),
