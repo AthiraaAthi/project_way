@@ -25,21 +25,52 @@ class NotificationScreen extends StatelessWidget {
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
-      body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, index) => Container(
-          height: 100,
-          width: 350,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 0.5,
-                    offset: Offset(0, 5),
-                    spreadRadius: 0.1)
-              ]),
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 50, left: 15, right: 15, bottom: 20),
+        child: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (context, index) => Container(
+            height: 120,
+            width: 350,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 0.5,
+                      offset: Offset(0, 5),
+                      spreadRadius: 0.1)
+                ]),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 7,
+                          backgroundColor: ColorConstant.defIndigo,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          "My Notifications title",
+                          style: TextStyle(fontWeight: FontWeight.w900),
+                        )
+                      ],
+                    ),
+                  ),
+                  Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit")
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
