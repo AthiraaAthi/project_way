@@ -7,6 +7,7 @@ import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/chat_screen/chat_screen.dart';
 import 'package:project_way/view/diary_screen/dairy_screen.dart';
 import 'package:project_way/view/home_screen/homescreen_widget.dart';
+import 'package:project_way/view/notifications_screen/notifications_screen.dart';
 import 'package:project_way/view/passwords_screen/passwords_screen.dart';
 import 'package:project_way/view/profile/profile_screen.dart';
 import 'package:project_way/view/reports_screen/reports_screen.dart';
@@ -148,7 +149,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 20,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NotificationScreen(),
+                      ));
+                },
                 child: Icon(
                   Icons.notifications,
                   color: Colors.white,
