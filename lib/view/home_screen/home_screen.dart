@@ -1,8 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
+import 'package:project_way/view/budget_graph/budget_goal_screen.dart';
+import 'package:project_way/view/category_screen/category_screen.dart';
+import 'package:project_way/view/chat_screen/chat_screen.dart';
+import 'package:project_way/view/diary_screen/dairy_screen.dart';
+import 'package:project_way/view/home_screen/homescreen_widget.dart';
+import 'package:project_way/view/passwords_screen/passwords_screen.dart';
+import 'package:project_way/view/reports_screen/reports_screen.dart';
+import 'package:project_way/view/shopping_screen/shopping_screen.dart';
+import 'package:project_way/view/subscription_screen/subscription_screen.dart';
+import 'package:project_way/view/track_budget_screen/track_budget_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,27 +27,49 @@ class _HomeScreenState extends State<HomeScreen> {
     ImageConstant.Logo,
     "assets/images/carousal.png",
   ];
-  List<String> myText = [
-    "Track Budget",
-    "Budget Goal",
-    "Categories",
-    "Reports",
-    "My Passwords",
-    "My Diary",
-    "Chats",
-    "Subscription",
-    "Shopping"
+  // List<String> myText = [
+  //   "Track Budget",
+  //   "Budget Goal",
+  //   "Categories",
+  //   "Reports",
+  //   "My Passwords",
+  //   "My Diary",
+  //   "Chats",
+  //   "Subscription",
+  //   "Shopping"
+  // ];
+  // List<IconData> MyIcons = [
+  //   Icons.analytics_outlined,
+  //   Icons.track_changes,
+  //   Icons.category,
+  //   Icons.description_outlined,
+  //   Icons.lock,
+  //   Icons.menu_book,
+  //   Icons.forum_outlined,
+  //   Icons.subscriptions_outlined,
+  //   Icons.shopping_cart_outlined
+  // ];
+  final List<Map<String, dynamic>> quickLinks = [
+    {'icon': Icons.show_chart, 'label': 'Track budget'},
+    {'icon': Icons.track_changes, 'label': 'Budget Goal'},
+    {'icon': Icons.category, 'label': 'Categories'},
+    {'icon': Icons.insert_chart, 'label': 'Reports'},
+    {'icon': Icons.lock, 'label': 'My Passwords'},
+    {'icon': Icons.book, 'label': 'My Diary'},
+    {'icon': Icons.chat, 'label': 'Chats'},
+    {'icon': Icons.subscriptions, 'label': 'Subscription'},
+    {'icon': Icons.shopping_cart, 'label': 'Shopping'},
   ];
-  List<IconData> MyIcons = [
-    Icons.analytics_outlined,
-    Icons.track_changes,
-    Icons.category,
-    Icons.description_outlined,
-    Icons.lock,
-    Icons.menu_book,
-    Icons.forum_outlined,
-    Icons.subscriptions_outlined,
-    Icons.shopping_cart_outlined
+  List<Widget> Screens = [
+    TrackBudgetScreen(),
+    BudgetGoalScreen(),
+    CategoriesScreen(),
+    ReportsScreen(),
+    PasswordsScreen(),
+    MyDiaryScreen(),
+    ChatScreen(),
+    SubscriptionScreen(),
+    ShoppingScreen()
   ];
   int currentIndex = 0;
   bool isSelected = false;
@@ -191,34 +222,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                   ),
-                  itemBuilder: (context, index) => Container(
-                    // height: 80,
-                    // width: 80,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(color: Colors.grey, offset: Offset(0, 2))
-                      ],
-                      border: Border(bottom: BorderSide(color: Colors.grey)),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Icon(
-                          MyIcons[index],
-                          size: 45,
-                          color: ColorConstant.defIndigo,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            myText[index],
-                            style: TextStyle(color: Colors.indigo),
-                          ),
-                        ),
-                      ],
-                    ),
+                  itemBuilder: (context, index) => HomeScreenWidget(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Screens[index],
+                          ));
+                    },
+                    icon: quickLinks[index]['icon'],
+                    text: quickLinks[index]['label'],
                   ),
                 )
               ],
