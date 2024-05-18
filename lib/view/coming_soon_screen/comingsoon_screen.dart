@@ -14,7 +14,16 @@ class ComingSoonScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(ImageConstant.ComingSoon),
-            Text(""),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              "Coming Soon",
+              style: TextStyle(
+                  color: ColorConstant.defIndigo,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 35),
+            ),
           ],
         ),
       ),
