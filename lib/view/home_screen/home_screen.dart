@@ -8,6 +8,7 @@ import 'package:project_way/view/chat_screen/chat_screen.dart';
 import 'package:project_way/view/diary_screen/dairy_screen.dart';
 import 'package:project_way/view/home_screen/homescreen_widget.dart';
 import 'package:project_way/view/passwords_screen/passwords_screen.dart';
+import 'package:project_way/view/profile/profile_screen.dart';
 import 'package:project_way/view/reports_screen/reports_screen.dart';
 import 'package:project_way/view/shopping_screen/shopping_screen.dart';
 import 'package:project_way/view/subscription_screen/subscription_screen.dart';
@@ -130,16 +131,28 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 width: 20,
               ),
-              Icon(
-                Icons.person,
-                color: Colors.white,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfileScreen(),
+                      ));
+                },
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(
                 width: 20,
               ),
-              Icon(
-                Icons.notifications,
-                color: Colors.white,
+              InkWell(
+                onTap: () {},
+                child: Icon(
+                  Icons.notifications,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(
                 width: 20,
