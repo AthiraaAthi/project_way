@@ -5,4 +5,5 @@ class ImageConstant {
   static String ComingSoon = "assets/images/coming_soon.png";
   static String Profile = "assets/images/profile.png";
   static String Trophy = "assets/images/trophy.png";
+  static String graph = "assets/images/graph.png";
 }
