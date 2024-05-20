@@ -44,7 +44,10 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
       body: TableCalendar(
         daysOfWeekHeight: 50,
         daysOfWeekStyle: DaysOfWeekStyle(
-            decoration: BoxDecoration(color: ColorConstant.bgIndigo)),
+            decoration: BoxDecoration(
+          color: ColorConstant
+              .bgIndigo, //bgcolor of week names,still trying to change the clr of week nmes
+        )),
         firstDay: DateTime.utc(2020, 1, 1),
         lastDay: DateTime.utc(2030, 12, 31),
         focusedDay: _focusedDay,
@@ -69,7 +72,9 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
           _focusedDay = focusedDay;
         },
         calendarStyle: CalendarStyle(
-          defaultTextStyle: TextStyle(color: ColorConstant.defIndigo), //wasted
+          defaultTextStyle: TextStyle(
+              color: ColorConstant.defIndigo,
+              fontWeight: FontWeight.bold), //wasted
           weekendTextStyle: TextStyle(
               color: Colors.red,
               fontWeight: FontWeight.bold), //the weekend color
