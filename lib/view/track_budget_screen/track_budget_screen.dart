@@ -38,8 +38,13 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-                height: 25, width: 25, child: Image.asset(ImageConstant.graph)),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                  height: 25,
+                  width: 25,
+                  child: Image.asset(ImageConstant.graph)),
+            ),
           )
         ],
       ),
