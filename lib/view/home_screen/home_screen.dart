@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
-import 'package:project_way/view/budget_graph/budget_goal_screen.dart';
+import 'package:project_way/view/budget_goal/budget_goal_screen.dart';
 import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/chat_screen/chat_screen.dart';
 import 'package:project_way/view/coming_soon_screen/comingsoon_screen.dart';

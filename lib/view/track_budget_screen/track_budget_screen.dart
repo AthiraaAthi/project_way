@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
+import 'package:project_way/view/track_budget_screen/budget_graph.dart';
 import 'package:project_way/view/track_budget_screen/track_budget_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -39,7 +40,13 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BudgetGraphScreen(),
+                    ));
+              },
               child: Container(
                   height: 25,
                   width: 25,
@@ -105,12 +112,21 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                           BorderSide(color: Colors.grey, width: 2)),
 
                   todayDecoration: BoxDecoration(
-                    color: ColorConstant.defIndigo,
+                    gradient: LinearGradient(
+                      colors: [
+                        ColorConstant.defIndigo,
+                        ColorConstant.defGreen,
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      stops: [0.5, 0.5],
+                    ),
+                    //color: ColorConstant.defIndigo,
                     shape: BoxShape.rectangle,
                   ),
                   selectedDecoration: BoxDecoration(
                     color: ColorConstant.defGreen,
-                    shape: BoxShape.circle,
+                    shape: BoxShape.rectangle,
                   ),
                 ),
                 headerStyle: HeaderStyle(
