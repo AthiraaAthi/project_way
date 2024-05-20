@@ -7,8 +7,9 @@ class BudgetGraphScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstant.defIndigo,
+      backgroundColor: ColorConstant.bgBlue,
       appBar: AppBar(
+        backgroundColor: ColorConstant.defIndigo,
         title: Text(
           "Budget Graph",
           style: TextStyle(
