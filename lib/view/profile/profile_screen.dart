@@ -85,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                height: 400,
+                height: 450,
                 width: 300,
                 decoration: BoxDecoration(
                     color: Colors.white,

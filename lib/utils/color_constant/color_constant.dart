@@ -6,4 +6,5 @@ class ColorConstant {
   static Color bgIndigo = Color.fromARGB(230, 216, 221, 251);
   static Color bgBlue = Color.fromARGB(255, 228, 241, 251);
   static Color defIndigo = Color(0xff05144c);
+  static Color defGreen = Color(0xff2e9d16);
 }
