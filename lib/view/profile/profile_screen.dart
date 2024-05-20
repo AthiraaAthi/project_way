@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Container(
                 height: 100,
-                width: 350,
+                width: 300,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
                       BoxShadow(
                           color: Colors.grey,
                           blurRadius: 0.5,
-                          offset: Offset(0, 5),
+                          offset: Offset(0, 2),
                           spreadRadius: 0.1)
                     ]),
                 child: Padding(
@@ -86,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               Container(
                 height: 400,
-                width: 350,
+                width: 300,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
@@ -94,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                       BoxShadow(
                           color: Colors.grey,
                           blurRadius: 0.5,
-                          offset: Offset(0, 5),
+                          offset: Offset(0, 2),
                           spreadRadius: 0.1)
                     ]),
                 child: Column(
@@ -123,13 +123,7 @@ class ProfileScreen extends StatelessWidget {
                       height: 20,
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ComingSoonScreen(),
-                            ));
-                      },
+                      onTap: () {},
                       child: Container(
                         height: 45,
                         width: 250,

@@ -5,6 +5,7 @@ import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/budget_graph/budget_goal_screen.dart';
 import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/chat_screen/chat_screen.dart';
+import 'package:project_way/view/coming_soon_screen/comingsoon_screen.dart';
 import 'package:project_way/view/diary_screen/dairy_screen.dart';
 import 'package:project_way/view/home_screen/homescreen_widget.dart';
 import 'package:project_way/view/notifications_screen/notifications_screen.dart';
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
     MyDiaryScreen(),
     ChatScreen(),
     SubscriptionScreen(),
-    ShoppingScreen()
+    ComingSoonScreen()
   ];
   int currentIndex = 0;
   bool isSelected = false;
@@ -106,11 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Ai",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 5,
                   ),
                   Transform.scale(
                     scale: 0.7,

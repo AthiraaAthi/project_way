@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/login_screen/login_screen.dart';
+import 'package:project_way/view/otp_screen/otp_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -146,7 +147,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginScreen(),
+                        builder: (context) => OtpScreen(),
                       ));
                 },
                 child: Container(

@@ -33,42 +33,37 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: ColorConstant.bgIndigo,
-        body: Expanded(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                      image: AssetImage(
-                        ImageConstant.Logo,
-                      ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: AssetImage(
+                      ImageConstant.Logo,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "WAY",
+                style: TextStyle(fontSize: 55, fontWeight: FontWeight.w800),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20, top: 170),
+                child: Text(
+                  "A way to your all solutions",
+                  style: TextStyle(fontSize: 16),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 130),
-                  child: Text(
-                    "WAY",
-                    style: TextStyle(fontSize: 55, fontWeight: FontWeight.w800),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Text(
-                    "A way to your all solutions",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

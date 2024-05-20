@@ -25,15 +25,16 @@ class SubscriptionWidget extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Colors.grey,
-                blurRadius: 5,
-                spreadRadius: 1,
-                offset: Offset(0, 5))
+              color: Colors.grey,
+              blurRadius: 0.5,
+              offset: Offset(0, 2),
+              spreadRadius: 0.1,
+            )
           ],
           borderRadius: BorderRadius.circular(5),
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 5, left: 20),
+          padding: const EdgeInsets.only(top: 5, left: 20, right: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,18 +46,22 @@ class SubscriptionWidget extends StatelessWidget {
               Text(first),
               Text(second),
               Text(third),
-              Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(
-                    color: ColorConstant.defIndigo,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text(
-                    price,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 20, right: 20),
+                child: Container(
+                  height: 50,
+                  width: 280,
+                  decoration: BoxDecoration(
+                      color: ColorConstant.defIndigo,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Center(
+                    child: Text(
+                      price,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
