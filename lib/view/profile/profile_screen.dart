@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/coming_soon_screen/comingsoon_screen.dart';
+import 'package:project_way/view/earnings_screen/earnings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -123,7 +124,13 @@ class ProfileScreen extends StatelessWidget {
                       height: 20,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EarningsScreen(),
+                            ));
+                      },
                       child: Container(
                         height: 45,
                         width: 250,
