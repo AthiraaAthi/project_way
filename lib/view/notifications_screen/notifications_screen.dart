@@ -45,7 +45,7 @@ class NotificationScreen extends StatelessWidget {
                     BoxShadow(
                         color: Colors.grey,
                         blurRadius: 0.5,
-                        offset: Offset(0, 5),
+                        offset: Offset(0, 2),
                         spreadRadius: 0.1)
                   ]),
               child: Padding(
