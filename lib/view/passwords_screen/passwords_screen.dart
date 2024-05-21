@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/passwords_screen/password_widget.dart';
 
 class PasswordsScreen extends StatelessWidget {
@@ -39,7 +39,7 @@ class PasswordsScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Container(
-                          height: 500,
+                          height: 580,
                           width: 400,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -51,10 +51,12 @@ class PasswordsScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   "Add Password",
-                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 13),
                                 ),
                                 SizedBox(
-                                  height: 20,
+                                  height: 25,
                                 ),
                                 Container(
                                   height: 50,
@@ -64,11 +66,13 @@ class PasswordsScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10)),
                                   child: TextField(
                                     decoration: InputDecoration(
-                                        contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 16.0, vertical: 12.0),
-                                        border: InputBorder.none,
-                                        hintText: "Website",
-                                        hintStyle: TextStyle(fontSize: 15)),
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 16.0, vertical: 12.0),
+                                      border: InputBorder.none,
+                                      hintText: "Website",
+                                      hintStyle: TextStyle(
+                                          fontSize: 12, color: Colors.grey),
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -86,7 +90,8 @@ class PasswordsScreen extends StatelessWidget {
                                             horizontal: 16.0, vertical: 12.0),
                                         border: InputBorder.none,
                                         hintText: "Description",
-                                        hintStyle: TextStyle(fontSize: 15)),
+                                        hintStyle: TextStyle(
+                                            fontSize: 12, color: Colors.grey)),
                                   ),
                                 ),
                                 SizedBox(
@@ -104,7 +109,8 @@ class PasswordsScreen extends StatelessWidget {
                                             horizontal: 16.0, vertical: 12.0),
                                         border: InputBorder.none,
                                         hintText: "Password",
-                                        hintStyle: TextStyle(fontSize: 15)),
+                                        hintStyle: TextStyle(
+                                            fontSize: 12, color: Colors.grey)),
                                   ),
                                 ),
                                 SizedBox(
@@ -114,6 +120,53 @@ class PasswordsScreen extends StatelessWidget {
                                   "press your thumb here to secure your password",
                                   style: TextStyle(fontSize: 12.5),
                                 ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage(ImageConstant.fingerPrint),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Thumb impression captured successfully",
+                                  style: TextStyle(
+                                      color: ColorConstant.defGreen,
+                                      fontSize: 11.5,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    height: 45,
+                                    width: 200,
+                                    decoration: BoxDecoration(
+                                        color: ColorConstant.defIndigo,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Center(
+                                      child: Text(
+                                        "Submit",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12),
+                                      ),
+                                    ),
+                                  ),
+                                )
                               ],
                             ),
                           )),

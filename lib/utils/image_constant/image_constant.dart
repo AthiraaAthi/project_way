@@ -6,4 +6,5 @@ class ImageConstant {
   static String Profile = "assets/images/profile.png";
   static String Trophy = "assets/images/trophy.png";
   static String graph = "assets/images/graph.png";
+  static String fingerPrint = "assets/images/fingerprint.png";
 }
