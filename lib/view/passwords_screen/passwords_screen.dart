@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/passwords_screen/password_widget.dart';
 
-class PasswordsScreen extends StatelessWidget {
+class PasswordsScreen extends StatefulWidget {
   const PasswordsScreen({super.key});
 
+  @override
+  State<PasswordsScreen> createState() => _PasswordsScreenState();
+}
+
+class _PasswordsScreenState extends State<PasswordsScreen> {
+  final websiteController = TextEditingController();
+  final desController = TextEditingController();
+  final passController = TextEditingController();
+  List<Map<String, String>> mylist = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,129 +55,152 @@ class PasswordsScreen extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Column(
-                              children: [
-                                Text(
-                                  "Add Password",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 13),
-                                ),
-                                SizedBox(
-                                  height: 25,
-                                ),
-                                Container(
-                                  height: 50,
-                                  width: 300,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.symmetric(
-                                          horizontal: 16.0, vertical: 12.0),
-                                      border: InputBorder.none,
-                                      hintText: "Website",
-                                      hintStyle: TextStyle(
-                                          fontSize: 12, color: Colors.grey),
-                                    ),
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Add Password",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w900,
+                                        fontSize: 13),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Container(
-                                  height: 100,
-                                  width: 300,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 16.0, vertical: 12.0),
-                                        border: InputBorder.none,
-                                        hintText: "Description",
-                                        hintStyle: TextStyle(
-                                            fontSize: 12, color: Colors.grey)),
+                                  SizedBox(
+                                    height: 25,
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Container(
-                                  height: 50,
-                                  width: 300,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 16.0, vertical: 12.0),
-                                        border: InputBorder.none,
-                                        hintText: "Password",
-                                        hintStyle: TextStyle(
-                                            fontSize: 12, color: Colors.grey)),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Text(
-                                  "press your thumb here to secure your password",
-                                  style: TextStyle(fontSize: 12.5),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  height: 100,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage(ImageConstant.fingerPrint),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "Thumb impression captured successfully",
-                                  style: TextStyle(
-                                      color: ColorConstant.defGreen,
-                                      fontSize: 11.5,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Container(
-                                    height: 45,
-                                    width: 200,
+                                  Container(
+                                    height: 50,
+                                    width: 300,
                                     decoration: BoxDecoration(
-                                        color: ColorConstant.defIndigo,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: Center(
-                                      child: Text(
-                                        "Submit",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 12),
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: TextField(
+                                      controller: websiteController,
+                                      decoration: InputDecoration(
+                                        contentPadding: EdgeInsets.symmetric(
+                                            horizontal: 16.0, vertical: 12.0),
+                                        border: InputBorder.none,
+                                        hintText: "Website",
+                                        hintStyle: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
                                       ),
                                     ),
                                   ),
-                                )
-                              ],
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    height: 100,
+                                    width: 300,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: TextField(
+                                      controller: desController,
+                                      decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 16.0, vertical: 12.0),
+                                          border: InputBorder.none,
+                                          hintText: "Description",
+                                          hintStyle: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.grey)),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Container(
+                                    height: 50,
+                                    width: 300,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: TextField(
+                                      controller: passController,
+                                      obscureText: true,
+                                      decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 16.0, vertical: 12.0),
+                                          border: InputBorder.none,
+                                          hintText: "Password",
+                                          hintStyle: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.grey)),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Text(
+                                    "press your thumb here to secure your password",
+                                    style: TextStyle(fontSize: 12.5),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    height: 100,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            ImageConstant.fingerPrint),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    "Thumb impression captured successfully",
+                                    style: TextStyle(
+                                        color: ColorConstant.defGreen,
+                                        fontSize: 11.5,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        mylist.add({
+                                          'website': websiteController.text,
+                                          'description': desController.text,
+                                          'password': passController.text,
+                                        });
+                                      });
+
+                                      Navigator.pop(context);
+                                      websiteController.clear();
+                                      desController.clear();
+                                      passController.clear();
+                                    },
+                                    child: Container(
+                                      height: 45,
+                                      width: 200,
+                                      decoration: BoxDecoration(
+                                          color: ColorConstant.defIndigo,
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: Center(
+                                        child: Text(
+                                          "Submit",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           )),
                     );
@@ -189,17 +222,75 @@ class PasswordsScreen extends StatelessWidget {
           left: 18,
           right: 15,
         ),
-        child: Column(
-          children: [
-            PasswordWidget(
-                onDeleteTap: () {},
-                onEditTap: () {},
-                title: "My Web password",
-                link: "http:wedding.com",
-                content:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                pass: "password:   *************")
-          ],
+        child: ListView.builder(
+          itemCount: mylist.length,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: PasswordWidget(
+                link: mylist[index]['website']!,
+                content: mylist[index]['description']!,
+                pass: mylist[index]['password']!,
+                onDeleteTap: () {
+                  setState(() {
+                    mylist.removeAt(index);
+                  });
+                },
+                onEditTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      websiteController.text = mylist[index]['website']!;
+                      desController.text = mylist[index]['description']!;
+                      passController.text = mylist[index]['password']!;
+                      return AlertDialog(
+                        title: Text("Edit Password"),
+                        content: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                child: TextField(
+                                  controller: websiteController,
+                                  decoration:
+                                      InputDecoration(labelText: "Website"),
+                                ),
+                              ),
+                              TextField(
+                                controller: desController,
+                                decoration:
+                                    InputDecoration(labelText: "Description"),
+                              ),
+                              TextField(
+                                controller: passController,
+                                decoration:
+                                    InputDecoration(labelText: "Password"),
+                              ),
+                            ],
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              setState(() {
+                                mylist[index]['website'] =
+                                    websiteController.text;
+                                mylist[index]['description'] =
+                                    desController.text;
+                                mylist[index]['password'] = passController.text;
+                                websiteController.clear();
+                                desController.clear();
+                                passController.clear();
+                                Navigator.pop(context);
+                              });
+                            },
+                            child: Text("Save"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }),
+          ),
         ),
       ),
     );

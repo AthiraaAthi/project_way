@@ -4,13 +4,12 @@ import 'package:project_way/utils/color_constant/color_constant.dart';
 class PasswordWidget extends StatelessWidget {
   const PasswordWidget(
       {super.key,
-      required this.title,
       required this.link,
       required this.content,
       required this.pass,
       this.onEditTap,
       this.onDeleteTap});
-  final String title;
+
   final String link;
   final String content;
   final String pass;
@@ -39,7 +38,7 @@ class PasswordWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              title,
+              "My Web password",
               style: TextStyle(fontWeight: FontWeight.w800),
             ),
             Text(
