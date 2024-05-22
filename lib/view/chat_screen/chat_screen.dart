@@ -103,7 +103,7 @@ class ChatScreen extends StatelessWidget {
               ],
             ), /////////A Chat 1/////
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Row(
               //mainAxisAlignment: MainAxisAlignment.end,
@@ -113,7 +113,7 @@ class ChatScreen extends StatelessWidget {
                   width: 185,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: Color(0xff8bd3b3),
+                    color: Color(0xff8fd2ce),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -124,11 +124,11 @@ class ChatScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Can you add 15000 Rupees in income plan of today's date",
+                          "Yes we will add,before that we need to know what is the What is the category?",
                           style: TextStyle(fontSize: 12),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 2,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -146,14 +146,14 @@ class ChatScreen extends StatelessWidget {
               ],
             ), ///////////CHAT 2
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  height: 78,
-                  width: 185,
+                  height: 59,
+                  width: 114,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
                     color: Color(0xff8bd3b3),
@@ -167,7 +167,7 @@ class ChatScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Can you add 15000 Rupees in income plan of today's date",
+                          "From our Estate",
                           style: TextStyle(fontSize: 12),
                         ),
                         SizedBox(
@@ -177,7 +177,7 @@ class ChatScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "11:10:am",
+                              "11:11:am",
                               style: TextStyle(fontSize: 10),
                             ),
                           ],
@@ -189,7 +189,7 @@ class ChatScreen extends StatelessWidget {
               ],
             ), ///////////CHAT 3
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Row(
               //mainAxisAlignment: MainAxisAlignment.end,
@@ -199,7 +199,7 @@ class ChatScreen extends StatelessWidget {
                   width: 185,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    color: Color(0xff8bd3b3),
+                    color: Color(0xff8fd2ce),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -210,7 +210,7 @@ class ChatScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(
-                          "Can you add 15000 Rupees in income plan of today's date",
+                          "Yes we added according to your decisions",
                           style: TextStyle(fontSize: 12),
                         ),
                         SizedBox(
@@ -220,7 +220,7 @@ class ChatScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "11:10:am",
+                              "11:12:am",
                               style: TextStyle(fontSize: 10),
                             ),
                           ],
@@ -231,6 +231,53 @@ class ChatScreen extends StatelessWidget {
                 )
               ],
             ), ///////////CHAT 4
+            SizedBox(
+              height: 120,
+            ),
+
+            Row(
+              children: [
+                Container(
+                  height: 41,
+                  width: 265,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                          color: const Color.fromARGB(255, 192, 190, 190))),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16.0, vertical: 12.0),
+                      suffixIcon: Icon(
+                        Icons.attach_file,
+                        color: ColorConstant.defIndigo,
+                      ),
+                      hintText: "enter your message",
+                      hintStyle: TextStyle(
+                          color: const Color.fromARGB(255, 192, 190, 190)),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundColor: ColorConstant.defIndigo,
+                    ),
+                    Icon(
+                      Icons.mic_none_rounded,
+                      color: Colors.white,
+                    )
+                  ],
+                )
+              ],
+            )
           ],
         ),
       ),
