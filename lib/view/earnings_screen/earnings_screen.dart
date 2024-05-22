@@ -30,6 +30,7 @@ class EarningsScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Total Earnings : ₹ 1200.52",
@@ -40,9 +41,9 @@ class EarningsScreen extends StatelessWidget {
                   dateTime: "21-5-2024  11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
-                  amount: "",
-                  color: color,
-                  amountColor: amountColor)
+                  amount: "+ ₹ 25.5",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen)
             ],
           ),
         ),

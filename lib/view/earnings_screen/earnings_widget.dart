@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
 class EarningsWidget extends StatelessWidget {
@@ -20,7 +21,7 @@ class EarningsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 95,
       width: 350,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -60,7 +61,7 @@ class EarningsWidget extends StatelessWidget {
                 ),
                 Text(
                   dateTime,
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
                 )
               ],
             ),
@@ -68,14 +69,21 @@ class EarningsWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    subtitle,
-                    style: TextStyle(fontSize: 12),
+                  Flexible(
+                    child: Text(
+                      subtitle,
+                      style: TextStyle(fontSize: 12),
+                    ),
                   ),
                   Text(
                     amount,
-                    style: TextStyle(color: amountColor, fontSize: 12),
+                    style: TextStyle(
+                      color: amountColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
