@@ -33,7 +33,7 @@ class ChatScreen extends StatelessWidget {
               "Clear Chat",
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: 14,
                   fontWeight: FontWeight.w200),
             ),
           )
@@ -101,7 +101,136 @@ class ChatScreen extends StatelessWidget {
                   ),
                 )
               ],
-            )
+            ), /////////A Chat 1/////
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: 78,
+                  width: 185,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: Color(0xff8bd3b3),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 10,
+                      right: 10,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Can you add 15000 Rupees in income plan of today's date",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "11:10:am",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ), ///////////CHAT 2
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: 78,
+                  width: 185,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: Color(0xff8bd3b3),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 10,
+                      right: 10,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Can you add 15000 Rupees in income plan of today's date",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "11:10:am",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ), ///////////CHAT 3
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: 78,
+                  width: 185,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: Color(0xff8bd3b3),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 10,
+                      right: 10,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Can you add 15000 Rupees in income plan of today's date",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "11:10:am",
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ), ///////////CHAT 4
           ],
         ),
       ),
