@@ -20,75 +20,78 @@ class EarningsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 95,
-      width: 350,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey,
-                offset: Offset(0, 4),
-                spreadRadius: 0.1,
-                blurRadius: 1)
-          ]),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 95,
+        width: 350,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(0, 2),
+                  spreadRadius: 0.1,
+                  blurRadius: 1)
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 12,
+                        width: 12,
+                        color: color,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: ColorConstant.black,
+                            fontSize: 13.7),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    dateTime,
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Container(
-                      height: 12,
-                      width: 12,
-                      color: color,
-                    ),
-                    SizedBox(
-                      width: 10,
+                    Flexible(
+                      child: Text(
+                        subtitle,
+                        style: TextStyle(fontSize: 12),
+                      ),
                     ),
                     Text(
-                      title,
+                      amount,
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: ColorConstant.black,
-                          fontSize: 13.7),
+                        color: amountColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
-                Text(
-                  dateTime,
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800),
-                )
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Flexible(
-                    child: Text(
-                      subtitle,
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                  Text(
-                    amount,
-                    style: TextStyle(
-                      color: amountColor,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -27,24 +27,66 @@ class EarningsScreen extends StatelessWidget {
                 color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Total Earnings : ₹ 1200.52",
-                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
-              ),
-              EarningsWidget(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Total Earnings : ₹ 1200.52",
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                EarningsWidget(
                   title: "Referal Amount",
                   dateTime: "21-5-2024  11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
                   amount: "+ ₹ 25.5",
                   color: ColorConstant.defGreen,
-                  amountColor: ColorConstant.defGreen)
-            ],
+                  amountColor: ColorConstant.defGreen,
+                ),
+                EarningsWidget(
+                  title: "Referal Amount",
+                  dateTime: "21-5-2024  11:50:AM",
+                  subtitle:
+                      "Referal Amount from way team after joining of Raghu Kumar",
+                  amount: "+ ₹ 25.5",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen,
+                ),
+                EarningsWidget(
+                  title: "Referal Amount",
+                  dateTime: "21-5-2024  11:50:AM",
+                  subtitle:
+                      "Referal Amount from way team after joining of Raghu Kumar",
+                  amount: "+ ₹ 25.5",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen,
+                ),
+                EarningsWidget(
+                  title: "Referal Amount",
+                  dateTime: "21-5-2024  11:50:AM",
+                  subtitle:
+                      "Referal Amount from way team after joining of Raghu Kumar",
+                  amount: "+ ₹ 25.5",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen,
+                ),
+                EarningsWidget(
+                  title: "Referal Amount",
+                  dateTime: "21-5-2024  11:50:AM",
+                  subtitle:
+                      "Referal Amount from way team after joining of Raghu Kumar",
+                  amount: "+ ₹ 25.5",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen,
+                ),
+              ],
+            ),
           ),
         ),
       ),
