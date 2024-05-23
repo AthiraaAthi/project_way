@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
 class ChatScreen extends StatelessWidget {
