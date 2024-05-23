@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/diary_screen/diary_widget.dart';
+import 'package:project_way/view/diary_screen/view_diary.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({super.key});
@@ -201,6 +202,16 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                 content: mylist[index]['description']!,
                 onViewTap: () {
                   //////View///
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ViewDiaryScreen(
+                        AppBarText: mylist[index]['title']!,
+                        title: mylist[index]['title']!,
+                        content: mylist[index]['description']!,
+                      ),
+                    ),
+                  );
                 },
                 onEditTap: () {
                   /////////EDITING//////////

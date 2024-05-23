@@ -9,7 +9,7 @@ class ReportsScreen extends StatefulWidget {
 }
 
 class _ReportsScreenState extends State<ReportsScreen> {
-  List<String> Numbers = [
+  List<String> numbers = [
     "select year",
     "2020",
     "2021",
@@ -20,7 +20,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
     "2026"
   ];
   String dropDownValue = "select year";
-  List<String> Months = [
+  List<String> months = [
     "select month",
     "Jan",
     "Feb",
@@ -81,7 +81,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                     ),
-                    child: DropdownButton(
+                    child: DropdownButton<String>(
                       icon: Icon(
                         Icons.keyboard_arrow_down,
                         color: Colors.black,
@@ -89,7 +89,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       underline: Container(),
                       value: dropDownValue,
                       items:
-                          Numbers.map<DropdownMenuItem<String>>((String value) {
+                          numbers.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Padding(
@@ -108,14 +108,14 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         });
                       },
                     ),
-                  ), //first drop down
+                  ),
                   Container(
                     height: 50,
                     width: 150,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
                     ),
-                    child: DropdownButton(
+                    child: DropdownButton<String>(
                       icon: Icon(
                         Icons.keyboard_arrow_down,
                         color: Colors.black,
@@ -123,7 +123,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       underline: Container(),
                       value: dropDownMonthValue,
                       items:
-                          Months.map<DropdownMenuItem<String>>((String value) {
+                          months.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Padding(
@@ -142,13 +142,16 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         });
                       },
                     ),
-                  ), //second dropdown
+                  ),
                 ],
               ),
               SizedBox(
                 height: 20,
               ),
-              TableRowInkWell(
+              InkWell(
+                onTap: () {
+                  // Handle the submit action
+                },
                 child: Container(
                   height: 45,
                   width: 200,
@@ -166,13 +169,13 @@ class _ReportsScreenState extends State<ReportsScreen> {
                     ),
                   ),
                 ),
-              ), //TABLE 1
+              ),
               SizedBox(
                 height: 20,
               ),
               Text(
-                "Your expense is greater than income.Track your expense carefully",
-                style: TextStyle(color: Colors.red, fontSize: 11.8),
+                "Your expense is greater than income. Track your expense carefully",
+                style: TextStyle(color: Colors.red, fontSize: 11.7),
               ),
               SizedBox(
                 height: 20,
@@ -192,7 +195,6 @@ class _ReportsScreenState extends State<ReportsScreen> {
                 height: 10,
               ),
               DataTable(
-                //TABLE 1
                 dataRowMaxHeight: 80,
                 columnSpacing: 80,
                 border: TableBorder.all(),
@@ -249,14 +251,14 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       ]),
                     )
                     .toList(),
-              ), //table 1
+              ),
               SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
                   Text(
-                    "Total Income : 5100 Rs",
+                    "Total Expense : 15000 Rs",
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w800,
@@ -268,7 +270,6 @@ class _ReportsScreenState extends State<ReportsScreen> {
                 height: 10,
               ),
               DataTable(
-                //TABLE 2
                 dataRowMaxHeight: 80,
                 columnSpacing: 80,
                 border: TableBorder.all(),
@@ -325,7 +326,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       ]),
                     )
                     .toList(),
-              ), //Table 2
+              ),
             ],
           ),
         ),
