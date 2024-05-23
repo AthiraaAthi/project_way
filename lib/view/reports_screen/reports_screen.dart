@@ -36,6 +36,11 @@ class _ReportsScreenState extends State<ReportsScreen> {
     "Dec"
   ];
   String dropDownMonthValue = "select month";
+  List<Map<String, String>> tableData = [
+    {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},
+    {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
+    {"date": "3-5-2024", "category": "Food", "amount": "5000 Rs"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,85 +66,268 @@ class _ReportsScreenState extends State<ReportsScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 50,
-                  width: 130,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                  ),
-                  child: DropdownButton(
-                    icon: Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.black,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 130,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
                     ),
-                    underline: Container(),
-                    value: dropDownValue,
-                    items:
-                        Numbers.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Text(
-                            value,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                    child: DropdownButton(
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                      ),
+                      underline: Container(),
+                      value: dropDownValue,
+                      items:
+                          Numbers.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Text(
+                              value,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
                           ),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (String? value) {
-                      setState(() {
-                        dropDownValue = value!;
-                      });
-                    },
-                  ),
-                ), //first drop down
-                Container(
-                  height: 50,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                  ),
-                  child: DropdownButton(
-                    icon: Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.black,
+                        );
+                      }).toList(),
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropDownValue = value!;
+                        });
+                      },
                     ),
-                    underline: Container(),
-                    value: dropDownMonthValue,
-                    items: Months.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Text(
-                            value,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                  ), //first drop down
+                  Container(
+                    height: 50,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: DropdownButton(
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                      ),
+                      underline: Container(),
+                      value: dropDownMonthValue,
+                      items:
+                          Months.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Text(
+                              value,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
                           ),
-                        ),
-                      );
-                    }).toList(),
-                    onChanged: (String? value) {
-                      setState(() {
-                        dropDownMonthValue = value!;
-                      });
-                    },
+                        );
+                      }).toList(),
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropDownMonthValue = value!;
+                        });
+                      },
+                    ),
+                  ), //second dropdown
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TableRowInkWell(
+                child: Container(
+                  height: 45,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: ColorConstant.defIndigo,
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                ), //second dropdown
-              ],
-            ),
-            Container()
-          ],
+                  child: Center(
+                    child: Text(
+                      "Submit",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13),
+                    ),
+                  ),
+                ),
+              ), //TABLE 1
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Your expense is greater than income.Track your expense carefully",
+                style: TextStyle(color: Colors.red, fontSize: 11.8),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Total Income : 5100 Rs",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              DataTable(
+                //TABLE 1
+                dataRowMaxHeight: 80,
+                columnSpacing: 80,
+                border: TableBorder.all(),
+                columns: const [
+                  DataColumn(
+                      label: Text(
+                    'Date',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Category',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Amount',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  )),
+                ],
+                rows: tableData
+                    .map(
+                      (data) => DataRow(cells: [
+                        DataCell(Text(
+                          data['date']!,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )),
+                        DataCell(Text(
+                          data['category']!,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )),
+                        DataCell(Text(
+                          data['amount']!,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )),
+                      ]),
+                    )
+                    .toList(),
+              ), //table 1
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Total Income : 5100 Rs",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              DataTable(
+                //TABLE 2
+                dataRowMaxHeight: 80,
+                columnSpacing: 80,
+                border: TableBorder.all(),
+                columns: const [
+                  DataColumn(
+                      label: Text(
+                    'Date',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Category',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Amount',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13),
+                  )),
+                ],
+                rows: tableData
+                    .map(
+                      (data) => DataRow(cells: [
+                        DataCell(Text(
+                          data['date']!,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )),
+                        DataCell(Text(
+                          data['category']!,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )),
+                        DataCell(Text(
+                          data['amount']!,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12),
+                        )),
+                      ]),
+                    )
+                    .toList(),
+              ), //Table 2
+            ],
+          ),
         ),
       ),
     );
