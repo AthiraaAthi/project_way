@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/passwords_screen/password_widget.dart';
