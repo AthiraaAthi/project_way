@@ -44,179 +44,193 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return Dialog(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Container(
-                            height: 600,
-                            width: 440,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Add Category",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w800,
-                                          fontSize: 14),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      height: 50,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                          border:
-                                              Border.all(color: Colors.grey),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: TextField(
-                                        controller: titleController,
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.symmetric(
-                                              horizontal: 16.0, vertical: 12.0),
-                                          border: InputBorder.none,
-                                          hintText: "Category Name",
-                                          hintStyle: TextStyle(
-                                              fontSize: 12, color: Colors.grey),
-                                        ),
+                      // Local state for the dialog
+                      String localDropdownValue = dropdownValue;
+                      final localTitleController = TextEditingController();
+                      final localDesController = TextEditingController();
+
+                      return StatefulBuilder(builder: (context, setState) {
+                        return Dialog(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Container(
+                              height: 600,
+                              width: 440,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Add Category",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: 14),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Container(
-                                      height: 130,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                          border:
-                                              Border.all(color: Colors.grey),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: TextField(
-                                        controller: desController,
-                                        decoration: InputDecoration(
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        height: 50,
+                                        width: 300,
+                                        decoration: BoxDecoration(
+                                            border:
+                                                Border.all(color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: TextField(
+                                          controller: localTitleController,
+                                          decoration: InputDecoration(
                                             contentPadding:
                                                 EdgeInsets.symmetric(
                                                     horizontal: 16.0,
                                                     vertical: 12.0),
                                             border: InputBorder.none,
-                                            hintText: "Category Description",
+                                            hintText: "Category Name",
                                             hintStyle: TextStyle(
                                                 fontSize: 12,
-                                                color: Colors.grey)),
+                                                color: Colors.grey),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      height: 50,
-                                      width: 282,
-                                      decoration: BoxDecoration(
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Container(
+                                        height: 130,
+                                        width: 300,
+                                        decoration: BoxDecoration(
+                                            border:
+                                                Border.all(color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: TextField(
+                                          controller: localDesController,
+                                          decoration: InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 12.0),
+                                              border: InputBorder.none,
+                                              hintText: "Category Description",
+                                              hintStyle: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.grey)),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        height: 50,
+                                        width: 282,
+                                        decoration: BoxDecoration(
                                           border:
                                               Border.all(color: Colors.grey),
                                           borderRadius:
-                                              BorderRadius.circular(5)),
-                                      child: Center(
-                                        child: DropdownButton<String>(
-                                          icon: Icon(
-                                            Icons.keyboard_arrow_down,
-                                            color: Colors.black,
-                                          ),
-                                          underline: Container(),
-                                          value: dropdownValue,
-                                          items: categories
-                                              .map<DropdownMenuItem<String>>(
-                                                  (String value) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: Text(
-                                                value,
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.w900,
-                                                    fontSize: 13),
-                                              ),
-                                            );
-                                          }).toList(),
-                                          onChanged: (String? value) {
-                                            print(
-                                                "New dropdown value selected: $value");
-                                            setState(() {
-                                              dropdownValue = value!;
-                                            });
-                                          },
+                                              BorderRadius.circular(5),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      "Lock your diary with fingerprint",
-                                      style: TextStyle(fontSize: 12.5),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                      height: 100,
-                                      width: 100,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              ImageConstant.fingerPrint),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          mylist.add({
-                                            'title': titleController.text,
-                                            'description': desController.text,
-                                          });
-                                        });
-
-                                        Navigator.pop(context);
-                                        titleController.clear();
-                                        desController.clear();
-
-                                        setState(() {});
-                                      },
-                                      child: Container(
-                                        height: 45,
-                                        width: 200,
-                                        decoration: BoxDecoration(
-                                            color: ColorConstant.defIndigo,
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
                                         child: Center(
-                                          child: Text(
-                                            "Submit",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
+                                          child: DropdownButton<String>(
+                                            icon: Icon(
+                                              Icons.keyboard_arrow_down,
+                                              color: Colors.black,
+                                            ),
+                                            underline: Container(),
+                                            value: localDropdownValue,
+                                            items: categories
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w900,
+                                                      fontSize: 13),
+                                                ),
+                                              );
+                                            }).toList(),
+                                            onChanged: (String? value) {
+                                              print(
+                                                  "New dropdown value selected: $value");
+                                              setState(() {
+                                                localDropdownValue = value!;
+                                              });
+                                            },
                                           ),
                                         ),
                                       ),
-                                    )
-                                  ],
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Lock your diary with fingerprint",
+                                        style: TextStyle(fontSize: 12.5),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        height: 100,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                ImageConstant.fingerPrint),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 30,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            mylist.add({
+                                              'title':
+                                                  localTitleController.text,
+                                              'description':
+                                                  localDesController.text,
+                                            });
+                                          });
+
+                                          Navigator.pop(context);
+                                          titleController.clear();
+                                          desController.clear();
+
+                                          setState(() {});
+                                        },
+                                        child: Container(
+                                          height: 45,
+                                          width: 200,
+                                          decoration: BoxDecoration(
+                                              color: ColorConstant.defIndigo,
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          child: Center(
+                                            child: Text(
+                                              "Submit",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            )),
-                      );
+                              )),
+                        );
+                      });
                     },
                   );
                 },
