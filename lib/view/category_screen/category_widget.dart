@@ -51,6 +51,25 @@ class CategoryWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 5, left: 20),
                 child: Text(description),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Edit",
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Text(
+                      "Delete",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
