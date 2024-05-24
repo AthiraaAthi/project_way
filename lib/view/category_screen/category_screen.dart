@@ -14,8 +14,19 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   final titleController = TextEditingController();
   final desController = TextEditingController();
   List<Map<String, String>> mylist = [];
-  List<String> categories = ["Income", "Food", "Notebooks"];
+  List<String> categories = [
+    "Income",
+    "Food",
+    "Notebooks",
+  ];
   String dropdownValue = "Income";
+  final List<Color> colors = [ColorConstant.defGreen, ColorConstant.defIndigo];
+  final List<String> colorNames = [
+    "Green",
+    "Blue",
+  ];
+
+  String selectedColorName = "Blue";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +55,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      // Local state for the dialog
                       String localDropdownValue = dropdownValue;
-                      final localTitleController = TextEditingController();
-                      final localDesController = TextEditingController();
+                      String localSelectedColorName = selectedColorName;
+                      titleController.clear();
+                      desController.clear();
 
                       return StatefulBuilder(builder: (context, setState) {
                         return Dialog(
@@ -84,7 +95,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         child: TextField(
-                                          controller: localTitleController,
+                                          controller: titleController,
                                           decoration: InputDecoration(
                                             contentPadding:
                                                 EdgeInsets.symmetric(
@@ -110,7 +121,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(10)),
                                         child: TextField(
-                                          controller: localDesController,
+                                          controller: desController,
                                           decoration: InputDecoration(
                                               contentPadding:
                                                   EdgeInsets.symmetric(
@@ -168,23 +179,63 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 20,
-                                      ),
-                                      Text(
-                                        "Lock your diary with fingerprint",
-                                        style: TextStyle(fontSize: 12.5),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
+                                        height: 30,
                                       ),
                                       Container(
-                                        height: 100,
-                                        width: 100,
+                                        height: 50,
+                                        width: 282,
                                         decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                                ImageConstant.fingerPrint),
-                                          ),
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        child: Row(
+                                          children: [
+                                            Text("Indicator Color  :  "),
+                                            Container(
+                                                height: 50,
+                                                width: 166.5,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.grey),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                ),
+                                                child: DropdownButton<String>(
+                                                  icon: Icon(
+                                                    Icons.keyboard_arrow_down,
+                                                    color: Colors.black,
+                                                  ),
+                                                  underline: Container(),
+                                                  value: localSelectedColorName,
+                                                  items: colorNames.map<
+                                                          DropdownMenuItem<
+                                                              String>>(
+                                                      (String colorName) {
+                                                    return DropdownMenuItem<
+                                                        String>(
+                                                      value: colorName,
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8.0),
+                                                        child: Container(
+                                                          width: 120,
+                                                          height: 24,
+                                                          color: colors[
+                                                              colorNames.indexOf(
+                                                                  colorName)],
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }).toList(),
+                                                  onChanged:
+                                                      (String? newValue) {
+                                                    setState(() {
+                                                      localSelectedColorName =
+                                                          newValue!;
+                                                    });
+                                                  },
+                                                ))
+                                          ],
                                         ),
                                       ),
                                       SizedBox(
@@ -194,17 +245,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                         onTap: () {
                                           setState(() {
                                             mylist.add({
-                                              'title':
-                                                  localTitleController.text,
-                                              'description':
-                                                  localDesController.text,
+                                              'title': titleController.text,
+                                              'description': desController.text,
+                                              'color': localSelectedColorName,
                                             });
+                                            dropdownValue = localDropdownValue;
+                                            selectedColorName =
+                                                localSelectedColorName;
                                           });
 
                                           Navigator.pop(context);
                                           titleController.clear();
                                           desController.clear();
-
                                           setState(() {});
                                         },
                                         child: Container(
@@ -254,7 +306,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             itemBuilder: (context, index) => CategoryWidget(
                 title: mylist[index]['title']!,
                 description: mylist[index]['description']!,
-                color: Colors.green),
+                color: colors[colorNames.indexOf(mylist[index]['color']!)]),
           ),
         ));
   }
