@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/diary_screen/diary_widget.dart';
@@ -49,7 +50,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Container(
-                            height: 630,
+                            height: 600,
                             width: 440,
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -92,28 +93,47 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                     SizedBox(
                                       height: 15,
                                     ),
-                                    Container(
-                                      height: 200,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                          border:
-                                              Border.all(color: Colors.grey),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: TextField(
-                                        controller: desController,
-                                        decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal: 16.0,
-                                                    vertical: 12.0),
-                                            border: InputBorder.none,
-                                            hintText: "Enter text...",
-                                            hintStyle: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.grey)),
-                                      ),
-                                    ),
+                                    Stack(
+                                        alignment: Alignment.bottomRight,
+                                        children: [
+                                          Container(
+                                            height: 200,
+                                            width: 300,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.grey),
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            child: TextField(
+                                              controller: desController,
+                                              decoration: InputDecoration(
+                                                  contentPadding:
+                                                      EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                          vertical: 12.0),
+                                                  border: InputBorder.none,
+                                                  hintText: "Enter text...",
+                                                  hintStyle: TextStyle(
+                                                      fontSize: 12,
+                                                      color: Colors.grey)),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: InkWell(
+                                              onTap: () {},
+                                              child: CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor:
+                                                    ColorConstant.defIndigo,
+                                                child: Icon(
+                                                  Icons.mic_none_outlined,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ]),
                                     SizedBox(
                                       height: 20,
                                     ),
@@ -135,7 +155,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: 30,
                                     ),
                                     InkWell(
                                       onTap: () {
