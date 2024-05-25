@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_way/controller/category_provider.dart';
+import 'package:project_way/model/category_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
-import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/category_screen/category_widget.dart';
+import 'package:provider/provider.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -55,16 +57,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      String localDropdownValue = dropdownValue;
-                      String localSelectedColorName = selectedColorName;
+                      String localDropdownValue = categories[0];
+                      String localSelectedColorName = colorNames[0];
                       titleController.clear();
                       desController.clear();
 
                       return StatefulBuilder(builder: (context, setState) {
-                        void csetstate(VoidCallback fn) {
-                          setState(fn);
-                        }
-
                         return Dialog(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -157,7 +155,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                               color: Colors.black,
                                             ),
                                             underline: Container(),
-                                            value: localDropdownValue,
+                                            value: dropdownValue,
                                             items: categories
                                                 .map<DropdownMenuItem<String>>(
                                                     (String value) {
@@ -175,8 +173,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             onChanged: (String? value) {
                                               print(
                                                   "New dropdown value selected: $value");
-                                              csetstate(() {
-                                                localDropdownValue = value!;
+                                              setState(() {
+                                                dropdownValue = value!;
                                               }); ///////////////
                                             },
                                           ),
@@ -209,7 +207,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     color: Colors.black,
                                                   ),
                                                   underline: Container(),
-                                                  value: localSelectedColorName,
+                                                  value: selectedColorName,
                                                   items: colorNames.map<
                                                           DropdownMenuItem<
                                                               String>>(
@@ -233,8 +231,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   }).toList(),
                                                   onChanged:
                                                       (String? newValue) {
-                                                    csetstate(() {
-                                                      localSelectedColorName =
+                                                    setState(() {
+                                                      selectedColorName =
                                                           newValue!;
                                                     });
                                                   },
@@ -247,21 +245,26 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                       ),
                                       InkWell(
                                         onTap: () {
-                                          setState(() {
-                                            mylist.add({
-                                              'title': titleController.text,
-                                              'description': desController.text,
-                                              'color': localSelectedColorName,
-                                            });
-                                            dropdownValue = localDropdownValue;
-                                            selectedColorName =
-                                                localSelectedColorName;
-                                          });
+                                          if (titleController.text.isNotEmpty &&
+                                              desController.text.isNotEmpty) {
+                                            final categoryProvider =
+                                                Provider.of<categoryprovider>(
+                                                    context,
+                                                    listen: false);
+                                            categoryProvider.addCategory(
+                                              Category(
+                                                title: titleController.text,
+                                                description: desController.text,
+                                                colorName: selectedColorName,
+                                              ),
+                                            );
 
-                                          Navigator.pop(context);
-                                          titleController.clear();
-                                          desController.clear();
-                                          setState(() {});
+                                            Navigator.pop(context);
+                                            titleController.clear();
+                                            desController.clear();
+                                          } else {
+                                            print("Please fill out all fields");
+                                          }
                                         },
                                         child: Container(
                                           height: 45,
@@ -300,18 +303,25 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.only(
-            top: 30,
-            left: 18,
-            right: 15,
-          ),
-          child: ListView.builder(
-            itemCount: mylist.length,
-            itemBuilder: (context, index) => CategoryWidget(
-                title: mylist[index]['title']!,
-                description: mylist[index]['description']!,
-                color: colors[colorNames.indexOf(mylist[index]['color']!)]),
-          ),
-        ));
+            padding: const EdgeInsets.only(
+              top: 30,
+              left: 18,
+              right: 15,
+            ),
+            child: Consumer<categoryprovider>(
+              builder: (context, categoryprovider, child) {
+                return ListView.builder(
+                  itemCount: categoryprovider.categories.length,
+                  itemBuilder: (context, index) {
+                    final category = categoryprovider.categories[index];
+                    return CategoryWidget(
+                      title: category.title,
+                      description: category.description,
+                      color: colors[colorNames.indexOf(category.colorName)],
+                    );
+                  },
+                );
+              },
+            )));
   }
 }
