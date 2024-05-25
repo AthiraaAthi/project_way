@@ -106,8 +106,8 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 130,
-                    width: 130,
+                    height: 330,
+                    width: 430,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
@@ -119,18 +119,22 @@ class LoginScreen extends StatelessWidget {
                     height: 50,
                   ),
                   Container(
-                    height: 50,
-                    width: 300,
+                    height: 70,
+                    width: 550,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: Colors.grey),
+                        color: Colors.white),
                     child: TextField(
                       decoration: InputDecoration(
-                        fillColor: Colors.white,
-                        filled: true,
-                        hintText: "Mobile Number",
-                        hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 26.0, vertical: 26.0),
+                          fillColor: Colors.white,
+                          filled: true,
+                          hintText: "Mobile Number",
+                          hintStyle:
+                              TextStyle(fontSize: 15, color: Colors.grey),
+                          border: InputBorder.none),
                     ),
                   ),
                   SizedBox(
@@ -145,7 +149,7 @@ class LoginScreen extends StatelessWidget {
                           ));
                     },
                     child: Container(
-                      height: 50,
+                      height: 80,
                       width: 300,
                       decoration: BoxDecoration(
                           color: ColorConstant.defIndigo,
@@ -154,18 +158,23 @@ class LoginScreen extends StatelessWidget {
                         child: Text(
                           "Login",
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't you have account ?"),
+                      Text(
+                        "Don't you have account ?",
+                        style: TextStyle(fontSize: 20),
+                      ),
                       SizedBox(
                         width: 5,
                       ),
@@ -179,7 +188,7 @@ class LoginScreen extends StatelessWidget {
                         },
                         child: Text(
                           "Register",
-                          style: TextStyle(color: Colors.indigo),
+                          style: TextStyle(color: Colors.indigo, fontSize: 20),
                         ),
                       )
                     ],
