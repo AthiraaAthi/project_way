@@ -222,8 +222,8 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                           child: StatefulBuilder(
                             builder: (context, StateSetter setState) {
                               return Container(
-                                height: 350,
-                                width: 330,
+                                height: 500,
+                                width: 530,
                                 color: Colors.white,
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
@@ -235,7 +235,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                         child: Text(
                                           'Select  Language',
                                           style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 25,
                                               fontWeight: FontWeight.w800),
                                         ),
                                       ),
@@ -243,8 +243,8 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                         height: 30,
                                       ),
                                       Container(
-                                        height: 60,
-                                        width: 300,
+                                        height: 80,
+                                        width: 450,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
@@ -253,9 +253,9 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                             BoxShadow(
                                               color:
                                                   Colors.black.withOpacity(0.5),
-                                              spreadRadius: 0.1,
-                                              blurRadius: 5,
-                                              offset: Offset(0, 5),
+                                              spreadRadius: 0.2,
+                                              blurRadius: 0.5,
+                                              offset: Offset(0, 2),
                                             ),
                                           ],
                                         ),
@@ -268,11 +268,14 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                                 child: Text(
                                                   "Malayalam",
                                                   style:
-                                                      TextStyle(fontSize: 18.0),
+                                                      TextStyle(fontSize: 23),
                                                 ),
                                               ),
                                             ),
                                             Radio<int>(
+                                              materialTapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
                                               value: 1,
                                               groupValue: _selectedValue,
                                               onChanged: (int? newValue) {
@@ -285,11 +288,11 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 25,
+                                        height: 50,
                                       ),
                                       Container(
-                                        height: 60,
-                                        width: 300,
+                                        height: 80,
+                                        width: 450,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
@@ -298,9 +301,9 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                             BoxShadow(
                                               color:
                                                   Colors.black.withOpacity(0.5),
-                                              spreadRadius: 0.1,
-                                              blurRadius: 5,
-                                              offset: Offset(0, 5),
+                                              spreadRadius: 0.2,
+                                              blurRadius: 0.5,
+                                              offset: Offset(0, 2),
                                             ),
                                           ],
                                         ),
@@ -313,7 +316,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                                 child: Text(
                                                   'English',
                                                   style:
-                                                      TextStyle(fontSize: 18.0),
+                                                      TextStyle(fontSize: 23),
                                                 ),
                                               ),
                                             ),
@@ -330,7 +333,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 30,
+                                        height: 70,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -351,7 +354,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                               child: Text(
                                                 "Next  >",
                                                 style: TextStyle(
-                                                  fontSize: 20,
+                                                  fontSize: 28,
                                                   fontWeight: FontWeight.w500,
                                                   color: Color(
                                                     0xff07104E,
@@ -376,13 +379,13 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                     decoration: BoxDecoration(
                         color: Color.fromARGB(255, 109, 189, 203),
                         borderRadius: BorderRadius.circular(20)),
-                    height: 60,
-                    width: 250,
+                    height: 100,
+                    width: 350,
                     child: Center(
                       child: Text(
                         "Select your Language",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 20,
                           color: ColorConstant.black,
                           fontWeight: FontWeight.bold,
                         ),
