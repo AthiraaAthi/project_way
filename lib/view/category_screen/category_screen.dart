@@ -61,6 +61,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       desController.clear();
 
                       return StatefulBuilder(builder: (context, setState) {
+                        void csetstate(VoidCallback fn) {
+                          setState(fn);
+                        }
+
                         return Dialog(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -171,9 +175,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             onChanged: (String? value) {
                                               print(
                                                   "New dropdown value selected: $value");
-                                              setState(() {
+                                              csetstate(() {
                                                 localDropdownValue = value!;
-                                              });
+                                              }); ///////////////
                                             },
                                           ),
                                         ),
@@ -229,7 +233,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   }).toList(),
                                                   onChanged:
                                                       (String? newValue) {
-                                                    setState(() {
+                                                    csetstate(() {
                                                       localSelectedColorName =
                                                           newValue!;
                                                     });
