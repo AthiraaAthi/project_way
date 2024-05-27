@@ -10,7 +10,7 @@ class BudgetGoalScreen extends StatefulWidget {
 
 class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   List<String> numbers = [
-    //for year
+    // for year
     "select year",
     "2020",
     "2021",
@@ -22,7 +22,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   ];
   String dropDownValue = "select year";
   List<String> months = [
-    //for month
+    // for month
     "select month",
     "Jan",
     "Feb",
@@ -38,17 +38,17 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     "Dec"
   ];
   String dropDownMonthValue = "select month";
-  List<String> MonthOrWeek = ["Monthly", "Weekly"]; //week or month selection
+  List<String> MonthOrWeek = ["Monthly", "Weekly"]; // week or month selection
   String dropDownMonthOrWeekValue = "Monthly";
   List<String> Category = [
     "Category",
     "Food",
     "Books",
     "Income"
-  ]; //category selection
+  ]; // category selection
   String CategoryDropDownValue = "Category";
   List<Map<String, String>> tableData = [
-    //For Table
+    // For Table
     {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},
     {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
     {"date": "3-5-2024", "category": "Food", "amount": "5000 Rs"},
@@ -56,6 +56,31 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
     {"date": "3-5-2024", "category": "Food", "amount": "5000 Rs"},
   ];
+  final TextEditingController startDateController = TextEditingController();
+  final TextEditingController endDateController = TextEditingController();
+  @override
+  void dispose() {
+    startDateController.dispose();
+    endDateController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _selectDate(
+      BuildContext context, TextEditingController controller) async {
+    final DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (pickedDate != null) {
+      setState(() {
+        controller.text =
+            "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,7 +149,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                   ),
                   Container(
-                    //WEEK or MONTH Selection
+                    // WEEK or MONTH Selection
                     height: 50,
                     width: 150,
                     decoration: BoxDecoration(
@@ -159,83 +184,167 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                   ),
                 ],
-              ), //first row dropdown
+              ), // first row dropdown
               SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: DropdownButton<String>(
-                      icon: Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.black,
+              if (dropDownMonthOrWeekValue == "Monthly") ...[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
                       ),
-                      underline: Container(),
-                      value: dropDownMonthValue,
-                      items:
-                          months.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              value,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
+                      child: DropdownButton<String>(
+                        icon: Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.black,
+                        ),
+                        underline: Container(),
+                        value: dropDownMonthValue,
+                        items: months
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
                             ),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          dropDownMonthValue = value!;
-                        });
-                      },
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: DropdownButton<String>(
-                      icon: Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.black,
+                          );
+                        }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            dropDownMonthValue = value!;
+                          });
+                        },
                       ),
-                      underline: Container(),
-                      value: CategoryDropDownValue,
-                      items: Category.map<DropdownMenuItem<String>>(
-                          (String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              value,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          CategoryDropDownValue = value!;
-                        });
-                      },
                     ),
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: DropdownButton<String>(
+                        icon: Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.black,
+                        ),
+                        underline: Container(),
+                        value: CategoryDropDownValue,
+                        items: Category.map<DropdownMenuItem<String>>(
+                            (String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            CategoryDropDownValue = value!;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ] else if (dropDownMonthOrWeekValue == "Weekly") ...[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: TextField(
+                        controller: startDateController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Start Date",
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10)),
+                        onTap: () async {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          await _selectDate(context, startDateController);
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: TextField(
+                        controller: endDateController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "End Date",
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10)),
+                        onTap: () async {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          await _selectDate(context, endDateController);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 50,
+                  width: 323,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                ],
-              ),
+                  child: DropdownButton<String>(
+                    icon: Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Colors.black,
+                    ),
+                    underline: Container(),
+                    value: CategoryDropDownValue,
+                    items:
+                        Category.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Text(
+                            value,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                    onChanged: (String? value) {
+                      setState(() {
+                        CategoryDropDownValue = value!;
+                      });
+                    },
+                  ),
+                ),
+              ],
               SizedBox(
                 height: 20,
               ),
