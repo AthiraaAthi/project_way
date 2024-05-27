@@ -18,205 +18,207 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
   DateTime? _selectedDay;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorConstant.bgBlue,
-      appBar: AppBar(
-        backgroundColor: ColorConstant.defIndigo,
-        title: Text(
-          "Track Budget",
-          style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: ColorConstant.bgBlue,
+        appBar: AppBar(
+          backgroundColor: ColorConstant.defIndigo,
+          title: Text(
+            "Track Budget",
+            style: TextStyle(
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
           ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BudgetGraphScreen(),
-                    ));
-              },
-              child: Container(
-                  height: 25,
-                  width: 25,
-                  child: Image.asset(ImageConstant.graph)),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
             ),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              TableCalendar(
-                daysOfWeekHeight: 50,
-                daysOfWeekStyle: DaysOfWeekStyle(
-                    weekendStyle: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold),
-                    weekdayStyle: TextStyle(
-                        color: ColorConstant.defIndigo,
-                        fontWeight: FontWeight.bold), //week day colorchange
-                    decoration: BoxDecoration(
-                      color: ColorConstant
-                          .bgIndigo, //bgcolor of week names,still trying to change the clr of week nmes
-                    )),
-                firstDay: DateTime.utc(2020, 1, 1),
-                lastDay: DateTime.utc(2030, 12, 31),
-                focusedDay: _focusedDay,
-                calendarFormat: _calendarFormat,
-                selectedDayPredicate: (day) {
-                  return isSameDay(_selectedDay, day);
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BudgetGraphScreen(),
+                      ));
                 },
-                onDaySelected: (selectedDay, focusedDay) {
-                  setState(() {
-                    _selectedDay = selectedDay;
-                    _focusedDay =
-                        focusedDay; // updates the _focusedDay  as well
-                  });
-                },
-                onFormatChanged: (format) {
-                  if (_calendarFormat != format) {
+                child: Container(
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(ImageConstant.graph)),
+              ),
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                TableCalendar(
+                  daysOfWeekHeight: 50,
+                  daysOfWeekStyle: DaysOfWeekStyle(
+                      weekendStyle: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.bold),
+                      weekdayStyle: TextStyle(
+                          color: ColorConstant.defIndigo,
+                          fontWeight: FontWeight.bold), //week day colorchange
+                      decoration: BoxDecoration(
+                        color: ColorConstant
+                            .bgIndigo, //bgcolor of week names,still trying to change the clr of week nmes
+                      )),
+                  firstDay: DateTime.utc(2020, 1, 1),
+                  lastDay: DateTime.utc(2030, 12, 31),
+                  focusedDay: _focusedDay,
+                  calendarFormat: _calendarFormat,
+                  selectedDayPredicate: (day) {
+                    return isSameDay(_selectedDay, day);
+                  },
+                  onDaySelected: (selectedDay, focusedDay) {
                     setState(() {
-                      _calendarFormat = format;
+                      _selectedDay = selectedDay;
+                      _focusedDay =
+                          focusedDay; // updates the _focusedDay  as well
                     });
-                  }
-                },
-                onPageChanged: (focusedDay) {
-                  _focusedDay = focusedDay;
-                },
-                calendarStyle: CalendarStyle(
-                  defaultTextStyle: TextStyle(
-                      color: ColorConstant.defIndigo,
-                      fontWeight: FontWeight.bold), //wasted
-                  weekendTextStyle: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold), //the weekend color
-                  weekNumberTextStyle: TextStyle(
-                    color: Colors.amberAccent,
-                  ), //wasted
-                  tableBorder: TableBorder(
-                      bottom: BorderSide(color: Colors.grey),
-                      horizontalInside:
-                          BorderSide(color: Colors.grey, width: 2)),
+                  },
+                  onFormatChanged: (format) {
+                    if (_calendarFormat != format) {
+                      setState(() {
+                        _calendarFormat = format;
+                      });
+                    }
+                  },
+                  onPageChanged: (focusedDay) {
+                    _focusedDay = focusedDay;
+                  },
+                  calendarStyle: CalendarStyle(
+                    defaultTextStyle: TextStyle(
+                        color: ColorConstant.defIndigo,
+                        fontWeight: FontWeight.bold), //wasted
+                    weekendTextStyle: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold), //the weekend color
+                    weekNumberTextStyle: TextStyle(
+                      color: Colors.amberAccent,
+                    ), //wasted
+                    tableBorder: TableBorder(
+                        bottom: BorderSide(color: Colors.grey),
+                        horizontalInside:
+                            BorderSide(color: Colors.grey, width: 2)),
 
-                  todayDecoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        ColorConstant.defIndigo,
-                        ColorConstant.defGreen,
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      stops: [0.5, 0.5],
+                    todayDecoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          ColorConstant.defIndigo,
+                          ColorConstant.defGreen,
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        stops: [0.5, 0.5],
+                      ),
+                      //color: ColorConstant.defIndigo,
+                      shape: BoxShape.rectangle,
                     ),
-                    //color: ColorConstant.defIndigo,
-                    shape: BoxShape.rectangle,
+                    selectedDecoration: BoxDecoration(
+                      color: ColorConstant.defGreen,
+                      shape: BoxShape.rectangle,
+                    ),
                   ),
-                  selectedDecoration: BoxDecoration(
-                    color: ColorConstant.defGreen,
-                    shape: BoxShape.rectangle,
+                  headerStyle: HeaderStyle(
+                    titleTextStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16),
+                    titleCentered: true,
+                    formatButtonVisible: false,
                   ),
                 ),
-                headerStyle: HeaderStyle(
-                  titleTextStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 16),
-                  titleCentered: true,
-                  formatButtonVisible: false,
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Container(
-                    height: 15,
-                    width: 15,
-                    color: ColorConstant.defGreen,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Income",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Container(
-                    height: 15,
-                    width: 15,
-                    color: ColorConstant.defIndigo,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Expense",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              TrackBudgetWidget(
-                title: "Income",
-                date: "21-4-2024",
-                subtitle: "Estate (Category)",
-                amount: "+ 35000",
-                color: ColorConstant.defGreen,
-                amountColor: ColorConstant.defGreen,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              TrackBudgetWidget(
-                title: "Expense",
-                date: "21-4-2024",
-                subtitle: "Food (Category)",
-                amount: "- 3500",
-                color: ColorConstant.defIndigo,
-                amountColor: Colors.red,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              TrackBudgetWidget(
-                title: "Income",
-                date: "21-4-2024",
-                subtitle: "Estate (Category)",
-                amount: "+ 35000",
-                color: ColorConstant.defGreen,
-                amountColor: ColorConstant.defGreen,
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              TrackBudgetWidget(
-                title: "Expense",
-                date: "21-4-2024",
-                subtitle: "Food (Category)",
-                amount: "- 3500",
-                color: ColorConstant.defIndigo,
-                amountColor: Colors.red,
-              ),
-            ],
+                Row(
+                  children: [
+                    Container(
+                      height: 15,
+                      width: 15,
+                      color: ColorConstant.defGreen,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Income",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    Container(
+                      height: 15,
+                      width: 15,
+                      color: ColorConstant.defIndigo,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Expense",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TrackBudgetWidget(
+                  title: "Income",
+                  date: "21-4-2024",
+                  subtitle: "Estate (Category)",
+                  amount: "+ 35000",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TrackBudgetWidget(
+                  title: "Expense",
+                  date: "21-4-2024",
+                  subtitle: "Food (Category)",
+                  amount: "- 3500",
+                  color: ColorConstant.defIndigo,
+                  amountColor: Colors.red,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TrackBudgetWidget(
+                  title: "Income",
+                  date: "21-4-2024",
+                  subtitle: "Estate (Category)",
+                  amount: "+ 35000",
+                  color: ColorConstant.defGreen,
+                  amountColor: ColorConstant.defGreen,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                TrackBudgetWidget(
+                  title: "Expense",
+                  date: "21-4-2024",
+                  subtitle: "Food (Category)",
+                  amount: "- 3500",
+                  color: ColorConstant.defIndigo,
+                  amountColor: Colors.red,
+                ),
+              ],
+            ),
           ),
         ),
       ),
