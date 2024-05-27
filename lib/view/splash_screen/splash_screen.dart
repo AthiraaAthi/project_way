@@ -1,12 +1,7 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:project_way/utils/color_constant/color_constant.dart';
-import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/login_screen/login_screen.dart';
+import 'package:video_player/video_player.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,16 +11,31 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late VideoPlayerController _controller;
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => LoginScreen(),
-          ));
-    });
     super.initState();
+    _controller = VideoPlayerController.asset('assets/images/splash_video.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized
+        setState(() {});
+        _controller.play();
+      });
+
+    _controller.setLooping(false);
+    _controller.addListener(() {
+      if (_controller.value.position == _controller.value.duration) {
+        // Video finished playing
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => LoginScreen()));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -42,11 +52,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  image: DecorationImage(
-                    image: AssetImage(
-                      ImageConstant.Logo,
-                    ),
-                  ),
+                ),
+                child: AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
                 ),
               ),
               SizedBox(
