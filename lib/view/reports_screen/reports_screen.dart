@@ -196,7 +196,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
               ),
               DataTable(
                 dataRowMaxHeight: 80,
-                columnSpacing: 80,
+                columnSpacing: 60,
                 border: TableBorder.all(),
                 columns: const [
                   DataColumn(
@@ -271,7 +271,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
               ),
               DataTable(
                 dataRowMaxHeight: 80,
-                columnSpacing: 80,
+                columnSpacing: 60,
                 border: TableBorder.all(),
                 columns: const [
                   DataColumn(
