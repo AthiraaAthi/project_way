@@ -128,12 +128,12 @@ class LoginScreen extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
-                              horizontal: 26.0, vertical: 26.0),
+                              horizontal: 28, vertical: 20),
                           fillColor: Colors.white,
                           filled: true,
                           hintText: "Mobile Number",
                           hintStyle:
-                              TextStyle(fontSize: 15, color: Colors.grey),
+                              TextStyle(fontSize: 20, color: Colors.grey),
                           border: InputBorder.none),
                     ),
                   ),
