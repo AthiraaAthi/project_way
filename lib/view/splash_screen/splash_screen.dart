@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/login_screen/login_screen.dart';
+import 'package:project_way/view/screen/responsive.dart';
 import 'package:video_player/video_player.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -42,40 +43,75 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorConstant.bgIndigo,
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                ),
+          backgroundColor: ColorConstant.bgIndigo,
+          body: ResponsiveWidget(
+            mobile: Center(
+              //Mobile
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: _controller.value.aspectRatio,
+                      child: VideoPlayer(_controller),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "WAY",
+                    style: TextStyle(fontSize: 55, fontWeight: FontWeight.w800),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20, top: 170),
+                    child: Text(
+                      "A way to your all solutions",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 20,
+            ),
+            tab: Center(
+              //Tab
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 400,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: _controller.value.aspectRatio,
+                      child: VideoPlayer(_controller),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "WAY",
+                    style: TextStyle(fontSize: 75, fontWeight: FontWeight.w800),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20, top: 170),
+                    child: Text(
+                      "A way to your all solutions",
+                      style: TextStyle(fontSize: 36),
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                "WAY",
-                style: TextStyle(fontSize: 55, fontWeight: FontWeight.w800),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20, top: 170),
-                child: Text(
-                  "A way to your all solutions",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          )),
     );
   }
 }
