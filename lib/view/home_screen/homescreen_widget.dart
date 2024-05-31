@@ -10,6 +10,9 @@ class HomeScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double iconSize = screenWidth < 600 ? 40 : 60;
+    double textSize = screenWidth < 600 ? 16 : 22;
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -28,11 +31,11 @@ class HomeScreenWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 40, color: ColorConstant.defIndigo),
+            Icon(icon, size: iconSize, color: ColorConstant.defIndigo),
             SizedBox(height: 8.0),
             Text(
               text,
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: textSize, fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
           ],
