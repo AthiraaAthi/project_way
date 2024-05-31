@@ -198,6 +198,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               ),
             ),
+            //FOR TAB
             tab: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
