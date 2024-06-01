@@ -23,39 +23,57 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
       child: Scaffold(
           backgroundColor: ColorConstant.bgBlue,
           appBar: AppBar(
+            toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
             backgroundColor: ColorConstant.defIndigo,
-            title: Text(
-              "Track Budget",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
-            ),
+            title: MediaQuery.of(context).size.width < 600
+                ? Text(
+                    "Track Budget",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  )
+                : Text(
+                    "Track Budget",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500),
+                  ),
             leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
-            ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: MediaQuery.of(context).size.width < 600
+                    ? Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                      )
+                    : Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 30,
+                      )),
             actions: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BudgetGraphScreen(),
-                        ));
-                  },
-                  child: Container(
-                      height: 25,
-                      width: 25,
-                      child: Image.asset(ImageConstant.graph)),
-                ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BudgetGraphScreen(),
+                          ));
+                    },
+                    child: MediaQuery.of(context).size.width < 600
+                        ? Container(
+                            height: 25,
+                            width: 25,
+                            child: Image.asset(ImageConstant.graph))
+                        : Container(
+                            height: 40,
+                            width: 40,
+                            child: Image.asset(ImageConstant.graph))),
               )
             ],
           ),
@@ -319,41 +337,44 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                     SizedBox(
                       height: 40,
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          height: 25,
-                          width: 25,
-                          color: ColorConstant.defGreen,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Income",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                        SizedBox(
-                          width: 40,
-                        ),
-                        Container(
-                          height: 25,
-                          width: 25,
-                          color: ColorConstant.defIndigo,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Expense",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 25,
+                            width: 25,
+                            color: ColorConstant.defGreen,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Income",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(
+                            width: 40,
+                          ),
+                          Container(
+                            height: 25,
+                            width: 25,
+                            color: ColorConstant.defIndigo,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Expense",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     TrackBudgetWidget(
                       title: "Income",
