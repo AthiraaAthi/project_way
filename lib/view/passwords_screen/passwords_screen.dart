@@ -718,7 +718,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                           "Edit Password",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w900,
-                                              fontSize: 20),
+                                              fontSize: 30),
                                         ),
                                         SizedBox(
                                           height: 30,
@@ -732,7 +732,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: TextField(
-                                            style: TextStyle(fontSize: 20),
+                                            style: TextStyle(fontSize: 22),
                                             controller: websiteController,
                                             decoration: InputDecoration(
                                               contentPadding:
@@ -759,6 +759,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: TextField(
+                                            style: TextStyle(fontSize: 22),
                                             controller: desController,
                                             decoration: InputDecoration(
                                                 contentPadding:
@@ -784,7 +785,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: TextField(
-                                            style: TextStyle(fontSize: 20),
+                                            style: TextStyle(fontSize: 22),
                                             controller: passController,
                                             obscureText: true,
                                             decoration: InputDecoration(

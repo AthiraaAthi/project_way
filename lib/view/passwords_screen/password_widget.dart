@@ -53,32 +53,49 @@ class PasswordWidget extends StatelessWidget {
                   : TextStyle(
                       fontWeight: FontWeight.w400,
                       color: Colors.blue,
-                      fontSize: 18),
+                      fontSize: 24,
+                    ),
             ),
             Text(
               content,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-              ),
+              style: MediaQuery.of(context).size.width < 600
+                  ? TextStyle(
+                      fontWeight: FontWeight.w400,
+                    )
+                  : TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
+                    ),
             ),
             Row(
               children: [
                 Text(
                   pass,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: MediaQuery.of(context).size.width < 600
+                      ? TextStyle(
+                          fontWeight: FontWeight.w400,
+                        )
+                      : TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 20,
+                        ),
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 20,
                 ),
-                Icon(
-                  Icons.remove_red_eye_outlined,
-                  size: 20,
-                  color: Colors.blue,
-                )
+                MediaQuery.of(context).size.width < 600
+                    ? Icon(
+                        Icons.remove_red_eye_outlined,
+                        size: 20,
+                        color: Colors.blue,
+                      )
+                    : Icon(
+                        Icons.remove_red_eye_outlined,
+                        size: 30,
+                        color: Colors.blue,
+                      )
               ],
             ),
             Row(
@@ -87,15 +104,17 @@ class PasswordWidget extends StatelessWidget {
                 InkWell(
                   onTap: onEditTap,
                   child: Container(
-                    height: 40,
-                    width: 80,
+                    height: MediaQuery.of(context).size.width < 600 ? 40 : 60,
+                    width: MediaQuery.of(context).size.width < 600 ? 80 : 100,
                     decoration: BoxDecoration(
                         color: ColorConstant.defGreen,
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
                         "Edit",
-                        style: TextStyle(color: Colors.white),
+                        style: MediaQuery.of(context).size.width < 600
+                            ? TextStyle(color: Colors.white)
+                            : TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
@@ -106,15 +125,17 @@ class PasswordWidget extends StatelessWidget {
                 InkWell(
                   onTap: onDeleteTap,
                   child: Container(
-                    height: 40,
-                    width: 80,
+                    height: MediaQuery.of(context).size.width < 600 ? 40 : 60,
+                    width: MediaQuery.of(context).size.width < 600 ? 80 : 100,
                     decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
                         "Delete",
-                        style: TextStyle(color: Colors.white),
+                        style: MediaQuery.of(context).size.width < 600
+                            ? TextStyle(color: Colors.white)
+                            : TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
