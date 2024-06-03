@@ -16,19 +16,31 @@ class ViewDiaryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorConstant.bgBlue,
       appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
         backgroundColor: ColorConstant.defIndigo,
         title: Text(
           "SHOWING ${AppBarText}'s DIARY",
-          style: TextStyle(fontWeight: FontWeight.w400, color: Colors.white),
+          style: MediaQuery.of(context).size.width < 600
+              ? TextStyle(fontWeight: FontWeight.w400, color: Colors.white)
+              : TextStyle(
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                  fontSize: 30),
         ),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-          ),
+          icon: MediaQuery.of(context).size.width < 600
+              ? Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                )
+              : Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                  size: 30,
+                ),
         ),
       ),
       body: Padding(
@@ -38,12 +50,16 @@ class ViewDiaryScreen extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: MediaQuery.of(context).size.width < 600
+                  ? TextStyle(fontSize: 24, fontWeight: FontWeight.bold)
+                  : TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 26),
             Text(
               content,
-              style: TextStyle(fontSize: 16),
+              style: MediaQuery.of(context).size.width < 600
+                  ? TextStyle(fontSize: 16)
+                  : TextStyle(fontSize: 25),
             ),
           ],
         ),

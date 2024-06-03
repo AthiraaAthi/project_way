@@ -216,8 +216,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                             :
                             //FOR TAB DIALOG
                             Container(
-                                height: 600,
-                                width: 440,
+                                height: 780,
+                                width: 540,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
@@ -231,20 +231,21 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                           "Today's Diary",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w800,
-                                              fontSize: 14),
+                                              fontSize: 30),
                                         ),
                                         SizedBox(
-                                          height: 20,
+                                          height: 30,
                                         ),
                                         Container(
-                                          height: 50,
-                                          width: 300,
+                                          height: 70,
+                                          width: 450,
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Colors.grey),
                                               borderRadius:
                                                   BorderRadius.circular(10)),
                                           child: TextField(
+                                            style: TextStyle(fontSize: 20),
                                             controller: titleController,
                                             decoration: InputDecoration(
                                               contentPadding:
@@ -254,20 +255,20 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                               border: InputBorder.none,
                                               hintText: "Title",
                                               hintStyle: TextStyle(
-                                                  fontSize: 12,
+                                                  fontSize: 18,
                                                   color: Colors.grey),
                                             ),
                                           ),
                                         ),
                                         SizedBox(
-                                          height: 15,
+                                          height: 20,
                                         ),
                                         Stack(
                                             alignment: Alignment.bottomRight,
                                             children: [
                                               Container(
-                                                height: 200,
-                                                width: 300,
+                                                height: 250,
+                                                width: 450,
                                                 decoration: BoxDecoration(
                                                     border: Border.all(
                                                         color: Colors.grey),
@@ -275,6 +276,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                         BorderRadius.circular(
                                                             10)),
                                                 child: TextField(
+                                                  style:
+                                                      TextStyle(fontSize: 20),
                                                   controller: desController,
                                                   decoration: InputDecoration(
                                                       contentPadding:
@@ -284,7 +287,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                       border: InputBorder.none,
                                                       hintText: "Enter text...",
                                                       hintStyle: TextStyle(
-                                                          fontSize: 12,
+                                                          fontSize: 18,
                                                           color: Colors.grey)),
                                                 ),
                                               ),
@@ -294,32 +297,34 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                 child: InkWell(
                                                   onTap: () {},
                                                   child: CircleAvatar(
-                                                    radius: 20,
+                                                    radius: 30,
                                                     backgroundColor:
                                                         ColorConstant.defIndigo,
                                                     child: Icon(
                                                       Icons.mic_none_outlined,
                                                       color: Colors.white,
+                                                      size: 30,
                                                     ),
                                                   ),
                                                 ),
                                               )
                                             ]),
                                         SizedBox(
-                                          height: 20,
+                                          height: 30,
                                         ),
                                         Text(
                                           "Lock your diary with fingerprint",
-                                          style: TextStyle(fontSize: 12.5),
+                                          style: TextStyle(fontSize: 18),
                                         ),
                                         SizedBox(
-                                          height: 10,
+                                          height: 20,
                                         ),
                                         Container(
-                                          height: 100,
-                                          width: 100,
+                                          height: 150,
+                                          width: 150,
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
+                                              fit: BoxFit.cover,
                                               image: AssetImage(
                                                   ImageConstant.fingerPrint),
                                             ),
@@ -345,8 +350,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                             setState(() {});
                                           },
                                           child: Container(
-                                            height: 45,
-                                            width: 200,
+                                            height: 55,
+                                            width: 300,
                                             decoration: BoxDecoration(
                                                 color: ColorConstant.defIndigo,
                                                 borderRadius:
@@ -357,7 +362,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,
-                                                    fontSize: 12),
+                                                    fontSize: 18),
                                               ),
                                             ),
                                           ),
@@ -371,10 +376,22 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                     },
                   );
                 },
-                child: Text(
-                  "Add New",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
+                child: Padding(
+                  padding: MediaQuery.of(context).size.width < 600
+                      ? EdgeInsets.all(8.0)
+                      : EdgeInsets.all(16),
+                  child: Text(
+                    "Add New",
+                    style: MediaQuery.of(context).size.width < 600
+                        ? TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          )
+                        : TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 18),
+                  ),
                 ),
               ),
             )
@@ -418,132 +435,271 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Container(
-                            height: 580,
-                            width: 400,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: SingleChildScrollView(
-                              child: Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      "Edit Password",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w900,
-                                          fontSize: 13),
-                                    ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                    Container(
-                                      height: 50,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                          border:
-                                              Border.all(color: Colors.grey),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: TextField(
-                                        controller: titleController,
-                                        decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.symmetric(
-                                              horizontal: 16.0, vertical: 12.0),
-                                          border: InputBorder.none,
-                                          hintText: "title",
-                                          hintStyle: TextStyle(
-                                              fontSize: 12, color: Colors.grey),
+                        child: MediaQuery.of(context).size.width < 600
+                            ? Container(
+                                height: 580,
+                                width: 400,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: SingleChildScrollView(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          "Edit Password",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w900,
+                                              fontSize: 13),
                                         ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Container(
-                                      height: 200,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                          border:
-                                              Border.all(color: Colors.grey),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: TextField(
-                                        controller: desController,
-                                        decoration: InputDecoration(
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal: 16.0,
-                                                    vertical: 12.0),
-                                            border: InputBorder.none,
-                                            hintText: "enter text..",
-                                            hintStyle: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.grey)),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Text(
-                                      "you alrdy added your thumb impression for the password.if you want to change that,pls click below",
-                                      style: TextStyle(
-                                          color: ColorConstant.defGreen,
-                                          fontSize: 11.5,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      "click here to change thumb impression data",
-                                      style: TextStyle(
-                                          color: ColorConstant.defIndigo,
-                                          fontSize: 11.5,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 100,
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        setState(() {
-                                          mylist[index]['title'] =
-                                              titleController.text;
-                                          mylist[index]['description'] =
-                                              desController.text;
-
-                                          titleController.clear();
-                                          desController.clear();
-
-                                          Navigator.pop(context);
-                                        });
-                                      },
-                                      child: Container(
-                                        height: 45,
-                                        width: 200,
-                                        decoration: BoxDecoration(
-                                            color: ColorConstant.defIndigo,
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        child: Center(
-                                          child: Text(
-                                            "Submit",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
+                                        SizedBox(
+                                          height: 25,
+                                        ),
+                                        Container(
+                                          height: 50,
+                                          width: 300,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: TextField(
+                                            controller: titleController,
+                                            decoration: InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 12.0),
+                                              border: InputBorder.none,
+                                              hintText: "title",
+                                              hintStyle: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.grey),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    )
-                                  ],
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                        Container(
+                                          height: 200,
+                                          width: 300,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: TextField(
+                                            controller: desController,
+                                            decoration: InputDecoration(
+                                                contentPadding:
+                                                    EdgeInsets.symmetric(
+                                                        horizontal: 16.0,
+                                                        vertical: 12.0),
+                                                border: InputBorder.none,
+                                                hintText: "enter text..",
+                                                hintStyle: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.grey)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 15,
+                                        ),
+                                        Text(
+                                          "you alrdy added your thumb impression for the password.if you want to change that,pls click below",
+                                          style: TextStyle(
+                                              color: ColorConstant.defGreen,
+                                              fontSize: 11.5,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "click here to change thumb impression data",
+                                          style: TextStyle(
+                                              color: ColorConstant.defIndigo,
+                                              fontSize: 11.5,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 100,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              mylist[index]['title'] =
+                                                  titleController.text;
+                                              mylist[index]['description'] =
+                                                  desController.text;
+
+                                              titleController.clear();
+                                              desController.clear();
+
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                          child: Container(
+                                            height: 45,
+                                            width: 200,
+                                            decoration: BoxDecoration(
+                                                color: ColorConstant.defIndigo,
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            child: Center(
+                                              child: Text(
+                                                "Submit",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 12),
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            :
+                            //FOR TAB
+                            Container(
+                                height: 780,
+                                width: 540,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: SingleChildScrollView(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          "Edit Password",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w900,
+                                              fontSize: 30),
+                                        ),
+                                        SizedBox(
+                                          height: 30,
+                                        ),
+                                        Container(
+                                          height: 70,
+                                          width: 450,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: TextField(
+                                            style: TextStyle(fontSize: 20),
+                                            controller: titleController,
+                                            decoration: InputDecoration(
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 12.0),
+                                              border: InputBorder.none,
+                                              hintText: "title",
+                                              hintStyle: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.grey),
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 25,
+                                        ),
+                                        Container(
+                                          height: 300,
+                                          width: 450,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.grey),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: TextField(
+                                            style: TextStyle(fontSize: 20),
+                                            controller: desController,
+                                            decoration: InputDecoration(
+                                                contentPadding:
+                                                    EdgeInsets.symmetric(
+                                                        horizontal: 16.0,
+                                                        vertical: 12.0),
+                                                border: InputBorder.none,
+                                                hintText: "enter text..",
+                                                hintStyle: TextStyle(
+                                                    fontSize: 18,
+                                                    color: Colors.grey)),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 25,
+                                        ),
+                                        Text(
+                                          "you alrdy added your thumb impression for the password.if you want to change that,pls click below",
+                                          style: TextStyle(
+                                              color: ColorConstant.defGreen,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "click here to change thumb impression data",
+                                          style: TextStyle(
+                                              color: ColorConstant.defIndigo,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 80,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              mylist[index]['title'] =
+                                                  titleController.text;
+                                              mylist[index]['description'] =
+                                                  desController.text;
+
+                                              titleController.clear();
+                                              desController.clear();
+
+                                              Navigator.pop(context);
+                                            });
+                                          },
+                                          child: Container(
+                                            height: 70,
+                                            width: 200,
+                                            decoration: BoxDecoration(
+                                                color: ColorConstant.defIndigo,
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            child: Center(
+                                              child: Text(
+                                                "Submit",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ),
-                            )),
                       );
                     },
                   );
