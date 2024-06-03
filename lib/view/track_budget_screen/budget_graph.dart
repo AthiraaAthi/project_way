@@ -143,6 +143,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
         title: MediaQuery.of(context).size.width < 600
             ? Text(
                 "Budget Graph",
