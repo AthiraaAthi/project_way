@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
@@ -55,13 +54,32 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
       fontSize: 16,
     );
     Widget text;
-    if (value % 500 == 0) {
-      text = Text('${value.toInt()}', style: style);
-    } else {
-      text = const Text('', style: style);
+    switch (value.toInt()) {
+      case 250:
+        text = const Text('250', style: style);
+        break;
+      case 500:
+        text = const Text('500', style: style);
+        break;
+      case 1000:
+        text = const Text('1000', style: style);
+        break;
+      case 1500:
+        text = const Text('1500', style: style);
+        break;
+      case 2000:
+        text = const Text('2000', style: style);
+        break;
+      case 2500:
+        text = const Text('2500', style: style);
+        break;
+      default:
+        text = const Text('', style: style);
+        break;
     }
     return SideTitleWidget(
       axisSide: meta.axisSide,
+      space: 4.0,
       child: text,
     );
   }
@@ -116,6 +134,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
     }
     return SideTitleWidget(
       axisSide: meta.axisSide,
+      space: 4.0,
       child: text,
     );
   }
@@ -224,13 +243,11 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
               },
             ),
             SizedBox(height: 20),
-            Container(
-              height: 400,
-              width: 400,
+            Expanded(
               child: LineChart(
                 LineChartData(
                   gridData: FlGridData(
-                    show: false,
+                    show: true,
                   ),
                   titlesData: FlTitlesData(
                     leftTitles: AxisTitles(
@@ -244,7 +261,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                       sideTitles: SideTitles(
                         showTitles: true,
                         getTitlesWidget: bottomTitleWidgets,
-                        //reservedSize: 40,
+                        reservedSize: 40,
                       ),
                     ),
                     rightTitles:
@@ -257,13 +274,13 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                     border: Border.all(color: Colors.black, width: 1),
                   ),
                   minX: 0,
-                  maxX: 5,
+                  maxX: 6,
                   minY: 0,
                   maxY: 2500,
                   lineBarsData: [
                     LineChartBarData(
                       spots: _toggleIndex == 0 ? incomeData : expenseData,
-                      isCurved: true,
+                      isCurved: false,
                       barWidth: 4,
                       color: Colors.green,
                       belowBarData: BarAreaData(show: false),
