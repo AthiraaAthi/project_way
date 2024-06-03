@@ -214,95 +214,97 @@ class _HomeScreenState extends State<HomeScreen> {
               ]),
           backgroundColor: ColorConstant.bgBlue,
           body: ResponsiveWidget(
-            mobile: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 350,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15)),
-                      child: CarouselSlider.builder(
-                        itemCount: myList.length,
-                        itemBuilder: (context, index, realIndex) => Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(myList[index]),
-                                  fit: BoxFit.cover)),
-                        ),
-                        options: CarouselOptions(
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                print(reason.toString());
-                                currentIndex = index;
-                              });
-                            },
-                            autoPlayInterval: Duration(seconds: 2),
-                            enlargeCenterPage: true,
-                            autoPlay: true,
-                            scrollDirection: Axis.horizontal,
-                            viewportFraction: 0.9),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (int i = 0; i < myList.length; i++)
-                          Container(
-                            height: 10,
-                            width: 10,
-                            margin: EdgeInsets.all(5),
+            mobile: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 200,
+                        width: 350,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: CarouselSlider.builder(
+                          itemCount: myList.length,
+                          itemBuilder: (context, index, realIndex) => Container(
                             decoration: BoxDecoration(
-                              color: currentIndex == i
-                                  ? ColorConstant.defIndigo
-                                  : Colors.grey,
-                              shape: BoxShape.circle,
-                            ),
-                          )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Quick Links",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w800),
+                                image: DecorationImage(
+                                    image: AssetImage(myList[index]),
+                                    fit: BoxFit.cover)),
+                          ),
+                          options: CarouselOptions(
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  print(reason.toString());
+                                  currentIndex = index;
+                                });
+                              },
+                              autoPlayInterval: Duration(seconds: 2),
+                              enlargeCenterPage: true,
+                              autoPlay: true,
+                              scrollDirection: Axis.horizontal,
+                              viewportFraction: 0.9),
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    GridView.builder(
-                      itemCount: 9,
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
                       ),
-                      itemBuilder: (context, index) => HomeScreenWidget(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Screens[index],
-                              ));
-                        },
-                        icon: quickLinks[index]['icon'],
-                        text: quickLinks[index]['label'],
+                      SizedBox(
+                        height: 10,
                       ),
-                    )
-                  ],
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (int i = 0; i < myList.length; i++)
+                            Container(
+                              height: 10,
+                              width: 10,
+                              margin: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: currentIndex == i
+                                    ? ColorConstant.defIndigo
+                                    : Colors.grey,
+                                shape: BoxShape.circle,
+                              ),
+                            )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Quick Links",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GridView.builder(
+                        itemCount: 9,
+                        shrinkWrap: true,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                        ),
+                        itemBuilder: (context, index) => HomeScreenWidget(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Screens[index],
+                                ));
+                          },
+                          icon: quickLinks[index]['icon'],
+                          text: quickLinks[index]['label'],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

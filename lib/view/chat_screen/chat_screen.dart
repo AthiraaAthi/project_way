@@ -44,22 +44,23 @@ class ChatScreen extends StatelessWidget {
                   ),
             actions: [
               Padding(
-                  padding: const EdgeInsets.all(18),
-                  child: MediaQuery.of(context).size.width < 600
-                      ? Text(
-                          "Clear Chat",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w200),
-                        )
-                      : Text(
-                          "Clear Chat",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w400),
-                        ))
+                padding: const EdgeInsets.all(18),
+                child: MediaQuery.of(context).size.width < 600
+                    ? Text(
+                        "Clear Chat",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200),
+                      )
+                    : Text(
+                        "Clear Chat",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w400),
+                      ),
+              ),
             ],
           ),
           body: ResponsiveWidget(
@@ -256,7 +257,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: 120,
+                    height: 140,
                   ),
 
                   Row(
@@ -309,7 +310,7 @@ class ChatScreen extends StatelessWidget {
             ),
             //FOR TAB////////////
             tab: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(30),
               child: Column(
                 children: [
                   Center(
@@ -508,7 +509,7 @@ class ChatScreen extends StatelessWidget {
                     children: [
                       Container(
                         height: 70,
-                        width: 670,
+                        width: 650,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(5),
