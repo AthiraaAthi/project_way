@@ -19,8 +19,8 @@ class PasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
-      width: 350,
+      height: MediaQuery.of(context).size.width < 600 ? 200 : 300,
+      width: MediaQuery.of(context).size.width < 600 ? 350 : 500,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
@@ -39,11 +39,21 @@ class PasswordWidget extends StatelessWidget {
           children: [
             Text(
               "My Web password",
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: MediaQuery.of(context).size.width < 600
+                  ? TextStyle(fontWeight: FontWeight.w800)
+                  : TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 30,
+                    ),
             ),
             Text(
               link,
-              style: TextStyle(fontWeight: FontWeight.w400, color: Colors.blue),
+              style: MediaQuery.of(context).size.width < 600
+                  ? TextStyle(fontWeight: FontWeight.w400, color: Colors.blue)
+                  : TextStyle(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.blue,
+                      fontSize: 18),
             ),
             Text(
               content,
