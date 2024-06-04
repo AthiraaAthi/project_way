@@ -87,12 +87,14 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: Padding(
                 padding: const EdgeInsets.all(5),
                 child: Container(
-                  height: 50,
-                  width: 50,
+                  height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                  width: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                   decoration: BoxDecoration(
-                      color: ColorConstant.defIndigo,
-                      image: DecorationImage(
-                          image: AssetImage(ImageConstant.Logo))),
+                    color: ColorConstant.defIndigo,
+                    image: DecorationImage(
+                        image: AssetImage(ImageConstant.Logo),
+                        fit: BoxFit.cover),
+                  ),
                 ),
               ),
               title: MediaQuery.of(context).size.width < 600
