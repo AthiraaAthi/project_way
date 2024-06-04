@@ -18,10 +18,12 @@ class SubscriptionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20, left: 30, right: 30),
+      padding: MediaQuery.of(context).size.width < 600
+          ? EdgeInsets.only(top: 20, left: 30, right: 30)
+          : EdgeInsets.only(top: 40, left: 70, right: 70),
       child: Container(
         height: MediaQuery.of(context).size.width < 600 ? 230 : 400,
-        width: MediaQuery.of(context).size.width < 600 ? 330 : 730,
+        width: MediaQuery.of(context).size.width < 600 ? 330 : 630,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -66,7 +68,7 @@ class SubscriptionWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 20, bottom: 20, left: 20, right: 20),
+                    top: 15, bottom: 20, left: 20, right: 20),
                 child: Container(
                   height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                   width: MediaQuery.of(context).size.width < 600 ? 280 : 780,
