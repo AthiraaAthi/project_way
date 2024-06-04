@@ -20,7 +20,8 @@ class SubscriptionWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 30, right: 30),
       child: Container(
-        height: 230,
+        height: MediaQuery.of(context).size.width < 600 ? 230 : 400,
+        width: MediaQuery.of(context).size.width < 600 ? 330 : 730,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -41,27 +42,49 @@ class SubscriptionWidget extends StatelessWidget {
             children: [
               Text(
                 Title,
-                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
+                style: MediaQuery.of(context).size.width < 600
+                    ? TextStyle(fontWeight: FontWeight.w800, fontSize: 20)
+                    : TextStyle(fontWeight: FontWeight.w800, fontSize: 30),
               ),
-              Text(first),
-              Text(second),
-              Text(third),
+              Text(
+                first,
+                style: MediaQuery.of(context).size.width < 600
+                    ? TextStyle()
+                    : TextStyle(fontSize: 25),
+              ),
+              Text(
+                second,
+                style: MediaQuery.of(context).size.width < 600
+                    ? TextStyle()
+                    : TextStyle(fontSize: 22),
+              ),
+              Text(
+                third,
+                style: MediaQuery.of(context).size.width < 600
+                    ? TextStyle()
+                    : TextStyle(fontSize: 22),
+              ),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 20, bottom: 20, left: 20, right: 20),
                 child: Container(
-                  height: 50,
-                  width: 280,
+                  height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                  width: MediaQuery.of(context).size.width < 600 ? 280 : 780,
                   decoration: BoxDecoration(
                       color: ColorConstant.defIndigo,
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: Text(
                       price,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: MediaQuery.of(context).size.width < 600
+                          ? TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            )
+                          : TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 25),
                     ),
                   ),
                 ),

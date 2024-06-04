@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
 import 'package:project_way/view/splash_screen/splash_screen.dart';
@@ -171,6 +172,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
             },
           )
         : showDialog(
+            barrierDismissible: false,
             context: context,
             builder: (BuildContext context) {
               return Dialog(
@@ -225,16 +227,22 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                       ),
                                     ),
                                   ),
-                                  Radio<int>(
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    value: 1,
-                                    groupValue: _selectedValue,
-                                    onChanged: (int? newValue) {
-                                      setState(() {
-                                        _selectedValue = newValue!;
-                                      });
-                                    },
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Transform.scale(
+                                      scale: 2,
+                                      child: Radio<int>(
+                                        materialTapTargetSize:
+                                            MaterialTapTargetSize.shrinkWrap,
+                                        value: 1,
+                                        groupValue: _selectedValue,
+                                        onChanged: (int? newValue) {
+                                          setState(() {
+                                            _selectedValue = newValue!;
+                                          });
+                                        },
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -268,14 +276,20 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                       ),
                                     ),
                                   ),
-                                  Radio<int>(
-                                    value: 2,
-                                    groupValue: _selectedValue,
-                                    onChanged: (int? newValue) {
-                                      setState(() {
-                                        _selectedValue = newValue!;
-                                      });
-                                    },
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Transform.scale(
+                                      scale: 2,
+                                      child: Radio<int>(
+                                        value: 2,
+                                        groupValue: _selectedValue,
+                                        onChanged: (int? newValue) {
+                                          setState(() {
+                                            _selectedValue = newValue!;
+                                          });
+                                        },
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),

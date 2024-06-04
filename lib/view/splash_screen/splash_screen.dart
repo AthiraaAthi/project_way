@@ -13,22 +13,48 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   late VideoPlayerController _controller;
+  bool _isVideoLoaded = false;
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _controller = VideoPlayerController.asset('assets/images/splash_video.mp4')
+  //     ..initialize().then((_) {
+  //       // Ensure the first frame is shown after the video is initialized
+  //       setState(() {});
+  //       _controller.play();
+  //     });
+
+  //   _controller.setLooping(false);
+  //   _controller.addListener(() {
+  //     if (_controller.value.position == _controller.value.duration) {
+  //       // Video finished playing
+  //       Navigator.of(context).pushReplacement(
+  //           MaterialPageRoute(builder: (context) => LoginScreen()));
+  //     }
+  //   });
+  // }
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/images/splash_video.mp4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized
-        setState(() {});
-        _controller.play();
-      });
+    _initializeVideo();
+  }
 
-    _controller.setLooping(false);
+  Future<void> _initializeVideo() async {
+    _controller = VideoPlayerController.asset('assets/images/splash_video.mp4');
+    await _controller.initialize();
+    setState(() {
+      _isVideoLoaded = true;
+    });
+    _controller.play();
+
     _controller.addListener(() {
       if (_controller.value.position == _controller.value.duration) {
         // Video finished playing
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => LoginScreen()));
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ),
+        );
       }
     });
   }
