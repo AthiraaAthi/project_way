@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/login_screen/login_screen.dart';
@@ -73,7 +72,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: Colors.white,
                             border: Border.all(color: Colors.grey)),
                         child: DropdownButton(
-                          //underline: Container(),
+                          underline: Container(),
                           value: dropDownValue,
                           items: Numbers.map<DropdownMenuItem<String>>(
                               (String value) {
