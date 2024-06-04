@@ -15,22 +15,34 @@ class SubscriptionScreen extends StatelessWidget {
       child: Scaffold(
           backgroundColor: ColorConstant.bgIndigo,
           appBar: AppBar(
+            toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
             leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
+              icon: MediaQuery.of(context).size.width < 600
+                  ? Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    )
+                  : Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                      size: 30,
+                    ),
             ),
             backgroundColor: ColorConstant.defIndigo,
             title: Text(
               "Subscription plans",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600),
+              style: MediaQuery.of(context).size.width < 600
+                  ? TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600)
+                  : TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600),
             ),
           ),
           body: ResponsiveWidget(
