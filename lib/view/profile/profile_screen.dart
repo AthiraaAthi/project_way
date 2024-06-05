@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
-import 'package:project_way/view/coming_soon_screen/comingsoon_screen.dart';
 import 'package:project_way/view/earnings_screen/earnings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,20 +12,34 @@ class ProfileScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: ColorConstant.bgBlue,
         appBar: AppBar(
+          toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            ),
+            icon: MediaQuery.of(context).size.width < 600
+                ? Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  )
+                : Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                    size: 30,
+                  ),
           ),
           backgroundColor: ColorConstant.defIndigo,
           title: Text(
             "Profile",
-            style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+            style: MediaQuery.of(context).size.width < 600
+                ? TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600)
+                : TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600),
           ),
         ),
         body: Center(
