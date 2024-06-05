@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
 class EarningsWidget extends StatelessWidget {
   const EarningsWidget(
       {super.key,
       required this.title,
-      required this.dateTime,
+      required this.date,
       required this.subtitle,
       required this.amount,
       required this.color,
-      required this.amountColor});
+      required this.amountColor,
+      required this.Time});
   final String title;
-  final String dateTime;
+  final String date;
+  final String Time;
   final String subtitle;
   final String amount;
   final Color color;
@@ -39,6 +40,7 @@ class EarningsWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,12 +71,29 @@ class EarningsWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Text(
-                      dateTime,
-                      style: MediaQuery.of(context).size.width < 600
-                          ? TextStyle(fontSize: 12, fontWeight: FontWeight.w800)
-                          : TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700),
+                    Row(
+                      children: [
+                        Text(
+                          date,
+                          style: MediaQuery.of(context).size.width < 600
+                              ? TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w800)
+                              : TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                        SizedBox(
+                          width:
+                              MediaQuery.of(context).size.width < 600 ? 5 : 15,
+                        ),
+                        Text(
+                          Time,
+                          style: MediaQuery.of(context).size.width < 600
+                              ? TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w800)
+                              : TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                      ],
                     )
                   ],
                 ),
@@ -102,7 +121,7 @@ class EarningsWidget extends StatelessWidget {
                               )
                             : TextStyle(
                                 color: amountColor,
-                                fontSize: 12,
+                                fontSize: 22,
                                 fontWeight: FontWeight.bold,
                               ),
                       ),

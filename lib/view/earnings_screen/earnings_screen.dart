@@ -49,14 +49,17 @@ class EarningsScreen extends StatelessWidget {
               children: [
                 Text(
                   "Total Earnings : ₹ 1200.52",
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
+                  style: MediaQuery.of(context).size.width < 600
+                      ? TextStyle(fontWeight: FontWeight.w800, fontSize: 14)
+                      : TextStyle(fontWeight: FontWeight.w800, fontSize: 30),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: MediaQuery.of(context).size.width < 600 ? 20 : 50,
                 ),
                 EarningsWidget(
+                  date: "21-5-2024",
                   title: "Referal Amount",
-                  dateTime: "21-5-2024  11:50:AM",
+                  Time: "11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
                   amount: "+ ₹ 25.5",
@@ -64,8 +67,9 @@ class EarningsScreen extends StatelessWidget {
                   amountColor: ColorConstant.defGreen,
                 ),
                 EarningsWidget(
+                  date: "21-5-2024",
                   title: "Referal Amount",
-                  dateTime: "21-5-2024  11:50:AM",
+                  Time: "11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
                   amount: "+ ₹ 25.5",
@@ -73,8 +77,9 @@ class EarningsScreen extends StatelessWidget {
                   amountColor: ColorConstant.defGreen,
                 ),
                 EarningsWidget(
+                  date: "21-5-2024",
                   title: "Referal Amount",
-                  dateTime: "21-5-2024  11:50:AM",
+                  Time: "11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
                   amount: "+ ₹ 25.5",
@@ -82,8 +87,9 @@ class EarningsScreen extends StatelessWidget {
                   amountColor: ColorConstant.defGreen,
                 ),
                 EarningsWidget(
+                  date: "21-5-2024",
                   title: "Referal Amount",
-                  dateTime: "21-5-2024  11:50:AM",
+                  Time: "11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
                   amount: "+ ₹ 25.5",
@@ -91,8 +97,9 @@ class EarningsScreen extends StatelessWidget {
                   amountColor: ColorConstant.defGreen,
                 ),
                 EarningsWidget(
+                  date: "21-5-2024",
                   title: "Referal Amount",
-                  dateTime: "21-5-2024  11:50:AM",
+                  Time: "11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
                   amount: "+ ₹ 25.5",
