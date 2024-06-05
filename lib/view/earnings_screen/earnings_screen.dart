@@ -11,20 +11,34 @@ class EarningsScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: ColorConstant.bgBlue,
         appBar: AppBar(
+          toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
           backgroundColor: ColorConstant.defIndigo,
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            ),
+            icon: MediaQuery.of(context).size.width < 600
+                ? Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  )
+                : Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                    size: 30,
+                  ),
           ),
           title: Text(
             "My Earnings",
-            style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+            style: MediaQuery.of(context).size.width < 600
+                ? TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600)
+                : TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600),
           ),
         ),
         body: SingleChildScrollView(
