@@ -13,20 +13,23 @@ class EarningsScreen extends StatelessWidget {
         appBar: AppBar(
           toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
           backgroundColor: ColorConstant.defIndigo,
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: MediaQuery.of(context).size.width < 600
-                ? Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                  )
-                : Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                    size: 30,
-                  ),
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: MediaQuery.of(context).size.width < 600
+                  ? Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    )
+                  : Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                      size: 34,
+                    ),
+            ),
           ),
           title: Text(
             "My Earnings",
@@ -54,7 +57,7 @@ class EarningsScreen extends StatelessWidget {
                       : TextStyle(fontWeight: FontWeight.w800, fontSize: 30),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.width < 600 ? 20 : 50,
+                  height: MediaQuery.of(context).size.width < 600 ? 20 : 30,
                 ),
                 EarningsWidget(
                   date: "21-5-2024",
