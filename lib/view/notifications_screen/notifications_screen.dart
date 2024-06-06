@@ -146,10 +146,12 @@ class NotificationScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Text(
-                            "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit ",
-                            maxLines: 3,
-                            overflow: TextOverflow.visible,
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 20),
+                            child: Text(
+                              "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit . ",
+                              style: TextStyle(fontSize: 20),
+                            ),
                           )
                         ],
                       ),
