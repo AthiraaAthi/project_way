@@ -131,11 +131,11 @@ class NotificationScreen extends StatelessWidget {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  radius: 15,
+                                  radius: 12,
                                   backgroundColor: ColorConstant.defIndigo,
                                 ),
                                 SizedBox(
-                                  width: 18,
+                                  width: 10,
                                 ),
                                 Text(
                                   "My Notifications title",
