@@ -10,6 +10,7 @@ class NotificationScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: ColorConstant.bgBlue,
         appBar: AppBar(
+          toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
           backgroundColor: ColorConstant.defIndigo,
           leading: IconButton(
             onPressed: () {
