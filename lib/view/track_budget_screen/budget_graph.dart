@@ -30,12 +30,12 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   String _selectedMonth = 'Month';
 
   List<FlSpot> incomeData = [
-    FlSpot(0, 1),
+    FlSpot(250, 1),
     FlSpot(500, 7),
     FlSpot(1000, 3),
     FlSpot(1500, 5),
-    FlSpot(4, 2000),
-    FlSpot(5, 2500),
+    FlSpot(2000, 9),
+    FlSpot(2500, 1),
   ];
 
   List<FlSpot> expenseData = [
