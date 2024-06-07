@@ -275,9 +275,9 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                     border: Border.all(color: Colors.black, width: 1),
                   ),
                   minX: 0,
-                  maxX: 6,
+                  maxX: 2500,
                   minY: 0,
-                  maxY: 2500,
+                  maxY: 13,
                   lineBarsData: [
                     LineChartBarData(
                       spots: _toggleIndex == 0 ? incomeData : expenseData,
