@@ -39,12 +39,12 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   ];
 
   List<FlSpot> expenseData = [
-    FlSpot(0, 0),
-    FlSpot(1, 150),
-    FlSpot(2, 300),
-    FlSpot(3, 450),
-    FlSpot(4, 600),
-    FlSpot(5, 750),
+    FlSpot(250, 1),
+    FlSpot(500, 7),
+    FlSpot(1000, 3),
+    FlSpot(1500, 5),
+    FlSpot(2000, 9),
+    FlSpot(2500, 1),
   ];
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
@@ -281,7 +281,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                   lineBarsData: [
                     LineChartBarData(
                       spots: _toggleIndex == 0 ? incomeData : expenseData,
-                      isCurved: false,
+                      isCurved: true,
                       barWidth: 4,
                       color: Colors.green,
                       belowBarData: BarAreaData(show: false),
