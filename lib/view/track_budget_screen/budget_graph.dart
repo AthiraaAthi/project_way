@@ -32,13 +32,13 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   List<FlSpot> incomeData = [
     FlSpot(0, 2), //
     FlSpot(2, 500), //
-    FlSpot(500, 6),
-    FlSpot(250, 1),
-    FlSpot(500, 7),
-    FlSpot(1000, 3),
-    FlSpot(1500, 5),
-    FlSpot(2000, 9),
-    FlSpot(2500, 1),
+    FlSpot(500, 6), //
+    // FlSpot(250, 1),
+    // FlSpot(500, 7),
+    // FlSpot(1000, 3),
+    // FlSpot(1500, 5),
+    // FlSpot(2000, 9),
+    // FlSpot(2500, 1),
   ];
 
   List<FlSpot> expenseData = [
