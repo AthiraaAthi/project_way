@@ -30,20 +30,11 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   String _selectedMonth = 'Month';
 
   List<FlSpot> incomeData = [
-    FlSpot(250, 1),
+    FlSpot(0, 0),
+    //FlSpot(250, 1),
     FlSpot(250, 2),
-    // FlSpot(250, 3),
     FlSpot(500, 2),
-
     FlSpot(1000, 6),
-    //FlSpot(500, 4),
-    //FlSpot(1500, 6),
-    // FlSpot(250, 1),
-    // FlSpot(500, 7),
-    // FlSpot(1000, 3),
-    // FlSpot(1500, 5),
-    // FlSpot(2000, 9),
-    // FlSpot(2500, 1),
   ];
 
   List<FlSpot> expenseData = [
@@ -59,10 +50,13 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
     const style = TextStyle(
       color: Color(0xff68737d),
       fontWeight: FontWeight.bold,
-      fontSize: 16,
+      fontSize: 14,
     );
     Widget text;
     switch (value.toInt()) {
+      case 0:
+        text = const Text('0', style: style);
+        break;
       case 250:
         text = const Text('250', style: style);
         break;
@@ -87,7 +81,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
     }
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 4.0,
+      space: 8.0,
       child: text,
     );
   }
@@ -271,10 +265,10 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                     ),
                     bottomTitles: AxisTitles(
                       sideTitles: SideTitles(
-                        showTitles: true,
-                        getTitlesWidget: bottomTitleWidgets,
-                        reservedSize: 40,
-                      ),
+                          showTitles: true,
+                          getTitlesWidget: bottomTitleWidgets,
+                          reservedSize: 40,
+                          interval: 250),
                     ),
                     rightTitles:
                         AxisTitles(sideTitles: SideTitles(showTitles: false)),
