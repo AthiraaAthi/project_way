@@ -281,7 +281,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                   lineBarsData: [
                     LineChartBarData(
                       spots: _toggleIndex == 0 ? incomeData : expenseData,
-                      isCurved: true,
+                      isCurved: false,
                       barWidth: 4,
                       color: Colors.green,
                       belowBarData: BarAreaData(show: false),
