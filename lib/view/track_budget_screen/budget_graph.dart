@@ -30,9 +30,14 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   String _selectedMonth = 'Month';
 
   List<FlSpot> incomeData = [
-    FlSpot(0, 2),
-    FlSpot(2, 500),
-    FlSpot(500, 6),
+    FlSpot(250, 1),
+    FlSpot(250, 2),
+    // FlSpot(250, 3),
+    FlSpot(500, 2),
+
+    FlSpot(1000, 6),
+    //FlSpot(500, 4),
+    //FlSpot(1500, 6),
     // FlSpot(250, 1),
     // FlSpot(500, 7),
     // FlSpot(1000, 3),
@@ -248,9 +253,12 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
             ),
             SizedBox(height: 20),
             Expanded(
+              flex: 6,
               child: LineChart(
                 LineChartData(
                   gridData: FlGridData(
+                    drawHorizontalLine: true,
+                    drawVerticalLine: false,
                     show: true,
                   ),
                   titlesData: FlTitlesData(
@@ -286,6 +294,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                       spots: _toggleIndex == 0 ? incomeData : expenseData,
                       isCurved: false,
                       barWidth: 4,
+                      dotData: FlDotData(show: false),
                       color: Colors.green,
                       belowBarData: BarAreaData(show: false),
                     ),
