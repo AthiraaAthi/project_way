@@ -292,6 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisCount: 3,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 10,
+                          mainAxisExtent: 100,
                         ),
                         itemBuilder: (context, index) => HomeScreenWidget(
                           onTap: () {
