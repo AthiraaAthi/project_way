@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
 
@@ -91,7 +93,7 @@ class ChatScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 78,
+                        height: 88,
                         width: 185,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -134,7 +136,7 @@ class ChatScreen extends StatelessWidget {
                     //mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 78,
+                        height: 85,
                         width: 185,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -177,7 +179,7 @@ class ChatScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 59,
+                        height: 70,
                         width: 114,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -220,7 +222,7 @@ class ChatScreen extends StatelessWidget {
                     //mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 78,
+                        height: 88,
                         width: 185,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -257,7 +259,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: 130,
+                    height: 95,
                   ),
 
                   Row(
