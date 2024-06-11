@@ -257,7 +257,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: 140,
+                    height: 130,
                   ),
 
                   Row(
