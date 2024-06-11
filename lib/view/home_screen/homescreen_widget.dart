@@ -12,7 +12,7 @@ class HomeScreenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double iconSize = screenWidth < 600 ? 30 : 60;
-    double textSize = screenWidth < 600 ? 16 : 22;
+    double textSize = screenWidth < 600 ? 14 : 22;
     return InkWell(
       onTap: onTap,
       child: Container(
