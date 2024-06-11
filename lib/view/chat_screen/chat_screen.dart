@@ -93,7 +93,7 @@ class ChatScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 88,
+                        height: 90,
                         width: 185,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -111,17 +111,19 @@ class ChatScreen extends StatelessWidget {
                                 "Can you add 15000 Rupees in income plan of today's date",
                                 style: TextStyle(fontSize: 12),
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "11:10:am",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "11:10:am",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
@@ -133,11 +135,10 @@ class ChatScreen extends StatelessWidget {
                     height: 30,
                   ),
                   Row(
-                    //mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 85,
-                        width: 185,
+                        height: 90,
+                        width: 190,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8fd2ce),
@@ -154,17 +155,16 @@ class ChatScreen extends StatelessWidget {
                                 "Yes we will add,before that we need to know what is the What is the category?",
                                 style: TextStyle(fontSize: 12),
                               ),
-                              SizedBox(
-                                height: 2,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "11:10:am",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "11:10:am",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
@@ -180,7 +180,7 @@ class ChatScreen extends StatelessWidget {
                     children: [
                       Container(
                         height: 70,
-                        width: 114,
+                        width: 115,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8bd3b3),
@@ -197,17 +197,16 @@ class ChatScreen extends StatelessWidget {
                                 "From our Estate",
                                 style: TextStyle(fontSize: 12),
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "11:11:am",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "11:11:am",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
@@ -222,8 +221,8 @@ class ChatScreen extends StatelessWidget {
                     //mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 88,
-                        width: 185,
+                        height: 90,
+                        width: 190,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8fd2ce),
@@ -240,17 +239,16 @@ class ChatScreen extends StatelessWidget {
                                 "Yes we added according to your decisions",
                                 style: TextStyle(fontSize: 12),
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    "11:12:am",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "11:12:am",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
@@ -259,7 +257,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: 95,
+                    height: 85,
                   ),
 
                   Row(
