@@ -97,6 +97,22 @@
             }
         },
         {
+            "category_screen_title": "Category Screen",
+            "addCategoryDialog": {
+                "title": "Add Category",
+                "categoryNameHint": "Category Name",
+                "categoryDescriptionHint": "Category Description",
+                "dropdownLabel": "Indicator Color",
+                "submitButton": "Submit",
+                "categoryOptions": [
+                    "Income",
+                    "Food",
+                    "Notebooks"
+                ],
+                "backButtonTooltip": "Back"
+            }
+        },
+        {
             "subscription_plans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ",
             "bronze_package": "ബ്രോൺസ് പാക്കേജ്",
             "silver_package": "സിൽവർ പാക്കേജ്",
