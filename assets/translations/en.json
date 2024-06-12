@@ -1,0 +1,72 @@
+{
+    "loginScreen": {
+        "mobileNumberHint": "Mobile Number",
+        "loginButton": "Login",
+        "noAccountPrompt": "Don't you have account?",
+        "registerButton": "Register"
+    },
+    "registerScreen": {
+        "acceptTerms": "I accept your",
+        "termsAndConditions": "terms and conditions",
+        "register": "Register",
+        "alreadyHaveAccount": "Already have an account ?",
+        "login": "Login"
+    },
+    "app": {
+        "title": "Way",
+        "quickLinksTitle": "Quick Links"
+    },
+    "carouselItems": [
+        "Track budget",
+        "Budget Goal",
+        "Categories",
+        "Reports",
+        "My Passwords",
+        "My Diary",
+        "Chats",
+        "Subscription",
+        "Shopping"
+    ],
+    "toolbarItems": {
+        "ai": "Ai"
+    },
+    "buttons": {
+        "profile": {
+            "icon": "person",
+            "color": "white"
+        },
+        "notifications": {
+            "icon": "notifications",
+            "color": "white"
+        }
+    },
+    "quickLinks": [
+        {
+            "label": "Track budget"
+        },
+        {
+            "label": "Budget Goal"
+        },
+        {
+            "label": "Categories"
+        },
+        {
+            "label": "Reports"
+        },
+        {
+            "label": "My Passwords"
+        },
+        {
+            "label": "My Diary"
+        },
+        {
+            "label": "Chats"
+        },
+        {
+            "label": "Subscription"
+        },
+        {
+            "label": "Shopping"
+        }
+    ]
+}
