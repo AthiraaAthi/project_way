@@ -59,6 +59,16 @@
             "label": "ഷോപ്പിംഗ്"
         },
         {
+            "track_budget": "ബജറ്റ് പിന്തുടരുക",
+            "income": "വരുമാനം",
+            "expense": "ചിലവ്",
+            "estate_category": "എസ്റ്റേറ്റ് (വിഭാഗം)",
+            "food_category": "ഭക്ഷണം (വിഭാഗം)",
+            "amount_income": "+ 35000",
+            "amount_expense": "- 3500",
+            "date": "21-4-2024"
+        },
+        {
             "subscription_plans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ",
             "bronze_package": "ബ്രോൺസ് പാക്കേജ്",
             "silver_package": "സിൽവർ പാക്കേജ്",

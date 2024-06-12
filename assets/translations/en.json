@@ -59,6 +59,16 @@
             "label": "Shopping"
         },
         {
+            "track_budget": "Track Budget",
+            "income": "Income",
+            "expense": "Expense",
+            "estate_category": "Estate (Category)",
+            "food_category": "Food (Category)",
+            "amount_income": "+ 35000",
+            "amount_expense": "- 3500",
+            "date": "21-4-2024"
+        },
+        {
             "subscription_plans": "Subscription plans",
             "bronze_package": "Bronze Package",
             "silver_package": "Silver Package",
