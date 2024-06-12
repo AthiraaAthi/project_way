@@ -97,6 +97,22 @@
             }
         },
         {
+            "category_screen_title": "വിഭാഗത്തിന്റെ സ്‌ക്രീൻ",
+            "addCategoryDialog": {
+                "title": "വിഭാഗം ചേർക്കുക",
+                "categoryNameHint": "വിഭാഗത്തിന്റെ പേര്",
+                "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
+                "dropdownLabel": "സൂചകത്തിന്റെ നിറം",
+                "submitButton": "സമർപ്പിക്കുക",
+                "categoryOptions": [
+                    "വരുമാനം",
+                    "ഭക്ഷണം",
+                    "നോട്ടുബുക്കുകൾ"
+                ],
+                "backButtonTooltip": "തിരികെ"
+            }
+        },
+        {
             "subscription_plans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ",
             "bronze_package": "ബ്രോൺസ് പാക്കേജ്",
             "silver_package": "സിൽവർ പാക്കേജ്",
