@@ -69,6 +69,34 @@
             "date": "21-4-2024"
         },
         {
+            "budget_goal_screen": {
+                "title": "ബജറ്റ് ലക്ഷ്യം",
+                "dropdowns": {
+                    "year": "വർഷം തിരഞ്ഞെടുക്കുക",
+                    "months": "മാസം തിരഞ്ഞെടുക്കുക",
+                    "categories": "വിഭാഗം",
+                    "monthly": "മാസാന്ത്യ",
+                    "weekly": "വാരാന്ത്യ"
+                },
+                "buttons": {
+                    "submit": "സമർപ്പിക്കുക",
+                    "edit": "തിരുത്തുക",
+                    "delete": "ഇല്ലാതാക്കുക"
+                },
+                "tableHeaders": {
+                    "date": "തീയതി",
+                    "category": "വിഭാഗം",
+                    "amount": "തുക",
+                    "action": "നടപടി"
+                },
+                "hints": {
+                    "startDate": "ആരംഭ തീയതി",
+                    "endDate": "അവസാന തീയതി",
+                    "enterAmount": "തുക രേഖപ്പെടുത്തുക"
+                }
+            }
+        },
+        {
             "subscription_plans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ",
             "bronze_package": "ബ്രോൺസ് പാക്കേജ്",
             "silver_package": "സിൽവർ പാക്കേജ്",

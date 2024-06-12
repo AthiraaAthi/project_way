@@ -69,6 +69,34 @@
             "date": "21-4-2024"
         },
         {
+            "budget_goal_screen": {
+                "title": "Budget Goal",
+                "dropdowns": {
+                    "year": "select year",
+                    "months": "select month",
+                    "categories": "Category",
+                    "monthly": "Monthly",
+                    "weekly": "Weekly"
+                },
+                "buttons": {
+                    "submit": "Submit",
+                    "edit": "Edit",
+                    "delete": "Delete"
+                },
+                "tableHeaders": {
+                    "date": "Date",
+                    "category": "Category",
+                    "amount": "Amount",
+                    "action": "Action"
+                },
+                "hints": {
+                    "startDate": "Start Date",
+                    "endDate": "End Date",
+                    "enterAmount": "Enter Amount"
+                }
+            }
+        },
+        {
             "subscription_plans": "Subscription plans",
             "bronze_package": "Bronze Package",
             "silver_package": "Silver Package",
