@@ -30,16 +30,6 @@
     "toolbarItems": {
         "ai": "Ai"
     },
-    "buttons": {
-        "profile": {
-            "icon": "person",
-            "color": "white"
-        },
-        "notifications": {
-            "icon": "notifications",
-            "color": "white"
-        }
-    },
     "quickLinks": [
         {
             "label": "Track budget"
@@ -67,6 +57,20 @@
         },
         {
             "label": "Shopping"
+        },
+        {
+            "subscription_plans": "Subscription plans",
+            "bronze_package": "Bronze Package",
+            "silver_package": "Silver Package",
+            "gold_package": "Gold Package",
+            "ai_chat": "Ai Chat (both text, voice)",
+            "budget_handling": "Budget Handling without opening chat page",
+            "bronze_referal_income": "You can earn more referral income as 39.8 Rs and bonus income",
+            "silver_referal_income": "You can earn more referral income as 99.8 Rs and bonus income",
+            "gold_referal_income": "You can earn more referral income as 159.8 Rs and bonus income",
+            "bronze_price": "199 Rs for 3 months",
+            "silver_price": "499 Rs for 6 months",
+            "gold_price": "699 Rs for 1 year"
         }
     ]
 }
