@@ -181,6 +181,20 @@
             "thumb_change": "click here to change thumb impression data"
         },
         {
+            "my_diary_appbar": "My Diary",
+            "todays_diary": "Today's Diary",
+            "title_hint": "Title",
+            "enter_text_hint": "Enter text...",
+            "lock_diary": "Lock your diary with fingerprint",
+            "submit": "Submit",
+            "add_new": "Add New",
+            "edit_password": "Edit Password",
+            "edit_title_hint": "Edit title",
+            "edit_text_hint": "enter Edited text..",
+            "thumb_change_instruction": "you already added your thumb impression for the password. if you want to change that, please click below",
+            "thumb_change": "click here to change thumb impression data"
+        },
+        {
             "subscription_plans": "Subscription plans",
             "bronze_package": "Bronze Package",
             "silver_package": "Silver Package",

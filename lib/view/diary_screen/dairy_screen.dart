@@ -474,7 +474,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                       horizontal: 16.0,
                                                       vertical: 12.0),
                                               border: InputBorder.none,
-                                              hintText: "title",
+                                              hintText: "Edit title",
                                               hintStyle: TextStyle(
                                                   fontSize: 12,
                                                   color: Colors.grey),
@@ -500,7 +500,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                         horizontal: 16.0,
                                                         vertical: 12.0),
                                                 border: InputBorder.none,
-                                                hintText: "enter text..",
+                                                hintText: "enter Edited text..",
                                                 hintStyle: TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.grey)),
