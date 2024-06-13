@@ -113,6 +113,60 @@
             }
         },
         {
+            "reports_title": "Reports",
+            "select_year": "select year",
+            "years": [
+                "2020",
+                "2021",
+                "2022",
+                "2023",
+                "2024",
+                "2025",
+                "2026"
+            ],
+            "select_month": "select month",
+            "months": [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec"
+            ],
+            "submit": "Submit",
+            "expense_warning": "Your expense is greater than income. Track your expense carefully",
+            "total_income": "Total Income : 5100 Rs",
+            "total_expense": "Total Expense : 15000 Rs",
+            "table_headers": [
+                "Date",
+                "Category",
+                "Amount"
+            ],
+            "table_data": [
+                {
+                    "date": "1-5-2024",
+                    "category": "Estate",
+                    "amount": "5000 Rs"
+                },
+                {
+                    "date": "2-5-2024",
+                    "category": "Food",
+                    "amount": "5000 Rs"
+                },
+                {
+                    "date": "3-5-2024",
+                    "category": "Food",
+                    "amount": "5000 Rs"
+                }
+            ]
+        },
+        {
             "subscription_plans": "Subscription plans",
             "bronze_package": "Bronze Package",
             "silver_package": "Silver Package",
