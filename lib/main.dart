@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/view/language_selection/language_selection.dart';
+import 'package:project_way/view/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -36,7 +37,7 @@ class ProjectWay extends StatelessWidget {
         // supportedLocales: context.supportedLocales,
         // locale: context.locale,
         debugShowCheckedModeBanner: false,
-        home: LanguageSelection(),
+        home: SplashScreen(),
       ),
     );
   }

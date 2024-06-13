@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/view/language_selection/language_selection.dart';
 import 'package:project_way/view/login_screen/login_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 import 'package:video_player/video_player.dart';
@@ -52,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
         // Video finished playing
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => LoginScreen(),
+            builder: (context) => LanguageSelection(),
           ),
         );
       }

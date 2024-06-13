@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/view/login_screen/login_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 import 'package:project_way/view/splash_screen/splash_screen.dart';
 
@@ -144,8 +144,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                SplashScreen(),
+                                            builder: (context) => LoginScreen(),
                                           ));
                                     },
                                     child: Text(
@@ -307,8 +306,7 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                SplashScreen(),
+                                            builder: (context) => LoginScreen(),
                                           ));
                                     },
                                     child: Text(
