@@ -195,6 +195,15 @@
             "thumb_change": "click here to change thumb impression data"
         },
         {
+            "chat_title": "Way Ai",
+            "clearchat": "Clear Chat",
+            "question1": "Can you add 15000 Rupees in income plan of today's date",
+            "answer1": "Yes we will add, before that we need to know what is the category?",
+            "question2": "From our Estate",
+            "answer2": "Yes we added according to your decisions",
+            "hint_text": "enter your message"
+        },
+        {
             "subscription_plans": "Subscription plans",
             "bronze_package": "Bronze Package",
             "silver_package": "Silver Package",
