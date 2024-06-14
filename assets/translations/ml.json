@@ -229,6 +229,11 @@
             ]
         },
         {
+            "coming_soon_appbar": {
+                "coming_soon": "വരാനിരിക്കുകയാണ്"
+            }
+        },
+        {
             "subscription_plans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ",
             "bronze_package": "ബ്രോൺസ് പാക്കേജ്",
             "silver_package": "സിൽവർ പാക്കേജ്",
