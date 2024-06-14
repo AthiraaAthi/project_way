@@ -229,6 +229,11 @@
             ]
         },
         {
+            "coming_soon_appbar": {
+                "coming_soon": "Coming Soon"
+            }
+        },
+        {
             "subscription_plans": "Subscription plans",
             "bronze_package": "Bronze Package",
             "silver_package": "Silver Package",
