@@ -127,7 +127,21 @@ class ProfileScreen extends StatelessWidget {
                           ),
                           title: Text(
                             "English",
-                            style: TextStyle(),
+                            style: TextStyle(
+                                color: ColorConstant.defIndigo,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 17),
+                          ),
+                          trailing: InkWell(
+                            //FOR DIALOG BOX
+                            onTap: () {},
+                            child: Text(
+                              "Change",
+                              style: TextStyle(
+                                  color: ColorConstant.defIndigo,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 17),
+                            ),
                           ),
                         ),
                       ),
@@ -136,7 +150,7 @@ class ProfileScreen extends StatelessWidget {
                       height: 20,
                     ),
                     Container(
-                      height: 400,
+                      height: 380,
                       width: 300,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -149,8 +163,6 @@ class ProfileScreen extends StatelessWidget {
                                 spreadRadius: 0.1)
                           ]),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
                             height: 200,
