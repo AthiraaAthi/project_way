@@ -229,6 +229,17 @@
             ]
         },
         {
+            "profile_appBarTitle": "പ്രൊഫൈല്‍",
+            "profile_name": "ടോണി ജോര്‍ജ്",
+            "phoneNumber": "+91 974665155",
+            "language": "ഇംഗ്ലീഷ്",
+            "change": "മാറ്റുക",
+            "balance": "₹ 1200.52",
+            "referralCount": "റഫറല്‍ എണ്ണം : 12",
+            "viewMore": "കൂടുതല്‍ കാണുക",
+            "referToEarn": "കമ്മീഷന്‍ നേടുക"
+        },
+        {
             "coming_soon_appbar": {
                 "coming_soon_text": "വരാനിരിക്കുകയാണ്"
             }

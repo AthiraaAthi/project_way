@@ -229,7 +229,7 @@
             ]
         },
         {
-            "appBarTitle": "Profile",
+            "profile_appBarTitle": "Profile",
             "profile_name": "Tony George",
             "phoneNumber": "+91 974665155",
             "language": "English",
