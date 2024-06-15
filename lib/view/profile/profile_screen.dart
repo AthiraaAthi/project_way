@@ -44,58 +44,55 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
         body: ResponsiveWidget(
-          mobile: SingleChildScrollView(
+          mobile: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: Container(
-                    height: 100,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 0.5,
-                              offset: Offset(0, 2),
-                              spreadRadius: 0.1)
-                        ]),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                        leading: Stack(
-                          alignment: Alignment.bottomRight,
-                          children: [
-                            Image.asset(ImageConstant.Profile),
-                            CircleAvatar(
-                              radius: 11,
+                Container(
+                  height: 100,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 0.5,
+                            offset: Offset(0, 2),
+                            spreadRadius: 0.1)
+                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      leading: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          Image.asset(ImageConstant.Profile),
+                          CircleAvatar(
+                            radius: 11,
+                            backgroundColor: ColorConstant.defIndigo,
+                            child: CircleAvatar(
                               backgroundColor: ColorConstant.defIndigo,
-                              child: CircleAvatar(
-                                backgroundColor: ColorConstant.defIndigo,
-                                radius: 5,
-                                child: Image.asset(
-                                  ImageConstant.cameraIcon,
-                                  fit: BoxFit.fitWidth,
-                                ),
+                              radius: 5,
+                              child: Image.asset(
+                                ImageConstant.cameraIcon,
+                                fit: BoxFit.fitWidth,
                               ),
-                            )
-                          ],
-                        ),
-                        title: Text(
-                          "Tony George",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w900, fontSize: 15),
-                        ),
-                        subtitle: Text(
-                          "+91 974665155",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 13,
-                              color: Colors.black),
-                        ),
+                            ),
+                          )
+                        ],
+                      ),
+                      title: Text(
+                        "Tony George",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900, fontSize: 15),
+                      ),
+                      subtitle: Text(
+                        "+91 974665155",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 13,
+                            color: Colors.black),
                       ),
                     ),
                   ),
@@ -132,7 +129,7 @@ class ProfileScreen extends StatelessWidget {
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w800,
-                            fontSize: 17),
+                            fontSize: 16),
                       ),
                       trailing: InkWell(
                         //FOR DIALOG BOX
@@ -142,7 +139,7 @@ class ProfileScreen extends StatelessWidget {
                           style: TextStyle(
                               color: ColorConstant.defIndigo,
                               fontWeight: FontWeight.w900,
-                              fontSize: 17),
+                              fontSize: 16),
                         ),
                       ),
                     ),
@@ -223,9 +220,6 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 90,
-                )
               ],
             ),
           ),

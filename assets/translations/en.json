@@ -229,6 +229,17 @@
             ]
         },
         {
+            "appBarTitle": "Profile",
+            "profile_name": "Tony George",
+            "phoneNumber": "+91 974665155",
+            "language": "English",
+            "change": "Change",
+            "balance": "₹ 1200.52",
+            "referralCount": "Referral Count : 12",
+            "viewMore": "View More",
+            "referToEarn": "Refer to earn"
+        },
+        {
             "coming_soon_appbar": {
                 "coming_soon_text": "Coming Soon"
             }
