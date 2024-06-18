@@ -174,7 +174,7 @@
             "password_hint": "Password",
             "thumb_instruction": "press your thumb here to secure your password",
             "thumb_success": "Thumb impression captured successfully",
-            "submit": "Submit",
+            "password_submit": "Submit",
             "add_new": "Add New",
             "edit_password": "Edit Password",
             "thumb_change_instruction": "you already added your thumb impression for the password. if you want to change that, please click below",
