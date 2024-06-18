@@ -240,7 +240,7 @@
             "referToEarn": "കമ്മീഷന്‍ നേടുക"
         },
         {
-            "appBarTitle": "എന്റെ വരുമാനം",
+            "earnings_appbar": "എന്റെ വരുമാനം",
             "totalEarnings": "മൊത്തം വരുമാനം : ₹ 1200.52",
             "earningsList": [
                 {
