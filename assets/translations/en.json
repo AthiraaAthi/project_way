@@ -240,6 +240,10 @@
             "referToEarn": "Refer to earn"
         },
         {
+            "earnings_appbar": "My Earnings",
+            "totalEarnings": "Total Earnings"
+        },
+        {
             "coming_soon_appbar": {
                 "coming_soon_text": "Coming Soon"
             }
