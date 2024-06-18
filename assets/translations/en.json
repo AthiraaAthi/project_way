@@ -66,15 +66,15 @@
             "food_category": "Food (Category)",
             "amount_income": "+ 35000",
             "amount_expense": "- 3500",
-            "date": "21-4-2024"
+            "track_budget_date": "21-4-2024"
         },
         {
             "budget_goal_screen": {
-                "title": "Budget Goal",
+                "budget_goal_title": "Budget Goal",
                 "dropdowns": {
-                    "year": "select year",
-                    "months": "select month",
-                    "categories": "Category",
+                    "year_selection": "select year",
+                    "month_selection": "select month",
+                    "budget_goal_categories": "Category",
                     "monthly": "Monthly",
                     "weekly": "Weekly"
                 },
@@ -99,7 +99,7 @@
         {
             "category_screen_title": "Category Screen",
             "addCategoryDialog": {
-                "title": "Add Category",
+                "category_title": "Add Category",
                 "categoryNameHint": "Category Name",
                 "categoryDescriptionHint": "Category Description",
                 "dropdownLabel": "Indicator Color",
@@ -150,19 +150,19 @@
             ],
             "table_data": [
                 {
-                    "date": "1-5-2024",
-                    "category": "Estate",
-                    "amount": "5000 Rs"
+                    "table_date": "1-5-2024",
+                    "table_category": "Estate",
+                    "table_amount": "5000 Rs"
                 },
                 {
-                    "date": "2-5-2024",
-                    "category": "Food",
-                    "amount": "5000 Rs"
+                    "table_date": "2-5-2024",
+                    "table_category": "Food",
+                    "table_amount": "5000 Rs"
                 },
                 {
-                    "date": "3-5-2024",
-                    "category": "Food",
-                    "amount": "5000 Rs"
+                    "table_date": "3-5-2024",
+                    "table_category": "Food",
+                    "table_amount": "5000 Rs"
                 }
             ]
         },

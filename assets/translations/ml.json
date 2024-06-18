@@ -66,15 +66,15 @@
             "food_category": "ഭക്ഷണം (വിഭാഗം)",
             "amount_income": "+ 35000",
             "amount_expense": "- 3500",
-            "date": "21-4-2024"
+            "track_budget_date": "21-4-2024"
         },
         {
             "budget_goal_screen": {
-                "title": "ബജറ്റ് ലക്ഷ്യം",
+                "budget_goal_title": "ബജറ്റ് ലക്ഷ്യം",
                 "dropdowns": {
-                    "year": "വർഷം തിരഞ്ഞെടുക്കുക",
-                    "months": "മാസം തിരഞ്ഞെടുക്കുക",
-                    "categories": "വിഭാഗം",
+                    "year_selectionar": "വർഷം തിരഞ്ഞെടുക്കുക",
+                    "month_selection": "മാസം തിരഞ്ഞെടുക്കുക",
+                    "budget_goal_categories": "വിഭാഗം",
                     "monthly": "മാസാന്ത്യ",
                     "weekly": "വാരാന്ത്യ"
                 },
@@ -99,7 +99,7 @@
         {
             "category_screen_title": "വിഭാഗത്തിന്റെ സ്‌ക്രീൻ",
             "addCategoryDialog": {
-                "title": "വിഭാഗം ചേർക്കുക",
+                "category_title": "വിഭാഗം ചേർക്കുക",
                 "categoryNameHint": "വിഭാഗത്തിന്റെ പേര്",
                 "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
                 "dropdownLabel": "സൂചകത്തിന്റെ നിറം",
@@ -150,19 +150,19 @@
             ],
             "table_data": [
                 {
-                    "date": "1-5-2024",
-                    "category": "എസ്റ്റേറ്റ്",
-                    "amount": "5000 രൂപ"
+                    "table_date": "1-5-2024",
+                    "table_category": "എസ്റ്റേറ്റ്",
+                    "table_amount": "5000 രൂപ"
                 },
                 {
-                    "date": "2-5-2024",
-                    "category": "ഭക്ഷണം",
-                    "amount": "5000 രൂപ"
+                    "table_date": "1-5-2024",
+                    "table_category": "എസ്റ്റേറ്റ്",
+                    "table_amount": "5000 രൂപ"
                 },
                 {
-                    "date": "3-5-2024",
-                    "category": "ഭക്ഷണം",
-                    "amount": "5000 രൂപ"
+                    "table_date": "1-5-2024",
+                    "table_category": "എസ്റ്റേറ്റ്",
+                    "table_amount": "5000 രൂപ"
                 }
             ]
         },
