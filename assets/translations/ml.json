@@ -244,11 +244,11 @@
             "totalEarnings": "മൊത്തം വരുമാനം : ₹ 1200.52",
             "earningsList": [
                 {
-                    "date": "21-5-2024",
-                    "title": "റഫറൽ തുക",
-                    "time": "11:50:AM",
-                    "subtitle": "രഘു കുമാർ ചേർന്നതിന് ശേഷം വേ ടീം നിന്നുള്ള റഫറൽ തുക",
-                    "amount": "+ ₹ 25.5"
+                    "earnings_Date": "21-5-2024",
+                    "earnings_title": "റഫറൽ തുക",
+                    "earnings_time": "11:50:AM",
+                    "earnings_subtitle": "രഘു കുമാർ ചേർന്നതിന് ശേഷം വേ ടീം നിന്നുള്ള റഫറൽ തുക",
+                    "earnings_amount": "+ ₹ 25.5"
                 }
             ]
         },
