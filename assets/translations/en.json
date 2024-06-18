@@ -241,7 +241,7 @@
         },
         {
             "earnings_appbar": "My Earnings",
-            "totalEarnings": "Total Earnings",
+            "totalEarnings": "Total Earnings : ₹ 1200.52",
             "earningsList": [
                 {
                     "earnings_Date": "21-5-2024",

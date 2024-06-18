@@ -240,6 +240,19 @@
             "referToEarn": "കമ്മീഷന്‍ നേടുക"
         },
         {
+            "appBarTitle": "എന്റെ വരുമാനം",
+            "totalEarnings": "മൊത്തം വരുമാനം : ₹ 1200.52",
+            "earningsList": [
+                {
+                    "date": "21-5-2024",
+                    "title": "റഫറൽ തുക",
+                    "time": "11:50:AM",
+                    "subtitle": "രഘു കുമാർ ചേർന്നതിന് ശേഷം വേ ടീം നിന്നുള്ള റഫറൽ തുക",
+                    "amount": "+ ₹ 25.5"
+                }
+            ]
+        },
+        {
             "coming_soon_appbar": {
                 "coming_soon_text": "വരാനിരിക്കുകയാണ്"
             }
