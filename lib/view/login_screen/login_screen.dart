@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
@@ -38,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
-                        hintText: "Mobile Number",
+                        hintText: 'loginScreen.mobileNumberHint'.tr(),
                         hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -65,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: Text(
-                          "Login",
+                          'loginScreen.loginButton'.tr(),
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
@@ -78,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't you have account ?"),
+                      Text('loginScreen.noAccountPrompt'.tr()),
                       SizedBox(
                         width: 5,
                       ),
@@ -91,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                               ));
                         },
                         child: Text(
-                          "Register",
+                          'loginScreen.registerButton'.tr(),
                           style: TextStyle(color: Colors.indigo),
                         ),
                       )
