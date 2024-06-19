@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/home_screen/home_screen.dart';
-import 'package:project_way/view/otp_screen/otp_screen.dart';
 import 'package:project_way/view/register_screen/register_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 

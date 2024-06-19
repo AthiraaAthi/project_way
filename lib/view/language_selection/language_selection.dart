@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/login_screen/login_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
-import 'package:project_way/view/splash_screen/splash_screen.dart';
 
 class LanguageSelection extends StatefulWidget {
   const LanguageSelection({super.key});
@@ -141,6 +141,11 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                   padding: const EdgeInsets.only(right: 25),
                                   child: InkWell(
                                     onTap: () {
+                                      Locale selectedLocale =
+                                          _selectedValue == 1
+                                              ? Locale('ml')
+                                              : Locale('en');
+                                      context.setLocale(selectedLocale);
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
@@ -303,6 +308,11 @@ class _LanguageSelectionState extends State<LanguageSelection> {
                                   padding: const EdgeInsets.only(right: 25),
                                   child: InkWell(
                                     onTap: () {
+                                      Locale selectedLocale =
+                                          _selectedValue == 1
+                                              ? Locale('ml')
+                                              : Locale('en');
+                                      context.setLocale(selectedLocale);
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(

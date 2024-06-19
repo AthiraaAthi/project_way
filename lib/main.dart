@@ -5,20 +5,24 @@ import 'package:project_way/view/language_selection/language_selection.dart';
 import 'package:project_way/view/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  // runApp(
-  //   EasyLocalization(
-  //     path: "assets/translations",
-  //     supportedLocales: [
-  //       Locale("en", "US"),
-  //       Locale("ml", "IN"),
-  //     ],
-  //     fallbackLocale: Locale("en", "US"),
-  //     startLocale: Locale("en", "US"),
-  //     child: ProjectWay(),
-  //   ),
-  // );
-  runApp(ProjectWay());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    EasyLocalization(
+      path: "assets/translations",
+      supportedLocales: [
+        //Locale("en", "US"),
+        Locale("en"),
+        Locale("ml"),
+        //Locale("ml", "IN"),
+      ],
+      fallbackLocale: Locale("en", "US"),
+      startLocale: Locale("en", "US"),
+      child: ProjectWay(),
+    ),
+  );
+  //runApp(ProjectWay());
 }
 
 class ProjectWay extends StatelessWidget {
@@ -33,9 +37,9 @@ class ProjectWay extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        // localizationsDelegates: context.localizationDelegates,
-        // supportedLocales: context.supportedLocales,
-        // locale: context.locale,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),
