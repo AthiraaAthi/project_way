@@ -4,9 +4,15 @@ import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/earnings_screen/earnings_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  int _selectedValue = 1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
