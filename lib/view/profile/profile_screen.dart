@@ -47,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Padding(
                               padding: const EdgeInsets.all(16),
                               child: Text(
-                                'Select  Language',
+                                'Select Language',
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w800),
                               ),
@@ -200,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Padding(
                               padding: const EdgeInsets.all(16),
                               child: Text(
-                                'Select  Language',
+                                'Select Language',
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.w800),
                               ),
@@ -473,7 +473,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       trailing: InkWell(
                         //FOR DIALOG BOX
-                        onTap: () {},
+                        onTap: () {
+                          _showDialog();
+                        },
                         child: Text(
                           "Change",
                           style: TextStyle(
