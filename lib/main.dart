@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
-import 'package:project_way/view/language_selection/language_selection.dart';
 import 'package:project_way/view/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +16,8 @@ Future<void> main() async {
         Locale("ml"),
         //Locale("ml", "IN"),
       ],
-      fallbackLocale: Locale("en", "US"),
-      startLocale: Locale("en", "US"),
+      fallbackLocale: Locale("en"),
+      startLocale: Locale("en"),
       child: ProjectWay(),
     ),
   );
