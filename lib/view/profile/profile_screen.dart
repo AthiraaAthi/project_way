@@ -15,14 +15,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   int _selectedValue = 1;
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showDialog();
-    });
-    super.initState();
-  }
-
   void _showDialog() {
     MediaQuery.of(context).size.width < 600
         ? showDialog(
@@ -149,11 +141,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               ? Locale('ml')
                                               : Locale('en');
                                       context.setLocale(selectedLocale);
-                                      Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => LoginScreen(),
-                                          ));
+                                      Navigator.pop(context);
                                     },
                                     child: Text(
                                       "Next  >",
@@ -316,11 +304,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               ? Locale('ml')
                                               : Locale('en');
                                       context.setLocale(selectedLocale);
-                                      Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => LoginScreen(),
-                                          ));
+                                      Navigator.pop(context);
                                     },
                                     child: Text(
                                       "Next  >",

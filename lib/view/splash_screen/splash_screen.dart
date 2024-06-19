@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     _controller.addListener(() {
       if (_controller.value.position == _controller.value.duration) {
-        // Video finished playing
+        // Video finished playing aayal
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => LanguageSelection(),

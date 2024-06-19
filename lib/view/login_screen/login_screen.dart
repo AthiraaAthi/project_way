@@ -131,7 +131,7 @@ class LoginScreen extends StatelessWidget {
                               horizontal: 28, vertical: 20),
                           fillColor: Colors.white,
                           filled: true,
-                          hintText: "Mobile Number",
+                          hintText: 'loginScreen.mobileNumberHint'.tr(),
                           hintStyle:
                               TextStyle(fontSize: 20, color: Colors.grey),
                           border: InputBorder.none),
@@ -156,7 +156,7 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: Text(
-                          "Login",
+                          'loginScreen.loginButton'.tr(),
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -172,7 +172,7 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't you have account ?",
+                        'loginScreen.noAccountPrompt'.tr(),
                         style: TextStyle(fontSize: 20),
                       ),
                       SizedBox(
@@ -187,7 +187,7 @@ class LoginScreen extends StatelessWidget {
                               ));
                         },
                         child: Text(
-                          "Register",
+                          'loginScreen.registerButton'.tr(),
                           style: TextStyle(color: Colors.indigo, fontSize: 20),
                         ),
                       )
