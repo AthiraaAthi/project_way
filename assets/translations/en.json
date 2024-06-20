@@ -205,38 +205,42 @@
             }
         },
         {
-            "chat_title": "Way Ai",
-            "clearchat": "Clear Chat",
-            "question1": "Can you add 15000 Rupees in income plan of today's date",
-            "answer1": "Yes we will add, before that we need to know what is the category?",
-            "question2": "From our Estate",
-            "answer2": "Yes we added according to your decisions",
-            "hint_text": "enter your message"
+            "chat": {
+                "chatTitle": "Way Ai",
+                "clearChat": "Clear Chat",
+                "question1": "Can you add 15000 Rupees in income plan of today's date",
+                "answer1": "Yes we will add, before that we need to know what is the category?",
+                "question2": "From our Estate",
+                "answer2": "Yes we added according to your decisions",
+                "hintText": "Enter your message"
+            }
         },
         {
-            "notification_appbar": "Notifications",
-            "notifications": [
-                {
-                    "notification_title": "My Notifications title",
-                    "notification_body": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                },
-                {
-                    "notification_title": "My Notifications title",
-                    "notification_body": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                },
-                {
-                    "notification_title": "My Notifications title",
-                    "notification_body": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                },
-                {
-                    "notification_title": "My Notifications title",
-                    "notification_body": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                },
-                {
-                    "notification_title": "My Notifications title",
-                    "notification_body": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                }
-            ]
+            "notifications": {
+                "notificationAppbar": "Notifications",
+                "notificationsList": [
+                    {
+                        "notificationTitle": "My Notifications title",
+                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    },
+                    {
+                        "notificationTitle": "My Notifications title",
+                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    },
+                    {
+                        "notificationTitle": "My Notifications title",
+                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    },
+                    {
+                        "notificationTitle": "My Notifications title",
+                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    },
+                    {
+                        "notificationTitle": "My Notifications title",
+                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    }
+                ]
+            }
         },
         {
             "profilescreen": {
