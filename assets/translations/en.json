@@ -256,36 +256,42 @@
             }
         },
         {
-            "earnings_appbar": "My Earnings",
-            "totalEarnings": "Total Earnings : ₹ 1200.52",
-            "earningsList": [
-                {
-                    "earnings_Date": "21-5-2024",
-                    "earnings_title": "Referral Amount",
-                    "earnings_time": "11:50:AM",
-                    "earnings_subtitle": "Referral Amount from way team after joining of Raghu Kumar",
-                    "earnings_amount": "+ ₹ 25.5"
-                }
-            ]
-        },
-        {
-            "coming_soon_appbar": {
-                "coming_soon_text": "Coming Soon"
+            "earningsScreen": {
+                "earnings_appbar": "My Earnings",
+                "totalEarnings": "Total Earnings : ₹ 1200.52",
+                "earningsList": [
+                    {
+                        "earnings_Date": "21-5-2024",
+                        "earnings_title": "Referral Amount",
+                        "earnings_time": "11:50:AM",
+                        "earnings_subtitle": "Referral Amount from way team after joining of Raghu Kumar",
+                        "earnings_amount": "+ ₹ 25.5"
+                    }
+                ]
             }
         },
         {
-            "subscription_plans": "Subscription plans",
-            "bronze_package": "Bronze Package",
-            "silver_package": "Silver Package",
-            "gold_package": "Gold Package",
-            "ai_chat": "Ai Chat (both text, voice)",
-            "budget_handling": "Budget Handling without opening chat page",
-            "bronze_referal_income": "You can earn more referral income as 39.8 Rs and bonus income",
-            "silver_referal_income": "You can earn more referral income as 99.8 Rs and bonus income",
-            "gold_referal_income": "You can earn more referral income as 159.8 Rs and bonus income",
-            "bronze_price": "199 Rs for 3 months",
-            "silver_price": "499 Rs for 6 months",
-            "gold_price": "699 Rs for 1 year"
+            "comingSoonScreen": {
+                "comingSoonAppbar": {
+                    "comingSoonText": "Coming Soon"
+                }
+            }
+        },
+        {
+            "subscriptionScreen": {
+                "subscriptionPlans": "Subscription Plans",
+                "bronzePackage": "Bronze Package",
+                "silverPackage": "Silver Package",
+                "goldPackage": "Gold Package",
+                "aiChat": "AI Chat (both text, voice)",
+                "budgetHandling": "Budget Handling without opening chat page",
+                "bronzeReferalIncome": "You can earn more referral income as ₹ 39.8 and bonus income",
+                "silverReferalIncome": "You can earn more referral income as ₹ 99.8 and bonus income",
+                "goldReferalIncome": "You can earn more referral income as ₹ 159.8 and bonus income",
+                "bronzePrice": "₹ 199 for 3 months",
+                "silverPrice": "₹ 499 for 6 months",
+                "goldPrice": "₹ 699 for 1 year"
+            }
         }
     ]
 }

@@ -256,36 +256,42 @@
             }
         },
         {
-            "earnings_appbar": "എന്റെ വരുമാനം",
-            "totalEarnings": "മൊത്തം വരുമാനം : ₹ 1200.52",
-            "earningsList": [
-                {
-                    "earnings_Date": "21-5-2024",
-                    "earnings_title": "റഫറൽ തുക",
-                    "earnings_time": "11:50:AM",
-                    "earnings_subtitle": "രഘു കുമാർ ചേർന്നതിന് ശേഷം വേ ടീം നിന്നുള്ള റഫറൽ തുക",
-                    "earnings_amount": "+ ₹ 25.5"
-                }
-            ]
-        },
-        {
-            "coming_soon_appbar": {
-                "coming_soon_text": "വരാനിരിക്കുകയാണ്"
+            "earningsScreen": {
+                "earningsAppbar": "എന്റെ വരുമാനങ്ങൾ",
+                "totalEarnings": "ആകെ വരുമാനം : ₹ 1200.52",
+                "earningsList": [
+                    {
+                        "earningsDate": "21-5-2024",
+                        "earningsTitle": "റഫറൽ അമൗണ്ട്",
+                        "earningsTime": "11:50 AM",
+                        "earningsSubtitle": "റഗ്കു കുമാർ ചേർന്നതിൽ വേ ടീമിൽ നിന്നുള്ള റഫറൽ അമൗണ്ട്",
+                        "earningsAmount": "+ ₹ 25.5"
+                    }
+                ]
             }
         },
         {
-            "subscription_plans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാനുകൾ",
-            "bronze_package": "ബ്രോൺസ് പാക്കേജ്",
-            "silver_package": "സിൽവർ പാക്കേജ്",
-            "gold_package": "ഗോൾഡ് പാക്കേജ്",
-            "ai_chat": "എഐ ചാറ്റ് (ടെക്സ്റ്റ്, ശബ്ദവും)",
-            "budget_handling": "ചാറ്റ് പേജ് തുറക്കാതെ ബജറ്റ് ഹാൻഡ്ലിംഗ്",
-            "bronze_referal_income": "39.8 രൂപയും ബോണസ് വരുമാനവും കൂടുതൽ റഫറൽ വരുമാനം നേടാം",
-            "silver_referal_income": "99.8 രൂപയും ബോണസ് വരുമാനവും കൂടുതൽ റഫറൽ വരുമാനം നേടാം",
-            "gold_referal_income": "159.8 രൂപയും ബോണസ് വരുമാനവും കൂടുതൽ റഫറൽ വരുമാനം നേടാം",
-            "bronze_price": "3 മാസത്തേക്ക് 199 രൂപ",
-            "silver_price": "6 മാസത്തേക്ക് 499 രൂപ",
-            "gold_price": "1 വർഷത്തേക്ക് 699 രൂപ"
+            "comingSoonScreen": {
+                "comingSoonAppbar": {
+                    "comingSoonText": "വരുന്നുണ്ട്"
+                }
+            }
+        },
+        {
+            "subscriptionScreen": {
+                "subscriptionPlans": "സബ്സ്ക്രിപ്ഷൻ പ്ലാൻസ്",
+                "bronzePackage": "ബ്രോൺസ് പാക്കേജ്",
+                "silverPackage": "വെള്ളീരുപാക്കേജ്",
+                "goldPackage": "ഗോൾഡ് പാക്കേജ്",
+                "aiChat": "AI ചാറ്റ് (ടെക്സ്റ്റ്, ശബ്ദവും)",
+                "budgetHandling": "ചാറ്റ് പേജ് തുറക്കാതെ ബജറ്റ് ഹാൻഡ്‌ലിംഗ്",
+                "bronzeReferalIncome": "നിങ്ങൾക്ക് കൂടുതൽ റഫറൽ ഇൻകം ലഭിക്കാം എന്നത് ₹ 39.8 ആണുണ്ട് ബോണസ് ഇൻകം",
+                "silverReferalIncome": "നിങ്ങൾക്ക് കൂടുതൽ റഫറൽ ഇൻകം ലഭിക്കാം എന്നത് ₹ 99.8 ആണുണ്ട് ബോണസ് ഇൻകം",
+                "goldReferalIncome": "നിങ്ങൾക്ക് കൂടുതൽ റഫറൽ ഇൻകം ലഭിക്കാം എന്നത് ₹ 159.8 ആണുണ്ട് ബോണസ് ഇൻകം",
+                "bronzePrice": "₹ 199 മാസങ്ങൾക്ക് കൂടുതൽ 3",
+                "silverPrice": "₹ 499 മാസങ്ങൾക്ക് കൂടുതൽ 6",
+                "goldPrice": "₹ 699 മാസങ്ങൾക്ക് കൂടുതൽ 1 വർഷം"
+            }
         }
     ]
 }
