@@ -355,7 +355,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           backgroundColor: ColorConstant.defIndigo,
           title: Text(
-            "profile_appBarTitle".tr(),
+            "profilescreen.appBarTitle".tr(),
             style: MediaQuery.of(context).size.width < 600
                 ? TextStyle(
                     color: Colors.white,
@@ -407,12 +407,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                       title: Text(
-                        "profile_name".tr(),
+                        "profilescreen.name".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w900, fontSize: 15),
                       ),
                       subtitle: Text(
-                        "phoneNumber".tr(),
+                        "profilescreen.phoneNumber".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 13,
@@ -449,7 +449,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         size: 30,
                       ),
                       title: Text(
-                        "language".tr(),
+                        "profilescreen.language".tr(),
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w800,
@@ -461,7 +461,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _showDialog();
                         },
                         child: Text(
-                          "change".tr(),
+                          "profilescreen.change".tr(),
                           style: TextStyle(
                               color: ColorConstant.defIndigo,
                               fontWeight: FontWeight.w900,
@@ -494,14 +494,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Image.asset(ImageConstant.Trophy),
                       ),
                       Text(
-                        "balance".tr(),
+                        "profilescreen.balance".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 20,
                             color: Colors.black),
                       ),
                       Text(
-                        "referralCount".tr(),
+                        "profilescreen.referralCount".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 20,
@@ -526,7 +526,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                             child: Text(
-                              "viewMore".tr(),
+                              "profilescreen.viewMore".tr(),
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700),
@@ -538,7 +538,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       Text(
-                        "referToEarn".tr(),
+                        "profilescreen.referToEarn".tr(),
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w700),
