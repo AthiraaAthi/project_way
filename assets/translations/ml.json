@@ -6,8 +6,10 @@
         "registerButton": "രജിസ്റ്റർ"
     },
     "registerScreen": {
-        "acceptTerms": "ഞാൻ നിങ്ങളുടെ അംഗീകരിക്കുന്നു",
-        "termsAndConditions": "നിബന്ധനകളും നിബന്ധനകളും",
+        "name_hint": "name",
+        "mobileNumberHint": "Mobile Number",
+        "acceptTerms": "ഞാൻ നിങ്ങളുടെ നിബന്ധനകളും ",
+        "termsAndConditions": " അംഗീകരിക്കുന്നു",
         "register": "രജിസ്റ്റർ",
         "alreadyHaveAccount": "ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ടോ ?",
         "login": "ലോഗിൻ"

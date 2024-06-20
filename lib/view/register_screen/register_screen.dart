@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
@@ -50,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
-                        hintText: "Name",
+                        hintText: 'registerScreen.name'.tr(),
                         hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
                         border:
                             UnderlineInputBorder(borderSide: BorderSide.none),
@@ -105,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
-                            hintText: "Mobile Number",
+                            hintText: 'registerScreen.mobileNumber'.tr(),
                             hintStyle:
                                 TextStyle(fontSize: 15, color: Colors.grey),
                             border: UnderlineInputBorder(
@@ -131,12 +132,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Row(
                         children: [
-                          Text("I accept your"),
+                          Text('registerScreen.acceptTerms'.tr()),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
-                            "terms and conditions",
+                            'registerScreen.termsAndConditions'.tr(),
                             style: TextStyle(color: Colors.indigo),
                           )
                         ],
@@ -162,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: Text(
-                          "Register",
+                          'registerScreen.register'.tr(),
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
@@ -175,7 +176,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Already have an account ?"),
+                      Text('registerScreen.alreadyHaveAccount'.tr()),
                       SizedBox(
                         width: 5,
                       ),
@@ -188,7 +189,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ));
                         },
                         child: Text(
-                          "Login",
+                          'registerScreen.login'.tr(),
                           style: TextStyle(color: Colors.indigo),
                         ),
                       )

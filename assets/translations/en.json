@@ -6,6 +6,8 @@
         "registerButton": "Register"
     },
     "registerScreen": {
+        "name_hint": "name",
+        "mobileNumberHint": "Mobile Number",
         "acceptTerms": "I accept your",
         "termsAndConditions": "terms and conditions",
         "register": "Register",
