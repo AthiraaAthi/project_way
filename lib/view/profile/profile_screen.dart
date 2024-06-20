@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/earnings_screen/earnings_screen.dart';
-import 'package:project_way/view/login_screen/login_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -304,6 +303,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               ? Locale('ml')
                                               : Locale('en');
                                       context.setLocale(selectedLocale);
+
                                       Navigator.pop(context);
                                     },
                                     child: Text(
@@ -355,7 +355,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           backgroundColor: ColorConstant.defIndigo,
           title: Text(
-            "profilescreen.appBarTitle".tr(),
+            'profilescreen.appBarTitle',
             style: MediaQuery.of(context).size.width < 600
                 ? TextStyle(
                     color: Colors.white,
@@ -365,7 +365,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.w600),
-          ),
+          ).tr(),
         ),
         body: ResponsiveWidget(
           mobile: Center(
@@ -407,17 +407,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                       title: Text(
-                        "profilescreen.name".tr(),
+                        'profilescreen.name',
                         style: TextStyle(
                             fontWeight: FontWeight.w900, fontSize: 15),
-                      ),
+                      ).tr(),
                       subtitle: Text(
-                        "profilescreen.phoneNumber".tr(),
+                        "profilescreen.phoneNumber",
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 13,
                             color: Colors.black),
-                      ),
+                      ).tr(),
                     ),
                   ),
                 ),
@@ -449,24 +449,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         size: 30,
                       ),
                       title: Text(
-                        "profilescreen.language".tr(),
+                        "profilescreen.language",
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w800,
                             fontSize: 16),
-                      ),
+                      ).tr(),
                       trailing: InkWell(
                         //FOR DIALOG BOX
                         onTap: () {
                           _showDialog();
                         },
                         child: Text(
-                          "profilescreen.change".tr(),
+                          "profilescreen.change",
                           style: TextStyle(
                               color: ColorConstant.defIndigo,
                               fontWeight: FontWeight.w900,
                               fontSize: 16),
-                        ),
+                        ).tr(),
                       ),
                     ),
                   ),
@@ -494,19 +494,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Image.asset(ImageConstant.Trophy),
                       ),
                       Text(
-                        "profilescreen.balance".tr(),
+                        "profilescreen.balance",
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 20,
                             color: Colors.black),
-                      ),
+                      ).tr(),
                       Text(
-                        "profilescreen.referralCount".tr(),
+                        "profilescreen.referralCount",
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 20,
                             color: Colors.black),
-                      ),
+                      ).tr(),
                       SizedBox(
                         height: 20,
                       ),
@@ -526,11 +526,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                             child: Text(
-                              "profilescreen.viewMore".tr(),
+                              "profilescreen.viewMore",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700),
-                            ),
+                            ).tr(),
                           ),
                         ),
                       ),
@@ -538,11 +538,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       Text(
-                        "profilescreen.referToEarn".tr(),
+                        "profilescreen.referToEarn",
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w700),
-                      )
+                      ).tr()
                     ],
                   ),
                 ),
