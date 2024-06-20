@@ -355,7 +355,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           backgroundColor: ColorConstant.defIndigo,
           title: Text(
-            "Profile",
+            "profile_appBarTitle".tr(),
             style: MediaQuery.of(context).size.width < 600
                 ? TextStyle(
                     color: Colors.white,
