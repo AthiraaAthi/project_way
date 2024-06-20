@@ -407,12 +407,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                       title: Text(
-                        "Tony George",
+                        "profile_name".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w900, fontSize: 15),
                       ),
                       subtitle: Text(
-                        "+91 974665155",
+                        "phoneNumber".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 13,
@@ -449,7 +449,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         size: 30,
                       ),
                       title: Text(
-                        "English",
+                        "language".tr(),
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w800,
@@ -461,7 +461,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _showDialog();
                         },
                         child: Text(
-                          "Change",
+                          "change".tr(),
                           style: TextStyle(
                               color: ColorConstant.defIndigo,
                               fontWeight: FontWeight.w900,
@@ -494,14 +494,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Image.asset(ImageConstant.Trophy),
                       ),
                       Text(
-                        "₹ 1200.52",
+                        "balance".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 20,
                             color: Colors.black),
                       ),
                       Text(
-                        "Referal Count : 12",
+                        "referralCount".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 20,
@@ -526,7 +526,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                             child: Text(
-                              "View More",
+                              "viewMore".tr(),
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700),
@@ -538,7 +538,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       Text(
-                        "Refer to earn",
+                        "referToEarn".tr(),
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w700),

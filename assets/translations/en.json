@@ -59,14 +59,16 @@
             "label": "Shopping"
         },
         {
-            "track_budget": "Track Budget",
-            "income": "Income",
-            "expense": "Expense",
-            "estate_category": "Estate (Category)",
-            "food_category": "Food (Category)",
-            "amount_income": "+ 35000",
-            "amount_expense": "- 3500",
-            "track_budget_date": "21-4-2024"
+            "trackbudget": {
+                "trackBudget_appbar": "Track Budget",
+                "income": "Income",
+                "expense": "Expense",
+                "estateCategory": "Estate (Category)",
+                "foodCategory": "Food (Category)",
+                "amountIncome": "+ 35000",
+                "amountExpense": "- 3500",
+                "trackBudgetDate": "21-4-2024"
+            }
         },
         {
             "budget_goal_screen": {
@@ -97,19 +99,21 @@
             }
         },
         {
-            "category_screen_title": "Category Screen",
-            "addCategoryDialog": {
-                "category_title": "Add Category",
-                "categoryNameHint": "Category Name",
-                "categoryDescriptionHint": "Category Description",
-                "dropdownLabel": "Indicator Color",
-                "submitButton": "Submit",
-                "categoryOptions": [
-                    "Income",
-                    "Food",
-                    "Notebooks"
-                ],
-                "backButtonTooltip": "Back"
+            "categoryscreen": {
+                "categoryScreenTitle": "Category Screen",
+                "addCategoryDialog": {
+                    "categoryTitle": "Add Category",
+                    "categoryNameHint": "Category Name",
+                    "categoryDescriptionHint": "Category Description",
+                    "dropdownLabel": "Indicator Color",
+                    "submitButton": "Submit",
+                    "categoryOptions": [
+                        "Income",
+                        "Food",
+                        "Notebooks"
+                    ],
+                    "backButtonTooltip": "Back"
+                }
             }
         },
         {
@@ -229,15 +233,17 @@
             ]
         },
         {
-            "profile_appBarTitle": "Profile",
-            "profile_name": "Tony George",
-            "phoneNumber": "+91 974665155",
-            "language": "English",
-            "change": "Change",
-            "balance": "₹ 1200.52",
-            "referralCount": "Referral Count : 12",
-            "viewMore": "View More",
-            "referToEarn": "Refer to earn"
+            "profilescreen": {
+                "appBarTitle": "Profile",
+                "name": "Tony George",
+                "phoneNumber": "+91 974665155",
+                "language": "English",
+                "change": "Change",
+                "balance": "₹ 1200.52",
+                "referralCount": "Referral Count : 12",
+                "viewMore": "View More",
+                "referToEarn": "Refer to earn"
+            }
         },
         {
             "earnings_appbar": "My Earnings",

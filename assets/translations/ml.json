@@ -59,14 +59,16 @@
             "label": "ഷോപ്പിംഗ്"
         },
         {
-            "track_budget": "ബജറ്റ് പിന്തുടരുക",
-            "income": "വരുമാനം",
-            "expense": "ചിലവ്",
-            "estate_category": "എസ്റ്റേറ്റ് (വിഭാഗം)",
-            "food_category": "ഭക്ഷണം (വിഭാഗം)",
-            "amount_income": "+ 35000",
-            "amount_expense": "- 3500",
-            "track_budget_date": "21-4-2024"
+            "trackbudget": {
+                "trackBudget_appbar": "ബജറ്റ് ട്രാക്കുചെയ്യുക",
+                "income": "വരുമാനം",
+                "expense": "ചെലവ്",
+                "estateCategory": "എസ്റ്റേറ്റ് (വിഭാഗം)",
+                "foodCategory": "ഭക്ഷണം (വിഭാഗം)",
+                "amountIncome": "+ 35000",
+                "amountExpense": "- 3500",
+                "trackBudgetDate": "21-4-2024"
+            }
         },
         {
             "budget_goal_screen": {
@@ -97,19 +99,21 @@
             }
         },
         {
-            "category_screen_title": "വിഭാഗത്തിന്റെ സ്‌ക്രീൻ",
-            "addCategoryDialog": {
-                "category_title": "വിഭാഗം ചേർക്കുക",
-                "categoryNameHint": "വിഭാഗത്തിന്റെ പേര്",
-                "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
-                "dropdownLabel": "സൂചകത്തിന്റെ നിറം",
-                "submitButton": "സമർപ്പിക്കുക",
-                "categoryOptions": [
-                    "വരുമാനം",
-                    "ഭക്ഷണം",
-                    "നോട്ടുബുക്കുകൾ"
-                ],
-                "backButtonTooltip": "തിരികെ"
+            "categoryscreen": {
+                "categoryScreenTitle": "വിഭാഗത്തിന്റെ സ്‌ക്രീൻ",
+                "addCategoryDialog": {
+                    "categoryTitle": "വിഭാഗം ചേർക്കുക",
+                    "categoryNameHint": "വിഭാഗത്തിന്റെ പേര്",
+                    "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
+                    "dropdownLabel": "സൂചകത്തിന്റെ നിറം",
+                    "submitButton": "സമർപ്പിക്കുക",
+                    "categoryOptions": [
+                        "വരുമാനം",
+                        "ഭക്ഷണം",
+                        "നോട്ടുബുക്കുകൾ"
+                    ],
+                    "backButtonTooltip": "തിരികെ"
+                }
             }
         },
         {
@@ -229,15 +233,17 @@
             ]
         },
         {
-            "profile_appBarTitle": "പ്രൊഫൈല്‍",
-            "profile_name": "ടോണി ജോര്‍ജ്",
-            "phoneNumber": "+91 974665155",
-            "language": "ഇംഗ്ലീഷ്",
-            "change": "മാറ്റുക",
-            "balance": "₹ 1200.52",
-            "referralCount": "റഫറല്‍ എണ്ണം : 12",
-            "viewMore": "കൂടുതല്‍ കാണുക",
-            "referToEarn": "കമ്മീഷന്‍ നേടുക"
+            "profilescreen": {
+                "appBarTitle": "പ്രൊഫൈൽ",
+                "name": "ടോണി ജോർജ്",
+                "phoneNumber": "+91 974665155",
+                "language": "ഇംഗ്ലീഷ്",
+                "change": "മാറ്റുക",
+                "balance": "₹ 1200.52",
+                "referralCount": "റഫറൽ എണ്ണം : 12",
+                "viewMore": "കൂടുതൽ കാണുക",
+                "referToEarn": "വിജ്ഞാപനത്തിലൂടെ വരുമാനം നേടുക"
+            }
         },
         {
             "earnings_appbar": "എന്റെ വരുമാനം",
