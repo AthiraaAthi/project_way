@@ -240,7 +240,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             horizontal: 28.0, vertical: 20.0),
                         fillColor: Colors.white,
                         filled: true,
-                        hintText: "Name",
+                        hintText: 'registerScreen.name_hint'.tr(),
                         hintStyle: TextStyle(fontSize: 20, color: Colors.grey),
                         border:
                             UnderlineInputBorder(borderSide: BorderSide.none),
@@ -305,7 +305,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 horizontal: 28.0, vertical: 20.0),
                             fillColor: Colors.white,
                             filled: true,
-                            hintText: "Mobile Number",
+                            hintText: 'registerScreen.mobileNumberHint'.tr(),
                             hintStyle:
                                 TextStyle(fontSize: 20, color: Colors.grey),
                             border: UnderlineInputBorder(
