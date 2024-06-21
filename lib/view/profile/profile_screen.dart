@@ -617,7 +617,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Tony George",
+                              tr('profilescreen.name'),
                               style: TextStyle(
                                   fontWeight: FontWeight.w900, fontSize: 30),
                             ),
@@ -665,7 +665,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         size: 50,
                       ),
                       title: Text(
-                        "English",
+                        tr('profilescreen.language'),
                         style: TextStyle(
                             color: ColorConstant.defIndigo,
                             fontWeight: FontWeight.w800,
@@ -675,7 +675,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         //FOR DIALOG BOX
                         onTap: () {},
                         child: Text(
-                          "Change",
+                          tr('profilescreen.change'),
                           style: TextStyle(
                               color: ColorConstant.defIndigo,
                               fontWeight: FontWeight.w900,
@@ -708,7 +708,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Image.asset(ImageConstant.Trophy),
                       ),
                       Text(
-                        "₹ 1200.52",
+                        tr('profilescreen.balance'),
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 30,
@@ -718,7 +718,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       Text(
-                        "Referal Count : 12",
+                        tr('profilescreen.referralCount'),
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 30,
@@ -743,7 +743,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                             child: Text(
-                              "View More",
+                              tr('profilescreen.viewMore'),
                               style: TextStyle(
                                   fontSize: 25,
                                   color: Colors.white,
@@ -756,7 +756,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                       ),
                       Text(
-                        "Refer to earn",
+                        tr('profilescreen.referToEarn'),
                         style: TextStyle(
                             fontSize: 25,
                             color: ColorConstant.defIndigo,
