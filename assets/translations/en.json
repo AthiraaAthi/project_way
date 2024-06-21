@@ -14,6 +14,14 @@
         "alreadyHaveAccount": "Already have an account ?",
         "login": "Login"
     },
+    "otpscreen": {
+        "otpVerification": "OTP Verification",
+        "otpInstruction": "An OTP code will be received in your mobile",
+        "phoneNumber": "+91 889xxxxxx90",
+        "verifyButton": "Verify",
+        "resendInstruction": "Didn't get the OTP ? ",
+        "resendButton": "Resend"
+    },
     "app": {
         "title": "Way",
         "quickLinksTitle": "Quick Links"
