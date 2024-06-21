@@ -351,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         children: [
                           Text(
-                            "Quick Links",
+                            'app.quickLinksTitle'.tr(),
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w800),
                           ),
