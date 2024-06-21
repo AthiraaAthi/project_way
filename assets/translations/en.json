@@ -32,268 +32,226 @@
     "toolbarItems": {
         "ai": "Ai"
     },
-    "quickLinks": [
-        {
-            "label": "Track budget"
+    "quickLinks": {
+        "TrackBuget_label": "Track budget",
+        "BudgetGoal_label": "Budget Goal",
+        "Categories_label": "Categories",
+        "Reports_label": "Reports",
+        "Passwords_label": "My Passwords",
+        "diary_label": "My Diary",
+        "chat_label": "Chats",
+        "subscription_label": "Subscription",
+        "shopping_label": "Shopping"
+    },
+    "trackbudget": {
+        "trackBudget_appbar": "Track Budget",
+        "income": "Income",
+        "expense": "Expense",
+        "estateCategory": "Estate (Category)",
+        "foodCategory": "Food (Category)",
+        "amountIncome": "+ 35000",
+        "amountExpense": "- 3500",
+        "trackBudgetDate": "21-4-2024"
+    },
+    "budget_goal_screen": {
+        "budget_goal_title": "Budget Goal",
+        "dropdowns": {
+            "year_selection": "select year",
+            "month_selection": "select month",
+            "budget_goal_categories": "Category",
+            "monthly": "Monthly",
+            "weekly": "Weekly"
         },
-        {
-            "label": "Budget Goal"
+        "buttons": {
+            "submit": "Submit",
+            "edit": "Edit",
+            "delete": "Delete"
         },
-        {
-            "label": "Categories"
+        "tableHeaders": {
+            "date": "Date",
+            "category": "Category",
+            "amount": "Amount",
+            "action": "Action"
         },
-        {
-            "label": "Reports"
-        },
-        {
-            "label": "My Passwords"
-        },
-        {
-            "label": "My Diary"
-        },
-        {
-            "label": "Chats"
-        },
-        {
-            "label": "Subscription"
-        },
-        {
-            "label": "Shopping"
-        },
-        {
-            "trackbudget": {
-                "trackBudget_appbar": "Track Budget",
-                "income": "Income",
-                "expense": "Expense",
-                "estateCategory": "Estate (Category)",
-                "foodCategory": "Food (Category)",
-                "amountIncome": "+ 35000",
-                "amountExpense": "- 3500",
-                "trackBudgetDate": "21-4-2024"
-            }
-        },
-        {
-            "budget_goal_screen": {
-                "budget_goal_title": "Budget Goal",
-                "dropdowns": {
-                    "year_selection": "select year",
-                    "month_selection": "select month",
-                    "budget_goal_categories": "Category",
-                    "monthly": "Monthly",
-                    "weekly": "Weekly"
-                },
-                "buttons": {
-                    "submit": "Submit",
-                    "edit": "Edit",
-                    "delete": "Delete"
-                },
-                "tableHeaders": {
-                    "date": "Date",
-                    "category": "Category",
-                    "amount": "Amount",
-                    "action": "Action"
-                },
-                "hints": {
-                    "startDate": "Start Date",
-                    "endDate": "End Date",
-                    "enterAmount": "Enter Amount"
-                }
-            }
-        },
-        {
-            "categoryscreen": {
-                "categoryScreenTitle": "Category Screen",
-                "addCategoryDialog": {
-                    "categoryTitle": "Add Category",
-                    "categoryNameHint": "Category Name",
-                    "categoryDescriptionHint": "Category Description",
-                    "dropdownLabel": "Indicator Color",
-                    "submitButton": "Submit",
-                    "categoryOptions": [
-                        "Income",
-                        "Food",
-                        "Notebooks"
-                    ],
-                    "backButtonTooltip": "Back"
-                }
-            }
-        },
-        {
-            "reports": {
-                "reportsTitle": "Reports",
-                "selectYear": "Select Year",
-                "years": [
-                    "2020",
-                    "2021",
-                    "2022",
-                    "2023",
-                    "2024",
-                    "2025",
-                    "2026"
-                ],
-                "selectMonth": "Select Month",
-                "months": [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "Jul",
-                    "Aug",
-                    "Sep",
-                    "Oct",
-                    "Nov",
-                    "Dec"
-                ],
-                "submit": "Submit",
-                "expenseWarning": "Your expense is greater than income. Track your expense carefully",
-                "totalIncome": "Total Income : 5100 Rs",
-                "totalExpense": "Total Expense : 15000 Rs",
-                "tableHeaders": [
-                    "Date",
-                    "Category",
-                    "Amount"
-                ],
-                "tableData": [
-                    {
-                        "tableDate": "1-5-2024",
-                        "tableCategory": "Estate",
-                        "tableAmount": "5000 Rs"
-                    },
-                    {
-                        "tableDate": "2-5-2024",
-                        "tableCategory": "Food",
-                        "tableAmount": "5000 Rs"
-                    },
-                    {
-                        "tableDate": "3-5-2024",
-                        "tableCategory": "Food",
-                        "tableAmount": "5000 Rs"
-                    }
-                ]
-            }
-        },
-        {
-            "passwordManager": {
-                "myPasswordsAppbar": "My Passwords",
-                "addPassword": "Add Password",
-                "websiteHint": "Website",
-                "descriptionHint": "Description",
-                "passwordHint": "Password",
-                "thumbInstruction": "Press your thumb here to secure your password",
-                "thumbSuccess": "Thumb impression captured successfully",
-                "passwordSubmit": "Submit",
-                "addNew": "Add New",
-                "editPassword": "Edit Password",
-                "thumbChangeInstruction": "You already added your thumb impression for the password. If you want to change that, please click below",
-                "thumbChange": "Click here to change thumb impression data"
-            }
-        },
-        {
-            "diary": {
-                "myDiaryAppbar": "My Diary",
-                "todaysDiary": "Today's Diary",
-                "titleHint": "Title",
-                "enterTextHint": "Enter text...",
-                "lockDiary": "Lock your diary with fingerprint",
-                "submit": "Submit",
-                "addNew": "Add New",
-                "editPassword": "Edit Password",
-                "editTitleHint": "Edit title",
-                "editTextHint": "Enter edited text...",
-                "thumbChangeInstruction": "You already added your thumb impression for the password. If you want to change that, please click below",
-                "thumbChange": "Click here to change thumb impression data"
-            }
-        },
-        {
-            "chat": {
-                "chatTitle": "Way Ai",
-                "clearChat": "Clear Chat",
-                "question1": "Can you add 15000 Rupees in income plan of today's date",
-                "answer1": "Yes we will add, before that we need to know what is the category?",
-                "question2": "From our Estate",
-                "answer2": "Yes we added according to your decisions",
-                "hintText": "Enter your message"
-            }
-        },
-        {
-            "notifications": {
-                "notificationAppbar": "Notifications",
-                "notificationsList": [
-                    {
-                        "notificationTitle": "My Notifications title",
-                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                    },
-                    {
-                        "notificationTitle": "My Notifications title",
-                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                    },
-                    {
-                        "notificationTitle": "My Notifications title",
-                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                    },
-                    {
-                        "notificationTitle": "My Notifications title",
-                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                    },
-                    {
-                        "notificationTitle": "My Notifications title",
-                        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                    }
-                ]
-            }
-        },
-        {
-            "profilescreen": {
-                "appBarTitle": "Profile",
-                "name": "Tony George",
-                "phoneNumber": "+91 974665155",
-                "language": "English",
-                "change": "Change",
-                "balance": "₹ 1200.52",
-                "referralCount": "Referral Count : 12",
-                "viewMore": "View More",
-                "referToEarn": "Refer to earn"
-            }
-        },
-        {
-            "earningsScreen": {
-                "earnings_appbar": "My Earnings",
-                "totalEarnings": "Total Earnings : ₹ 1200.52",
-                "earningsList": [
-                    {
-                        "earnings_Date": "21-5-2024",
-                        "earnings_title": "Referral Amount",
-                        "earnings_time": "11:50:AM",
-                        "earnings_subtitle": "Referral Amount from way team after joining of Raghu Kumar",
-                        "earnings_amount": "+ ₹ 25.5"
-                    }
-                ]
-            }
-        },
-        {
-            "comingSoonScreen": {
-                "comingSoonAppbar": {
-                    "comingSoonText": "Coming Soon"
-                }
-            }
-        },
-        {
-            "subscriptionScreen": {
-                "subscriptionPlans": "Subscription Plans",
-                "bronzePackage": "Bronze Package",
-                "silverPackage": "Silver Package",
-                "goldPackage": "Gold Package",
-                "aiChat": "AI Chat (both text, voice)",
-                "budgetHandling": "Budget Handling without opening chat page",
-                "bronzeReferalIncome": "You can earn more referral income as ₹ 39.8 and bonus income",
-                "silverReferalIncome": "You can earn more referral income as ₹ 99.8 and bonus income",
-                "goldReferalIncome": "You can earn more referral income as ₹ 159.8 and bonus income",
-                "bronzePrice": "₹ 199 for 3 months",
-                "silverPrice": "₹ 499 for 6 months",
-                "goldPrice": "₹ 699 for 1 year"
-            }
+        "hints": {
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "enterAmount": "Enter Amount"
         }
-    ]
+    },
+    "categoryscreen": {
+        "categoryScreenTitle": "Category Screen",
+        "addCategoryDialog": {
+            "categoryTitle": "Add Category",
+            "categoryNameHint": "Category Name",
+            "categoryDescriptionHint": "Category Description",
+            "dropdownLabel": "Indicator Color",
+            "submitButton": "Submit",
+            "categoryOptions": [
+                "Income",
+                "Food",
+                "Notebooks"
+            ],
+            "backButtonTooltip": "Back"
+        }
+    },
+    "reports": {
+        "reportsTitle": "Reports",
+        "selectYear": "Select Year",
+        "years": [
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026"
+        ],
+        "selectMonth": "Select Month",
+        "months": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ],
+        "submit": "Submit",
+        "expenseWarning": "Your expense is greater than income. Track your expense carefully",
+        "totalIncome": "Total Income : 5100 Rs",
+        "totalExpense": "Total Expense : 15000 Rs",
+        "tableHeaders": [
+            "Date",
+            "Category",
+            "Amount"
+        ],
+        "tableData": [
+            {
+                "tableDate": "1-5-2024",
+                "tableCategory": "Estate",
+                "tableAmount": "5000 Rs"
+            },
+            {
+                "tableDate": "2-5-2024",
+                "tableCategory": "Food",
+                "tableAmount": "5000 Rs"
+            },
+            {
+                "tableDate": "3-5-2024",
+                "tableCategory": "Food",
+                "tableAmount": "5000 Rs"
+            }
+        ]
+    },
+    "passwordManager": {
+        "myPasswordsAppbar": "My Passwords",
+        "addPassword": "Add Password",
+        "websiteHint": "Website",
+        "descriptionHint": "Description",
+        "passwordHint": "Password",
+        "thumbInstruction": "Press your thumb here to secure your password",
+        "thumbSuccess": "Thumb impression captured successfully",
+        "passwordSubmit": "Submit",
+        "addNew": "Add New",
+        "editPassword": "Edit Password",
+        "thumbChangeInstruction": "You already added your thumb impression for the password. If you want to change that, please click below",
+        "thumbChange": "Click here to change thumb impression data"
+    },
+    "diary": {
+        "myDiaryAppbar": "My Diary",
+        "todaysDiary": "Today's Diary",
+        "titleHint": "Title",
+        "enterTextHint": "Enter text...",
+        "lockDiary": "Lock your diary with fingerprint",
+        "submit": "Submit",
+        "addNew": "Add New",
+        "editPassword": "Edit Password",
+        "editTitleHint": "Edit title",
+        "editTextHint": "Enter edited text...",
+        "thumbChangeInstruction": "You already added your thumb impression for the password. If you want to change that, please click below",
+        "thumbChange": "Click here to change thumb impression data"
+    },
+    "chat": {
+        "chatTitle": "Way Ai",
+        "clearChat": "Clear Chat",
+        "question1": "Can you add 15000 Rupees in income plan of today's date",
+        "answer1": "Yes we will add, before that we need to know what is the category?",
+        "question2": "From our Estate",
+        "answer2": "Yes we added according to your decisions",
+        "hintText": "Enter your message"
+    },
+    "notifications": {
+        "notificationAppbar": "Notifications",
+        "notificationsList": [
+            {
+                "notificationTitle": "My Notifications title",
+                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            },
+            {
+                "notificationTitle": "My Notifications title",
+                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            },
+            {
+                "notificationTitle": "My Notifications title",
+                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            },
+            {
+                "notificationTitle": "My Notifications title",
+                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            },
+            {
+                "notificationTitle": "My Notifications title",
+                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        ]
+    },
+    "profilescreen": {
+        "appBarTitle": "Profile",
+        "name": "Tony George",
+        "phoneNumber": "+91 974665155",
+        "language": "English",
+        "change": "Change",
+        "balance": "₹ 1200.52",
+        "referralCount": "Referral Count : 12",
+        "viewMore": "View More",
+        "referToEarn": "Refer to earn"
+    },
+    "earningsScreen": {
+        "earnings_appbar": "My Earnings",
+        "totalEarnings": "Total Earnings : ₹ 1200.52",
+        "earningsList": [
+            {
+                "earnings_Date": "21-5-2024",
+                "earnings_title": "Referral Amount",
+                "earnings_time": "11:50:AM",
+                "earnings_subtitle": "Referral Amount from way team after joining of Raghu Kumar",
+                "earnings_amount": "+ ₹ 25.5"
+            }
+        ]
+    },
+    "comingSoonScreen": {
+        "comingSoonAppbar": {
+            "comingSoonText": "Coming Soon"
+        }
+    },
+    "subscriptionScreen": {
+        "subscriptionPlans": "Subscription Plans",
+        "bronzePackage": "Bronze Package",
+        "silverPackage": "Silver Package",
+        "goldPackage": "Gold Package",
+        "aiChat": "AI Chat (both text, voice)",
+        "budgetHandling": "Budget Handling without opening chat page",
+        "bronzeReferalIncome": "You can earn more referral income as ₹ 39.8 and bonus income",
+        "silverReferalIncome": "You can earn more referral income as ₹ 99.8 and bonus income",
+        "goldReferalIncome": "You can earn more referral income as ₹ 159.8 and bonus income",
+        "bronzePrice": "₹ 199 for 3 months",
+        "silverPrice": "₹ 499 for 6 months",
+        "goldPrice": "₹ 699 for 1 year"
+    }
 }

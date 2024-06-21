@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
@@ -13,7 +14,6 @@ import 'package:project_way/view/passwords_screen/passwords_screen.dart';
 import 'package:project_way/view/profile/profile_screen.dart';
 import 'package:project_way/view/reports_screen/reports_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
-import 'package:project_way/view/shopping_screen/shopping_screen.dart';
 import 'package:project_way/view/subscription_screen/subscription_screen.dart';
 import 'package:project_way/view/track_budget_screen/track_budget_screen.dart';
 
@@ -31,39 +31,18 @@ class _HomeScreenState extends State<HomeScreen> {
     ImageConstant.Logo,
     "assets/images/carousal.png",
   ];
-  // List<String> myText = [
-  //   "Track Budget",
-  //   "Budget Goal",
-  //   "Categories",
-  //   "Reports",
-  //   "My Passwords",
-  //   "My Diary",
-  //   "Chats",
-  //   "Subscription",
-  //   "Shopping"
-  // ];
-  // List<IconData> MyIcons = [
-  //   Icons.analytics_outlined,
-  //   Icons.track_changes,
-  //   Icons.category,
-  //   Icons.description_outlined,
-  //   Icons.lock,
-  //   Icons.menu_book,
-  //   Icons.forum_outlined,
-  //   Icons.subscriptions_outlined,
-  //   Icons.shopping_cart_outlined
-  // ];
   final List<Map<String, dynamic>> quickLinks = [
-    {'icon': Icons.show_chart, 'label': 'Track budget'},
-    {'icon': Icons.track_changes, 'label': 'Budget Goal'},
-    {'icon': Icons.category, 'label': 'Categories'},
-    {'icon': Icons.insert_chart, 'label': 'Reports'},
-    {'icon': Icons.lock, 'label': 'My Passwords'},
-    {'icon': Icons.book, 'label': 'My Diary'},
-    {'icon': Icons.chat, 'label': 'Chats'},
-    {'icon': Icons.subscriptions, 'label': 'Subscription'},
-    {'icon': Icons.shopping_cart, 'label': 'Shopping'},
+    {'icon': Icons.show_chart, 'label': 'quickLinks.TrackBuget_label'},
+    {'icon': Icons.track_changes, 'label': 'quickLinks.BudgetGoal_label'},
+    {'icon': Icons.category, 'label': 'quickLinks.Categories_label'},
+    {'icon': Icons.insert_chart, 'label': 'quickLinks.Reports_label'},
+    {'icon': Icons.lock, 'label': 'quickLinks.Passwords_label'},
+    {'icon': Icons.book, 'label': 'quickLinks.diary_label'},
+    {'icon': Icons.chat, 'label': 'quickLinks.chat_label'},
+    {'icon': Icons.subscriptions, 'label': 'quickLinks.subscription_label'},
+    {'icon': Icons.shopping_cart, 'label': 'quickLinks.shopping_label'},
   ];
+
   List<Widget> Screens = [
     TrackBudgetScreen(),
     BudgetGoalScreen(),
@@ -99,14 +78,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: MediaQuery.of(context).size.width < 600
                   ? Text(
-                      "Way",
+                      'app.title'.tr(),
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 19,
                           fontWeight: FontWeight.w600),
                     )
                   : Text(
-                      "Way",
+                      'app.title'.tr(),
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 30,
@@ -117,14 +96,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     MediaQuery.of(context).size.width < 600
                         ? Text(
-                            "Ai",
+                            'toolbarItems.ai'.tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           )
                         : Text(
-                            "Ai",
+                            'toolbarItems.ai'.tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 28,
@@ -138,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             scale: 0.7,
                             child: Switch(
                               inactiveTrackColor: Colors.white,
-                              thumbColor: MaterialStatePropertyAll(
+                              thumbColor: WidgetStatePropertyAll(
                                   ColorConstant.defIndigo),
                               activeTrackColor:
                                   const Color.fromARGB(255, 12, 223, 19),
@@ -154,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             scale: 0.9,
                             child: Switch(
                               inactiveTrackColor: Colors.white,
-                              thumbColor: MaterialStatePropertyAll(
+                              thumbColor: WidgetStatePropertyAll(
                                   ColorConstant.defIndigo),
                               activeTrackColor:
                                   const Color.fromARGB(255, 12, 223, 19),
@@ -276,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         children: [
                           Text(
-                            "Quick Links",
+                            'app.quickLinksTitle'.tr(),
                             style: TextStyle(
                                 fontSize: 17, fontWeight: FontWeight.w800),
                           ),
@@ -286,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 10,
                       ),
                       GridView.builder(
-                        itemCount: 9,
+                        itemCount: quickLinks.length,
                         shrinkWrap: true,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
@@ -303,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ));
                           },
                           icon: quickLinks[index]['icon'],
-                          text: quickLinks[index]['label'],
+                          text: tr(quickLinks[index]['label']),
                         ),
                       )
                     ],
@@ -398,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ));
                           },
                           icon: quickLinks[index]['icon'],
-                          text: quickLinks[index]['label'],
+                          text: tr(quickLinks[index]['label']),
                         ),
                       )
                     ],

@@ -51,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
-                        hintText: 'registerScreen.name'.tr(),
+                        hintText: 'registerScreen.name_hint'.tr(),
                         hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
                         border:
                             UnderlineInputBorder(borderSide: BorderSide.none),
@@ -106,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
-                            hintText: 'registerScreen.mobileNumber'.tr(),
+                            hintText: 'registerScreen.mobileNumberHint'.tr(),
                             hintStyle:
                                 TextStyle(fontSize: 15, color: Colors.grey),
                             border: UnderlineInputBorder(
@@ -122,23 +122,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Checkbox(
-                        value: isChecked,
-                        onChanged: (value) {
-                          setState(() {
-                            isChecked = value ?? false;
-                          });
-                        },
+                      Transform.scale(
+                        scale: 1.5,
+                        child: Checkbox(
+                          value: isChecked,
+                          onChanged: (value) {
+                            setState(() {
+                              isChecked = value ?? false;
+                            });
+                          },
+                        ),
                       ),
                       Row(
                         children: [
-                          Text('registerScreen.acceptTerms'.tr()),
-                          SizedBox(
-                            width: 5,
+                          Text(
+                            'registerScreen.acceptTerms'.tr(),
+                            style: TextStyle(fontSize: 13),
                           ),
+                          // SizedBox(
+                          //   width: 5,
+                          // ),
                           Text(
                             'registerScreen.termsAndConditions'.tr(),
-                            style: TextStyle(color: Colors.indigo),
+                            style: TextStyle(
+                                color: Colors.indigo,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w800),
                           )
                         ],
                       )
@@ -190,7 +199,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         child: Text(
                           'registerScreen.login'.tr(),
-                          style: TextStyle(color: Colors.indigo),
+                          style: TextStyle(
+                              color: Colors.indigo,
+                              fontWeight: FontWeight.w800),
                         ),
                       )
                     ],
