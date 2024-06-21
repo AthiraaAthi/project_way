@@ -35,7 +35,7 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                         fontWeight: FontWeight.w500),
                   )
                 : Text(
-                    "Track Budget",
+                    'trackbudget.trackBudget_appbar'.tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -177,7 +177,7 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                           width: 10,
                         ),
                         Text(
-                          "Income",
+                          'trackbudget.income'.tr(),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
@@ -192,7 +192,7 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                           width: 10,
                         ),
                         Text(
-                          "Expense",
+                          tr('trackbudget.expense').tr(),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -201,10 +201,10 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                       height: 20,
                     ),
                     TrackBudgetWidget(
-                      title: "Income",
-                      date: "21-4-2024",
-                      subtitle: "Estate (Category)",
-                      amount: "+ 35000",
+                      title: 'trackbudget.income'.tr(),
+                      date: 'trackbudget.trackBudgetDate'.tr(),
+                      subtitle: 'trackbudget.estateCategory'.tr(),
+                      amount: 'trackbudget.amountIncome'.tr(),
                       color: ColorConstant.defGreen,
                       amountColor: ColorConstant.defGreen,
                     ),
@@ -212,10 +212,10 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                       height: 15,
                     ),
                     TrackBudgetWidget(
-                      title: "Expense",
-                      date: "21-4-2024",
-                      subtitle: "Food (Category)",
-                      amount: "- 3500",
+                      title: 'trackbudget.expense'.tr(),
+                      date: 'trackbudget.trackBudgetDate'.tr(),
+                      subtitle: 'trackbudget.foodCategory'.tr(),
+                      amount: 'trackbudget.amountExpense'.tr(),
                       color: ColorConstant.defIndigo,
                       amountColor: Colors.red,
                     ),
@@ -223,10 +223,10 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                       height: 15,
                     ),
                     TrackBudgetWidget(
-                      title: "Income",
-                      date: "21-4-2024",
-                      subtitle: "Estate (Category)",
-                      amount: "+ 35000",
+                      title: 'trackbudget.income'.tr(),
+                      date: 'trackbudget.trackBudgetDate'.tr(),
+                      subtitle: 'trackbudget.estateCategory'.tr(),
+                      amount: 'trackbudget.amountIncome'.tr(),
                       color: ColorConstant.defGreen,
                       amountColor: ColorConstant.defGreen,
                     ),
@@ -234,10 +234,10 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
                       height: 15,
                     ),
                     TrackBudgetWidget(
-                      title: "Expense",
-                      date: "21-4-2024",
-                      subtitle: "Food (Category)",
-                      amount: "- 3500",
+                      title: 'trackbudget.expense'.tr(),
+                      date: 'trackbudget.trackBudgetDate'.tr(),
+                      subtitle: 'trackbudget.foodCategory'.tr(),
+                      amount: 'trackbudget.amountExpense'.tr(),
                       color: ColorConstant.defIndigo,
                       amountColor: Colors.red,
                     ),
