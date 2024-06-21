@@ -336,14 +336,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Row(
                         children: [
                           Text(
-                            "I accept your",
+                            'registerScreen.acceptTerms'.tr(),
                             style: TextStyle(fontSize: 20),
                           ),
                           SizedBox(
                             width: 10,
                           ),
                           Text(
-                            "terms and conditions",
+                            'registerScreen.termsAndConditions'.tr(),
                             style:
                                 TextStyle(color: Colors.indigo, fontSize: 20),
                           )
@@ -370,7 +370,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: Text(
-                          "Register",
+                          'registerScreen.register'.tr(),
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -386,7 +386,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account ?",
+                        'registerScreen.alreadyHaveAccount'.tr(),
                         style: TextStyle(fontSize: 22),
                       ),
                       SizedBox(
@@ -401,7 +401,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ));
                         },
                         child: Text(
-                          "Login",
+                          'registerScreen.login'.tr(),
                           style: TextStyle(color: Colors.indigo, fontSize: 22),
                         ),
                       )
