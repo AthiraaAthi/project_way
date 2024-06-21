@@ -18,17 +18,6 @@
         "title": "Way",
         "quickLinksTitle": "Quick Links"
     },
-    "carouselItems": [
-        "Track budget",
-        "Budget Goal",
-        "Categories",
-        "Reports",
-        "My Passwords",
-        "My Diary",
-        "Chats",
-        "Subscription",
-        "Shopping"
-    ],
     "toolbarItems": {
         "ai": "Ai"
     },

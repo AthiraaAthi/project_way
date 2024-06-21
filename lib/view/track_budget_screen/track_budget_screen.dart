@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
@@ -27,7 +28,7 @@ class _TrackBudgetScreenState extends State<TrackBudgetScreen> {
             backgroundColor: ColorConstant.defIndigo,
             title: MediaQuery.of(context).size.width < 600
                 ? Text(
-                    "Track Budget",
+                    'trackbudget.trackBudget_appbar'.tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
