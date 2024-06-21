@@ -14,6 +14,14 @@
         "alreadyHaveAccount": "ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ടോ ?",
         "login": "ലോഗിൻ"
     },
+    "otpscreen": {
+        "otpVerification": "ഓടിപി സ്ഥിരീകരിക്കൽ",
+        "otpInstruction": "ഒരു ഒടിപി കോഡ് നിങ്ങളുടെ മൊബൈലിലേക്ക് ലഭിക്കും",
+        "phoneNumber": "+91 889xxxxxx90",
+        "verifyButton": "സ്ഥിരീകരിക്കുക",
+        "resendInstruction": "ഓടിപി ലഭിച്ചില്ലേ ? ",
+        "resendButton": "വീണ്ടും അയയ്‌ക്കുക"
+    },
     "app": {
         "title": "വേ",
         "quickLinksTitle": "ക്വിക്ക് ലിങ്കുകൾ"
