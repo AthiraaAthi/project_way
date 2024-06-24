@@ -235,7 +235,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Didn't get the OTP ? ",
+                        'otpscreen.resendInstruction'.tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 22),
                       ),
