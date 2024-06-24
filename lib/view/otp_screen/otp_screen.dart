@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
@@ -71,18 +72,25 @@ class _OtpScreenState extends State<OtpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "OTP Verification",
+                    'otpscreen.otpVerification'.tr(),
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
                     height: 50,
                   ),
-                  Text(
-                    "An OTP code will be received in your mobile",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'otpscreen.otpInstruction'.tr(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 16),
+                      ),
+                    ],
                   ),
                   Text(
-                    "+91 889xxxxxx90",
+                    'otpscreen.phoneNumber'.tr(),
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ),
                   SizedBox(
@@ -122,11 +130,11 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                       child: Center(
                         child: Text(
-                          "Verify",
+                          'otpscreen.verifyButton'.tr(),
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.white,
-                              fontSize: 20),
+                              fontSize: 18),
                         ),
                       ),
                     ),
@@ -138,17 +146,17 @@ class _OtpScreenState extends State<OtpScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Didn't get the OTP ? ",
+                        'otpscreen.resendInstruction'.tr(),
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 18),
+                            fontWeight: FontWeight.w500, fontSize: 16),
                       ),
                       InkWell(
                         onTap: () {},
                         child: Text(
-                          "Resend",
+                          'otpscreen.resendButton'.tr(),
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
-                              fontSize: 18,
+                              fontSize: 16,
                               color: Colors.indigo),
                         ),
                       ),
