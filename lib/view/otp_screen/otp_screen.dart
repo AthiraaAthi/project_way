@@ -83,7 +83,9 @@ class _OtpScreenState extends State<OtpScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
-                  SizedBox(),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     'otpscreen.phoneNumber'.tr(),
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
