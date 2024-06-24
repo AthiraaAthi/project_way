@@ -78,17 +78,12 @@ class _OtpScreenState extends State<OtpScreen> {
                   SizedBox(
                     height: 50,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'otpscreen.otpInstruction'.tr(),
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 16),
-                      ),
-                    ],
+                  Text(
+                    'otpscreen.otpInstruction'.tr(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
+                  SizedBox(),
                   Text(
                     'otpscreen.phoneNumber'.tr(),
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
