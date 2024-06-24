@@ -245,7 +245,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       InkWell(
                         onTap: () {},
                         child: Text(
-                          "Resend",
+                          'otpscreen.resendButton'.tr(),
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 22,
