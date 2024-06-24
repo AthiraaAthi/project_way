@@ -91,7 +91,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 30,
                   ),
                   Pinput(
                     separatorBuilder: (index) {
@@ -168,14 +168,14 @@ class _OtpScreenState extends State<OtpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "OTP Verification",
+                    'otpscreen.otpVerification'.tr(),
                     style: TextStyle(fontSize: 45, fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
                     height: 50,
                   ),
                   Text(
-                    "An OTP code will be received in your mobile",
+                    'otpscreen.otpInstruction'.tr(),
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
                   ),
                   Text(
