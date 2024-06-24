@@ -179,7 +179,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
                   ),
                   Text(
-                    "+91 889xxxxxx90",
+                    'otpscreen.phoneNumber'.tr(),
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
                   ),
                   SizedBox(
@@ -219,7 +219,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                       child: Center(
                         child: Text(
-                          "Verify",
+                          'otpscreen.verifyButton'.tr(),
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.white,
