@@ -76,10 +76,10 @@
         "graph_appBar": {
             "graph_title": "Budget Graph"
         },
-        "labels": [
-            "Income",
-            "Expense"
-        ],
+        "labels": {
+            "income_label": "Income",
+            "expense_label": "Expense"
+        },
         "texts": {
             "totalIncome": "Total Income : 15000 Rs",
             "totalExpense": "Total Expense : 1500 Rs",

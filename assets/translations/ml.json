@@ -76,10 +76,10 @@
         "graph_appBar": {
             "graph_title": "ബഡ്ജറ്റ് ഗ്രാഫ്"
         },
-        "labels": [
-            "വരുമാനം",
-            "ചെലവ്"
-        ],
+        "labels": {
+            "income_label": "വരുമാനം",
+            "expense_label": "ചെലവ്"
+        },
         "texts": {
             "totalIncome": "ആകെ വരുമാനം : 15000 രൂപ",
             "totalExpense": "ആകെ ചെലവ് : 1500 രൂപ",

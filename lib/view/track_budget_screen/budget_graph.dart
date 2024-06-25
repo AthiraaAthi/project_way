@@ -14,7 +14,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   int _toggleIndex = 0;
   final List<String> _years = ['2024', '2023', '2022'];
   final List<String> _months = [
-    'budget_graph.graph_years.0',
+    'Month',
     'Jan',
     'Feb',
     'Mar',
