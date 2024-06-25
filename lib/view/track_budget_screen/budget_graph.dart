@@ -242,7 +242,10 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                   selectedBackgroundColors: [ColorConstant.defIndigo],
                   selectedTextStyle: TextStyle(color: Colors.white),
                   unSelectedTextStyle: TextStyle(color: Colors.black),
-                  labels: ["Income", "Expense"],
+                  labels: [
+                    'budget_graph.labels.income_label'.tr(),
+                    'budget_graph.labels.expense_label'.tr()
+                  ],
                   selectedLabelIndex: (index) {
                     setState(() {
                       _toggleIndex = index;
@@ -301,10 +304,14 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Text("Total Income : 15000 Rs"),
-                Text("Total Expense : 1500 Rs"),
                 Text(
-                  "Your Income is greater than expenses in this month. Great, Keep it up",
+                  'budget_graph.texts.totalIncome'.tr(),
+                ),
+                Text(
+                  'budget_graph.texts.totalExpense'.tr(),
+                ),
+                Text(
+                  'budget_graph.texts.incomeGreaterThanExpenses'.tr(),
                   style: TextStyle(color: Colors.green),
                   textAlign: TextAlign.center,
                 ),
