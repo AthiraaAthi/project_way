@@ -83,7 +83,7 @@
         "texts": {
             "totalIncome": "ആകെ വരുമാനം : 15000 രൂപ",
             "totalExpense": "ആകെ ചെലവ് : 1500 രൂപ",
-            "incomeGreaterThanExpenses": "ഈ മാസം നിങ്ങളുടെ വരുമാനം ചെലവിനേക്കാള്‍ കൂടുതലാണ്. മികച്ചത്, തുടരണം"
+            "incomeGreaterThanExpenses": "ഈ മാസം നിങ്ങളുടെ വരുമാനം ചെലവിനേക്കാള്‍ കൂടുതലാണ്. മികച്ചത്! തുടരണം"
         }
     },
     "budget_goal_screen": {

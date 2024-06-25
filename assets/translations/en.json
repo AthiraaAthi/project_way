@@ -83,7 +83,7 @@
         "texts": {
             "totalIncome": "Total Income : 15000 Rs",
             "totalExpense": "Total Expense : 1500 Rs",
-            "incomeGreaterThanExpenses": "Your Income is greater than expenses in this month. Great, Keep it up"
+            "incomeGreaterThanExpenses": "Your Income is greater than expenses in this month. Great! Keep it up"
         }
     },
     "budget_goal_screen": {
