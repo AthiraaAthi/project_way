@@ -51,12 +51,12 @@
         "trackBudgetDate": "21-4-2024"
     },
     "budget_graph": {
-        "budget_graph_years": [
+        "graph_years": [
             "2024",
             "2023",
             "2022"
         ],
-        "budget_graph_months": [
+        "graph_months": [
             "Month",
             "Jan",
             "Feb",
@@ -71,10 +71,10 @@
             "Nov",
             "Dec"
         ],
-        "budget_graph_selectedYear": "2024",
-        "budget_graph_selectedMonth": "Month",
-        "budget_graph_appBar": {
-            "budget_graph_title": "Budget Graph"
+        "graph_selectedYear": "2024",
+        "graph_selectedMonth": "Month",
+        "graph_appBar": {
+            "graph_title": "Budget Graph"
         },
         "labels": [
             "Income",

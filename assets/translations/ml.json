@@ -51,12 +51,12 @@
         "trackBudgetDate": "21-4-2024"
     },
     "budget_graph": {
-        "budget_graph_years": [
+        "graph_years": [
             "2024",
             "2023",
             "2022"
         ],
-        "budget_graph_months": [
+        "graph_months": [
             "മാസം",
             "ജനു",
             "ഫെബ്രു",
@@ -71,10 +71,10 @@
             "നവ",
             "ഡിസ"
         ],
-        "budget_graph_selectedYear": "2024",
-        "budget_graph_selectedMonth": "മാസം",
-        "budget_graph_appBar": {
-            "budget_graph_title": "ബഡ്ജറ്റ് ഗ്രാഫ്"
+        "graph_selectedYear": "2024",
+        "graph_selectedMonth": "മാസം",
+        "graph_appBar": {
+            "graph_title": "ബഡ്ജറ്റ് ഗ്രാഫ്"
         },
         "labels": [
             "വരുമാനം",

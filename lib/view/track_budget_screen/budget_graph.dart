@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
@@ -13,7 +14,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   int _toggleIndex = 0;
   final List<String> _years = ['2024', '2023', '2022'];
   final List<String> _months = [
-    'Month',
+    'budget_graph.graph_years.0',
     'Jan',
     'Feb',
     'Mar',
@@ -150,14 +151,14 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
           toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
           title: MediaQuery.of(context).size.width < 600
               ? Text(
-                  "Budget Graph",
+                  'budget_graph.graph_appBar.graph_title'.tr(),
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w500),
                 )
               : Text(
-                  "Budget Graph",
+                  'budget_graph.graph_appBar.graph_title'.tr(),
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
