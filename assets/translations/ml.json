@@ -50,6 +50,42 @@
         "amountExpense": "- 3500",
         "trackBudgetDate": "21-4-2024"
     },
+    "budget_graph": {
+        "budget_graph_years": [
+            "2024",
+            "2023",
+            "2022"
+        ],
+        "budget_graph_months": [
+            "മാസം",
+            "ജനു",
+            "ഫെബ്രു",
+            "മാര്‍",
+            "ഏപ്രി",
+            "മേയ്",
+            "ജൂണ്‍",
+            "ജൂലൈ",
+            "ആഗ",
+            "സെപ്",
+            "ഒക്",
+            "നവ",
+            "ഡിസ"
+        ],
+        "budget_graph_selectedYear": "2024",
+        "budget_graph_selectedMonth": "മാസം",
+        "budget_graph_appBar": {
+            "budget_graph_title": "ബഡ്ജറ്റ് ഗ്രാഫ്"
+        },
+        "labels": [
+            "വരുമാനം",
+            "ചെലവ്"
+        ],
+        "texts": {
+            "totalIncome": "ആകെ വരുമാനം : 15000 രൂപ",
+            "totalExpense": "ആകെ ചെലവ് : 1500 രൂപ",
+            "incomeGreaterThanExpenses": "ഈ മാസം നിങ്ങളുടെ വരുമാനം ചെലവിനേക്കാള്‍ കൂടുതലാണ്. മികച്ചത്, തുടരണം"
+        }
+    },
     "budget_goal_screen": {
         "budget_goal_title": "ബജറ്റ് ലക്ഷ്യം",
         "dropdowns": {
