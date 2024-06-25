@@ -65,199 +65,200 @@ class _OtpScreenState extends State<OtpScreen> {
     );
     return SafeArea(
       child: Scaffold(
-          backgroundColor: ColorConstant.bgBlue,
-          body: ResponsiveWidget(
-            mobile: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'otpscreen.otpVerification'.tr(),
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    'otpscreen.otpInstruction'.tr(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'otpscreen.phoneNumber'.tr(),
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Pinput(
-                    separatorBuilder: (index) {
-                      return SizedBox(
-                        width: 20,
-                      );
-                    },
-                    length: 4,
-                    controller: pinController,
-                    defaultPinTheme: defaultPinTheme,
-                    focusedPinTheme: focusedPinTheme,
-                    submittedPinTheme: submittedPinTheme,
-                    pinAnimationType: PinAnimationType.fade,
-                    onCompleted: (pin) {},
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ));
-                    },
-                    child: Container(
-                      height: 65,
-                      width: 320,
-                      decoration: BoxDecoration(
-                        color: ColorConstant.defIndigo,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'otpscreen.verifyButton'.tr(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                              fontSize: 18),
-                        ),
+        backgroundColor: ColorConstant.bgBlue,
+        body: ResponsiveWidget(
+          mobile: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'otpscreen.otpVerification'.tr(),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'otpscreen.otpInstruction'.tr(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'otpscreen.phoneNumber'.tr(),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Pinput(
+                  separatorBuilder: (index) {
+                    return SizedBox(
+                      width: 20,
+                    );
+                  },
+                  length: 4,
+                  controller: pinController,
+                  defaultPinTheme: defaultPinTheme,
+                  focusedPinTheme: focusedPinTheme,
+                  submittedPinTheme: submittedPinTheme,
+                  pinAnimationType: PinAnimationType.fade,
+                  onCompleted: (pin) {},
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
+                  },
+                  child: Container(
+                    height: 65,
+                    width: 320,
+                    decoration: BoxDecoration(
+                      color: ColorConstant.defIndigo,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'otpscreen.verifyButton'.tr(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                            fontSize: 18),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'otpscreen.resendInstruction'.tr(),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'otpscreen.resendInstruction'.tr(),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        'otpscreen.resendButton'.tr(),
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 16),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                            color: Colors.indigo),
                       ),
-                      InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'otpscreen.resendButton'.tr(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              color: Colors.indigo),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            //FOR TAB
-            tab: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'otpscreen.otpVerification'.tr(),
-                    style: TextStyle(fontSize: 45, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    'otpscreen.otpInstruction'.tr(),
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
-                  ),
-                  Text(
-                    'otpscreen.phoneNumber'.tr(),
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Pinput(
-                    separatorBuilder: (index) {
-                      return SizedBox(
-                        width: 50,
-                      );
-                    },
-                    length: 4,
-                    controller: pinController,
-                    defaultPinTheme: defaultTabPinTheme,
-                    focusedPinTheme: focusedTabPinTheme,
-                    submittedPinTheme: submittedTabPinTheme,
-                    pinAnimationType: PinAnimationType.fade,
-                    onCompleted: (pin) {},
-                  ),
-                  SizedBox(
-                    height: 70,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ));
-                    },
-                    child: Container(
-                      height: 80,
-                      width: 380,
-                      decoration: BoxDecoration(
-                        color: ColorConstant.defIndigo,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'otpscreen.verifyButton'.tr(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                              fontSize: 20),
-                        ),
+          ),
+          //FOR TAB
+          tab: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'otpscreen.otpVerification'.tr(),
+                  style: TextStyle(fontSize: 45, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'otpscreen.otpInstruction'.tr(),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
+                ),
+                Text(
+                  'otpscreen.phoneNumber'.tr(),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Pinput(
+                  separatorBuilder: (index) {
+                    return SizedBox(
+                      width: 50,
+                    );
+                  },
+                  length: 4,
+                  controller: pinController,
+                  defaultPinTheme: defaultTabPinTheme,
+                  focusedPinTheme: focusedTabPinTheme,
+                  submittedPinTheme: submittedTabPinTheme,
+                  pinAnimationType: PinAnimationType.fade,
+                  onCompleted: (pin) {},
+                ),
+                SizedBox(
+                  height: 70,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
+                  },
+                  child: Container(
+                    height: 80,
+                    width: 380,
+                    decoration: BoxDecoration(
+                      color: ColorConstant.defIndigo,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'otpscreen.verifyButton'.tr(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                            fontSize: 20),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'otpscreen.resendInstruction'.tr(),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'otpscreen.resendInstruction'.tr(),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 22),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        'otpscreen.resendButton'.tr(),
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 22),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 22,
+                            color: Colors.indigo),
                       ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'otpscreen.resendButton'.tr(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 22,
-                              color: Colors.indigo),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
