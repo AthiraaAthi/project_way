@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
 
@@ -31,14 +30,14 @@ class ChatScreen extends StatelessWidget {
                       )),
             title: MediaQuery.of(context).size.width < 600
                 ? Text(
-                    "Way Ai",
+                    "chat.chatTitle".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w600),
                   )
                 : Text(
-                    "Way Ai",
+                    "chat.chatTitle".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -49,7 +48,7 @@ class ChatScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(18),
                 child: MediaQuery.of(context).size.width < 600
                     ? Text(
-                        "Clear Chat",
+                        "chat.clearChat".tr(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,
