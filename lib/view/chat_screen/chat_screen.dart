@@ -8,6 +8,13 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double fontSize = 12;
+
+    if (context.locale.languageCode == 'en') {
+      fontSize = 15;
+    } else if (context.locale.languageCode == 'ml') {
+      fontSize = 12;
+    }
     return SafeArea(
       child: Scaffold(
           backgroundColor: ColorConstant.bgBlue,
@@ -51,8 +58,8 @@ class ChatScreen extends StatelessWidget {
                         "chat.clearChat".tr(),
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w200),
+                            fontSize: fontSize,
+                            fontWeight: FontWeight.w300),
                       )
                     : Text(
                         "chat.clearChat".tr(),
@@ -86,14 +93,14 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 90,
-                        width: 185,
+                        height: 120,
+                        width: 200,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8bd3b3),
@@ -108,7 +115,7 @@ class ChatScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "chat.question1".tr(),
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: fontSize),
                               ),
                               Expanded(
                                 child: Row(
@@ -118,7 +125,7 @@ class ChatScreen extends StatelessWidget {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         "11:10:am",
-                                        style: TextStyle(fontSize: 10),
+                                        style: TextStyle(fontSize: fontSize),
                                       ),
                                     ),
                                   ],
@@ -131,13 +138,13 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), /////////A Chat 1/////
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Row(
                     children: [
                       Container(
-                        height: 90,
-                        width: 190,
+                        height: 110,
+                        width: 220,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8fd2ce),
@@ -152,7 +159,7 @@ class ChatScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "chat.answer1".tr(),
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: fontSize),
                               ),
                               Expanded(
                                 child: Row(
@@ -160,7 +167,7 @@ class ChatScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       "11:10:am",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: fontSize),
                                     ),
                                   ],
                                 ),
@@ -172,14 +179,14 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 2
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 70,
-                        width: 115,
+                        height: 100,
+                        width: 150,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8bd3b3),
@@ -194,15 +201,16 @@ class ChatScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "chat.question2".tr(),
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: fontSize),
                               ),
                               Expanded(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Text(
                                       "11:11:am",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: fontSize),
                                     ),
                                   ],
                                 ),
@@ -214,7 +222,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 3
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Row(
                     //mainAxisAlignment: MainAxisAlignment.end,
@@ -236,7 +244,7 @@ class ChatScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "chat.answer2".tr(),
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: fontSize),
                               ),
                               Expanded(
                                 child: Row(
@@ -244,7 +252,7 @@ class ChatScreen extends StatelessWidget {
                                   children: [
                                     Text(
                                       "11:12:am",
-                                      style: TextStyle(fontSize: 10),
+                                      style: TextStyle(fontSize: fontSize),
                                     ),
                                   ],
                                 ),
@@ -256,7 +264,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: 85,
+                    height: 55,
                   ),
 
                   Row(
@@ -280,6 +288,7 @@ class ChatScreen extends StatelessWidget {
                             ),
                             hintText: "chat.hintText".tr(),
                             hintStyle: TextStyle(
+                                fontSize: fontSize,
                                 color:
                                     const Color.fromARGB(255, 192, 190, 190)),
                             border: InputBorder.none,
@@ -479,7 +488,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Yes we added according to your decisions",
+                                "chat.answer2".tr(),
                                 style: TextStyle(fontSize: 18),
                               ),
                               SizedBox(
@@ -524,7 +533,7 @@ class ChatScreen extends StatelessWidget {
                               color: ColorConstant.defIndigo,
                               size: 30,
                             ),
-                            hintText: "enter your message",
+                            hintText: "chat.hintText".tr(),
                             hintStyle: TextStyle(
                                 color: const Color.fromARGB(255, 192, 190, 190),
                                 fontSize: 20),
