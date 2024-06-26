@@ -350,7 +350,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Can you add 15000 Rupees in income plan of today's date",
+                                "chat.question1".tr(),
                                 style: TextStyle(fontSize: 18),
                               ),
                               SizedBox(
