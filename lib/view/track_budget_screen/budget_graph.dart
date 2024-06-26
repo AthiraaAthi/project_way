@@ -460,15 +460,15 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "Total Income : 15000 Rs",
+                  'budget_graph.texts.totalIncome'.tr(),
                   style: TextStyle(fontSize: 20),
                 ),
                 Text(
-                  "Total Expense : 1500 Rs",
+                  'budget_graph.texts.totalExpense'.tr(),
                   style: TextStyle(fontSize: 20),
                 ),
                 Text(
-                  "Your Income is greater than expenses in this month. Great, Keep it up",
+                  'budget_graph.texts.incomeGreaterThanExpenses'.tr(),
                   style: TextStyle(color: Colors.green, fontSize: 20),
                   textAlign: TextAlign.center,
                 ),
