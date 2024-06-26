@@ -397,7 +397,10 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                       TextStyle(color: Colors.white, fontSize: 22),
                   unSelectedTextStyle:
                       TextStyle(color: Colors.black, fontSize: 22),
-                  labels: ["Income", "Expense"],
+                  labels: [
+                    'budget_graph.labels.income_label'.tr(),
+                    'budget_graph.labels.expense_label'.tr()
+                  ],
                   selectedLabelIndex: (index) {
                     setState(() {
                       _toggleIndex = index;
