@@ -13,6 +13,7 @@ class ChatScreen extends StatelessWidget {
     double containerWidth = 100;
 
     if (context.locale.languageCode == 'en') {
+      //for solving the font and space issue according to our jsons
       fontSize = 15;
       containerHeight = 120;
       containerWidth = 200;
@@ -270,7 +271,9 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: context.locale.languageCode == 'en' ? 45 : 20,
+                    height: context.locale.languageCode == 'en'
+                        ? 45
+                        : 20, //for solving the space issue according to our jsons
                   ),
 
                   Row(
