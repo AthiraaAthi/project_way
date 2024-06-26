@@ -120,11 +120,11 @@
             "categoryDescriptionHint": "Category Description",
             "dropdownLabel": "Indicator Color",
             "submitButton": "Submit",
-            "categoryOptions": [
-                "Income",
-                "Food",
-                "Notebooks"
-            ],
+            "categoryOptions": {
+                "incomeCategory": "Income",
+                "foodCategory": "Food",
+                "noteCategory": "Notebooks"
+            },
             "backButtonTooltip": "Back"
         }
     },

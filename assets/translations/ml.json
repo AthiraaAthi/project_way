@@ -120,11 +120,11 @@
             "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
             "dropdownLabel": "സൂചകത്തിന്റെ നിറം",
             "submitButton": "സമർപ്പിക്കുക",
-            "categoryOptions": [
-                "വരുമാനം",
-                "ഭക്ഷണം",
-                "നോട്ടുബുക്കുകൾ"
-            ],
+            "categoryOptions": {
+                "incomeCategory": "വരുമാനം",
+                "foodCategory": "ഭക്ഷണം",
+                "noteCategory": "നോട്ടുബുക്കുകൾ"
+            },
             "backButtonTooltip": "തിരികെ"
         }
     },
