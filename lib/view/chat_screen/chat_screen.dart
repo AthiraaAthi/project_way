@@ -9,10 +9,16 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double fontSize = 12;
+    double containerHeight = 100;
+    double containerWidth = 100;
 
     if (context.locale.languageCode == 'en') {
       fontSize = 15;
+      containerHeight = 120;
+      containerWidth = 200;
     } else if (context.locale.languageCode == 'ml') {
+      containerHeight = 130;
+      containerWidth = 200;
       fontSize = 12;
     }
     return SafeArea(
@@ -99,8 +105,8 @@ class ChatScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        height: 120,
-                        width: 200,
+                        height: containerHeight,
+                        width: containerWidth,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8bd3b3),
@@ -143,8 +149,8 @@ class ChatScreen extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        height: 110,
-                        width: 220,
+                        height: containerHeight,
+                        width: containerWidth,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8fd2ce),
@@ -229,7 +235,7 @@ class ChatScreen extends StatelessWidget {
                     children: [
                       Container(
                         height: 90,
-                        width: 190,
+                        width: containerWidth,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           color: Color(0xff8fd2ce),
@@ -264,7 +270,7 @@ class ChatScreen extends StatelessWidget {
                     ],
                   ), ///////////CHAT 4
                   SizedBox(
-                    height: 55,
+                    height: context.locale.languageCode == 'en' ? 45 : 20,
                   ),
 
                   Row(
