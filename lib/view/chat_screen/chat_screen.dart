@@ -393,7 +393,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Yes we will add,before that we need to know what is the What is the category?",
+                                "chat.answer1".tr(),
                                 style: TextStyle(fontSize: 18),
                               ),
                               SizedBox(
@@ -436,7 +436,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "From our Estate",
+                                "chat.question2".tr(),
                                 style: TextStyle(fontSize: 18),
                               ),
                               SizedBox(
