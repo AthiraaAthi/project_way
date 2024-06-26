@@ -55,7 +55,7 @@ class ChatScreen extends StatelessWidget {
                             fontWeight: FontWeight.w200),
                       )
                     : Text(
-                        "Clear Chat",
+                        "chat.clearChat".tr(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 22,
@@ -107,7 +107,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Can you add 15000 Rupees in income plan of today's date",
+                                "chat.question1".tr(),
                                 style: TextStyle(fontSize: 12),
                               ),
                               Expanded(
@@ -151,7 +151,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Yes we will add,before that we need to know what is the What is the category?",
+                                "chat.answer1".tr(),
                                 style: TextStyle(fontSize: 12),
                               ),
                               Expanded(
@@ -193,7 +193,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "From our Estate",
+                                "chat.question2".tr(),
                                 style: TextStyle(fontSize: 12),
                               ),
                               Expanded(
@@ -235,7 +235,7 @@ class ChatScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "Yes we added according to your decisions",
+                                "chat.answer2".tr(),
                                 style: TextStyle(fontSize: 12),
                               ),
                               Expanded(
@@ -278,7 +278,7 @@ class ChatScreen extends StatelessWidget {
                               Icons.attach_file,
                               color: ColorConstant.defIndigo,
                             ),
-                            hintText: "enter your message",
+                            hintText: "chat.hintText".tr(),
                             hintStyle: TextStyle(
                                 color:
                                     const Color.fromARGB(255, 192, 190, 190)),
