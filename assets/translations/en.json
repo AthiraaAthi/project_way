@@ -221,28 +221,8 @@
     },
     "notifications": {
         "notificationAppbar": "Notifications",
-        "notificationsList": [
-            {
-                "notificationTitle": "My Notifications title",
-                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            },
-            {
-                "notificationTitle": "My Notifications title",
-                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            },
-            {
-                "notificationTitle": "My Notifications title",
-                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            },
-            {
-                "notificationTitle": "My Notifications title",
-                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            },
-            {
-                "notificationTitle": "My Notifications title",
-                "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            }
-        ]
+        "notificationTitle": "My Notifications title",
+        "notificationBody": "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit"
     },
     "profilescreen": {
         "appBarTitle": "Profile",
