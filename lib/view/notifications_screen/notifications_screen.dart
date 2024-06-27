@@ -29,7 +29,7 @@ class NotificationScreen extends StatelessWidget {
                     ),
             ),
             title: Text(
-              "Notifications",
+              "notifications.notificationAppbar",
               style: MediaQuery.of(context).size.width < 600
                   ? TextStyle(
                       color: Colors.white,
