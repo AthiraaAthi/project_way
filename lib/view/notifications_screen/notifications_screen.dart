@@ -30,7 +30,8 @@ class NotificationScreen extends StatelessWidget {
                     ),
             ),
             title: Text(
-              "notifications.notificationAppbar".tr(),
+              "Notifications",
+              //"notifications.notificationAppbar".tr(),
               style: MediaQuery.of(context).size.width < 600
                   ? TextStyle(
                       color: Colors.white,
@@ -82,14 +83,16 @@ class NotificationScreen extends StatelessWidget {
                                   width: 8,
                                 ),
                                 Text(
-                                  "notifications.notificationTitle".tr(),
+                                  "My Notifications title",
+                                  // "notifications.notificationTitle".tr(),
                                   style: TextStyle(fontWeight: FontWeight.w900),
                                 )
                               ],
                             ),
                           ),
                           Text(
-                            "notifications.notificationBody".tr(),
+                            "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit . ",
+                            //"notifications.notificationBody".tr(),
                             maxLines: 3,
                             overflow: TextOverflow.visible,
                           )
