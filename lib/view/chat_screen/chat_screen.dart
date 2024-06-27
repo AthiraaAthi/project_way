@@ -15,10 +15,10 @@ class ChatScreen extends StatelessWidget {
     if (context.locale.languageCode == 'en') {
       //for solving the font and space issue according to our jsons
       fontSize = 15;
-      containerHeight = 100;
+      containerHeight = 110;
       containerWidth = 200;
     } else if (context.locale.languageCode == 'ml') {
-      containerHeight = 130;
+      containerHeight = 120;
       containerWidth = 200;
       fontSize = 12;
     }
@@ -215,9 +215,12 @@ class ChatScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      "11:11:am",
-                                      style: TextStyle(fontSize: fontSize),
+                                    Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Text(
+                                        "11:11:am",
+                                        style: TextStyle(fontSize: fontSize),
+                                      ),
                                     ),
                                   ],
                                 ),
