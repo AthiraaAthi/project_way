@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
@@ -29,7 +30,7 @@ class NotificationScreen extends StatelessWidget {
                     ),
             ),
             title: Text(
-              "notifications.notificationAppbar",
+              "notifications.notificationAppbar".tr(),
               style: MediaQuery.of(context).size.width < 600
                   ? TextStyle(
                       color: Colors.white,
