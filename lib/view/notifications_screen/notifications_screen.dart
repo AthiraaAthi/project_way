@@ -82,14 +82,14 @@ class NotificationScreen extends StatelessWidget {
                                   width: 8,
                                 ),
                                 Text(
-                                  "My Notifications title",
+                                  "notifications.notificationTitle".tr(),
                                   style: TextStyle(fontWeight: FontWeight.w900),
                                 )
                               ],
                             ),
                           ),
                           Text(
-                            "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit ",
+                            "notifications.notificationBody".tr(),
                             maxLines: 3,
                             overflow: TextOverflow.visible,
                           )
