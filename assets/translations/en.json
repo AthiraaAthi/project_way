@@ -98,7 +98,8 @@
         "categoryValues": {
             "Income": "Income",
             "Food": "Food",
-            "Notebooks": "Notebooks"
+            "Notebooks": "Notebooks",
+            "Estate": "Estate"
         },
         "budget_months": {
             "Jan": "Jan",

@@ -89,8 +89,8 @@
     "budget_goal_screen": {
         "budget_goal_title": "ബജറ്റ് ലക്ഷ്യം",
         "dropdowns": {
-            "year_selectionar": "വർഷം തിരഞ്ഞെടുക്കുക",
-            "month_selection": "മാസം തിരഞ്ഞെടുക്കുക",
+            "year_selection": "വർഷം",
+            "month_selection": "മാസം",
             "budgetCategory": "വിഭാഗം",
             "monthly": "മാസാന്ത്യ",
             "weekly": "വാരാന്ത്യ"
@@ -98,7 +98,8 @@
         "categoryValues": {
             "Income": "വരുമാനം",
             "Food": "ഭക്ഷണം",
-            "Notebooks": "നോട്ടുബുക്കുകൾ"
+            "Notebooks": "നോട്ടുബുക്കുകൾ",
+            "Estate": "എസ്റ്റേറ്റ്"
         },
         "budget_months": {
             "Jan": "Jan",

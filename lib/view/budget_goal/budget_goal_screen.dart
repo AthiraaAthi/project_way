@@ -13,7 +13,7 @@ class BudgetGoalScreen extends StatefulWidget {
 class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   List<String> numbers = [
     // for year
-    "select year",
+    "budget_goal_screen.dropdowns.year_selection".tr(),
     "2020",
     "2021",
     "2022",
@@ -23,7 +23,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     "2026"
   ];
 
-  String dropDownValue = "select year";
+  String dropDownValue = "budget_goal_screen.dropdowns.year_selection".tr();
   List<String> months = [
     // for month
     "budget_goal_screen.dropdowns.month_selection".tr(),
@@ -57,7 +57,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     "budget_goal_screen.dropdowns.monthly".tr(),
     "budget_goal_screen.dropdowns.weekly".tr()
   ]; // week or month selection
-  String dropDownMonthOrWeekValue = "Monthly";
+  String dropDownMonthOrWeekValue = "budget_goal_screen.dropdowns.monthly".tr();
   List<String> Category = [
     "budget_goal_screen.dropdowns.budgetCategory".tr(),
     "budget_goal_screen.categoryValues.Food".tr(),
@@ -68,12 +68,36 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
       "budget_goal_screen.dropdowns.budgetCategory".tr();
   List<Map<String, String>> tableData = [
     // For Table
-    {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},
-    {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
-    {"date": "3-5-2024", "category": "Food", "amount": "5000 Rs"},
-    {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},
-    {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
-    {"date": "3-5-2024", "category": "Food", "amount": "5000 Rs"},
+    {
+      "date": "1-5-2024",
+      "category": "budget_goal_screen.categoryValues.Estate".tr(),
+      "amount": "5000 Rs"
+    },
+    {
+      "date": "2-5-2024",
+      "category": "budget_goal_screen.categoryValues.Food".tr(),
+      "amount": "5000 Rs"
+    },
+    {
+      "date": "3-5-2024",
+      "category": "budget_goal_screen.categoryValues.Food".tr(),
+      "amount": "5000 Rs"
+    },
+    {
+      "date": "1-5-2024",
+      "category": "budget_goal_screen.categoryValues.Estate".tr(),
+      "amount": "5000 Rs"
+    },
+    {
+      "date": "2-5-2024",
+      "category": "budget_goal_screen.categoryValues.Food".tr(),
+      "amount": "5000 Rs"
+    },
+    {
+      "date": "3-5-2024",
+      "category": "budget_goal_screen.categoryValues.Food".tr(),
+      "amount": "5000 Rs"
+    },
   ];
   final TextEditingController startDateController = TextEditingController();
   final TextEditingController endDateController = TextEditingController();
@@ -126,7 +150,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
               title: MediaQuery.of(context).size.width < 600
                   ? Text(
-                      "Budget Goal",
+                      "budget_goal_screen.budget_goal_title".tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -134,7 +158,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     )
                   : Text(
-                      "Budget Goal",
+                      "budget_goal_screen.budget_goal_title".tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -227,7 +251,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    if (dropDownMonthOrWeekValue == "Monthly") ...[
+                    if (dropDownMonthOrWeekValue ==
+                        "budget_goal_screen.dropdowns.monthly".tr()) ...[
                       //Mothly dropdowns
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -304,7 +329,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           ),
                         ],
                       ),
-                    ] else if (dropDownMonthOrWeekValue == "Weekly") ...[
+                    ] else if (dropDownMonthOrWeekValue ==
+                        "budget_goal_screen.dropdowns.weekly".tr()) ...[
                       //the extra dropdowns for weekly
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -319,7 +345,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               controller: startDateController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: "Start Date",
+                                  hintText:
+                                      "budget_goal_screen.hints.startDate".tr(),
                                   contentPadding: EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 10)),
                               onTap: () async {
@@ -339,7 +366,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               controller: endDateController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: "End Date",
+                                  hintText:
+                                      "budget_goal_screen.hints.endDate".tr(),
                                   contentPadding: EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 10)),
                               onTap: () async {
@@ -403,7 +431,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       child: TextField(
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: "Enter Amount",
+                            hintText:
+                                "budget_goal_screen.hints.enterAmount".tr(),
                             hintStyle: TextStyle(fontSize: 13),
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 25)),
@@ -425,7 +454,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                         child: Center(
                           child: Text(
-                            "Submit",
+                            "budget_goal_screen.buttons.submit".tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
@@ -441,10 +470,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       dataRowMaxHeight: 60,
                       columnSpacing: 30,
                       border: TableBorder.all(color: Colors.grey, width: 0.5),
-                      columns: const [
+                      columns: [
                         DataColumn(
                             label: Text(
-                          'Date',
+                          'budget_goal_screen.tableHeaders.date'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -452,7 +481,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Category',
+                          'budget_goal_screen.tableHeaders.category'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -460,7 +489,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Amount',
+                          'budget_goal_screen.tableHeaders.amount'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -468,7 +497,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Action',
+                          'budget_goal_screen.tableHeaders.action'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -504,13 +533,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      "Edit",
+                                      'budget_goal_screen.buttons.edit'.tr(),
                                       style: TextStyle(
                                           color: Colors.green, fontSize: 13),
                                     ),
                                   ),
                                   Text(
-                                    "Delete",
+                                    'budget_goal_screen.buttons.delete'.tr(),
                                     style: TextStyle(
                                         color: Colors.red, fontSize: 13),
                                   )
