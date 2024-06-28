@@ -139,7 +139,7 @@ class NotificationScreen extends StatelessWidget {
                                   width: 10,
                                 ),
                                 Text(
-                                  "My Notifications title",
+                                  "notifications.notificationTitle".tr(),
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 25),
@@ -150,7 +150,7 @@ class NotificationScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 20, left: 20),
                             child: Text(
-                              "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit . ",
+                              "notifications.notificationBody".tr(),
                               style: TextStyle(fontSize: 20),
                             ),
                           )
