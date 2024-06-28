@@ -128,6 +128,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double hintSize = 12;
+    if (context.locale.languageCode == 'en') {
+      hintSize = 15;
+    } else if (context.locale.languageCode == 'ml') {
+      hintSize = 13;
+    }
+
     return SafeArea(
       child: Scaffold(
           backgroundColor: ColorConstant.bgBlue,
@@ -345,6 +352,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               controller: startDateController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
+                                  hintStyle: TextStyle(fontSize: hintSize),
                                   hintText:
                                       "budget_goal_screen.hints.startDate".tr(),
                                   contentPadding: EdgeInsets.symmetric(
@@ -366,6 +374,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               controller: endDateController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
+                                  hintStyle: TextStyle(fontSize: hintSize),
                                   hintText:
                                       "budget_goal_screen.hints.endDate".tr(),
                                   contentPadding: EdgeInsets.symmetric(
