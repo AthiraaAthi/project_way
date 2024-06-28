@@ -673,7 +673,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       trailing: InkWell(
                         //FOR DIALOG BOX
-                        onTap: () {},
+                        onTap: () {
+                          _showDialog();
+                        },
                         child: Text(
                           tr('profilescreen.change'),
                           style: TextStyle(

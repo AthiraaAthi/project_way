@@ -89,8 +89,8 @@
     "budget_goal_screen": {
         "budget_goal_title": "Budget Goal",
         "dropdowns": {
-            "year_selection": "select year",
-            "month_selection": "select month",
+            "year_selection": "Select year",
+            "month_selection": "Select month",
             "budgetCategory": "Category",
             "monthly": "Monthly",
             "weekly": "Weekly"

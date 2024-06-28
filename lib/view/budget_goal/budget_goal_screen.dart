@@ -130,12 +130,18 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   Widget build(BuildContext context) {
     double hintSize = 12;
     double buttonSize = 15;
+    double tabhint = 18;
+    double tabPadding = 80;
     if (context.locale.languageCode == 'en') {
       hintSize = 15;
       buttonSize = 13;
+      tabhint = 18;
+      tabPadding = 80;
     } else if (context.locale.languageCode == 'ml') {
       hintSize = 13;
       buttonSize = 12;
+      tabhint = 18;
+      tabPadding = 30;
     }
 
     return SafeArea(
@@ -602,7 +608,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     value,
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                                        fontSize: 23),
                                   ),
                                 ),
                               );
@@ -640,7 +646,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     value,
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                                        fontSize: 23),
                                   ),
                                 ),
                               );
@@ -657,7 +663,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     SizedBox(
                       height: 30,
                     ),
-                    if (dropDownMonthOrWeekValue == "Monthly") ...[
+                    if (dropDownMonthOrWeekValue ==
+                        "budget_goal_screen.dropdowns.monthly".tr()) ...[
                       //Mothly dropdowns
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -687,7 +694,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                       value,
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20),
+                                          fontSize: 23),
                                     ),
                                   ),
                                 );
@@ -724,7 +731,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                       value,
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20),
+                                          fontSize: 23),
                                     ),
                                   ),
                                 );
@@ -738,7 +745,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           ),
                         ],
                       ),
-                    ] else if (dropDownMonthOrWeekValue == "Weekly") ...[
+                    ] else if (dropDownMonthOrWeekValue ==
+                        "budget_goal_screen.dropdowns.weekly".tr()) ...[
                       //the extra dropdowns for weekly
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -754,10 +762,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               controller: startDateController,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "Start Date",
-                                hintStyle: TextStyle(fontSize: 18),
+                                hintText:
+                                    "budget_goal_screen.hints.startDate".tr(),
+                                hintStyle: TextStyle(fontSize: tabhint),
                                 contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 80),
+                                    vertical: 10, horizontal: tabPadding),
                               ),
                               onTap: () async {
                                 FocusScope.of(context)
@@ -777,10 +786,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               controller: endDateController,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "End Date",
-                                hintStyle: TextStyle(fontSize: 18),
+                                hintText:
+                                    "budget_goal_screen.hints.endDate".tr(),
+                                hintStyle: TextStyle(fontSize: tabhint),
                                 contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 80),
+                                    vertical: 10, horizontal: tabPadding),
                               ),
                               onTap: () async {
                                 FocusScope.of(context)
@@ -847,10 +857,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       child: TextField(
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Enter Amount",
-                          hintStyle: TextStyle(fontSize: 18),
+                          hintText: "budget_goal_screen.hints.enterAmount".tr(),
+                          hintStyle: TextStyle(fontSize: 20),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 150),
+                              vertical: 10,
+                              horizontal: context.locale.languageCode == 'en'
+                                  ? 130
+                                  : 100),
                         ),
                       ),
                     ),
@@ -870,11 +883,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                         child: Center(
                           child: Text(
-                            "Submit",
+                            "budget_goal_screen.buttons.submit".tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 13),
+                                fontSize: 18),
                           ),
                         ),
                       ),
@@ -885,12 +898,12 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     DataTable(
                       headingRowHeight: 70,
                       dataRowMaxHeight: 100,
-                      columnSpacing: 120,
+                      columnSpacing: 100,
                       border: TableBorder.all(color: Colors.grey, width: 1),
-                      columns: const [
+                      columns: [
                         DataColumn(
                             label: Text(
-                          'Date',
+                          'budget_goal_screen.tableHeaders.date'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -898,7 +911,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Category',
+                          'budget_goal_screen.tableHeaders.category'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -906,7 +919,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Amount',
+                          'budget_goal_screen.tableHeaders.amount'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -914,7 +927,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Action',
+                          'budget_goal_screen.tableHeaders.action'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -950,13 +963,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      "Edit",
+                                      'budget_goal_screen.buttons.edit'.tr(),
                                       style: TextStyle(
                                           color: Colors.green, fontSize: 18),
                                     ),
                                   ),
                                   Text(
-                                    "Delete",
+                                    'budget_goal_screen.buttons.delete'.tr(),
                                     style: TextStyle(
                                         color: Colors.red, fontSize: 18),
                                   )
