@@ -71,32 +71,32 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     {
       "date": "1-5-2024",
       "category": "budget_goal_screen.categoryValues.Estate".tr(),
-      "amount": "5000 Rs"
+      "amount": "5000"
     },
     {
       "date": "2-5-2024",
       "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000 Rs"
+      "amount": "5000"
     },
     {
       "date": "3-5-2024",
       "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000 Rs"
+      "amount": "5000"
     },
     {
       "date": "1-5-2024",
       "category": "budget_goal_screen.categoryValues.Estate".tr(),
-      "amount": "5000 Rs"
+      "amount": "5000"
     },
     {
       "date": "2-5-2024",
       "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000 Rs"
+      "amount": "5000"
     },
     {
       "date": "3-5-2024",
       "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000 Rs"
+      "amount": "5000"
     },
   ];
   final TextEditingController startDateController = TextEditingController();
@@ -129,10 +129,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   @override
   Widget build(BuildContext context) {
     double hintSize = 12;
+    double buttonSize = 15;
     if (context.locale.languageCode == 'en') {
       hintSize = 15;
+      buttonSize = 13;
     } else if (context.locale.languageCode == 'ml') {
       hintSize = 13;
+      buttonSize = 12;
     }
 
     return SafeArea(
@@ -544,13 +547,15 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     child: Text(
                                       'budget_goal_screen.buttons.edit'.tr(),
                                       style: TextStyle(
-                                          color: Colors.green, fontSize: 13),
+                                          color: Colors.green,
+                                          fontSize: buttonSize),
                                     ),
                                   ),
                                   Text(
                                     'budget_goal_screen.buttons.delete'.tr(),
                                     style: TextStyle(
-                                        color: Colors.red, fontSize: 13),
+                                        color: Colors.red,
+                                        fontSize: buttonSize),
                                   )
                                 ],
                               )),
