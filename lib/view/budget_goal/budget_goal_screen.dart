@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
 
@@ -22,25 +22,30 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     "2025",
     "2026"
   ];
+
   String dropDownValue = "select year";
   List<String> months = [
     // for month
-    "select month",
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
+    "budget_goal_screen.dropdowns.month_selection".tr(),
+    "budget_goal_screen.budget_months.Jan".tr(),
+    "budget_goal_screen.budget_months.Feb".tr(),
+    "budget_goal_screen.budget_months.Mar".tr(),
+    "budget_goal_screen.budget_months.Apr".tr(),
+    "budget_goal_screen.budget_months.May".tr(),
+    "budget_goal_screen.budget_months.Jun".tr(),
+    "budget_goal_screen.budget_months.Jul".tr(),
+    "budget_goal_screen.budget_months.Aug".tr(),
+    "budget_goal_screen.budget_months.Sep".tr(),
+    "budget_goal_screen.budget_months.Oct".tr(),
+    "budget_goal_screen.budget_months.Nov".tr(),
+    "budget_goal_screen.budget_months.Dec".tr(),
   ];
-  String dropDownMonthValue = "select month";
-  List<String> MonthOrWeek = ["Monthly", "Weekly"]; // week or month selection
+  String dropDownMonthValue =
+      "budget_goal_screen.dropdowns.month_selection".tr();
+  List<String> MonthOrWeek = [
+    "budget_goal_screen.dropdowns.monthly".tr(),
+    "budget_goal_screen.dropdowns.weekly".tr()
+  ]; // week or month selection
   String dropDownMonthOrWeekValue = "Monthly";
   List<String> Category = [
     "Category",
