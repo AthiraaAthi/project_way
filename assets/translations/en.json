@@ -91,9 +91,14 @@
         "dropdowns": {
             "year_selection": "select year",
             "month_selection": "select month",
-            "budget_goal_categories": "Category",
+            "budgetCategory": "Category",
             "monthly": "Monthly",
             "weekly": "Weekly"
+        },
+        "categoryValues": {
+            "Income": "Income",
+            "Food": "Food",
+            "Notebooks": "Notebooks"
         },
         "budget_months": {
             "Jan": "Jan",

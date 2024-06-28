@@ -27,18 +27,29 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   List<String> months = [
     // for month
     "budget_goal_screen.dropdowns.month_selection".tr(),
-    "budget_goal_screen.budget_months.Jan".tr(),
-    "budget_goal_screen.budget_months.Feb".tr(),
-    "budget_goal_screen.budget_months.Mar".tr(),
-    "budget_goal_screen.budget_months.Apr".tr(),
-    "budget_goal_screen.budget_months.May".tr(),
-    "budget_goal_screen.budget_months.Jun".tr(),
-    "budget_goal_screen.budget_months.Jul".tr(),
-    "budget_goal_screen.budget_months.Aug".tr(),
-    "budget_goal_screen.budget_months.Sep".tr(),
-    "budget_goal_screen.budget_months.Oct".tr(),
-    "budget_goal_screen.budget_months.Nov".tr(),
-    "budget_goal_screen.budget_months.Dec".tr(),
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec" // "budget_goal_screen.budget_months.Jan".tr(),
+    // "budget_goal_screen.budget_months.Feb".tr(),
+    // "budget_goal_screen.budget_months.Mar".tr(),
+    // "budget_goal_screen.budget_months.Apr".tr(),
+    // "budget_goal_screen.budget_months.May".tr(),
+    // "budget_goal_screen.budget_months.Jun".tr(),
+    // "budget_goal_screen.budget_months.Jul".tr(),
+    // "budget_goal_screen.budget_months.Aug".tr(),
+    // "budget_goal_screen.budget_months.Sep".tr(),
+    // "budget_goal_screen.budget_months.Oct".tr(),
+    // "budget_goal_screen.budget_months.Nov".tr(),
+    // "budget_goal_screen.budget_months.Dec".tr(),
   ];
   String dropDownMonthValue =
       "budget_goal_screen.dropdowns.month_selection".tr();
@@ -48,12 +59,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   ]; // week or month selection
   String dropDownMonthOrWeekValue = "Monthly";
   List<String> Category = [
-    "Category",
-    "Food",
-    "Books",
-    "Income"
+    "budget_goal_screen.dropdowns.budgetCategory".tr(),
+    "budget_goal_screen.categoryValues.Food".tr(),
+    "budget_goal_screen.categoryValues.Notebooks".tr(),
+    "budget_goal_screen.categoryValues.Income".tr(),
   ]; // category selection
-  String CategoryDropDownValue = "Category";
+  String CategoryDropDownValue =
+      "budget_goal_screen.dropdowns.budgetCategory".tr();
   List<Map<String, String>> tableData = [
     // For Table
     {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},

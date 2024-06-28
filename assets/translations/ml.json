@@ -91,9 +91,28 @@
         "dropdowns": {
             "year_selectionar": "വർഷം തിരഞ്ഞെടുക്കുക",
             "month_selection": "മാസം തിരഞ്ഞെടുക്കുക",
-            "budget_goal_categories": "വിഭാഗം",
+            "budgetCategory": "വിഭാഗം",
             "monthly": "മാസാന്ത്യ",
             "weekly": "വാരാന്ത്യ"
+        },
+        "categoryValues": {
+            "Income": "വരുമാനം",
+            "Food": "ഭക്ഷണം",
+            "Notebooks": "നോട്ടുബുക്കുകൾ"
+        },
+        "budget_months": {
+            "Jan": "Jan",
+            "Feb": "Feb",
+            "Mar": "Mar",
+            "Apr": "Apr",
+            "May": "May",
+            "Jun": "Jun",
+            "Jul": "Jul",
+            "Aug": "Aug",
+            "Sep": "Sep",
+            "Oct": "Oct",
+            "Nov": "Nov",
+            "Dec": "Dec"
         },
         "buttons": {
             "submit": "സമർപ്പിക്കുക",
