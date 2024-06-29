@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/model/category_model.dart';
@@ -39,14 +40,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             backgroundColor: ColorConstant.defIndigo,
             title: MediaQuery.of(context).size.width < 600
                 ? Text(
-                    "Category Screen",
+                    "categoryscreen.categoryScreenTitle".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w500),
                   )
                 : Text(
-                    "Category Screen",
+                    "categoryscreen.categoryScreenTitle".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
