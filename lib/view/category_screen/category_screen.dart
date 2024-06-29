@@ -36,7 +36,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     double fontSize = 12;
 
     if (context.locale.languageCode == 'en') {
-      fontSize = 15;
+      fontSize = 14;
     } else if (context.locale.languageCode == 'ml') {
       fontSize = 17;
     }
@@ -97,7 +97,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             ),
                             child: MediaQuery.of(context).size.width < 600
                                 ? Container(
-                                    height: 600,
+                                    height: 500,
                                     width: 440,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
