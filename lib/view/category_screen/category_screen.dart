@@ -38,7 +38,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     if (context.locale.languageCode == 'en') {
       fontSize = 17;
     } else if (context.locale.languageCode == 'ml') {
-      fontSize = 12;
+      fontSize = 17;
     }
 
     return SafeArea(
@@ -382,7 +382,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             child: Column(
                                               children: [
                                                 Text(
-                                                  "Add Category",
+                                                  "categoryscreen.addCategoryDialog.categoryTitle"
+                                                      .tr(),
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w800,
@@ -411,7 +412,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         vertical: 20,
                                                       ),
                                                       border: InputBorder.none,
-                                                      hintText: "Category Name",
+                                                      hintText:
+                                                          "categoryscreen.addCategoryDialog.categoryNameHint"
+                                                              .tr(),
                                                       hintStyle: TextStyle(
                                                           fontSize: 18,
                                                           color: Colors.grey),
@@ -435,21 +438,19 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         TextStyle(fontSize: 20),
                                                     controller: desController,
                                                     decoration: InputDecoration(
-                                                        contentPadding:
-                                                            EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        120,
-                                                                    vertical:
-                                                                        100),
-                                                        border:
-                                                            InputBorder.none,
-                                                        hintText:
-                                                            "Category Description",
-                                                        hintStyle: TextStyle(
-                                                            fontSize: 18,
-                                                            color:
-                                                                Colors.grey)),
+                                                      contentPadding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 120,
+                                                              vertical: 100),
+                                                      border: InputBorder.none,
+                                                      hintText:
+                                                          "categoryscreen.addCategoryDialog.categoryDescriptionHint"
+                                                              .tr(),
+                                                      hintStyle: TextStyle(
+                                                        fontSize: 18,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -518,7 +519,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   child: Row(
                                                     children: [
                                                       Text(
-                                                        "Indicator Color  :  ",
+                                                        "categoryscreen.addCategoryDialog.dropdownLabel"
+                                                            .tr(),
                                                         style: TextStyle(
                                                             fontSize: 20),
                                                       ),
