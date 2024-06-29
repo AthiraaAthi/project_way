@@ -133,6 +133,7 @@
         }
     },
     "categoryscreen": {
+        "addNew": "Add New",
         "categoryScreenTitle": "Category Screen",
         "addCategoryDialog": {
             "categoryTitle": "Add Category",

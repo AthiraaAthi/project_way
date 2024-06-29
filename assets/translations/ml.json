@@ -133,6 +133,7 @@
         }
     },
     "categoryscreen": {
+        "addNew": "പുതിയത്",
         "categoryScreenTitle": "വിഭാഗത്തിന്റെ സ്‌ക്രീൻ",
         "addCategoryDialog": {
             "categoryTitle": "വിഭാഗം ചേർക്കുക",
