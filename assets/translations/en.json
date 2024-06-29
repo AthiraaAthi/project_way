@@ -149,6 +149,9 @@
             "backButtonTooltip": "Back"
         }
     },
+    "ComingSoonScreen": {
+        "ComingSoon": "Coming Soon"
+    },
     "reports": {
         "reportsTitle": "Reports",
         "selectYear": "Select Year",

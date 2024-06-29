@@ -149,6 +149,9 @@
             "backButtonTooltip": "തിരികെ"
         }
     },
+    "ComingSoonScreen": {
+        "ComingSoon": "വരെക്കാനിരിക്കുന്നു"
+    },
     "reports": {
         "reportsTitle": "റിപ്പോർട്ടുകൾ",
         "selectYear": "വർഷം തിരഞ്ഞെടുക്കുക",
