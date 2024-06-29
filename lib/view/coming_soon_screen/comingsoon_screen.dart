@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
@@ -20,7 +21,7 @@ class ComingSoonScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  "Coming Soon",
+                  "ComingSoonScreen.ComingSoon".tr(),
                   style: TextStyle(
                       color: ColorConstant.defIndigo,
                       fontWeight: FontWeight.w400,
