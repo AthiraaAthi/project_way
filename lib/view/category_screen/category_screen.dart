@@ -18,11 +18,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   final desController = TextEditingController();
   List<Map<String, String>> mylist = [];
   List<String> categories = [
-    "Income",
-    "Food",
-    "Notebooks",
+    "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr(),
+    "categoryscreen.addCategoryDialog.categoryOptions.foodCategory".tr(),
+    "categoryscreen.addCategoryDialog.categoryOptions.noteCategory".tr(),
   ];
-  String dropdownValue = "Income";
+  String dropdownValue =
+      "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
   final List<Color> colors = [ColorConstant.defGreen, ColorConstant.defIndigo];
   final List<String> colorNames = [
     "Green",
@@ -32,6 +33,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   String selectedColorName = "Blue";
   @override
   Widget build(BuildContext context) {
+    double fontSize = 12;
+
+    if (context.locale.languageCode == 'en') {
+      fontSize = 17;
+    } else if (context.locale.languageCode == 'ml') {
+      fontSize = 12;
+    }
+
     return SafeArea(
       child: Scaffold(
           backgroundColor: ColorConstant.bgBlue,
@@ -100,7 +109,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             child: Column(
                                               children: [
                                                 Text(
-                                                  "Add Category",
+                                                  "categoryscreen.addCategoryDialog.categoryTitle"
+                                                      .tr(),
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.w800,
@@ -126,7 +136,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                               horizontal: 16.0,
                                                               vertical: 12.0),
                                                       border: InputBorder.none,
-                                                      hintText: "Category Name",
+                                                      hintText:
+                                                          "categoryscreen.addCategoryDialog.categoryNameHint"
+                                                              .tr(),
                                                       hintStyle: TextStyle(
                                                           fontSize: 12,
                                                           color: Colors.grey),
@@ -148,21 +160,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   child: TextField(
                                                     controller: desController,
                                                     decoration: InputDecoration(
-                                                        contentPadding:
-                                                            EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        16.0,
-                                                                    vertical:
-                                                                        12.0),
-                                                        border:
-                                                            InputBorder.none,
-                                                        hintText:
-                                                            "Category Description",
-                                                        hintStyle: TextStyle(
-                                                            fontSize: 12,
-                                                            color:
-                                                                Colors.grey)),
+                                                      contentPadding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 16.0,
+                                                              vertical: 12.0),
+                                                      border: InputBorder.none,
+                                                      hintText:
+                                                          "categoryscreen.addCategoryDialog.categoryDescriptionHint"
+                                                              .tr(),
+                                                      hintStyle: TextStyle(
+                                                          fontSize: 12,
+                                                          color: Colors.grey),
+                                                    ),
                                                   ),
                                                 ),
                                                 SizedBox(
@@ -230,7 +239,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   child: Row(
                                                     children: [
                                                       Text(
-                                                          "Indicator Color  :  "),
+                                                        "categoryscreen.addCategoryDialog.dropdownLabel"
+                                                            .tr(),
+                                                        style: TextStyle(
+                                                            fontSize: fontSize),
+                                                      ),
                                                       Container(
                                                           height: 50,
                                                           width: 166.5,
@@ -337,7 +350,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                                 .circular(5)),
                                                     child: Center(
                                                       child: Text(
-                                                        "Submit",
+                                                        "categoryscreen.addCategoryDialog.submitButton"
+                                                            .tr(),
                                                         style: TextStyle(
                                                             color: Colors.white,
                                                             fontWeight:

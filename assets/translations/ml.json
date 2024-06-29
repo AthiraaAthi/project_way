@@ -138,7 +138,7 @@
             "categoryTitle": "വിഭാഗം ചേർക്കുക",
             "categoryNameHint": "വിഭാഗത്തിന്റെ പേര്",
             "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
-            "dropdownLabel": "സൂചകത്തിന്റെ നിറം",
+            "dropdownLabel": "നിറം  :   ",
             "submitButton": "സമർപ്പിക്കുക",
             "categoryOptions": {
                 "incomeCategory": "വരുമാനം",

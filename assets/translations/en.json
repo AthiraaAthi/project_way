@@ -138,7 +138,7 @@
             "categoryTitle": "Add Category",
             "categoryNameHint": "Category Name",
             "categoryDescriptionHint": "Category Description",
-            "dropdownLabel": "Indicator Color",
+            "dropdownLabel": "Indicator Color  :   ",
             "submitButton": "Submit",
             "categoryOptions": {
                 "incomeCategory": "Income",
