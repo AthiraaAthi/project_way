@@ -134,7 +134,7 @@
     },
     "categoryscreen": {
         "addNew": "Add New",
-        "categoryScreenTitle": "Category Screen",
+        "categoryScreenTitle": "Category",
         "addCategoryDialog": {
             "categoryTitle": "Add Category",
             "categoryNameHint": "Category Name",
