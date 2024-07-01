@@ -105,7 +105,9 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                             horizontal: 16.0,
                                                             vertical: 12.0),
                                                     border: InputBorder.none,
-                                                    hintText: "Website",
+                                                    hintText:
+                                                        "passwordScreen.websiteHint"
+                                                            .tr(),
                                                     hintStyle: TextStyle(
                                                         fontSize: 12,
                                                         color: Colors.grey),
@@ -132,7 +134,9 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                               horizontal: 16.0,
                                                               vertical: 12.0),
                                                       border: InputBorder.none,
-                                                      hintText: "Description",
+                                                      hintText:
+                                                          "passwordScreen.desHint"
+                                                              .tr(),
                                                       hintStyle: TextStyle(
                                                           fontSize: 12,
                                                           color: Colors.grey)),
@@ -159,7 +163,9 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                               horizontal: 16.0,
                                                               vertical: 12.0),
                                                       border: InputBorder.none,
-                                                      hintText: "Password",
+                                                      hintText:
+                                                          "passwordScreen.passHint"
+                                                              .tr(),
                                                       hintStyle: TextStyle(
                                                           fontSize: 12,
                                                           color: Colors.grey)),
@@ -169,7 +175,8 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                 height: 30,
                                               ),
                                               Text(
-                                                "press your thumb here to secure your password",
+                                                "passwordScreen.thumbInstruction"
+                                                    .tr(),
                                                 style:
                                                     TextStyle(fontSize: 12.5),
                                               ),
@@ -191,7 +198,8 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                 height: 20,
                                               ),
                                               Text(
-                                                "Thumb impression captured successfully",
+                                                "passwordScreen.thumbSuccess"
+                                                    .tr(),
                                                 style: TextStyle(
                                                     color:
                                                         ColorConstant.defGreen,
@@ -233,7 +241,8 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                               5)),
                                                   child: Center(
                                                     child: Text(
-                                                      "Submit",
+                                                      "passwordScreen.passSubmit"
+                                                          .tr(),
                                                       style: TextStyle(
                                                           color: Colors.white,
                                                           fontWeight:
@@ -262,24 +271,12 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                           padding: const EdgeInsets.all(16),
                                           child: Column(
                                             children: [
-                                              MediaQuery.of(context)
-                                                          .size
-                                                          .width <
-                                                      600
-                                                  ? Text(
-                                                      "Add Password",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                          fontSize: 13),
-                                                    )
-                                                  : Text(
-                                                      "Add Password",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                          fontSize: 20),
-                                                    ),
+                                              Text(
+                                                "passwordScreen.addPass".tr(),
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                    fontSize: 20),
+                                              ),
                                               SizedBox(
                                                 height: 30,
                                               ),
@@ -302,7 +299,9 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                                             horizontal: 16.0,
                                                             vertical: 12.0),
                                                     border: InputBorder.none,
-                                                    hintText: "Website",
+                                                    hintText:
+                                                        "passwordScreen.websiteHint"
+                                                            .tr(),
                                                     hintStyle: TextStyle(
                                                         fontSize: 18,
                                                         color: Colors.grey),
@@ -454,7 +453,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                     },
                     child: MediaQuery.of(context).size.width < 600
                         ? Text(
-                            "Add New",
+                            "passwordScreen.addNew".tr(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
@@ -462,7 +461,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                         : Padding(
                             padding: const EdgeInsets.all(16),
                             child: Text(
-                              "Add New",
+                              "passwordScreen.addNew".tr(),
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
@@ -506,161 +505,171 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Container(
-                                height: 580,
-                                width: 400,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: SingleChildScrollView(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          "Edit Password",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w900,
-                                              fontSize: 13),
-                                        ),
-                                        SizedBox(
-                                          height: 25,
-                                        ),
-                                        Container(
-                                          height: 50,
-                                          width: 300,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          child: TextField(
-                                            controller: websiteController,
-                                            decoration: InputDecoration(
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 16.0,
-                                                      vertical: 12.0),
-                                              border: InputBorder.none,
-                                              hintText: "Website",
-                                              hintStyle: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.grey),
-                                            ),
+                              height: 580,
+                              width: 400,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        "passwordScreen.editPass".tr(),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            fontSize: 13),
+                                      ),
+                                      SizedBox(
+                                        height: 25,
+                                      ),
+                                      Container(
+                                        height: 50,
+                                        width: 300,
+                                        decoration: BoxDecoration(
+                                            border:
+                                                Border.all(color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: TextField(
+                                          controller: websiteController,
+                                          decoration: InputDecoration(
+                                            contentPadding:
+                                                EdgeInsets.symmetric(
+                                                    horizontal: 16.0,
+                                                    vertical: 12.0),
+                                            border: InputBorder.none,
+                                            hintText:
+                                                "passwordScreen.websiteHint"
+                                                    .tr(),
+                                            hintStyle: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 15,
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Container(
+                                        height: 100,
+                                        width: 300,
+                                        decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.grey),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                         ),
-                                        Container(
-                                          height: 100,
-                                          width: 300,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          child: TextField(
-                                            controller: desController,
-                                            decoration: InputDecoration(
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 16.0,
-                                                        vertical: 12.0),
-                                                border: InputBorder.none,
-                                                hintText: "Description",
-                                                hintStyle: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.grey)),
+                                        child: TextField(
+                                          controller: desController,
+                                          decoration: InputDecoration(
+                                            contentPadding:
+                                                EdgeInsets.symmetric(
+                                                    horizontal: 16.0,
+                                                    vertical: 12.0),
+                                            border: InputBorder.none,
+                                            hintText:
+                                                "passwordScreen.desHint".tr(),
+                                            hintStyle: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 15,
-                                        ),
-                                        Container(
-                                          height: 50,
-                                          width: 300,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Colors.grey),
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          child: TextField(
-                                            controller: passController,
-                                            obscureText: true,
-                                            decoration: InputDecoration(
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 16.0,
-                                                        vertical: 12.0),
-                                                border: InputBorder.none,
-                                                hintText: "Password",
-                                                hintStyle: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.grey)),
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Container(
+                                        height: 50,
+                                        width: 300,
+                                        decoration: BoxDecoration(
+                                            border:
+                                                Border.all(color: Colors.grey),
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: TextField(
+                                          controller: passController,
+                                          obscureText: true,
+                                          decoration: InputDecoration(
+                                            contentPadding:
+                                                EdgeInsets.symmetric(
+                                                    horizontal: 16.0,
+                                                    vertical: 12.0),
+                                            border: InputBorder.none,
+                                            hintText:
+                                                "passwordScreen.passHint".tr(),
+                                            hintStyle: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.grey),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 30,
+                                      ),
+                                      SizedBox(
+                                        height: 30,
+                                      ),
+                                      Text(
+                                        "passwordScreen.thumbChangeInstruction"
+                                            .tr(),
+                                        style: TextStyle(
+                                          color: ColorConstant.defGreen,
+                                          fontSize: 11.5,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                        Text(
-                                          "you alrdy added your thumb impression for the password.if you want to change that,pls click below",
-                                          style: TextStyle(
-                                              color: ColorConstant.defGreen,
-                                              fontSize: 11.5,
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                        SizedBox(
-                                          height: 20,
-                                        ),
-                                        Text(
-                                          "click here to change thumb impression data",
-                                          style: TextStyle(
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "passwordScreen.thumbChange".tr(),
+                                        style: TextStyle(
+                                            color: ColorConstant.defIndigo,
+                                            fontSize: 11.5,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 100,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            mylist[index]['website'] =
+                                                websiteController.text;
+                                            mylist[index]['description'] =
+                                                desController.text;
+                                            mylist[index]['password'] =
+                                                passController.text;
+                                            websiteController.clear();
+                                            desController.clear();
+                                            passController.clear();
+                                            Navigator.pop(context);
+                                          });
+                                        },
+                                        child: Container(
+                                          height: 45,
+                                          width: 200,
+                                          decoration: BoxDecoration(
                                               color: ColorConstant.defIndigo,
-                                              fontSize: 11.5,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        SizedBox(
-                                          height: 100,
-                                        ),
-                                        InkWell(
-                                          onTap: () {
-                                            setState(() {
-                                              mylist[index]['website'] =
-                                                  websiteController.text;
-                                              mylist[index]['description'] =
-                                                  desController.text;
-                                              mylist[index]['password'] =
-                                                  passController.text;
-                                              websiteController.clear();
-                                              desController.clear();
-                                              passController.clear();
-                                              Navigator.pop(context);
-                                            });
-                                          },
-                                          child: Container(
-                                            height: 45,
-                                            width: 200,
-                                            decoration: BoxDecoration(
-                                                color: ColorConstant.defIndigo,
-                                                borderRadius:
-                                                    BorderRadius.circular(5)),
-                                            child: Center(
-                                              child: Text(
-                                                "Submit",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 12),
-                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          child: Center(
+                                            child: Text(
+                                              "passwordScreen.passSubmit".tr(),
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12),
                                             ),
                                           ),
-                                        )
-                                      ],
-                                    ),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                )),
+                                ),
+                              ),
+                            ),
                           );
                         },
                       );
