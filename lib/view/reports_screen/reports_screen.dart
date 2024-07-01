@@ -39,9 +39,21 @@ class _ReportsScreenState extends State<ReportsScreen> {
   ];
   String dropDownMonthValue = "reports.selectMonth".tr();
   List<Map<String, String>> tableData = [
-    {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},
-    {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
-    {"date": "3-5-2024", "category": "Food", "amount": "5000 Rs"},
+    {
+      "date": "1-5-2024",
+      "category": "repots.tableData.tableCategory1".tr(),
+      "amount": "repots.tableData.tableAmount1".tr(),
+    },
+    {
+      "date": "2-5-2024",
+      "category": "repots.tableData.tableCategory2".tr(),
+      "amount": "repots.tableData.tableAmount2".tr(),
+    },
+    {
+      "date": "3-5-2024",
+      "category": "repots.tableData.tableCategory3".tr(),
+      "amount": "repots.tableData.tableAmount3".tr(),
+    },
   ];
 
   @override

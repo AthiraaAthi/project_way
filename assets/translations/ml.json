@@ -188,23 +188,17 @@
             "category": "വിഭാഗം",
             "amount": "തുക"
         },
-        "tableData": [
-            {
-                "tableDate": "1-5-2024",
-                "tableCategory": "എസ്റ്റേറ്റ്",
-                "tableAmount": "5000 രൂപ"
-            },
-            {
-                "tableDate": "2-5-2024",
-                "tableCategory": "ഭക്ഷണം",
-                "tableAmount": "5000 രൂപ"
-            },
-            {
-                "tableDate": "3-5-2024",
-                "tableCategory": "ഭക്ഷണം",
-                "tableAmount": "5000 രൂപ"
-            }
-        ]
+        "tableData": {
+            "tableDate1": "1-5-2024",
+            "tableCategory1": "എസ്റ്റേറ്റ്",
+            "tableAmount1": "5000 രൂപ",
+            "tableDate2": "2-5-2024",
+            "tableCategory2": "ഭക്ഷണം",
+            "tableAmount2": "5000 രൂപ",
+            "tableDate3": "3-5-2024",
+            "tableCategory3": "ഭക്ഷണം",
+            "tableAmount3": "5000 രൂപ"
+        }
     },
     "passwordManager": {
         "myPasswordsAppbar": "എൻ്റെ പാസ്‌വേഡുകൾ",
