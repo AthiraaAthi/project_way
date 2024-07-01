@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
@@ -11,7 +12,7 @@ class ReportsScreen extends StatefulWidget {
 
 class _ReportsScreenState extends State<ReportsScreen> {
   List<String> numbers = [
-    "select year",
+    "reports.selectYear".tr(),
     "2020",
     "2021",
     "2022",
@@ -20,9 +21,9 @@ class _ReportsScreenState extends State<ReportsScreen> {
     "2025",
     "2026"
   ];
-  String dropDownValue = "select year";
+  String dropDownValue = "reports.selectYear".tr();
   List<String> months = [
-    "select month",
+    "reports.selectMonth".tr(),
     "Jan",
     "Feb",
     "Mar",
@@ -36,7 +37,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
     "Nov",
     "Dec"
   ];
-  String dropDownMonthValue = "select month";
+  String dropDownMonthValue = "reports.selectMonth".tr();
   List<Map<String, String>> tableData = [
     {"date": "1-5-2024", "category": "Estate", "amount": "5000 Rs"},
     {"date": "2-5-2024", "category": "Food", "amount": "5000 Rs"},
@@ -67,7 +68,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         )),
               title: MediaQuery.of(context).size.width < 600
                   ? Text(
-                      "Reports",
+                      "reports.reportsTitle".tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -75,7 +76,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       ),
                     )
                   : Text(
-                      "Reports",
+                      "reports.reportsTitle".tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -180,7 +181,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         ),
                         child: Center(
                           child: Text(
-                            "Submit",
+                            "reports.submit".tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
