@@ -200,17 +200,17 @@
             "tableAmount3": "5000 Rs"
         }
     },
-    "passwordManager": {
-        "myPasswordsAppbar": "My Passwords",
-        "addPassword": "Add Password",
+    "passwordScreen": {
+        "PasswordAppbar": "My Passwords",
+        "addPass": "Add Password",
         "websiteHint": "Website",
-        "descriptionHint": "Description",
-        "passwordHint": "Password",
+        "desHint": "Description",
+        "passHint": "Password",
         "thumbInstruction": "Press your thumb here to secure your password",
         "thumbSuccess": "Thumb impression captured successfully",
-        "passwordSubmit": "Submit",
+        "passSubmit": "Submit",
         "addNew": "Add New",
-        "editPassword": "Edit Password",
+        "editPass": "Edit Password",
         "thumbChangeInstruction": "You already added your thumb impression for the password. If you want to change that, please click below",
         "thumbChange": "Click here to change thumb impression data"
     },

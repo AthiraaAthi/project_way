@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
@@ -26,14 +27,14 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
             backgroundColor: ColorConstant.defIndigo,
             title: MediaQuery.of(context).size.width < 600
                 ? Text(
-                    "My Passwords",
+                    "passwordScreen.PasswordAppbar".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w500),
                   )
                 : Text(
-                    "My Passwords",
+                    "passwordScreen.PasswordAppbar".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
@@ -79,7 +80,7 @@ class _PasswordsScreenState extends State<PasswordsScreen> {
                                           child: Column(
                                             children: [
                                               Text(
-                                                "Add Password",
+                                                "passwordScreen.addPass".tr(),
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.w900,
                                                     fontSize: 13),
