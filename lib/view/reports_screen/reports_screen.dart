@@ -41,18 +41,18 @@ class _ReportsScreenState extends State<ReportsScreen> {
   List<Map<String, String>> tableData = [
     {
       "date": "1-5-2024",
-      "category": "repots.tableData.tableCategory1".tr(),
-      "amount": "repots.tableData.tableAmount1".tr(),
+      "category": "reports.tableData.tableCategory1".tr(),
+      "amount": "reports.tableData.tableAmount1".tr(),
     },
     {
       "date": "2-5-2024",
-      "category": "repots.tableData.tableCategory2".tr(),
-      "amount": "repots.tableData.tableAmount2".tr(),
+      "category": "reports.tableData.tableCategory2".tr(),
+      "amount": "reports.tableData.tableAmount2".tr(),
     },
     {
       "date": "3-5-2024",
-      "category": "repots.tableData.tableCategory3".tr(),
-      "amount": "repots.tableData.tableAmount3".tr(),
+      "category": "reports.tableData.tableCategory3".tr(),
+      "amount": "reports.tableData.tableAmount3".tr(),
     },
   ];
 
@@ -290,7 +290,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                     Row(
                       children: [
                         Text(
-                          "Total Expense : 15000 Rs",
+                          "reports.totalExpense".tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -305,10 +305,10 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       dataRowMaxHeight: 80,
                       columnSpacing: 60,
                       border: TableBorder.all(),
-                      columns: const [
+                      columns: [
                         DataColumn(
                             label: Text(
-                          'Date',
+                          'reports.report_table.date'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -316,7 +316,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Category',
+                          'reports.report_table.category'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -324,7 +324,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Amount',
+                          'reports.report_table.amount'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
