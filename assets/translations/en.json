@@ -188,23 +188,17 @@
             "category": "Category",
             "amount": "Amount"
         },
-        "tableData": [
-            {
-                "tableDate": "1-5-2024",
-                "tableCategory": "Estate",
-                "tableAmount": "5000 Rs"
-            },
-            {
-                "tableDate": "2-5-2024",
-                "tableCategory": "Food",
-                "tableAmount": "5000 Rs"
-            },
-            {
-                "tableDate": "3-5-2024",
-                "tableCategory": "Food",
-                "tableAmount": "5000 Rs"
-            }
-        ]
+        "tableData": {
+            "tableDate1": "1-5-2024",
+            "tableCategory1": "Estate",
+            "tableAmount1": "5000 Rs",
+            "tableDate2": "2-5-2024",
+            "tableCategory2": "Food",
+            "tableAmount2": "5000 Rs",
+            "tableDate3": "3-5-2024",
+            "tableCategory3": "Food",
+            "tableAmount3": "5000 Rs"
+        }
     },
     "passwordManager": {
         "myPasswordsAppbar": "My Passwords",

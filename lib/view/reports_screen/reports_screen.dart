@@ -218,10 +218,10 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       dataRowMaxHeight: 80,
                       columnSpacing: 60,
                       border: TableBorder.all(),
-                      columns: const [
+                      columns: [
                         DataColumn(
                             label: Text(
-                          'Date',
+                          'reports.report_table.date'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -229,7 +229,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Category',
+                          'reports.report_table.category'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -237,7 +237,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Amount',
+                          'reports.report_table.amount'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,

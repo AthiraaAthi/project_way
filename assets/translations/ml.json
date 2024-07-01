@@ -181,8 +181,8 @@
         ],
         "submit": "സമർപ്പിക്കുക",
         "expenseWarning": "നിങ്ങളുടെ ചെലവ് വരുമാനത്തേക്കാൾ കൂടുതലാണ്. നിങ്ങളുടെ ചെലവ് സൂക്ഷ്മമായി ട്രാക്കുചെയ്യുക",
-        "totalIncome": "ആകെ വരുമാനം: 5100 Rs",
-        "totalExpense": "ആകെ ചെലവ്: 15000 Rs",
+        "totalIncome": "ആകെ വരുമാനം: 5100 രൂപ",
+        "totalExpense": "ആകെ ചെലവ്: 15000 രൂപ",
         "report_table": {
             "date": "തീയതി",
             "category": "വിഭാഗം",
@@ -192,17 +192,17 @@
             {
                 "tableDate": "1-5-2024",
                 "tableCategory": "എസ്റ്റേറ്റ്",
-                "tableAmount": "5000 Rs"
+                "tableAmount": "5000 രൂപ"
             },
             {
                 "tableDate": "2-5-2024",
                 "tableCategory": "ഭക്ഷണം",
-                "tableAmount": "5000 Rs"
+                "tableAmount": "5000 രൂപ"
             },
             {
                 "tableDate": "3-5-2024",
                 "tableCategory": "ഭക്ഷണം",
-                "tableAmount": "5000 Rs"
+                "tableAmount": "5000 രൂപ"
             }
         ]
     },
