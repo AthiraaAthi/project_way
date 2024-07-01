@@ -194,7 +194,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       height: 20,
                     ),
                     Text(
-                      "Your expense is greater than income. Track your expense carefully",
+                      "reports.expenseWarning".tr(),
                       style: TextStyle(color: Colors.red, fontSize: 11.7),
                     ),
                     SizedBox(
@@ -203,7 +203,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                     Row(
                       children: [
                         Text(
-                          "Total Income : 5100 Rs",
+                          "reports.totalIncome".tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,

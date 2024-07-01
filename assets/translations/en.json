@@ -183,11 +183,11 @@
         "expenseWarning": "Your expense is greater than income. Track your expense carefully",
         "totalIncome": "Total Income : 5100 Rs",
         "totalExpense": "Total Expense : 15000 Rs",
-        "tableHeaders": [
-            "Date",
-            "Category",
-            "Amount"
-        ],
+        "report_table": {
+            "date": "Date",
+            "category": "Category",
+            "amount": "Amount"
+        },
         "tableData": [
             {
                 "tableDate": "1-5-2024",
