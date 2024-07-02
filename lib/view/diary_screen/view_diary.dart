@@ -19,7 +19,7 @@ class ViewDiaryScreen extends StatelessWidget {
         toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
         backgroundColor: ColorConstant.defIndigo,
         title: Text(
-          "SHOWING ${AppBarText}'s DIARY",
+          "${AppBarText}'s DIARY",
           style: MediaQuery.of(context).size.width < 600
               ? TextStyle(fontWeight: FontWeight.w400, color: Colors.white)
               : TextStyle(

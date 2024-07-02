@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
@@ -22,7 +23,7 @@ class SubscriptionWidget extends StatelessWidget {
           ? EdgeInsets.only(top: 20, left: 30, right: 30)
           : EdgeInsets.only(top: 40, left: 70, right: 70),
       child: Container(
-        height: MediaQuery.of(context).size.width < 600 ? 230 : 400,
+        height: MediaQuery.of(context).size.width < 600 ? 250 : 400,
         width: MediaQuery.of(context).size.width < 600 ? 330 : 630,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -45,25 +46,37 @@ class SubscriptionWidget extends StatelessWidget {
               Text(
                 Title,
                 style: MediaQuery.of(context).size.width < 600
-                    ? TextStyle(fontWeight: FontWeight.w800, fontSize: 20)
+                    ? TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: context.locale.languageCode == 'en' ? 20 : 17)
                     : TextStyle(fontWeight: FontWeight.w800, fontSize: 30),
               ),
               Text(
                 first,
                 style: MediaQuery.of(context).size.width < 600
-                    ? TextStyle()
+                    ? TextStyle(
+                        fontSize: context.locale.languageCode == 'en' ? 17 : 16,
+                        fontWeight: FontWeight.w500,
+                      )
                     : TextStyle(fontSize: 25),
               ),
               Text(
                 second,
                 style: MediaQuery.of(context).size.width < 600
-                    ? TextStyle()
+                    ? TextStyle(
+                        fontSize: context.locale.languageCode == 'en' ? 15 : 14,
+                        fontWeight: context.locale.languageCode == 'en'
+                            ? FontWeight.w500
+                            : FontWeight.w600,
+                      )
                     : TextStyle(fontSize: 22),
               ),
               Text(
                 third,
                 style: MediaQuery.of(context).size.width < 600
-                    ? TextStyle()
+                    ? TextStyle(
+                        fontSize: context.locale.languageCode == 'en' ? 14 : 13,
+                      )
                     : TextStyle(fontSize: 22),
               ),
               Padding(
@@ -80,6 +93,8 @@ class SubscriptionWidget extends StatelessWidget {
                       price,
                       style: MediaQuery.of(context).size.width < 600
                           ? TextStyle(
+                              fontSize:
+                                  context.locale.languageCode == 'en' ? 16 : 14,
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                             )
