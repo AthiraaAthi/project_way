@@ -503,22 +503,24 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                           child: TextField(
                                             controller: desController,
                                             decoration: InputDecoration(
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 16.0,
-                                                        vertical: 12.0),
-                                                border: InputBorder.none,
-                                                hintText: "enter Edited text..",
-                                                hintStyle: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Colors.grey)),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 12.0),
+                                              border: InputBorder.none,
+                                              hintText:
+                                                  "diary.editTextHint".tr(),
+                                              hintStyle: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.grey),
+                                            ),
                                           ),
                                         ),
                                         SizedBox(
                                           height: 15,
                                         ),
                                         Text(
-                                          "you alrdy added your thumb impression for the password.if you want to change that,pls click below",
+                                          "diary.thumbChangeInstruction".tr(),
                                           style: TextStyle(
                                               color: ColorConstant.defGreen,
                                               fontSize: 11.5,
@@ -528,7 +530,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                           height: 20,
                                         ),
                                         Text(
-                                          "click here to change thumb impression data",
+                                          "diary.thumbChange".tr(),
                                           style: TextStyle(
                                               color: ColorConstant.defIndigo,
                                               fontSize: 11.5,
@@ -560,7 +562,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                     BorderRadius.circular(5)),
                                             child: Center(
                                               child: Text(
-                                                "Submit",
+                                                "diary.submit".tr(),
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,
