@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
 import 'package:project_way/view/diary_screen/diary_widget.dart';
@@ -30,7 +29,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
             style: MediaQuery.of(context).size.width < 600
                 ? TextStyle(
                     color: const Color.fromRGBO(255, 255, 255, 1),
-                    fontSize: 20,
+                    fontSize: context.locale.languageCode == 'en' ? 20 : 17,
                     fontWeight: FontWeight.w500)
                 : TextStyle(
                     color: Colors.white,
