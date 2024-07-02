@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
@@ -24,16 +25,18 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
         appBar: AppBar(
           toolbarHeight: MediaQuery.of(context).size.width < 600 ? 60 : 80,
           backgroundColor: ColorConstant.defIndigo,
-          title: Text("My Diary",
-              style: MediaQuery.of(context).size.width < 600
-                  ? TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500)
-                  : TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500)),
+          title: Text(
+            "diary.myDiaryAppbar".tr(),
+            style: MediaQuery.of(context).size.width < 600
+                ? TextStyle(
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500)
+                : TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500),
+          ),
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -74,7 +77,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          "Today's Diary",
+                                          "diary.todaysDiary".tr(),
                                           style: TextStyle(
                                               fontWeight: FontWeight.w800,
                                               fontSize: 14),
@@ -98,10 +101,11 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                       horizontal: 16.0,
                                                       vertical: 12.0),
                                               border: InputBorder.none,
-                                              hintText: "Title",
+                                              hintText: "diary.titleHint".tr(),
                                               hintStyle: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.grey),
+                                                fontSize: 12,
+                                                color: Colors.grey,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -128,7 +132,9 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                               horizontal: 16.0,
                                                               vertical: 12.0),
                                                       border: InputBorder.none,
-                                                      hintText: "Enter text...",
+                                                      hintText:
+                                                          "diary.enterTextHint"
+                                                              .tr(),
                                                       hintStyle: TextStyle(
                                                           fontSize: 12,
                                                           color: Colors.grey)),
