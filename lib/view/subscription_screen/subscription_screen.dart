@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
@@ -33,7 +34,7 @@ class SubscriptionScreen extends StatelessWidget {
             ),
             backgroundColor: ColorConstant.defIndigo,
             title: Text(
-              "Subscription plans",
+              "subscriptionScreen.subscriptionPlans".tr(),
               style: MediaQuery.of(context).size.width < 600
                   ? TextStyle(
                       color: Colors.white,
@@ -50,15 +51,14 @@ class SubscriptionScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SubscriptionWidget(
-                    Title: "Bronze Package",
-                    first: "Ai Chat(both text,voice )",
-                    second: "Budget Handling without opening chat page",
-                    third:
-                        "you can earn more referal income as 39.8 Rs and bonus income",
-                    price: "199 Rs for 3 months",
+                    Title: "subscriptionScreen.bronzePackage".tr(),
+                    first: "subscriptionScreen.aiChat".tr(),
+                    second: "subscriptionScreen.budgetHandling".tr(),
+                    third: "subscriptionScreen.bronzeReferalIncome".tr(),
+                    price: "subscriptionScreen.bronzePrice".tr(),
                   ),
                   SubscriptionWidget(
-                    Title: "Silver Package",
+                    Title: "subscriptionScreen.bronzePackage".tr(),
                     first: "Ai Chat(both text,voice )",
                     second: "Budget Handling without opening chat page",
                     third:
