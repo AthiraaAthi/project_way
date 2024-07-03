@@ -52,7 +52,7 @@ class EarningsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Total Earnings : ₹ 1200.52",
+                  "earningsScreen.totalEarnings".tr(),
                   style: MediaQuery.of(context).size.width < 600
                       ? TextStyle(fontWeight: FontWeight.w800, fontSize: 14)
                       : TextStyle(fontWeight: FontWeight.w800, fontSize: 30),
