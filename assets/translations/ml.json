@@ -102,18 +102,18 @@
             "Estate": "എസ്റ്റേറ്റ്"
         },
         "budget_months": {
-            "Jan": "Jan",
-            "Feb": "Feb",
-            "Mar": "Mar",
-            "Apr": "Apr",
-            "May": "May",
-            "Jun": "Jun",
-            "Jul": "Jul",
-            "Aug": "Aug",
-            "Sep": "Sep",
-            "Oct": "Oct",
-            "Nov": "Nov",
-            "Dec": "Dec"
+            "Jan": "ജനുവരി",
+            "Feb": "ഫെബ്രുവരി",
+            "Mar": "മാർച്ച്",
+            "Apr": "ഏപ്രിൽ",
+            "May": "മേയ്",
+            "Jun": "ജൂൺ",
+            "Jul": "ജൂലൈ",
+            "Aug": "ആഗസ്റ്റ്",
+            "Sep": "സെപ്റ്റംബർ",
+            "Oct": "ഒക്ടോബർ",
+            "Nov": "നവംബർ",
+            "Dec": "ഡിസംബർ"
         },
         "buttons": {
             "submit": "സമർപ്പിക്കുക",
