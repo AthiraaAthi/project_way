@@ -14,22 +14,22 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
   int _toggleIndex = 0;
   final List<String> _years = ['2024', '2023', '2022'];
   final List<String> _months = [
-    'Month',
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
+    'budget_graph.graph_months.selectedMonth'.tr(),
+    'budget_graph.graph_months.Jan'.tr(),
+    'budget_graph.graph_months.Feb'.tr(),
+    'budget_graph.graph_months.Mar'.tr(),
+    'budget_graph.graph_months.Apr'.tr(),
+    'budget_graph.graph_months.May'.tr(),
+    'budget_graph.graph_months.Jun'.tr(),
+    'budget_graph.graph_months.Jul'.tr(),
+    'budget_graph.graph_months.Aug'.tr(),
+    'budget_graph.graph_months.Sep'.tr(),
+    'budget_graph.graph_months.Oct'.tr(),
+    'budget_graph.graph_months.Nov'.tr(),
+    'budget_graph.graph_months.Dec'.tr(),
   ];
   String _selectedYear = '2024';
-  String _selectedMonth = 'Month';
+  String _selectedMonth = 'budget_graph.graph_months.selectedMonth'.tr();
 
   List<FlSpot> incomeData = [
     FlSpot(0, 0),
@@ -213,7 +213,7 @@ class _BudgetGraphScreenState extends State<BudgetGraphScreen> {
                     Container(
                       alignment: Alignment.center,
                       height: 50,
-                      width: 80,
+                      width: 140,
                       decoration:
                           BoxDecoration(border: Border.all(color: Colors.grey)),
                       child: DropdownButton<String>(

@@ -56,21 +56,21 @@
             "2023",
             "2022"
         ],
-        "graph_months": [
-            "Month",
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec"
-        ],
+        "graph_months": {
+            "selectedMonth": "Month",
+            "Jan": "Jan",
+            "Feb": "Feb",
+            "Mar": "Mar",
+            "Apr": "Apr",
+            "May": "May",
+            "Jun": "Jun",
+            "Jul": "Jul",
+            "Aug": "Aug",
+            "Sep": "Sep",
+            "Oct": "Oct",
+            "Nov": "Nov",
+            "Dec": "Dec"
+        },
         "graph_selectedYear": "2024",
         "graph_selectedMonth": "Month",
         "graph_appBar": {
