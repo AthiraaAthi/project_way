@@ -62,7 +62,7 @@ class EarningsScreen extends StatelessWidget {
                 ),
                 EarningsWidget(
                   date: "earningsScreen.earnings_Date".tr(),
-                  title: "Referal Amount",
+                  title: "earningsScreen.earnings_title".tr(),
                   Time: "11:50:AM",
                   subtitle:
                       "Referal Amount from way team after joining of Raghu Kumar",
