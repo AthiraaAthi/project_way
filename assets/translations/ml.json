@@ -256,15 +256,11 @@
     "earningsScreen": {
         "earningsAppbar": "എന്റെ വരുമാനങ്ങൾ",
         "totalEarnings": "ആകെ വരുമാനം : ₹ 1200.52",
-        "earningsList": [
-            {
-                "earningsDate": "21-5-2024",
-                "earningsTitle": "റഫറൽ അമൗണ്ട്",
-                "earningsTime": "11:50 AM",
-                "earningsSubtitle": "റഗ്കു കുമാർ ചേർന്നതിൽ വേ ടീമിൽ നിന്നുള്ള റഫറൽ അമൗണ്ട്",
-                "earningsAmount": "+ ₹ 25.5"
-            }
-        ]
+        "earningsDate": "21-5-2024",
+        "earningsTitle": "റഫറൽ അമൗണ്ട്",
+        "earningsTime": "11:50 AM",
+        "earningsSubtitle": "റഗ്കു കുമാർ ചേർന്നതിൽ വേ ടീമിൽ നിന്നുള്ള റഫറൽ അമൗണ്ട്",
+        "earningsAmount": "+ ₹ 25.5"
     },
     "comingSoonScreen": {
         "comingSoonAppbar": {
