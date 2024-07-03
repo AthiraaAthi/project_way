@@ -254,13 +254,13 @@
         "referToEarn": "വിജ്ഞാപനത്തിലൂടെ വരുമാനം നേടുക"
     },
     "earningsScreen": {
-        "earningsAppbar": "എന്റെ വരുമാനങ്ങൾ",
+        "earnings_appbar": "എന്റെ വരുമാനങ്ങൾ",
         "totalEarnings": "ആകെ വരുമാനം : ₹ 1200.52",
-        "earningsDate": "21-5-2024",
-        "earningsTitle": "റഫറൽ അമൗണ്ട്",
-        "earningsTime": "11:50 AM",
-        "earningsSubtitle": "റഗ്കു കുമാർ ചേർന്നതിൽ വേ ടീമിൽ നിന്നുള്ള റഫറൽ അമൗണ്ട്",
-        "earningsAmount": "+ ₹ 25.5"
+        "earnings_Date": "21-5-2024",
+        "earnings_title": "റഫറൽ അമൗണ്ട്",
+        "earnings_time": "11:50 AM",
+        "earnings_subtitle": "റഗ്കു കുമാർ ചേർന്നതിൽ വേ ടീമിൽ നിന്നുള്ള റഫറൽ അമൗണ്ട്",
+        "earnings_amount": "+ ₹ 25.5"
     },
     "comingSoonScreen": {
         "comingSoonAppbar": {
