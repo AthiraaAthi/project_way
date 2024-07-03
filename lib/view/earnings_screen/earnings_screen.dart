@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/earnings_screen/earnings_widget.dart';
@@ -32,7 +33,7 @@ class EarningsScreen extends StatelessWidget {
             ),
           ),
           title: Text(
-            "My Earnings",
+            "earningsScreen.earnings_appbar".tr(),
             style: MediaQuery.of(context).size.width < 600
                 ? TextStyle(
                     color: Colors.white,
