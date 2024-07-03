@@ -61,7 +61,7 @@ class EarningsScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.width < 600 ? 20 : 30,
                 ),
                 EarningsWidget(
-                  date: "21-5-2024",
+                  date: "earningsScreen.earnings_Date".tr(),
                   title: "Referal Amount",
                   Time: "11:50:AM",
                   subtitle:
