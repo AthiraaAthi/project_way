@@ -80,12 +80,11 @@ class SubscriptionScreen extends StatelessWidget {
             child: Column(
               children: [
                 SubscriptionWidget(
-                  Title: "Bronze Package",
-                  first: "Ai Chat(both text,voice )",
-                  second: "Budget Handling without opening chat page",
-                  third:
-                      "you can earn more referal income as 39.8 Rs and bonus income",
-                  price: "199 Rs for 3 months",
+                  Title: "subscriptionScreen.bronzePackage".tr(),
+                  first: "subscriptionScreen.aiChat".tr(),
+                  second: "subscriptionScreen.budgetHandling".tr(),
+                  third: "subscriptionScreen.bronzeReferalIncome".tr(),
+                  price: "subscriptionScreen.bronzePrice".tr(),
                 ),
                 SubscriptionWidget(
                   Title: "Silver Package",
