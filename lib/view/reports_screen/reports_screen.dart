@@ -465,7 +465,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         ),
                         child: Center(
                           child: Text(
-                            "Submit",
+                            "reports.submit".tr(),
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
@@ -478,7 +478,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       height: 40,
                     ),
                     Text(
-                      "Your expense is greater than income. Track your expense carefully",
+                      "reports.expenseWarning".tr(),
                       style: TextStyle(color: Colors.red, fontSize: 18),
                     ),
                     SizedBox(
@@ -487,7 +487,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                     Row(
                       children: [
                         Text(
-                          "Total Income : 5100 Rs",
+                          "reports.totalIncome".tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -502,10 +502,10 @@ class _ReportsScreenState extends State<ReportsScreen> {
                       dataRowMaxHeight: 120,
                       columnSpacing: 160,
                       border: TableBorder.all(),
-                      columns: const [
+                      columns: [
                         DataColumn(
                             label: Text(
-                          'Date',
+                          'reports.report_table.date'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
@@ -513,7 +513,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
                         )),
                         DataColumn(
                             label: Text(
-                          'Category',
+                          'reports.report_table.category'.tr(),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
