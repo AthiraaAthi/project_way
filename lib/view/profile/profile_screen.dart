@@ -388,7 +388,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Container(
                   height: 100,
-                  width: 300,
+                  width: 340,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -440,7 +440,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 Container(
                   height: 80,
-                  width: 300,
+                  width: 340,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
@@ -489,8 +489,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 20,
                 ),
                 Container(
-                  height: 380,
-                  width: 300,
+                  height: 400,
+                  width: 340,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -553,9 +553,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Text(
                         tr('profilescreen.referToEarn'),
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: ColorConstant.defIndigo,
-                            fontWeight: FontWeight.w700),
+                          fontSize:
+                              context.locale.languageCode == 'en' ? 16 : 13,
+                          color: ColorConstant.defIndigo,
+                          fontWeight: context.locale.languageCode == 'en'
+                              ? FontWeight.w700
+                              : FontWeight.w900,
+                        ),
                       )
                     ],
                   ),
