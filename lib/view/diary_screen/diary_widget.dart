@@ -21,13 +21,19 @@ class DiaryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double containerHeight = 40;
     double containerWidth = 80;
+    double TabcontainerHeight = 60;
+    double TabcontainerWidth = 100;
 
     if (context.locale.languageCode == 'en') {
       containerHeight = 40;
       containerWidth = 80;
+      TabcontainerHeight = 60;
+      TabcontainerWidth = 100;
     } else if (context.locale.languageCode == 'ml') {
       containerHeight = 40;
-      containerWidth = 100;
+      containerWidth = 90;
+      TabcontainerHeight = 60;
+      TabcontainerWidth = 120;
     }
 
     return Container(
@@ -77,17 +83,17 @@ class DiaryWidget extends StatelessWidget {
                   : TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
                   onTap: onEditTap,
                   child: Container(
                     height: MediaQuery.of(context).size.width < 600
                         ? containerHeight
-                        : 60,
+                        : TabcontainerHeight,
                     width: MediaQuery.of(context).size.width < 600
                         ? containerWidth
-                        : 100,
+                        : TabcontainerWidth,
                     decoration: BoxDecoration(
                         color: ColorConstant.defGreen,
                         borderRadius: BorderRadius.circular(5)),

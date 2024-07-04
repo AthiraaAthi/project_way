@@ -399,7 +399,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                         : TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
-                            fontSize: 18),
+                            fontSize: 19,
+                          ),
                   ),
                 ),
               ),

@@ -21,13 +21,19 @@ class PasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double containerHeight = 40;
     double containerWidth = 80;
+    double TabcontainerHeight = 60;
+    double TabcontainerWidth = 100;
 
     if (context.locale.languageCode == 'en') {
       containerHeight = 40;
       containerWidth = 80;
+      TabcontainerHeight = 60;
+      TabcontainerWidth = 100;
     } else if (context.locale.languageCode == 'ml') {
       containerHeight = 40;
-      containerWidth = 100;
+      containerWidth = 90;
+      TabcontainerHeight = 60;
+      TabcontainerWidth = 120;
     }
     return Container(
       height: MediaQuery.of(context).size.width < 600 ? 200 : 300,
@@ -117,10 +123,10 @@ class PasswordWidget extends StatelessWidget {
                   child: Container(
                     height: MediaQuery.of(context).size.width < 600
                         ? containerHeight
-                        : 60,
+                        : TabcontainerHeight,
                     width: MediaQuery.of(context).size.width < 600
                         ? containerWidth
-                        : 100,
+                        : TabcontainerWidth,
                     decoration: BoxDecoration(
                         color: ColorConstant.defGreen,
                         borderRadius: BorderRadius.circular(5)),
@@ -135,7 +141,13 @@ class PasswordWidget extends StatelessWidget {
                                     : 12,
                                 fontWeight: FontWeight.bold,
                               )
-                            : TextStyle(color: Colors.white, fontSize: 18),
+                            : TextStyle(
+                                color: Colors.white,
+                                fontSize: context.locale.languageCode == 'en'
+                                    ? 18
+                                    : 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                       ),
                     ),
                   ),
@@ -148,13 +160,14 @@ class PasswordWidget extends StatelessWidget {
                   child: Container(
                     height: MediaQuery.of(context).size.width < 600
                         ? containerHeight
-                        : 60,
+                        : TabcontainerHeight,
                     width: MediaQuery.of(context).size.width < 600
                         ? containerWidth
-                        : 100,
+                        : TabcontainerWidth,
                     decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(5)),
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                     child: Center(
                       child: Text(
                         "passwordScreen.deleteButton".tr(),
@@ -166,7 +179,13 @@ class PasswordWidget extends StatelessWidget {
                                     : 12,
                                 fontWeight: FontWeight.bold,
                               )
-                            : TextStyle(color: Colors.white, fontSize: 18),
+                            : TextStyle(
+                                color: Colors.white,
+                                fontSize: context.locale.languageCode == 'en'
+                                    ? 18
+                                    : 17,
+                                fontWeight: FontWeight.bold,
+                              ),
                       ),
                     ),
                   ),
