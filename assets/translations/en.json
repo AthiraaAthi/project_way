@@ -210,6 +210,8 @@
         "thumbSuccess": "Thumb impression captured successfully",
         "passSubmit": "Submit",
         "addNew": "Add New",
+        "editButton": "Edit",
+        "deleteButton": "Delete",
         "editPass": "Edit Password",
         "thumbChangeInstruction": "You already added your thumb impression for the password. If you want to change that, please click below",
         "thumbChange": "Click here to change thumb impression data"
@@ -222,6 +224,8 @@
         "lockDiary": "Lock your diary with fingerprint",
         "submit": "Submit",
         "addNew": "Add New",
+        "edit": "Edit",
+        "view": "View",
         "editPassword": "Edit Password",
         "editTitleHint": "Edit title",
         "editTextHint": "Enter edited text...",

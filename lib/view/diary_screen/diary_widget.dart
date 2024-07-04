@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
@@ -77,7 +78,7 @@ class DiaryWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
-                        "Edit",
+                        "diary.edit".tr(),
                         style: MediaQuery.of(context).size.width < 600
                             ? TextStyle(color: Colors.white)
                             : TextStyle(color: Colors.white, fontSize: 18),
@@ -98,9 +99,11 @@ class DiaryWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
-                        "View",
+                        "diary.view".tr(),
                         style: MediaQuery.of(context).size.width < 600
-                            ? TextStyle(color: Colors.white)
+                            ? TextStyle(
+                                color: Colors.white,
+                              )
                             : TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),

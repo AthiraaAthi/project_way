@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 
@@ -111,7 +112,7 @@ class PasswordWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
-                        "Edit",
+                        "passwordScreen.editButton".tr(),
                         style: MediaQuery.of(context).size.width < 600
                             ? TextStyle(color: Colors.white)
                             : TextStyle(color: Colors.white, fontSize: 18),
@@ -132,7 +133,7 @@ class PasswordWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
-                        "Delete",
+                        "passwordScreen.deleteButton".tr(),
                         style: MediaQuery.of(context).size.width < 600
                             ? TextStyle(color: Colors.white)
                             : TextStyle(color: Colors.white, fontSize: 18),
