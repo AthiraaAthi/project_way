@@ -209,6 +209,7 @@
         "thumbInstruction": "Press your thumb here to secure your password",
         "thumbSuccess": "Thumb impression captured successfully",
         "passSubmit": "Submit",
+        "MyWebPass": "My Web password",
         "addNew": "Add New",
         "editButton": "Edit",
         "deleteButton": "Delete",

@@ -19,6 +19,16 @@ class PasswordWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double containerHeight = 40;
+    double containerWidth = 80;
+
+    if (context.locale.languageCode == 'en') {
+      containerHeight = 40;
+      containerWidth = 80;
+    } else if (context.locale.languageCode == 'ml') {
+      containerHeight = 40;
+      containerWidth = 100;
+    }
     return Container(
       height: MediaQuery.of(context).size.width < 600 ? 200 : 300,
       width: MediaQuery.of(context).size.width < 600 ? 350 : 500,
@@ -39,7 +49,7 @@ class PasswordWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "My Web password",
+              "passwordScreen.MyWebPass".tr(),
               style: MediaQuery.of(context).size.width < 600
                   ? TextStyle(fontWeight: FontWeight.w800)
                   : TextStyle(
@@ -105,8 +115,12 @@ class PasswordWidget extends StatelessWidget {
                 InkWell(
                   onTap: onEditTap,
                   child: Container(
-                    height: MediaQuery.of(context).size.width < 600 ? 40 : 60,
-                    width: MediaQuery.of(context).size.width < 600 ? 80 : 100,
+                    height: MediaQuery.of(context).size.width < 600
+                        ? containerHeight
+                        : 60,
+                    width: MediaQuery.of(context).size.width < 600
+                        ? containerWidth
+                        : 100,
                     decoration: BoxDecoration(
                         color: ColorConstant.defGreen,
                         borderRadius: BorderRadius.circular(5)),
@@ -114,7 +128,13 @@ class PasswordWidget extends StatelessWidget {
                       child: Text(
                         "passwordScreen.editButton".tr(),
                         style: MediaQuery.of(context).size.width < 600
-                            ? TextStyle(color: Colors.white)
+                            ? TextStyle(
+                                color: Colors.white,
+                                fontSize: context.locale.languageCode == 'en'
+                                    ? 15
+                                    : 12,
+                                fontWeight: FontWeight.bold,
+                              )
                             : TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
@@ -126,8 +146,12 @@ class PasswordWidget extends StatelessWidget {
                 InkWell(
                   onTap: onDeleteTap,
                   child: Container(
-                    height: MediaQuery.of(context).size.width < 600 ? 40 : 60,
-                    width: MediaQuery.of(context).size.width < 600 ? 80 : 100,
+                    height: MediaQuery.of(context).size.width < 600
+                        ? containerHeight
+                        : 60,
+                    width: MediaQuery.of(context).size.width < 600
+                        ? containerWidth
+                        : 100,
                     decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(5)),
@@ -135,7 +159,13 @@ class PasswordWidget extends StatelessWidget {
                       child: Text(
                         "passwordScreen.deleteButton".tr(),
                         style: MediaQuery.of(context).size.width < 600
-                            ? TextStyle(color: Colors.white)
+                            ? TextStyle(
+                                color: Colors.white,
+                                fontSize: context.locale.languageCode == 'en'
+                                    ? 15
+                                    : 12,
+                                fontWeight: FontWeight.bold,
+                              )
                             : TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),

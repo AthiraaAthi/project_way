@@ -19,6 +19,17 @@ class DiaryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double containerHeight = 40;
+    double containerWidth = 80;
+
+    if (context.locale.languageCode == 'en') {
+      containerHeight = 40;
+      containerWidth = 80;
+    } else if (context.locale.languageCode == 'ml') {
+      containerHeight = 40;
+      containerWidth = 100;
+    }
+
     return Container(
       height: MediaQuery.of(context).size.width < 600 ? 155 : 255,
       width: MediaQuery.of(context).size.width < 600 ? 350 : 500,
@@ -71,8 +82,12 @@ class DiaryWidget extends StatelessWidget {
                 InkWell(
                   onTap: onEditTap,
                   child: Container(
-                    height: MediaQuery.of(context).size.width < 600 ? 40 : 60,
-                    width: MediaQuery.of(context).size.width < 600 ? 80 : 100,
+                    height: MediaQuery.of(context).size.width < 600
+                        ? containerHeight
+                        : 60,
+                    width: MediaQuery.of(context).size.width < 600
+                        ? containerWidth
+                        : 100,
                     decoration: BoxDecoration(
                         color: ColorConstant.defGreen,
                         borderRadius: BorderRadius.circular(5)),
@@ -80,7 +95,13 @@ class DiaryWidget extends StatelessWidget {
                       child: Text(
                         "diary.edit".tr(),
                         style: MediaQuery.of(context).size.width < 600
-                            ? TextStyle(color: Colors.white)
+                            ? TextStyle(
+                                color: Colors.white,
+                                fontSize: context.locale.languageCode == 'en'
+                                    ? 15
+                                    : 12,
+                                fontWeight: FontWeight.bold,
+                              )
                             : TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
@@ -92,8 +113,12 @@ class DiaryWidget extends StatelessWidget {
                 InkWell(
                   onTap: onViewTap,
                   child: Container(
-                    height: MediaQuery.of(context).size.width < 600 ? 40 : 60,
-                    width: MediaQuery.of(context).size.width < 600 ? 80 : 100,
+                    height: MediaQuery.of(context).size.width < 600
+                        ? containerHeight
+                        : 60,
+                    width: MediaQuery.of(context).size.width < 600
+                        ? containerWidth
+                        : 100,
                     decoration: BoxDecoration(
                         color: ColorConstant.defIndigo,
                         borderRadius: BorderRadius.circular(5)),
@@ -103,6 +128,10 @@ class DiaryWidget extends StatelessWidget {
                         style: MediaQuery.of(context).size.width < 600
                             ? TextStyle(
                                 color: Colors.white,
+                                fontSize: context.locale.languageCode == 'en'
+                                    ? 15
+                                    : 12,
+                                fontWeight: FontWeight.bold,
                               )
                             : TextStyle(color: Colors.white, fontSize: 18),
                       ),

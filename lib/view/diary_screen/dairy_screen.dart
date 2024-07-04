@@ -234,7 +234,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                     child: Column(
                                       children: [
                                         Text(
-                                          "Today's Diary",
+                                          "diary.todaysDiary".tr(),
                                           style: TextStyle(
                                             fontWeight: FontWeight.w800,
                                             fontSize: 30,
@@ -260,7 +260,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                       horizontal: 16.0,
                                                       vertical: 12.0),
                                               border: InputBorder.none,
-                                              hintText: "Title",
+                                              hintText: "diary.titleHint".tr(),
                                               hintStyle: TextStyle(
                                                   fontSize: 18,
                                                   color: Colors.grey),
@@ -292,7 +292,9 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                               horizontal: 16.0,
                                                               vertical: 12.0),
                                                       border: InputBorder.none,
-                                                      hintText: "Enter text...",
+                                                      hintText:
+                                                          "diary.enterTextHint"
+                                                              .tr(),
                                                       hintStyle: TextStyle(
                                                           fontSize: 18,
                                                           color: Colors.grey)),
@@ -320,7 +322,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                           height: 30,
                                         ),
                                         Text(
-                                          "Lock your diary with fingerprint",
+                                          "diary.lockDiary".tr(),
                                           style: TextStyle(fontSize: 18),
                                         ),
                                         SizedBox(
@@ -365,7 +367,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                     BorderRadius.circular(5)),
                                             child: Center(
                                               child: Text(
-                                                "Submit",
+                                                "diary.submit".tr(),
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,
@@ -594,7 +596,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
-                                          "Edit Password",
+                                          "diary.editPassword".tr(),
                                           style: TextStyle(
                                               fontWeight: FontWeight.w900,
                                               fontSize: 30),
@@ -619,7 +621,8 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                       horizontal: 16.0,
                                                       vertical: 12.0),
                                               border: InputBorder.none,
-                                              hintText: "title",
+                                              hintText:
+                                                  "diary.editTitleHint".tr(),
                                               hintStyle: TextStyle(
                                                   fontSize: 18,
                                                   color: Colors.grey),
@@ -641,22 +644,24 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                             style: TextStyle(fontSize: 20),
                                             controller: desController,
                                             decoration: InputDecoration(
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 16.0,
-                                                        vertical: 12.0),
-                                                border: InputBorder.none,
-                                                hintText: "enter text..",
-                                                hintStyle: TextStyle(
-                                                    fontSize: 18,
-                                                    color: Colors.grey)),
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 12.0),
+                                              border: InputBorder.none,
+                                              hintText:
+                                                  "diary.editTextHint".tr(),
+                                              hintStyle: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.grey),
+                                            ),
                                           ),
                                         ),
                                         SizedBox(
                                           height: 25,
                                         ),
                                         Text(
-                                          "you alrdy added your thumb impression for the password.if you want to change that,pls click below",
+                                          "diary.thumbChangeInstruction".tr(),
                                           style: TextStyle(
                                               color: ColorConstant.defGreen,
                                               fontSize: 18,
@@ -666,7 +671,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                           height: 20,
                                         ),
                                         Text(
-                                          "click here to change thumb impression data",
+                                          "diary.thumbChange".tr(),
                                           style: TextStyle(
                                               color: ColorConstant.defIndigo,
                                               fontSize: 18,
@@ -698,7 +703,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                                     BorderRadius.circular(5)),
                                             child: Center(
                                               child: Text(
-                                                "Submit",
+                                                "diary.submit".tr(),
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontWeight: FontWeight.bold,
