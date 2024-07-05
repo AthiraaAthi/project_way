@@ -32,7 +32,7 @@ class ProjectWay extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => categoryprovider(),
+          create: (context) => CategoryProvider(),
         )
       ],
       child: MaterialApp(

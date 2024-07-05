@@ -37,6 +37,227 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   ];
 
   String selectedColorName = "Green";
+  void _showEditDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: MediaQuery.of(context).size.width < 600
+            ? Container(
+                height: 500,
+                width: 440,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Add Category",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 14,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Container(
+                          height: 50,
+                          width: 300,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: TextField(
+                            controller: titleController,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 12.0,
+                              ),
+                              border: InputBorder.none,
+                              hintText: "Category Name",
+                              hintStyle: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 15),
+                        Container(
+                          height: 130,
+                          width: 300,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: TextField(
+                            controller: desController,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 16.0,
+                                vertical: 12.0,
+                              ),
+                              border: InputBorder.none,
+                              hintText: "Category Description",
+                              hintStyle: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Container(
+                          height: 50,
+                          width: 282,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Center(
+                            child: DropdownButton<String>(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down,
+                                color: Colors.black,
+                              ),
+                              underline: Container(),
+                              value: dropdownValue,
+                              items: categories.map<DropdownMenuItem<String>>(
+                                  (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                              onChanged: (String? value) {
+                                setState(() {
+                                  dropdownValue = value!;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        Container(
+                          height: 50,
+                          width: 282,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Color",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(width: 16),
+                              Container(
+                                height: 50,
+                                width: 166.5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: DropdownButton<String>(
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.black,
+                                  ),
+                                  underline: Container(),
+                                  value: selectedColorName,
+                                  items: colorNames
+                                      .map<DropdownMenuItem<String>>(
+                                          (String colorName) {
+                                    return DropdownMenuItem<String>(
+                                      value: colorName,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          width: 120,
+                                          height: 24,
+                                          color: colors[
+                                              colorNames.indexOf(colorName)],
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      selectedColorName = newValue!;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        InkWell(
+                          onTap: () {
+                            if (titleController.text.isNotEmpty &&
+                                desController.text.isNotEmpty) {
+                              final categoryProvider =
+                                  Provider.of<CategoryProvider>(context,
+                                      listen: false);
+                              categoryProvider.addCategory(
+                                Category(
+                                  title: titleController.text,
+                                  description: desController.text,
+                                  colorName: selectedColorName,
+                                ),
+                              );
+
+                              Navigator.pop(context);
+                              titleController.clear();
+                              desController.clear();
+                            } else {
+                              print("Please fill out all fields");
+                            }
+                          },
+                          child: Container(
+                            height: 45,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              color: Colors.indigo,
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Submit",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            : Container(), // Handle the larger screen case here if necessary
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double fontSize = 12;
@@ -313,7 +534,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         .text.isNotEmpty) {
                                                   final categoryProvider =
                                                       Provider.of<
-                                                              categoryprovider>(
+                                                              CategoryProvider>(
                                                           context,
                                                           listen: false);
                                                   categoryProvider.addCategory(
@@ -578,7 +799,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         .text.isNotEmpty) {
                                                   final categoryProvider =
                                                       Provider.of<
-                                                              categoryprovider>(
+                                                              CategoryProvider>(
                                                           context,
                                                           listen: false);
                                                   categoryProvider.addCategory(
@@ -656,7 +877,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             left: 18,
             right: 15,
           ),
-          child: Consumer<categoryprovider>(
+          child: Consumer<CategoryProvider>(
             builder: (context, categoryprovider, child) {
               return ListView.builder(
                 itemCount: categoryprovider.categories.length,
@@ -666,8 +887,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     title: category.title,
                     description: category.description,
                     color: colors[colorNames.indexOf(category.colorName)],
-                    onEditTap: () {},
-                    onDeleteTap: () {},
+                    onEditTap: () {
+                      _showEditDialog();
+                    },
+                    onDeleteTap: () {
+                      final categoryProvider =
+                          Provider.of<CategoryProvider>(context, listen: false);
+                      categoryProvider.removeCategory(category);
+                    },
                   );
                 },
               );
