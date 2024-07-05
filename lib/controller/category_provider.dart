@@ -15,4 +15,9 @@ class CategoryProvider with ChangeNotifier {
     _categories.remove(category);
     notifyListeners();
   }
+
+  void updateCategory(int index, Category updatedCategory) {
+    _categories[index] = updatedCategory;
+    notifyListeners();
+  }
 }

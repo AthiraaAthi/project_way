@@ -54,9 +54,9 @@ class CategoryWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5, left: 20),
-                  child: Text(description),
+                Text(
+                  description,
+                  textAlign: TextAlign.start,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8),
