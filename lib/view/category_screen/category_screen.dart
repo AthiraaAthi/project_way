@@ -24,10 +24,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   ];
   String dropdownValue =
       "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
-  final List<Color> colors = [ColorConstant.defGreen, ColorConstant.defIndigo];
+  final List<Color> colors = [
+    ColorConstant.defGreen,
+    ColorConstant.defIndigo,
+    Color.fromARGB(255, 230, 57, 45),
+    Colors.yellow
+  ];
   final List<String> colorNames = [
     "Green",
     "Blue",
+    "Red",
+    "yellow",
   ];
 
   String selectedColorName = "Blue";
