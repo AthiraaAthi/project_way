@@ -144,7 +144,8 @@
             "categoryOptions": {
                 "incomeCategory": "Income",
                 "foodCategory": "Food",
-                "noteCategory": "Notebooks"
+                "noteCategory": "Notebooks",
+                "expenseCategory": "Expense"
             },
             "backButtonTooltip": "Back"
         }

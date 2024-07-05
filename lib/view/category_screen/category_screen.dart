@@ -37,7 +37,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     "yellow",
   ];
 
-  String selectedColorName = "Blue";
+  String selectedColorName = "Green";
   @override
   Widget build(BuildContext context) {
     double fontSize = 12;
@@ -175,8 +175,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       "categoryscreen.addCategoryDialog.categoryDescriptionHint"
                                                           .tr(),
                                                   hintStyle: TextStyle(
-                                                      fontSize: 12,
-                                                      color: Colors.grey),
+                                                    fontSize: 12,
+                                                    color: Colors.grey,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -193,6 +194,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     BorderRadius.circular(5),
                                               ),
                                               child: Center(
+                                                ////////////
                                                 child: DropdownButton<String>(
                                                   icon: Icon(
                                                     Icons.keyboard_arrow_down,

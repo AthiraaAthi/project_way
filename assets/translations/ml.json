@@ -144,7 +144,8 @@
             "categoryOptions": {
                 "incomeCategory": "വരുമാനം",
                 "foodCategory": "ഭക്ഷണം",
-                "noteCategory": "നോട്ടുബുക്കുകൾ"
+                "noteCategory": "നോട്ടുബുക്കുകൾ",
+                "expenseCategory": "ചെലവ്"
             },
             "backButtonTooltip": "തിരികെ"
         }
