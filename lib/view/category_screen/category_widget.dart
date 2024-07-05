@@ -6,11 +6,14 @@ class CategoryWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.description,
-      required this.color});
+      required this.color,
+      this.onEditTap,
+      this.onDeleteTap});
   final String title;
   final String description;
   final Color color;
-
+  final void Function()? onEditTap;
+  final void Function()? onDeleteTap;
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -60,16 +63,22 @@ class CategoryWidget extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "Edit",
-                        style: TextStyle(color: Colors.green),
+                      InkWell(
+                        onTap: onEditTap,
+                        child: Text(
+                          "Edit",
+                          style: TextStyle(color: Colors.green),
+                        ),
                       ),
                       SizedBox(
                         width: 50,
                       ),
-                      Text(
-                        "Delete",
-                        style: TextStyle(color: Colors.red),
+                      InkWell(
+                        onTap: onDeleteTap,
+                        child: Text(
+                          "Delete",
+                          style: TextStyle(color: Colors.red),
+                        ),
                       ),
                     ],
                   ),

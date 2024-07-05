@@ -19,8 +19,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   List<Map<String, String>> mylist = [];
   List<String> categories = [
     "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr(),
-    "categoryscreen.addCategoryDialog.categoryOptions.foodCategory".tr(),
-    "categoryscreen.addCategoryDialog.categoryOptions.noteCategory".tr(),
+    "categoryscreen.addCategoryDialog.categoryOptions.expenseCategory".tr(),
   ];
   String dropdownValue =
       "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
@@ -667,6 +666,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     title: category.title,
                     description: category.description,
                     color: colors[colorNames.indexOf(category.colorName)],
+                    onEditTap: () {},
+                    onDeleteTap: () {},
                   );
                 },
               );
