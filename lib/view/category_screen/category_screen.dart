@@ -23,6 +23,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   ];
   String dropdownValue =
       "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
+  String dropdownValue2 =
+      "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
   final List<Color> colors = [
     ColorConstant.defGreen,
     ColorConstant.defIndigo,
@@ -40,6 +42,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final categoryProvider = Provider.of<CategoryProvider>(context);
     double fontSize = 12;
 
     if (context.locale.languageCode == 'en') {
@@ -310,6 +313,35 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                               height: 30,
                                             ),
                                             InkWell(
+                                              // onTap: () {
+                                              //   if (titleController
+                                              //           .text.isNotEmpty &&
+                                              //       desController
+                                              //           .text.isNotEmpty) {
+                                              //     final categoryProvider =
+                                              //         Provider.of<
+                                              //                 CategoryProvider>(
+                                              //             context,
+                                              //             listen: false);
+                                              //     categoryProvider.addCategory(
+                                              //       Category(
+                                              //         title:
+                                              //             titleController.text,
+                                              //         description:
+                                              //             desController.text,
+                                              //         colorName:
+                                              //             selectedColorName,
+                                              //       ),
+                                              //     );
+
+                                              //     Navigator.pop(context);
+                                              //     titleController.clear();
+                                              //     desController.clear();
+                                              //   } else {
+                                              //     print(
+                                              //         "Please fill out all fields");
+                                              //   }
+                                              // },
                                               onTap: () {
                                                 if (titleController
                                                         .text.isNotEmpty &&
@@ -575,6 +607,35 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                               height: 30,
                                             ),
                                             InkWell(
+                                              // onTap: () {
+                                              //   if (titleController
+                                              //           .text.isNotEmpty &&
+                                              //       desController
+                                              //           .text.isNotEmpty) {
+                                              //     final categoryProvider =
+                                              //         Provider.of<
+                                              //                 CategoryProvider>(
+                                              //             context,
+                                              //             listen: false);
+                                              //     categoryProvider.addCategory(
+                                              //       Category(
+                                              //         title:
+                                              //             titleController.text,
+                                              //         description:
+                                              //             desController.text,
+                                              //         colorName:
+                                              //             selectedColorName,
+                                              //       ),
+                                              //     );
+
+                                              //     Navigator.pop(context);
+                                              //     titleController.clear();
+                                              //     desController.clear();
+                                              //   } else {
+                                              //     print(
+                                              //         "Please fill out all fields");
+                                              //   }
+                                              // },
                                               onTap: () {
                                                 if (titleController
                                                         .text.isNotEmpty &&
@@ -676,9 +737,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         builder: (context) {
                           String localDropdownValue = categories[0];
                           String localSelectedColorName = colorNames[0];
-                          titleController.text = category.title;
-                          desController.text = category.description;
-                          String colorNameee = category.colorName;
+                          // titleController.text = category.title;
+                          // desController.text = category.description;
+                          // String colorNameee = category.colorName;
+                          final titleController2 =
+                              TextEditingController(text: category.title);
+                          final descriptionController2 =
+                              TextEditingController(text: category.description);
+                          String colorNameController = category.colorName;
 
                           return Dialog(
                             shape: RoundedRectangleBorder(
@@ -717,7 +783,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       BorderRadius.circular(
                                                           10)),
                                               child: TextField(
-                                                controller: titleController,
+                                                controller: titleController2,
                                                 decoration: InputDecoration(
                                                   contentPadding:
                                                       EdgeInsets.symmetric(
@@ -746,7 +812,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       BorderRadius.circular(
                                                           10)),
                                               child: TextField(
-                                                controller: desController,
+                                                controller:
+                                                    descriptionController2,
                                                 decoration: InputDecoration(
                                                   contentPadding:
                                                       EdgeInsets.symmetric(
@@ -783,7 +850,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       color: Colors.black,
                                                     ),
                                                     underline: Container(),
-                                                    value: dropdownValue,
+                                                    value: dropdownValue2,
                                                     items: categories.map<
                                                             DropdownMenuItem<
                                                                 String>>(
@@ -805,7 +872,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       print(
                                                           "New dropdown value selected: $value");
                                                       setState(() {
-                                                        dropdownValue = value!;
+                                                        dropdownValue2 = value!;
                                                       }); ///////////////
                                                     },
                                                   ),
@@ -850,7 +917,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         color: Colors.black,
                                                       ),
                                                       underline: Container(),
-                                                      value: colorNameee,
+                                                      value:
+                                                          colorNameController,
                                                       items: colorNames.map<
                                                           DropdownMenuItem<
                                                               String>>(
@@ -878,7 +946,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           (String? newValue) {
                                                         setState(
                                                           () {
-                                                            colorNameee =
+                                                            colorNameController =
                                                                 newValue!;
                                                           },
                                                         );
@@ -893,30 +961,27 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             ),
                                             InkWell(
                                               onTap: () {
-                                                if (titleController
-                                                        .text.isNotEmpty &&
-                                                    desController
-                                                        .text.isNotEmpty) {
-                                                  final categoryProvider =
-                                                      Provider.of<
-                                                              CategoryProvider>(
-                                                          context,
-                                                          listen: false);
+                                                final updatedTitle =
+                                                    titleController2.text;
+                                                final updatedDescription =
+                                                    descriptionController2.text;
+                                                final updatedColorName =
+                                                    colorNameController;
+                                                if (updatedTitle.isNotEmpty &&
+                                                    updatedDescription
+                                                        .isNotEmpty &&
+                                                    updatedColorName
+                                                        .isNotEmpty) {
                                                   categoryProvider
-                                                      .updateCategory(
-                                                    index,
-                                                    Category(
-                                                      title:
-                                                          titleController.text,
-                                                      description:
-                                                          desController.text,
-                                                      colorName: colorNameee,
-                                                    ),
-                                                  );
+                                                      .updateCategory(Category(
+                                                    id: category.id,
+                                                    title: updatedTitle,
+                                                    description:
+                                                        updatedDescription,
+                                                    colorName: updatedColorName,
+                                                  ));
 
-                                                  Navigator.pop(context);
-                                                  titleController.clear();
-                                                  desController.clear();
+                                                  Navigator.of(context).pop();
                                                 } else {
                                                   print(
                                                       "Please fill out all fields");
@@ -985,7 +1050,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           10)),
                                               child: TextField(
                                                 style: TextStyle(fontSize: 20),
-                                                controller: titleController,
+                                                controller: titleController2,
                                                 decoration: InputDecoration(
                                                   contentPadding:
                                                       EdgeInsets.symmetric(
@@ -1016,7 +1081,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           10)),
                                               child: TextField(
                                                 style: TextStyle(fontSize: 20),
-                                                controller: desController,
+                                                controller:
+                                                    descriptionController2,
                                                 decoration: InputDecoration(
                                                   contentPadding:
                                                       EdgeInsets.symmetric(
@@ -1053,7 +1119,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     size: 30,
                                                   ),
                                                   underline: Container(),
-                                                  value: dropdownValue,
+                                                  value: dropdownValue2,
                                                   items: categories.map<
                                                       DropdownMenuItem<String>>(
                                                     (String value) {
@@ -1076,7 +1142,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         "New dropdown value selected: $value");
                                                     setState(
                                                       () {
-                                                        dropdownValue = value!;
+                                                        dropdownValue2 = value!;
                                                       },
                                                     ); ///////////////
                                                   },
@@ -1119,7 +1185,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         size: 30,
                                                       ),
                                                       underline: Container(),
-                                                      value: selectedColorName,
+                                                      value:
+                                                          colorNameController,
                                                       items: colorNames.map<
                                                               DropdownMenuItem<
                                                                   String>>(
@@ -1145,7 +1212,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       onChanged:
                                                           (String? newValue) {
                                                         setState(() {
-                                                          selectedColorName =
+                                                          colorNameController =
                                                               newValue!;
                                                         });
                                                       },
@@ -1159,29 +1226,27 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             ),
                                             InkWell(
                                               onTap: () {
-                                                if (titleController
-                                                        .text.isNotEmpty &&
-                                                    desController
-                                                        .text.isNotEmpty) {
-                                                  final categoryProvider =
-                                                      Provider.of<
-                                                              CategoryProvider>(
-                                                          context,
-                                                          listen: false);
-                                                  categoryProvider.addCategory(
-                                                    Category(
-                                                      title:
-                                                          titleController.text,
-                                                      description:
-                                                          desController.text,
-                                                      colorName:
-                                                          selectedColorName,
-                                                    ),
-                                                  );
+                                                final updatedTitle =
+                                                    titleController2.text;
+                                                final updatedDescription =
+                                                    descriptionController2.text;
+                                                final updatedColorName =
+                                                    colorNameController;
+                                                if (updatedTitle.isNotEmpty &&
+                                                    updatedDescription
+                                                        .isNotEmpty &&
+                                                    updatedColorName
+                                                        .isNotEmpty) {
+                                                  categoryProvider
+                                                      .updateCategory(Category(
+                                                    id: category.id,
+                                                    title: updatedTitle,
+                                                    description:
+                                                        updatedDescription,
+                                                    colorName: updatedColorName,
+                                                  ));
 
-                                                  Navigator.pop(context);
-                                                  titleController.clear();
-                                                  desController.clear();
+                                                  Navigator.of(context).pop();
                                                 } else {
                                                   print(
                                                       "Please fill out all fields");
@@ -1219,9 +1284,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       );
                     },
                     onDeleteTap: () {
-                      final categoryProvider =
-                          Provider.of<CategoryProvider>(context, listen: false);
-                      categoryProvider.removeCategory(category);
+                      categoryProvider.removeCategory(category.id!);
                     },
                   );
                 },
