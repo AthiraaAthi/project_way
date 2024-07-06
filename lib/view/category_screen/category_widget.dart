@@ -36,6 +36,7 @@ class CategoryWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   children: [
@@ -54,9 +55,12 @@ class CategoryWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                Text(
-                  description,
-                  textAlign: TextAlign.start,
+                Row(
+                  children: [
+                    Text(
+                      description,
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8),

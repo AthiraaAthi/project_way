@@ -24,12 +24,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   ];
   String dropdownValue =
       "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
-  List<String> categories2 = [
-    "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr(),
-    "categoryscreen.addCategoryDialog.categoryOptions.expenseCategory".tr(),
-  ];
-  String dropdownValue2 =
-      "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
+
   final List<Color> colors = [
     ColorConstant.defGreen,
     ColorConstant.defIndigo,
@@ -863,10 +858,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       underline: Container(),
                                                       value: provider
                                                           .dropdownValue2,
-                                                      items: categories2.map<
+                                                      items: provider.categories
+                                                          .map<
                                                               DropdownMenuItem<
-                                                                  String>>(
-                                                          (String value) {
+                                                                  String>>((String
+                                                              value) {
                                                         return DropdownMenuItem<
                                                             String>(
                                                           value: value,
@@ -939,9 +935,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         underline: Container(),
                                                         value: provider
                                                             .colorNameController,
-                                                        items: colorNames.map<
-                                                            DropdownMenuItem<
-                                                                String>>(
+                                                        items: provider
+                                                            .colorNames
+                                                            .map<
+                                                                DropdownMenuItem<
+                                                                    String>>(
                                                           (String colorName) {
                                                             return DropdownMenuItem<
                                                                 String>(
@@ -955,8 +953,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                                     Container(
                                                                   width: 120,
                                                                   height: 24,
-                                                                  color: colors[
-                                                                      colorNames
+                                                                  color: provider
+                                                                          .colors[
+                                                                      provider
+                                                                          .colorNames
                                                                           .indexOf(
                                                                               colorName)],
                                                                 ),
@@ -987,10 +987,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     titleController2.text;
                                                 final updatedDescription =
                                                     descriptionController2.text;
-                                                final updatedColorName =
-                                                    colorNameController;
+                                                final updatedColorName = Provider
+                                                        .of<DropdownProvider>(
+                                                            context,
+                                                            listen: false)
+                                                    .colorNameController;
                                                 if (updatedTitle.isNotEmpty &&
                                                     updatedDescription
+                                                        .isNotEmpty &&
+                                                    updatedColorName
                                                         .isNotEmpty &&
                                                     updatedColorName
                                                         .isNotEmpty) {
@@ -1141,7 +1146,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     size: 30,
                                                   ),
                                                   underline: Container(),
-                                                  value: dropdownValue2,
+                                                  value:
+                                                      dropdownValue, //////////////CHANGE///////////////
                                                   items: categories.map<
                                                       DropdownMenuItem<String>>(
                                                     (String value) {
@@ -1164,9 +1170,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         "New dropdown value selected: $value");
                                                     setState(
                                                       () {
-                                                        dropdownValue2 = value!;
+                                                        dropdownValue = value!;
                                                       },
-                                                    ); ///////////////
+                                                    ); //////CHANGE/////////
                                                   },
                                                 ),
                                               ),
