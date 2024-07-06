@@ -24,6 +24,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   ];
   String dropdownValue =
       "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
+  List<String> categories2 = [
+    "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr(),
+    "categoryscreen.addCategoryDialog.categoryOptions.expenseCategory".tr(),
+  ];
   String dropdownValue2 =
       "categoryscreen.addCategoryDialog.categoryOptions.incomeCategory".tr();
   final List<Color> colors = [
@@ -859,7 +863,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       underline: Container(),
                                                       value: provider
                                                           .dropdownValue2,
-                                                      items: categories.map<
+                                                      items: categories2.map<
                                                               DropdownMenuItem<
                                                                   String>>(
                                                           (String value) {
@@ -921,49 +925,55 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           BorderRadius.circular(
                                                               5),
                                                     ),
-                                                    child:
-                                                        DropdownButton<String>(
-                                                      icon: Icon(
-                                                        Icons
-                                                            .keyboard_arrow_down,
-                                                        color: Colors.black,
-                                                      ),
-                                                      underline: Container(),
-                                                      value:
-                                                          colorNameController,
-                                                      items: colorNames.map<
-                                                          DropdownMenuItem<
-                                                              String>>(
-                                                        (String colorName) {
-                                                          return DropdownMenuItem<
-                                                              String>(
-                                                            value: colorName,
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(8.0),
-                                                              child: Container(
-                                                                width: 120,
-                                                                height: 24,
-                                                                color: colors[
-                                                                    colorNames
-                                                                        .indexOf(
-                                                                            colorName)],
+                                                    child: Consumer<
+                                                            DropdownProvider>(
+                                                        builder: (context,
+                                                            provider, child) {
+                                                      return DropdownButton<
+                                                          String>(
+                                                        icon: Icon(
+                                                          Icons
+                                                              .keyboard_arrow_down,
+                                                          color: Colors.black,
+                                                        ),
+                                                        underline: Container(),
+                                                        value: provider
+                                                            .colorNameController,
+                                                        items: colorNames.map<
+                                                            DropdownMenuItem<
+                                                                String>>(
+                                                          (String colorName) {
+                                                            return DropdownMenuItem<
+                                                                String>(
+                                                              value: colorName,
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                        8.0),
+                                                                child:
+                                                                    Container(
+                                                                  width: 120,
+                                                                  height: 24,
+                                                                  color: colors[
+                                                                      colorNames
+                                                                          .indexOf(
+                                                                              colorName)],
+                                                                ),
                                                               ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).toList(),
-                                                      onChanged: /////////////////
-                                                          (String? newValue) {
-                                                        setState(
-                                                          () {
-                                                            colorNameController =
-                                                                newValue!;
+                                                            );
                                                           },
-                                                        );
-                                                      },
-                                                    ),
+                                                        ).toList(),
+                                                        onChanged: /////////////////
+                                                            (String? newValue) {
+                                                          provider
+                                                              .setColorNameController(
+                                                                  newValue!);
+
+                                                          ///added provider for editing color drpdwn
+                                                        },
+                                                      );
+                                                    }),
                                                   )
                                                 ],
                                               ),
