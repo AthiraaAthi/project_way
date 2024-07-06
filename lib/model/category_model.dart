@@ -10,10 +10,10 @@
 //   });
 // }
 class Category {
-  final int? id; // id can be null for new categories
-  final String title;
-  final String description;
-  final String colorName;
+  int? id; // id can be null for new categories
+  String title;
+  String description;
+  String colorName;
 
   Category({
     this.id,

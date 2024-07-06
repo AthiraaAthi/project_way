@@ -196,40 +196,40 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(5),
                                               ),
-                                              child: Expanded(
-                                                child: Center(
-                                                  child: DropdownButton<String>(
-                                                    icon: Icon(
-                                                      Icons.keyboard_arrow_down,
-                                                      color: Colors.black,
-                                                    ),
-                                                    underline: Container(),
-                                                    value: dropdownValue,
-                                                    items: categories.map<
-                                                            DropdownMenuItem<
-                                                                String>>(
-                                                        (String value) {
-                                                      return DropdownMenuItem<
-                                                          String>(
-                                                        value: value,
-                                                        child: Text(
-                                                          value,
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w900,
-                                                              fontSize: 13),
-                                                        ),
-                                                      );
-                                                    }).toList(),
-                                                    onChanged: (String? value) {
-                                                      print(
-                                                          "New dropdown value selected: $value");
-                                                      setState(() {
-                                                        dropdownValue = value!;
-                                                      }); ///////////////
-                                                    },
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: DropdownButton<String>(
+                                                  isExpanded: true,
+                                                  icon: Icon(
+                                                    Icons.keyboard_arrow_down,
+                                                    color: Colors.black,
                                                   ),
+                                                  underline: Container(),
+                                                  value: dropdownValue,
+                                                  items: categories.map<
+                                                          DropdownMenuItem<
+                                                              String>>(
+                                                      (String value) {
+                                                    return DropdownMenuItem<
+                                                        String>(
+                                                      value: value,
+                                                      child: Text(
+                                                        value,
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w900,
+                                                            fontSize: 13),
+                                                      ),
+                                                    );
+                                                  }).toList(),
+                                                  onChanged: (String? value) {
+                                                    print(
+                                                        "New dropdown value selected: $value");
+                                                    setState(() {
+                                                      dropdownValue = value!;
+                                                    }); ///////////////
+                                                  },
                                                 ),
                                               ),
                                             ),
@@ -494,8 +494,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(5),
                                               ),
-                                              child: Center(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
                                                 child: DropdownButton<String>(
+                                                  isExpanded: true,
                                                   icon: Icon(
                                                     Icons.keyboard_arrow_down,
                                                     color: Colors.black,
@@ -842,54 +845,51 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(5),
                                               ),
-                                              child: Expanded(
-                                                child: Center(
-                                                  child: Consumer<
-                                                          DropdownProvider>(
-                                                      builder: (context,
-                                                          provider, child) {
-                                                    return DropdownButton<
-                                                        String>(
-                                                      icon: Icon(
-                                                        Icons
-                                                            .keyboard_arrow_down,
-                                                        color: Colors.black,
-                                                      ),
-                                                      underline: Container(),
-                                                      value: provider
-                                                          .dropdownValue2,
-                                                      items: provider.categories
-                                                          .map<
-                                                              DropdownMenuItem<
-                                                                  String>>((String
-                                                              value) {
-                                                        return DropdownMenuItem<
-                                                            String>(
-                                                          value: value,
-                                                          child: Text(
-                                                            value,
-                                                            style: TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w900,
-                                                                fontSize: 13),
-                                                          ),
-                                                        );
-                                                      }).toList(),
-                                                      onChanged:
-                                                          (String? value) {
-                                                        print(
-                                                            "New dropdown value selected: $value");
-                                                        provider
-                                                            .setDropdownValue2(
-                                                                value!);
+                                              child: Consumer<DropdownProvider>(
+                                                  builder: (context, provider,
+                                                      child) {
+                                                return Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: DropdownButton<String>(
+                                                    isExpanded: true,
+                                                    icon: Icon(
+                                                      Icons.keyboard_arrow_down,
+                                                      color: Colors.black,
+                                                    ),
+                                                    underline: Container(),
+                                                    value:
+                                                        provider.dropdownValue2,
+                                                    items: provider.categories
+                                                        .map<
+                                                            DropdownMenuItem<
+                                                                String>>((String
+                                                            value) {
+                                                      return DropdownMenuItem<
+                                                          String>(
+                                                        value: value,
+                                                        child: Text(
+                                                          value,
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w900,
+                                                              fontSize: 13),
+                                                        ),
+                                                      );
+                                                    }).toList(),
+                                                    onChanged: (String? value) {
+                                                      print(
+                                                          "New dropdown value selected: $value");
+                                                      provider
+                                                          .setDropdownValue2(
+                                                              value!);
 
-                                                        ///added provider for income/expense drpdwn
-                                                      },
-                                                    );
-                                                  }),
-                                                ),
-                                              ),
+                                                      ///added provider for income/expense drpdwn
+                                                    },
+                                                  ),
+                                                );
+                                              }),
                                             ),
                                             SizedBox(
                                               height: 30,
@@ -941,6 +941,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                                 DropdownMenuItem<
                                                                     String>>(
                                                           (String colorName) {
+                                                            int index = provider
+                                                                .colorNames
+                                                                .indexOf(
+                                                                    colorName);
+                                                            Color color = index !=
+                                                                    -1
+                                                                ? provider
+                                                                        .colors[
+                                                                    index]
+                                                                : Colors
+                                                                    .transparent; // Default color if not found
                                                             return DropdownMenuItem<
                                                                 String>(
                                                               value: colorName,
@@ -949,17 +960,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                                     const EdgeInsets
                                                                         .all(
                                                                         8.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 120,
-                                                                  height: 24,
-                                                                  color: provider
-                                                                          .colors[
-                                                                      provider
-                                                                          .colorNames
-                                                                          .indexOf(
-                                                                              colorName)],
-                                                                ),
+                                                                child: Container(
+                                                                    width: 120,
+                                                                    height: 24,
+                                                                    color: color
+                                                                    // provider.colors[provider
+                                                                    //     .colorNames
+                                                                    //     .indexOf(
+                                                                    //         colorName)],
+                                                                    ),
                                                               ),
                                                             );
                                                           },
@@ -968,7 +977,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                             (String? newValue) {
                                                           provider
                                                               .setColorNameController(
-                                                                  newValue!);
+                                                            newValue!,
+                                                          );
 
                                                           ///added provider for editing color drpdwn
                                                         },
@@ -1143,40 +1153,49 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     Consumer<DropdownProvider>(
                                                         builder: (context,
                                                             provider, child) {
-                                                  return DropdownButton<String>(
-                                                    icon: Icon(
-                                                      Icons.keyboard_arrow_down,
-                                                      color: Colors.black,
-                                                      size: 30,
-                                                    ),
-                                                    underline: Container(),
-                                                    value:
-                                                        provider.dropdownValue2,
-                                                    items: provider.categories
-                                                        .map<
-                                                            DropdownMenuItem<
-                                                                String>>(
-                                                      (String value) {
-                                                        return DropdownMenuItem<
-                                                            String>(
-                                                          value: value,
-                                                          child: Text(
-                                                            value,
-                                                            style: TextStyle(
+                                                  return Padding(
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    child:
+                                                        DropdownButton<String>(
+                                                      isExpanded: true,
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down,
+                                                        color: Colors.black,
+                                                        size: 30,
+                                                      ),
+                                                      underline: Container(),
+                                                      value: provider
+                                                          .dropdownValue2,
+                                                      items: provider.categories
+                                                          .map<
+                                                              DropdownMenuItem<
+                                                                  String>>(
+                                                        (String value) {
+                                                          return DropdownMenuItem<
+                                                              String>(
+                                                            value: value,
+                                                            child: Text(
+                                                              value,
+                                                              style: TextStyle(
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w900,
-                                                                fontSize: 20),
-                                                          ),
-                                                        );
+                                                                fontSize: 20,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).toList(),
+                                                      onChanged:
+                                                          (String? value) {
+                                                        print(
+                                                            "New dropdown value selected: $value");
+                                                        provider.setDropdownValue2(
+                                                            value!); //////CHANGED TAB DROPDOWN OF INCOME/EXPENSE/////////
                                                       },
-                                                    ).toList(),
-                                                    onChanged: (String? value) {
-                                                      print(
-                                                          "New dropdown value selected: $value");
-                                                      provider.setDropdownValue2(
-                                                          value!); //////CHANGED TAB DROPDOWN OF INCOME/EXPENSE/////////
-                                                    },
+                                                    ),
                                                   );
                                                 }),
                                               ),
@@ -1229,6 +1248,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                                 DropdownMenuItem<
                                                                     String>>((String
                                                                 colorName) {
+                                                          int index = provider
+                                                              .colorNames
+                                                              .indexOf(
+                                                                  colorName);
+                                                          Color color = index !=
+                                                                  -1
+                                                              ? provider
+                                                                  .colors[index]
+                                                              : Colors
+                                                                  .transparent; // Default color if not found
                                                           return DropdownMenuItem<
                                                               String>(
                                                             value: colorName,
@@ -1237,15 +1266,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                                   const EdgeInsets
                                                                       .all(8.0),
                                                               child: Container(
-                                                                width: 200,
-                                                                height: 34,
-                                                                color: provider
-                                                                        .colors[
-                                                                    provider
-                                                                        .colorNames
-                                                                        .indexOf(
-                                                                            colorName)],
-                                                              ),
+                                                                  width: 200,
+                                                                  height: 34,
+                                                                  color: color
+                                                                  // provider
+                                                                  //         .colors[
+                                                                  //     provider
+                                                                  //         .colorNames
+                                                                  //         .indexOf(
+                                                                  //             colorName)],
+                                                                  ),
                                                             ),
                                                           );
                                                         }).toList(),
@@ -1271,10 +1301,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     titleController2.text;
                                                 final updatedDescription =
                                                     descriptionController2.text;
-                                                final updatedColorName =
-                                                    colorNameController;
+                                                final updatedColorName = Provider
+                                                        .of<DropdownProvider>(
+                                                            context,
+                                                            listen: false)
+                                                    .colorNameController;
                                                 if (updatedTitle.isNotEmpty &&
                                                     updatedDescription
+                                                        .isNotEmpty &&
+                                                    updatedColorName
                                                         .isNotEmpty &&
                                                     updatedColorName
                                                         .isNotEmpty) {
