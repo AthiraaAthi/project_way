@@ -43,6 +43,8 @@ dependencies:
   video_player: ^2.8.6
   flutter_toggle_tab: ^1.4.1
   easy_localization: ^3.0.7
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
