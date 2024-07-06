@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
+import 'package:project_way/controller/dropdown_provider.dart';
 import 'package:project_way/model/category_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/category_screen/category_widget.dart';
@@ -844,8 +845,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                               ),
                                               child: Expanded(
                                                 child: Center(
-                                                  child: Consumer(builder:
-                                                      (context, value, child) {
+                                                  child: Consumer<
+                                                          DropdownProvider>(
+                                                      builder: (context,
+                                                          provider, child) {
                                                     return DropdownButton<
                                                         String>(
                                                       icon: Icon(
@@ -854,7 +857,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         color: Colors.black,
                                                       ),
                                                       underline: Container(),
-                                                      value: dropdownValue2,
+                                                      value: provider
+                                                          .dropdownValue2,
                                                       items: categories.map<
                                                               DropdownMenuItem<
                                                                   String>>(
@@ -876,10 +880,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           (String? value) {
                                                         print(
                                                             "New dropdown value selected: $value");
-                                                        setState(() {
-                                                          dropdownValue2 =
-                                                              value!;
-                                                        }); ///////////////
+                                                        provider
+                                                            .setDropdownValue2(
+                                                                value!);
+
+                                                        ///added provider for income/expense drpdwn
                                                       },
                                                     );
                                                   }),
