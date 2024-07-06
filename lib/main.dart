@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
+import 'package:project_way/controller/dropdown_provider.dart';
 import 'package:project_way/view/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,9 @@ class ProjectWay extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => CategoryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DropdownProvider(),
         )
       ],
       child: MaterialApp(

@@ -844,38 +844,45 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                               ),
                                               child: Expanded(
                                                 child: Center(
-                                                  child: DropdownButton<String>(
-                                                    icon: Icon(
-                                                      Icons.keyboard_arrow_down,
-                                                      color: Colors.black,
-                                                    ),
-                                                    underline: Container(),
-                                                    value: dropdownValue2,
-                                                    items: categories.map<
-                                                            DropdownMenuItem<
-                                                                String>>(
-                                                        (String value) {
-                                                      return DropdownMenuItem<
-                                                          String>(
-                                                        value: value,
-                                                        child: Text(
-                                                          value,
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w900,
-                                                              fontSize: 13),
-                                                        ),
-                                                      );
-                                                    }).toList(),
-                                                    onChanged: (String? value) {
-                                                      print(
-                                                          "New dropdown value selected: $value");
-                                                      setState(() {
-                                                        dropdownValue2 = value!;
-                                                      }); ///////////////
-                                                    },
-                                                  ),
+                                                  child: Consumer(builder:
+                                                      (context, value, child) {
+                                                    return DropdownButton<
+                                                        String>(
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down,
+                                                        color: Colors.black,
+                                                      ),
+                                                      underline: Container(),
+                                                      value: dropdownValue2,
+                                                      items: categories.map<
+                                                              DropdownMenuItem<
+                                                                  String>>(
+                                                          (String value) {
+                                                        return DropdownMenuItem<
+                                                            String>(
+                                                          value: value,
+                                                          child: Text(
+                                                            value,
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w900,
+                                                                fontSize: 13),
+                                                          ),
+                                                        );
+                                                      }).toList(),
+                                                      onChanged:
+                                                          (String? value) {
+                                                        print(
+                                                            "New dropdown value selected: $value");
+                                                        setState(() {
+                                                          dropdownValue2 =
+                                                              value!;
+                                                        }); ///////////////
+                                                      },
+                                                    );
+                                                  }),
                                                 ),
                                               ),
                                             ),
