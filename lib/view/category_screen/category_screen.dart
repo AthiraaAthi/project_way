@@ -1139,42 +1139,46 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     BorderRadius.circular(5),
                                               ),
                                               child: Center(
-                                                child: DropdownButton<String>(
-                                                  icon: Icon(
-                                                    Icons.keyboard_arrow_down,
-                                                    color: Colors.black,
-                                                    size: 30,
-                                                  ),
-                                                  underline: Container(),
-                                                  value:
-                                                      dropdownValue, //////////////CHANGE///////////////
-                                                  items: categories.map<
-                                                      DropdownMenuItem<String>>(
-                                                    (String value) {
-                                                      return DropdownMenuItem<
-                                                          String>(
-                                                        value: value,
-                                                        child: Text(
-                                                          value,
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w900,
-                                                              fontSize: 20),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ).toList(),
-                                                  onChanged: (String? value) {
-                                                    print(
-                                                        "New dropdown value selected: $value");
-                                                    setState(
-                                                      () {
-                                                        dropdownValue = value!;
+                                                child:
+                                                    Consumer<DropdownProvider>(
+                                                        builder: (context,
+                                                            provider, child) {
+                                                  return DropdownButton<String>(
+                                                    icon: Icon(
+                                                      Icons.keyboard_arrow_down,
+                                                      color: Colors.black,
+                                                      size: 30,
+                                                    ),
+                                                    underline: Container(),
+                                                    value:
+                                                        provider.dropdownValue2,
+                                                    items: provider.categories
+                                                        .map<
+                                                            DropdownMenuItem<
+                                                                String>>(
+                                                      (String value) {
+                                                        return DropdownMenuItem<
+                                                            String>(
+                                                          value: value,
+                                                          child: Text(
+                                                            value,
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w900,
+                                                                fontSize: 20),
+                                                          ),
+                                                        );
                                                       },
-                                                    ); //////CHANGE/////////
-                                                  },
-                                                ),
+                                                    ).toList(),
+                                                    onChanged: (String? value) {
+                                                      print(
+                                                          "New dropdown value selected: $value");
+                                                      provider.setDropdownValue2(
+                                                          value!); //////CHANGED TAB DROPDOWN OF INCOME/EXPENSE/////////
+                                                    },
+                                                  );
+                                                }),
                                               ),
                                             ),
                                             SizedBox(
@@ -1204,47 +1208,56 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           BorderRadius.circular(
                                                               5),
                                                     ),
-                                                    child:
-                                                        DropdownButton<String>(
-                                                      icon: Icon(
-                                                        Icons
-                                                            .keyboard_arrow_down,
-                                                        color: Colors.black,
-                                                        size: 30,
-                                                      ),
-                                                      underline: Container(),
-                                                      value:
-                                                          colorNameController,
-                                                      items: colorNames.map<
-                                                              DropdownMenuItem<
-                                                                  String>>(
-                                                          (String colorName) {
-                                                        return DropdownMenuItem<
-                                                            String>(
-                                                          value: colorName,
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(8.0),
-                                                            child: Container(
-                                                              width: 200,
-                                                              height: 34,
-                                                              color: colors[
-                                                                  colorNames
-                                                                      .indexOf(
-                                                                          colorName)],
+                                                    child: Consumer<
+                                                            DropdownProvider>(
+                                                        builder: (context,
+                                                            provider, child) {
+                                                      return DropdownButton<
+                                                          String>(
+                                                        icon: Icon(
+                                                          Icons
+                                                              .keyboard_arrow_down,
+                                                          color: Colors.black,
+                                                          size: 30,
+                                                        ),
+                                                        underline: Container(),
+                                                        value: provider
+                                                            .colorNameController,
+                                                        items: provider
+                                                            .colorNames
+                                                            .map<
+                                                                DropdownMenuItem<
+                                                                    String>>((String
+                                                                colorName) {
+                                                          return DropdownMenuItem<
+                                                              String>(
+                                                            value: colorName,
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
+                                                              child: Container(
+                                                                width: 200,
+                                                                height: 34,
+                                                                color: provider
+                                                                        .colors[
+                                                                    provider
+                                                                        .colorNames
+                                                                        .indexOf(
+                                                                            colorName)],
+                                                              ),
                                                             ),
-                                                          ),
-                                                        );
-                                                      }).toList(),
-                                                      onChanged:
-                                                          (String? newValue) {
-                                                        setState(() {
-                                                          colorNameController =
-                                                              newValue!;
-                                                        });
-                                                      },
-                                                    ),
+                                                          );
+                                                        }).toList(),
+                                                        onChanged:
+                                                            (String? newValue) {
+                                                          provider
+                                                              .setColorNameController(
+                                                            newValue!,
+                                                          ); ///////CHNAGED STATE FOR COLOR DROPDOWN TAB
+                                                        },
+                                                      );
+                                                    }),
                                                   )
                                                 ],
                                               ),
