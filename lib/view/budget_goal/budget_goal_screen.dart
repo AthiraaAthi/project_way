@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 import 'package:provider/provider.dart';
 
@@ -357,11 +358,21 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             value: 'No categories available',
                                             child: Padding(
                                               padding: const EdgeInsets.all(10),
-                                              child: Text(
-                                                'Add categories',
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 14,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            CategoriesScreen(),
+                                                      ));
+                                                },
+                                                child: Text(
+                                                  'Add categories',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 14,
+                                                  ),
                                                 ),
                                               ),
                                             ),
