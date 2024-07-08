@@ -358,10 +358,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             child: Padding(
                                               padding: const EdgeInsets.all(10),
                                               child: Text(
-                                                'No categories available',
+                                                'Add categories',
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 14,
                                                 ),
                                               ),
                                             ),
@@ -450,7 +450,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               // Set the initial dropdown value
                               String dropdownValue = categoriesAvailable
                                   ? categoryProvider.categories[0].title
-                                  : 'No categories available';
+                                  : 'Add categories';
 
                               return DropdownButton<String>(
                                 icon: Icon(
@@ -479,11 +479,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                       }).toList()
                                     : [
                                         DropdownMenuItem<String>(
-                                          value: 'No categories available',
+                                          value: 'Add categories',
                                           child: Padding(
                                             padding: const EdgeInsets.all(10),
                                             child: Text(
-                                              'No categories available',
+                                              'Add categories',
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,
