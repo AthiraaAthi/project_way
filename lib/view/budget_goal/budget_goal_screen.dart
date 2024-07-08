@@ -493,11 +493,21 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                           value: 'Add categories',
                                           child: Padding(
                                             padding: const EdgeInsets.all(10),
-                                            child: Text(
-                                              'Add categories',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          CategoriesScreen(),
+                                                    ));
+                                              },
+                                              child: Text(
+                                                'Add categories',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -814,42 +824,86 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             ),
                           ),
                           Container(
-                            alignment: Alignment.center,
-                            height: 70,
-                            width: 250,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                            ),
-                            child: DropdownButton<String>(
-                              icon: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Colors.black,
-                                size: 30,
+                              alignment: Alignment.center,
+                              height: 70,
+                              width: 250,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
                               ),
-                              underline: Container(),
-                              value: CategoryDropDownValue,
-                              items: Category.map<DropdownMenuItem<String>>(
-                                  (String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: Text(
-                                      value,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 23),
+                              child: Consumer<CategoryProvider>(
+                                builder: (context, categoryProvider, child) {
+                                  // Check if categories are available
+                                  bool categoriesAvailable =
+                                      categoryProvider.categories.isNotEmpty;
+                                  // Set the initial dropdown value
+                                  String dropdownValue = categoriesAvailable
+                                      ? categoryProvider.categories[0].title
+                                      : 'Add categories';
+
+                                  return DropdownButton<String>(
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down,
+                                      color: Colors.black,
                                     ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String? value) {
-                                setState(() {
-                                  CategoryDropDownValue = value!;
-                                });
-                              },
-                            ),
-                          ),
+                                    underline: Container(),
+                                    value: dropdownValue,
+                                    items: categoriesAvailable
+                                        ? categoryProvider.categories
+                                            .map<DropdownMenuItem<String>>(
+                                                (category) {
+                                            return DropdownMenuItem<String>(
+                                              value: category.title,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(10),
+                                                child: Text(
+                                                  category.title,
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }).toList()
+                                        : [
+                                            DropdownMenuItem<String>(
+                                              value: 'Add categories',
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(10),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              CategoriesScreen(),
+                                                        ));
+                                                  },
+                                                  child: Text(
+                                                    'Add categories',
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 15,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                    onChanged: categoriesAvailable
+                                        ? (String? value) {
+                                            setState(() {
+                                              dropdownValue = value!;
+                                            });
+                                          }
+                                        : null, // Disable the dropdown if no categories are available
+                                  );
+                                },
+                              ) //ADDED CATEGORY SCREEN  CATEGORIES DISPLAY ON BUDGET GOAL SCREEN FOR TAB IN MONTHLY
+                              ),
                         ],
                       ),
                     ] else if (dropDownMonthOrWeekValue ==
