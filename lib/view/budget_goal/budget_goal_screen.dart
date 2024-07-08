@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/screen/responsive.dart';
+import 'package:provider/provider.dart';
 
 class BudgetGoalScreen extends StatefulWidget {
   const BudgetGoalScreen({super.key});
@@ -315,35 +317,67 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey),
                             ),
-                            child: DropdownButton<String>(
-                              icon: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Colors.black,
-                              ),
-                              underline: Container(),
-                              value: CategoryDropDownValue,
-                              items: Category.map<DropdownMenuItem<String>>(
-                                  (String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: Text(
-                                      value,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15),
-                                    ),
+                            child: Consumer<CategoryProvider>(
+                              builder: (context, categoryProvider, child) {
+                                // Check if categories are available
+                                bool categoriesAvailable =
+                                    categoryProvider.categories.isNotEmpty;
+                                // Set the initial dropdown value
+                                String dropdownValue = categoriesAvailable
+                                    ? categoryProvider.categories[0].title
+                                    : 'No categories available';
+
+                                return DropdownButton<String>(
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.black,
                                   ),
+                                  underline: Container(),
+                                  value: dropdownValue,
+                                  items: categoriesAvailable
+                                      ? categoryProvider.categories
+                                          .map<DropdownMenuItem<String>>(
+                                              (category) {
+                                          return DropdownMenuItem<String>(
+                                            value: category.title,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Text(
+                                                category.title,
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }).toList()
+                                      : [
+                                          DropdownMenuItem<String>(
+                                            value: 'No categories available',
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Text(
+                                                'No categories available',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                  onChanged: categoriesAvailable
+                                      ? (String? value) {
+                                          setState(() {
+                                            dropdownValue = value!;
+                                          });
+                                        }
+                                      : null, // Disable the dropdown if no categories are available
                                 );
-                              }).toList(),
-                              onChanged: (String? value) {
-                                setState(() {
-                                  CategoryDropDownValue = value!;
-                                });
                               },
                             ),
-                          ),
+                          ), //ADDED CATEGORY SCREEN ADDED CATEGORIES DISPLAY ON BUDGET GOAL SCREEN
                         ],
                       ),
                     ] else if (dropDownMonthOrWeekValue ==
@@ -402,41 +436,102 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         height: 20,
                       ),
                       Container(
-                        height: 50,
-                        width: 323,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: DropdownButton<String>(
-                          icon: Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Colors.black,
+                          height: 50,
+                          width: 323,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(5),
                           ),
-                          underline: Container(),
-                          value: CategoryDropDownValue,
-                          items: Category.map<DropdownMenuItem<String>>(
-                              (String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Text(
-                                  value,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                          child: Consumer<CategoryProvider>(
+                            builder: (context, categoryProvider, child) {
+                              // Check if categories are available
+                              bool categoriesAvailable =
+                                  categoryProvider.categories.isNotEmpty;
+                              // Set the initial dropdown value
+                              String dropdownValue = categoriesAvailable
+                                  ? categoryProvider.categories[0].title
+                                  : 'No categories available';
+
+                              return DropdownButton<String>(
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Colors.black,
                                 ),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? value) {
-                            setState(() {
-                              CategoryDropDownValue = value!;
-                            });
-                          },
-                        ),
-                      ),
+                                underline: Container(),
+                                value: dropdownValue,
+                                items: categoriesAvailable
+                                    ? categoryProvider.categories
+                                        .map<DropdownMenuItem<String>>(
+                                            (category) {
+                                        return DropdownMenuItem<String>(
+                                          value: category.title,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: Text(
+                                              category.title,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }).toList()
+                                    : [
+                                        DropdownMenuItem<String>(
+                                          value: 'No categories available',
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: Text(
+                                              'No categories available',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                onChanged: categoriesAvailable
+                                    ? (String? value) {
+                                        setState(() {
+                                          dropdownValue = value!;
+                                        });
+                                      }
+                                    : null, // Disable the dropdown if no categories are available
+                              );
+                            },
+                          )
+
+                          // DropdownButton<String>(
+                          //   icon: Icon(
+                          //     Icons.keyboard_arrow_down,
+                          //     color: Colors.black,
+                          //   ),
+                          //   underline: Container(),
+                          //   value: CategoryDropDownValue,
+                          //   items: Category.map<DropdownMenuItem<String>>(
+                          //       (String value) {
+                          //     return DropdownMenuItem<String>(
+                          //       value: value,
+                          //       child: Padding(
+                          //         padding: const EdgeInsets.all(10),
+                          //         child: Text(
+                          //           value,
+                          //           style: TextStyle(
+                          //               fontWeight: FontWeight.bold,
+                          //               fontSize: 15),
+                          //         ),
+                          //       ),
+                          //     );
+                          //   }).toList(),
+                          //   onChanged: (String? value) {
+                          //     setState(() {
+                          //       CategoryDropDownValue = value!;
+                          //     });
+                          //   },
+                          // ),
+                          ),
                     ],
                     SizedBox(
                       height: 20,
