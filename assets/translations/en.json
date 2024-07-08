@@ -121,6 +121,7 @@
             "delete": "Delete"
         },
         "tableHeaders": {
+            "month": "Month",
             "date": "Date",
             "category": "Category",
             "amount": "Amount",

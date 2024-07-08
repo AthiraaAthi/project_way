@@ -121,6 +121,7 @@
             "delete": "ഇല്ലാതാക്കുക"
         },
         "tableHeaders": {
+            "month": "മാസം",
             "date": "തീയതി",
             "category": "വിഭാഗം",
             "amount": "തുക",

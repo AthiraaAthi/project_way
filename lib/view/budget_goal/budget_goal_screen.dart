@@ -130,6 +130,17 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     }
   }
 
+  void updateColumnHeader(String value) {
+    String columnHeader;
+    setState(() {
+      if (value == "budget_goal_screen.dropdowns.monthly".tr()) {
+        columnHeader = 'budget_goal_screen.tableHeaders.month'.tr();
+      } else if (value == "budget_goal_screen.dropdowns.weekly".tr()) {
+        columnHeader = 'budget_goal_screen.tableHeaders.date'.tr();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double hintSize = 12;
