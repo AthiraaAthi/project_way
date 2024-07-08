@@ -501,7 +501,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     : null, // Disable the dropdown if no categories are available
                               );
                             },
-                          )
+                          ) //ADDED CATEGORY SCREEN ADDED CATEGORIES DISPLAY ON BUDGET GOAL SCREEN
 
                           // DropdownButton<String>(
                           //   icon: Icon(
