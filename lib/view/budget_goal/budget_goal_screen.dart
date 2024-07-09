@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/category_screen/category_screen.dart';
@@ -105,6 +106,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   ];
   final TextEditingController startDateController = TextEditingController();
   final TextEditingController endDateController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
   @override
   void dispose() {
     startDateController.dispose();
@@ -128,6 +130,21 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
             "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
       });
     }
+  }
+
+  List<Map<String, String>> enteredvalues = [];
+  String categorydropdownValue = '';
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      final categoryProvider =
+          Provider.of<CategoryProvider>(context, listen: false);
+      bool categoriesAvailable = categoryProvider.categories.isNotEmpty;
+      categorydropdownValue = categoriesAvailable
+          ? categoryProvider.categories[0].title
+          : 'Add categories';
+    });
   }
 
   @override
@@ -459,7 +476,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               bool categoriesAvailable =
                                   categoryProvider.categories.isNotEmpty;
                               // Set the initial dropdown value
-                              String dropdownValue = categoriesAvailable
+                              String categorydropdownValue = categoriesAvailable
                                   ? categoryProvider.categories[0].title
                                   : 'Add categories';
 
@@ -469,7 +486,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   color: Colors.black,
                                 ),
                                 underline: Container(),
-                                value: dropdownValue,
+                                value: categorydropdownValue,
                                 items: categoriesAvailable
                                     ? categoryProvider.categories
                                         .map<DropdownMenuItem<String>>(
@@ -516,7 +533,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onChanged: categoriesAvailable
                                     ? (String? value) {
                                         setState(() {
-                                          dropdownValue = value!;
+                                          categorydropdownValue = value!;
                                         });
                                       }
                                     : null, // Disable the dropdown if no categories are available
@@ -564,6 +581,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5)),
                       child: TextField(
+                        controller: amountController,
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText:
@@ -578,7 +596,30 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        // Handle the submit action
+                        //         String date = "";
+
+                        //         if (dropDownMonthOrWeekValue ==
+                        //             "budget_goal_screen.dropdowns.monthly".tr()) {
+                        //           date = dropDownMonthValue;
+                        //         } else if (dropDownMonthOrWeekValue ==
+                        //             "budget_goal_screen.dropdowns.weekly".tr()) {
+                        //           date =
+                        //               '${startDateController.text} to ${endDateController.text}';
+                        //         }
+                        //         setState(() {
+                        //   submittedDataList.add({
+                        //     "date": date,
+                        //     "category": categorydropdownValue,
+                        //     "amount": "5000",
+                        //   });
+                        // });
+                        setState(() {
+                          enteredvalues.add({
+                            "amount": amountController.text,
+                            "month": dropDownMonthValue,
+                            "category": categorydropdownValue,
+                          });
+                        });
                       },
                       child: Container(
                         height: 45,
@@ -627,68 +668,128 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               fontSize: 13),
                         )),
                         DataColumn(
-                            label: Text(
-                          'budget_goal_screen.tableHeaders.amount'.tr(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13),
+                            label: InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'budget_goal_screen.tableHeaders.amount'.tr(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 13),
+                          ),
                         )),
                         DataColumn(
-                            label: Text(
-                          'budget_goal_screen.tableHeaders.action'.tr(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13),
+                            label: InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'budget_goal_screen.tableHeaders.action'.tr(),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 13),
+                          ),
                         )),
                       ],
-                      rows: tableData
-                          .map(
-                            (data) => DataRow(cells: [
-                              DataCell(Text(
-                                data['date']!,
+                      rows: enteredvalues.map<DataRow>((entry) {
+                        return DataRow(cells: [
+                          DataCell(Text(entry['month'] ?? '')),
+                          DataCell(Text(entry['category'] ?? '')),
+                          DataCell(Text(entry['amount'] ?? '')),
+                          DataCell(Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'budget_goal_screen.buttons.edit'.tr(),
+                                  style: TextStyle(
+                                      color: Colors.green,
+                                      fontSize: buttonSize),
+                                ),
+                              ),
+                              Text(
+                                'budget_goal_screen.buttons.delete'.tr(),
                                 style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              )),
-                              DataCell(Text(
-                                data['category']!,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              )),
-                              DataCell(Text(
-                                data['amount']!,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12),
-                              )),
-                              DataCell(Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      'budget_goal_screen.buttons.edit'.tr(),
-                                      style: TextStyle(
-                                          color: Colors.green,
-                                          fontSize: buttonSize),
-                                    ),
-                                  ),
-                                  Text(
-                                    'budget_goal_screen.buttons.delete'.tr(),
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontSize: buttonSize),
-                                  )
-                                ],
-                              )),
-                            ]),
-                          )
-                          .toList(),
+                                    color: Colors.red, fontSize: buttonSize),
+                              )
+                            ],
+                          )),
+                        ]);
+                      }).toList(),
+                      //[
+                      //   DataRow(
+                      //     cells: <DataCell>[
+                      //       DataCell(Text('Jan')),
+                      //       DataCell(Text('Books')),
+                      //       DataCell(Text('5000')),
+                      //       DataCell(Column(
+                      //         children: [
+                      //           Padding(
+                      //             padding: const EdgeInsets.all(8.0),
+                      //             child: Text(
+                      //               'budget_goal_screen.buttons.edit'.tr(),
+                      //               style: TextStyle(
+                      //                   color: Colors.green,
+                      //                   fontSize: buttonSize),
+                      //             ),
+                      //           ),
+                      //           Text(
+                      //             'budget_goal_screen.buttons.delete'.tr(),
+                      //             style: TextStyle(
+                      //                 color: Colors.red, fontSize: buttonSize),
+                      //           )
+                      //         ],
+                      //       )),
+                      //     ],
+                      //   ),
+
+                      // ],
+                      // tableData
+                      //     .map(
+                      //       (data) => DataRow(cells: [
+                      //         DataCell(Text(
+                      //           data['date']!,
+                      //           style: TextStyle(
+                      //               color: Colors.black,
+                      //               fontWeight: FontWeight.w500,
+                      //               fontSize: 12),
+                      //         )),
+                      //         DataCell(Text(
+                      //           data['category']!,
+                      //           style: TextStyle(
+                      //               color: Colors.black,
+                      //               fontWeight: FontWeight.w500,
+                      //               fontSize: 12),
+                      //         )),
+                      //         DataCell(Text(
+                      //           data['amount']!,
+                      //           style: TextStyle(
+                      //               color: Colors.black,
+                      //               fontWeight: FontWeight.w500,
+                      //               fontSize: 12),
+                      //         )),
+                      //         DataCell(Column(
+                      //           children: [
+                      //             Padding(
+                      //               padding: const EdgeInsets.all(8.0),
+                      //               child: Text(
+                      //                 'budget_goal_screen.buttons.edit'.tr(),
+                      //                 style: TextStyle(
+                      //                     color: Colors.green,
+                      //                     fontSize: buttonSize),
+                      //               ),
+                      //             ),
+                      //             Text(
+                      //               'budget_goal_screen.buttons.delete'.tr(),
+                      //               style: TextStyle(
+                      //                   color: Colors.red,
+                      //                   fontSize: buttonSize),
+                      //             )
+                      //           ],
+                      //         )
+                      // ),
+                      //       ]),
+                      //     )
+                      //     .toList(),
                     ),
                   ],
                 ),
