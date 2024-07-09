@@ -71,39 +71,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   ]; // category selection
   String CategoryDropDownValue =
       "budget_goal_screen.dropdowns.budgetCategory".tr();
-  List<Map<String, String>> tableData = [
-    // For Table
-    {
-      "date": "1-5-2024",
-      "category": "budget_goal_screen.categoryValues.Estate".tr(),
-      "amount": "5000"
-    },
-    {
-      "date": "2-5-2024",
-      "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000"
-    },
-    {
-      "date": "3-5-2024",
-      "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000"
-    },
-    {
-      "date": "1-5-2024",
-      "category": "budget_goal_screen.categoryValues.Estate".tr(),
-      "amount": "5000"
-    },
-    {
-      "date": "2-5-2024",
-      "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000"
-    },
-    {
-      "date": "3-5-2024",
-      "category": "budget_goal_screen.categoryValues.Food".tr(),
-      "amount": "5000"
-    },
-  ];
+
   final TextEditingController startDateController = TextEditingController();
   final TextEditingController endDateController = TextEditingController();
   final TextEditingController amountController = TextEditingController();
@@ -134,6 +102,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
   List<Map<String, String>> enteredvalues = [];
   String categorydropdownValue = '';
+  String selectedCategory = '';
   @override
   void initState() {
     super.initState();
@@ -144,6 +113,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
       categorydropdownValue = categoriesAvailable
           ? categoryProvider.categories[0].title
           : 'Add categories';
+      selectedCategory = categorydropdownValue;
     });
   }
 
@@ -355,9 +325,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 bool categoriesAvailable =
                                     categoryProvider.categories.isNotEmpty;
                                 // Set the initial dropdown value
-                                String dropdownValue = categoriesAvailable
-                                    ? categoryProvider.categories[0].title
-                                    : 'No categories available';
+                                String categorydropdownValue =
+                                    categoriesAvailable
+                                        ? categoryProvider.categories[0].title
+                                        : 'No categories available';
 
                                 return DropdownButton<String>(
                                   icon: Icon(
@@ -365,7 +336,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     color: Colors.black,
                                   ),
                                   underline: Container(),
-                                  value: dropdownValue,
+                                  value: categorydropdownValue,
                                   items: categoriesAvailable
                                       ? categoryProvider.categories
                                           .map<DropdownMenuItem<String>>(
@@ -412,7 +383,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   onChanged: categoriesAvailable
                                       ? (String? value) {
                                           setState(() {
-                                            dropdownValue = value!;
+                                            categorydropdownValue = value!;
+                                            selectedCategory = value;
                                           });
                                         }
                                       : null, // Disable the dropdown if no categories are available
@@ -548,6 +520,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     ? (String? value) {
                                         setState(() {
                                           categorydropdownValue = value!;
+                                          selectedCategory = value;
                                         });
                                       }
                                     : null, // Disable the dropdown if no categories are available
@@ -628,7 +601,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             enteredvalues.add({
                               "amount": enteredAmount,
                               "month": dropDownMonthValue,
-                              "category": categorydropdownValue,
+                              "category": selectedCategory,
                             });
                             dropDownMonthValue =
                                 "budget_goal_screen.dropdowns.month_selection"
@@ -641,7 +614,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               enteredvalues.add({
                                 "amount": enteredAmount,
                                 "month": date,
-                                "category": categorydropdownValue,
+                                "category": selectedCategory,
                               });
                             }
                             startDateController.clear();
@@ -957,6 +930,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         ? (String? value) {
                                             setState(() {
                                               dropdownValue = value!;
+                                              selectedCategory = value;
                                             });
                                           }
                                         : null, // Disable the dropdown if no categories are available
@@ -1039,7 +1013,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               bool categoriesAvailable =
                                   categoryProvider.categories.isNotEmpty;
                               // Set the initial dropdown value
-                              String dropdownValue = categoriesAvailable
+                              String dropdownValue2 = categoriesAvailable
                                   ? categoryProvider.categories[0].title
                                   : 'Add categories';
 
@@ -1049,7 +1023,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   color: Colors.black,
                                 ),
                                 underline: Container(),
-                                value: dropdownValue,
+                                value: dropdownValue2,
                                 items: categoriesAvailable
                                     ? categoryProvider.categories
                                         .map<DropdownMenuItem<String>>(
@@ -1096,7 +1070,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onChanged: categoriesAvailable
                                     ? (String? value) {
                                         setState(() {
-                                          dropdownValue = value!;
+                                          dropdownValue2 = value!;
+                                          selectedCategory = value;
                                         });
                                       }
                                     : null, // Disable the dropdown if no categories are available
