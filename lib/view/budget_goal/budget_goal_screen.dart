@@ -1143,6 +1143,9 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               "month": dropDownMonthValue,
                               "category": categorydropdownValue,
                             });
+                            dropDownMonthValue =
+                                "budget_goal_screen.dropdowns.month_selection"
+                                    .tr();
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
                             List<String> dates = getDatesInRange(
                                 startDateController.text,
