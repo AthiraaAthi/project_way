@@ -1109,7 +1109,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       columns: [
                         DataColumn(
                             label: Text(
-                          'budget_goal_screen.tableHeaders.date'.tr(),
+                          dropDownMonthOrWeekValue ==
+                                  "budget_goal_screen.dropdowns.monthly".tr()
+                              ? "budget_goal_screen.tableHeaders.month".tr()
+                              : "budget_goal_screen.tableHeaders.date"
+                                  .tr(), //changed tab table date column according to week or month selection
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w800,
