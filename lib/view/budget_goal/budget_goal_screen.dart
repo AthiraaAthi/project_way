@@ -1187,6 +1187,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: TextField(
+                        controller: amountController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "budget_goal_screen.hints.enterAmount".tr(),
@@ -1204,7 +1205,29 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        // Handle the submit action
+                        setState(() {
+                          String enteredAmount = amountController.text;
+                          if (dropDownMonthOrWeekValue == 'Monthly') {
+                            enteredvalues.add({
+                              "amount": enteredAmount,
+                              "month": dropDownMonthValue,
+                              "category": categorydropdownValue,
+                            });
+                          } else if (dropDownMonthOrWeekValue == 'Weekly') {
+                            List<String> dates = getDatesInRange(
+                                startDateController.text,
+                                endDateController.text);
+                            for (String date in dates) {
+                              enteredvalues.add({
+                                "amount": enteredAmount,
+                                "month": date,
+                                "category": categorydropdownValue,
+                              });
+                            }
+                          }
+                          amountController
+                              .clear(); // Clear the text field after submission
+                        });
                       },
                       child: Container(
                         height: 70,
@@ -1270,50 +1293,39 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               fontSize: 20),
                         )),
                       ],
-                      rows: tableData
-                          .map(
-                            (data) => DataRow(cells: [
-                              DataCell(Text(
-                                data['date']!,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18),
-                              )),
-                              DataCell(Text(
-                                data['category']!,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18),
-                              )),
-                              DataCell(Text(
-                                data['amount']!,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18),
-                              )),
-                              DataCell(Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      'budget_goal_screen.buttons.edit'.tr(),
-                                      style: TextStyle(
-                                          color: Colors.green, fontSize: 18),
-                                    ),
-                                  ),
-                                  Text(
-                                    'budget_goal_screen.buttons.delete'.tr(),
-                                    style: TextStyle(
-                                        color: Colors.red, fontSize: 18),
-                                  )
-                                ],
-                              )),
-                            ]),
-                          )
-                          .toList(),
+                      rows: enteredvalues.map<DataRow>((entry) {
+                        return DataRow(cells: [
+                          DataCell(Text(
+                            entry['month'] ?? '',
+                            style: TextStyle(fontSize: 18),
+                          )),
+                          DataCell(Text(
+                            entry['category'] ?? '',
+                            style: TextStyle(fontSize: 18),
+                          )),
+                          DataCell(Text(
+                            entry['amount'] ?? '',
+                            style: TextStyle(fontSize: 18),
+                          )),
+                          DataCell(Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'budget_goal_screen.buttons.edit'.tr(),
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 18),
+                                ),
+                              ),
+                              Text(
+                                'budget_goal_screen.buttons.delete'.tr(),
+                                style:
+                                    TextStyle(color: Colors.red, fontSize: 18),
+                              )
+                            ],
+                          )),
+                        ]);
+                      }).toList(),
                     ),
                   ],
                 ),
