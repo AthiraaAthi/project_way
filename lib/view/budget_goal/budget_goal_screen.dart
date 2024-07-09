@@ -147,6 +147,20 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     });
   }
 
+  List<String> getDatesInRange(String start, String end) {
+    List<String> dates = [];
+    DateFormat dateFormat = DateFormat('dd-MM-yyyy');
+    DateTime startDate = dateFormat.parse(start);
+    DateTime endDate = dateFormat.parse(end);
+
+    for (DateTime date = startDate;
+        date.isBefore(endDate) || date.isAtSameMomentAs(endDate);
+        date = date.add(Duration(days: 1))) {
+      dates.add(dateFormat.format(date));
+    }
+    return dates;
+  }
+
   @override
   Widget build(BuildContext context) {
     double hintSize = 12;
@@ -596,29 +610,40 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        //         String date = "";
-
-                        //         if (dropDownMonthOrWeekValue ==
-                        //             "budget_goal_screen.dropdowns.monthly".tr()) {
-                        //           date = dropDownMonthValue;
-                        //         } else if (dropDownMonthOrWeekValue ==
-                        //             "budget_goal_screen.dropdowns.weekly".tr()) {
-                        //           date =
-                        //               '${startDateController.text} to ${endDateController.text}';
-                        //         }
-                        //         setState(() {
-                        //   submittedDataList.add({
-                        //     "date": date,
+                        // String date = "";
+                        // setState(() {
+                        //   enteredvalues.add({
+                        //     "amount": amountController.text,
+                        //     "month": dropDownMonthOrWeekValue ==
+                        //             "budget_goal_screen.dropdowns.monthly".tr()
+                        //         ? dropDownMonthValue
+                        //         : date =
+                        //             '${startDateController.text} to ${endDateController.text}',
                         //     "category": categorydropdownValue,
-                        //     "amount": "5000",
                         //   });
                         // });
                         setState(() {
-                          enteredvalues.add({
-                            "amount": amountController.text,
-                            "month": dropDownMonthValue,
-                            "category": categorydropdownValue,
-                          });
+                          String enteredAmount = amountController.text;
+                          if (dropDownMonthOrWeekValue == 'Monthly') {
+                            enteredvalues.add({
+                              "amount": enteredAmount,
+                              "month": dropDownMonthValue,
+                              "category": categorydropdownValue,
+                            });
+                          } else if (dropDownMonthOrWeekValue == 'Weekly') {
+                            List<String> dates = getDatesInRange(
+                                startDateController.text,
+                                endDateController.text);
+                            for (String date in dates) {
+                              enteredvalues.add({
+                                "amount": enteredAmount,
+                                "month": date,
+                                "category": categorydropdownValue,
+                              });
+                            }
+                          }
+                          amountController
+                              .clear(); // Clear the text field after submission
                         });
                       },
                       child: Container(
