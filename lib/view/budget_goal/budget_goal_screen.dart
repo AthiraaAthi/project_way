@@ -630,6 +630,9 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               "month": dropDownMonthValue,
                               "category": categorydropdownValue,
                             });
+                            dropDownMonthValue =
+                                "budget_goal_screen.dropdowns.month_selection"
+                                    .tr();
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
                             List<String> dates = getDatesInRange(
                                 startDateController.text,
@@ -740,81 +743,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           )),
                         ]);
                       }).toList(),
-                      //[
-                      //   DataRow(
-                      //     cells: <DataCell>[
-                      //       DataCell(Text('Jan')),
-                      //       DataCell(Text('Books')),
-                      //       DataCell(Text('5000')),
-                      //       DataCell(Column(
-                      //         children: [
-                      //           Padding(
-                      //             padding: const EdgeInsets.all(8.0),
-                      //             child: Text(
-                      //               'budget_goal_screen.buttons.edit'.tr(),
-                      //               style: TextStyle(
-                      //                   color: Colors.green,
-                      //                   fontSize: buttonSize),
-                      //             ),
-                      //           ),
-                      //           Text(
-                      //             'budget_goal_screen.buttons.delete'.tr(),
-                      //             style: TextStyle(
-                      //                 color: Colors.red, fontSize: buttonSize),
-                      //           )
-                      //         ],
-                      //       )),
-                      //     ],
-                      //   ),
-
-                      // ],
-                      // tableData
-                      //     .map(
-                      //       (data) => DataRow(cells: [
-                      //         DataCell(Text(
-                      //           data['date']!,
-                      //           style: TextStyle(
-                      //               color: Colors.black,
-                      //               fontWeight: FontWeight.w500,
-                      //               fontSize: 12),
-                      //         )),
-                      //         DataCell(Text(
-                      //           data['category']!,
-                      //           style: TextStyle(
-                      //               color: Colors.black,
-                      //               fontWeight: FontWeight.w500,
-                      //               fontSize: 12),
-                      //         )),
-                      //         DataCell(Text(
-                      //           data['amount']!,
-                      //           style: TextStyle(
-                      //               color: Colors.black,
-                      //               fontWeight: FontWeight.w500,
-                      //               fontSize: 12),
-                      //         )),
-                      //         DataCell(Column(
-                      //           children: [
-                      //             Padding(
-                      //               padding: const EdgeInsets.all(8.0),
-                      //               child: Text(
-                      //                 'budget_goal_screen.buttons.edit'.tr(),
-                      //                 style: TextStyle(
-                      //                     color: Colors.green,
-                      //                     fontSize: buttonSize),
-                      //               ),
-                      //             ),
-                      //             Text(
-                      //               'budget_goal_screen.buttons.delete'.tr(),
-                      //               style: TextStyle(
-                      //                   color: Colors.red,
-                      //                   fontSize: buttonSize),
-                      //             )
-                      //           ],
-                      //         )
-                      // ),
-                      //       ]),
-                      //     )
-                      //     .toList(),
                     ),
                   ],
                 ),
