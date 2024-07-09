@@ -644,6 +644,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 "category": categorydropdownValue,
                               });
                             }
+                            startDateController.clear();
+                            endDateController.clear();
                           }
                           amountController
                               .clear(); // Clear the text field after submission
