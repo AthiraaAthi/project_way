@@ -145,16 +145,22 @@ class CategoryWidget extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "Edit",
-                        style: TextStyle(color: Colors.green, fontSize: 20),
+                      InkWell(
+                        onTap: onEditTap,
+                        child: Text(
+                          "Edit",
+                          style: TextStyle(color: Colors.green, fontSize: 20),
+                        ),
                       ),
                       SizedBox(
                         width: 50,
                       ),
-                      Text(
-                        "Delete",
-                        style: TextStyle(color: Colors.red, fontSize: 20),
+                      InkWell(
+                        onTap: onDeleteTap,
+                        child: Text(
+                          "Delete",
+                          style: TextStyle(color: Colors.red, fontSize: 20),
+                        ),
                       ),
                     ],
                   ),

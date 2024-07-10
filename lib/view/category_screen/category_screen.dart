@@ -1360,7 +1360,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       );
                     },
                     onDeleteTap: () {
-                      categoryProvider.removeCategory(category.id!);
+                      MediaQuery.of(context).size.width < 600
+                          ? categoryProvider.removeCategory(category.id!)
+                          : categoryProvider.removeCategory(category.id!);
                     },
                   );
                 },
