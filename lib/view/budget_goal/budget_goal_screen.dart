@@ -1118,7 +1118,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           if (dropDownMonthOrWeekValue == 'Monthly') {
                             enteredvalues.add({
                               "amount": enteredAmount,
-                              "month": dropDownMonthValue,
+                              "month": "$dropDownMonthValue  $dropDownValue",
                               "category": categorydropdownValue,
                             });
                             dropDownMonthValue =
