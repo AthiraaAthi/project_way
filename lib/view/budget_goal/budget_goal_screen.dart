@@ -18,10 +18,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   List<String> numbers = [
     // for year
     "budget_goal_screen.dropdowns.year_selection".tr(),
+    "2020",
+    "2021",
+    "2022",
+    "2023",
     "2024",
     "2025",
-    "2026",
-    "2027",
+    "2026"
   ];
 
   String dropDownValue = "budget_goal_screen.dropdowns.year_selection".tr();
