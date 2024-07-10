@@ -336,7 +336,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     color: Colors.black,
                                   ),
                                   underline: Container(),
-                                  value: categorydropdownValue,
+                                  value: selectedCategory,
                                   items: categoriesAvailable
                                       ? categoryProvider.categories
                                           .map<DropdownMenuItem<String>>(
@@ -472,7 +472,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   color: Colors.black,
                                 ),
                                 underline: Container(),
-                                value: categorydropdownValue,
+                                value: selectedCategory,
                                 items: categoriesAvailable
                                     ? categoryProvider.categories
                                         .map<DropdownMenuItem<String>>(
