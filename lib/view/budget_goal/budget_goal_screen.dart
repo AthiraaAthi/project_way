@@ -18,13 +18,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   List<String> numbers = [
     // for year
     "budget_goal_screen.dropdowns.year_selection".tr(),
-    "2020",
-    "2021",
-    "2022",
-    "2023",
     "2024",
     "2025",
-    "2026"
+    "2026",
+    "2027",
   ];
 
   String dropDownValue = "budget_goal_screen.dropdowns.year_selection".tr();
@@ -357,7 +354,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         }).toList()
                                       : [
                                           DropdownMenuItem<String>(
-                                            value: 'No categories available',
+                                            value: 'Add categories',
                                             child: Padding(
                                               padding: const EdgeInsets.all(10),
                                               child: InkWell(
@@ -880,6 +877,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     icon: Icon(
                                       Icons.keyboard_arrow_down,
                                       color: Colors.black,
+                                      size: 30,
                                     ),
                                     underline: Container(),
                                     value: selectedCategory,
@@ -896,7 +894,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                   category.title,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    fontSize: 15,
+                                                    fontSize: 23,
                                                   ),
                                                 ),
                                               ),
