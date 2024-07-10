@@ -871,9 +871,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   bool categoriesAvailable =
                                       categoryProvider.categories.isNotEmpty;
                                   // Set the initial dropdown value
-                                  String dropdownValue = categoriesAvailable
-                                      ? categoryProvider.categories[0].title
-                                      : 'Add categories';
+                                  String categorydropdownValue =
+                                      categoriesAvailable
+                                          ? categoryProvider.categories[0].title
+                                          : 'Add categories';
 
                                   return DropdownButton<String>(
                                     icon: Icon(
@@ -882,7 +883,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                       size: 30,
                                     ),
                                     underline: Container(),
-                                    value: selectedCategory,
+                                    value: categorydropdownValue,
                                     items: categoriesAvailable
                                         ? categoryProvider.categories
                                             .map<DropdownMenuItem<String>>(
@@ -890,8 +891,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             return DropdownMenuItem<String>(
                                               value: category.title,
                                               child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(10),
+                                                padding: EdgeInsets.all(10),
                                                 child: Text(
                                                   category.title,
                                                   style: TextStyle(
@@ -932,7 +932,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     onChanged: categoriesAvailable
                                         ? (String? value) {
                                             setState(() {
-                                              dropdownValue = value!;
+                                              categorydropdownValue = value!;
                                               selectedCategory = value;
                                             });
                                           }
@@ -1016,7 +1016,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               bool categoriesAvailable =
                                   categoryProvider.categories.isNotEmpty;
                               // Set the initial dropdown value
-                              String dropdownValue2 = categoriesAvailable
+                              String categorydropdownValue = categoriesAvailable
                                   ? categoryProvider.categories[0].title
                                   : 'Add categories';
 
@@ -1026,7 +1026,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   color: Colors.black,
                                 ),
                                 underline: Container(),
-                                value: selectedCategory,
+                                value: categorydropdownValue,
                                 items: categoriesAvailable
                                     ? categoryProvider.categories
                                         .map<DropdownMenuItem<String>>(
@@ -1039,7 +1039,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                               category.title,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 15,
+                                                fontSize: 10,
                                               ),
                                             ),
                                           ),
@@ -1073,7 +1073,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onChanged: categoriesAvailable
                                     ? (String? value) {
                                         setState(() {
-                                          dropdownValue2 = value!;
+                                          categorydropdownValue = value!;
                                           selectedCategory = value;
                                         });
                                       }
@@ -1095,6 +1095,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: TextField(
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                        ),
                         controller: amountController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
