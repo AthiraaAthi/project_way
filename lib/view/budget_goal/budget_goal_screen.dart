@@ -1022,9 +1022,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
                               return DropdownButton<String>(
                                 icon: Icon(
-                                    Icons.keyboard_arrow_down,
-                                    color: Colors.black,
-                                    size),
+                                  Icons.keyboard_arrow_down,
+                                  color: Colors.black,
+                                  size: 30,
+                                ),
                                 underline: Container(),
                                 value: categorydropdownValue,
                                 items: categoriesAvailable
