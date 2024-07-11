@@ -102,6 +102,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   }
 
   List<Map<String, String>> enteredvalues = [];
+  List<TableModel> enteredvalues2 = [];
   String categorydropdownValue = '';
   String selectedCategory = '';
   @override
@@ -117,6 +118,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
       selectedCategory = categorydropdownValue;
     });
     _fetchData();
+    _fetchData2();
   }
 
   List<String> getDatesInRange(String start, String end) {
@@ -144,6 +146,14 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                 "category": data.category,
               })
           .toList();
+    });
+  }
+
+  Future<void> _fetchData2() async {
+    TableDb db = TableDb();
+    List<TableModel> fetchedData2 = await db.fetchBudgets();
+    setState(() {
+      enteredvalues2 = fetchedData2;
     });
   }
 
@@ -1110,11 +1120,17 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         setState(() {
                           String enteredAmount = amountController.text;
                           if (dropDownMonthOrWeekValue == 'Monthly') {
-                            enteredvalues.add({
-                              "amount": enteredAmount,
-                              "month": "$dropDownMonthValue  $dropDownValue",
-                              "category": selectedCategory,
-                            });
+                            // enteredvalues.add({
+                            //   "amount": enteredAmount,
+                            //   "month": "$dropDownMonthValue  $dropDownValue",
+                            //   "category": selectedCategory,
+                            // });
+                            TableModel newEntry = TableModel(
+                              amount: enteredAmount,
+                              month: "$dropDownMonthValue  $dropDownValue",
+                              category: categorydropdownValue,
+                            );
+                            enteredvalues2.add(newEntry);
                             dropDownMonthValue =
                                 "budget_goal_screen.dropdowns.month_selection"
                                     .tr();
@@ -1125,12 +1141,20 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             List<String> dates = getDatesInRange(
                                 startDateController.text,
                                 endDateController.text);
+                            // for (String date in dates) {
+                            //   enteredvalues.add({
+                            //     "amount": enteredAmount,
+                            //     "month": date,
+                            //     "category": selectedCategory,
+                            //   });
+                            // }
                             for (String date in dates) {
-                              enteredvalues.add({
-                                "amount": enteredAmount,
-                                "month": date,
-                                "category": selectedCategory,
-                              });
+                              TableModel newEntry = TableModel(
+                                amount: enteredAmount,
+                                month: date,
+                                category: categorydropdownValue,
+                              );
+                              enteredvalues2.add(newEntry);
                             }
                             startDateController.clear();
                             endDateController.clear();
