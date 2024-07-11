@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:project_way/controller/category_provider.dart';
+import 'package:project_way/database/table_db/table_db.dart';
+import 'package:project_way/model/table_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
@@ -114,6 +116,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
           : 'Add categories';
       selectedCategory = categorydropdownValue;
     });
+    _fetchData();
   }
 
   List<String> getDatesInRange(String start, String end) {
@@ -128,6 +131,20 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
       dates.add(dateFormat.format(date));
     }
     return dates;
+  }
+
+  Future<void> _fetchData() async {
+    TableDb db = TableDb();
+    List<TableModel> fetchedData = await db.fetchBudgets();
+    setState(() {
+      enteredvalues = fetchedData
+          .map((data) => {
+                "amount": data.amount,
+                "month": data.month,
+                "category": data.category,
+              })
+          .toList();
+    });
   }
 
   @override
@@ -527,34 +544,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             },
                           ) //ADDED CATEGORY SCREEN ADDED CATEGORIES DISPLAY ON BUDGET GOAL SCREEN
 
-                          // DropdownButton<String>(
-                          //   icon: Icon(
-                          //     Icons.keyboard_arrow_down,
-                          //     color: Colors.black,
-                          //   ),
-                          //   underline: Container(),
-                          //   value: CategoryDropDownValue,
-                          //   items: Category.map<DropdownMenuItem<String>>(
-                          //       (String value) {
-                          //     return DropdownMenuItem<String>(
-                          //       value: value,
-                          //       child: Padding(
-                          //         padding: const EdgeInsets.all(10),
-                          //         child: Text(
-                          //           value,
-                          //           style: TextStyle(
-                          //               fontWeight: FontWeight.bold,
-                          //               fontSize: 15),
-                          //         ),
-                          //       ),
-                          //     );
-                          //   }).toList(),
-                          //   onChanged: (String? value) {
-                          //     setState(() {
-                          //       CategoryDropDownValue = value!;
-                          //     });
-                          //   },
-                          // ),
                           ),
                     ],
                     SizedBox(
@@ -883,7 +872,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                       size: 30,
                                     ),
                                     underline: Container(),
-                                    value: categorydropdownValue,
+                                    value: selectedCategory,
                                     items: categoriesAvailable
                                         ? categoryProvider.categories
                                             .map<DropdownMenuItem<String>>(
@@ -1027,7 +1016,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   size: 30,
                                 ),
                                 underline: Container(),
-                                value: categorydropdownValue,
+                                value: selectedCategory,
                                 items: categoriesAvailable
                                     ? categoryProvider.categories
                                         .map<DropdownMenuItem<String>>(
