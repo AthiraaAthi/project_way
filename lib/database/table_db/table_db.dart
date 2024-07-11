@@ -46,4 +46,9 @@ class TableDb {
     List<Map<String, dynamic>> result = await db.query('budget');
     return result.map((budget) => TableModel.fromMap(budget)).toList();
   }
+
+  Future<int> deleteBudget(int id) async {
+    Database db = await database;
+    return await db.delete('budget', where: 'id = ?', whereArgs: [id]);
+  }
 }
