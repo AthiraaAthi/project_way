@@ -693,17 +693,28 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'budget_goal_screen.buttons.edit'.tr(),
-                                  style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: buttonSize),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'budget_goal_screen.buttons.edit'.tr(),
+                                    style: TextStyle(
+                                        color: Colors.green,
+                                        fontSize: buttonSize),
+                                  ),
                                 ),
                               ),
-                              Text(
-                                'budget_goal_screen.buttons.delete'.tr(),
-                                style: TextStyle(
-                                    color: Colors.red, fontSize: buttonSize),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    enteredvalues.remove(
+                                        entry); // Remove the selected entry
+                                  });
+                                },
+                                child: Text(
+                                  'budget_goal_screen.buttons.delete'.tr(),
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: buttonSize),
+                                ),
                               )
                             ],
                           )),

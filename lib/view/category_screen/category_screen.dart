@@ -661,7 +661,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   );
 
                                                   Navigator.pop(context);
+
                                                   titleController.clear();
+
                                                   desController.clear();
                                                 } else {
                                                   print(
@@ -1324,8 +1326,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
                                                   Navigator.of(context).pop();
                                                 } else {
-                                                  print(
-                                                      "Please fill out all fields");
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(SnackBar(
+                                                          backgroundColor:
+                                                              Colors.redAccent,
+                                                          duration: Duration(
+                                                              seconds: 2),
+                                                          content: Text(
+                                                              "Please fill all fields")));
                                                 }
                                               },
                                               child: Container(
