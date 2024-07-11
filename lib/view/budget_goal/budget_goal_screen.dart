@@ -922,7 +922,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                     style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      fontSize: 15,
+                                                      fontSize: 23,
                                                     ),
                                                   ),
                                                 ),
@@ -1022,9 +1022,9 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
                               return DropdownButton<String>(
                                 icon: Icon(
-                                  Icons.keyboard_arrow_down,
-                                  color: Colors.black,
-                                ),
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.black,
+                                    size),
                                 underline: Container(),
                                 value: categorydropdownValue,
                                 items: categoriesAvailable
@@ -1039,7 +1039,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                               category.title,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 10,
+                                                fontSize: 23,
                                               ),
                                             ),
                                           ),
