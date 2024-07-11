@@ -139,8 +139,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     if (context.locale.languageCode == 'en') {
       hintSize = 15;
       buttonSize = 13;
-      tabhint = 18;
-      tabPadding = 80;
+      tabhint = 20;
+      tabPadding = 70;
     } else if (context.locale.languageCode == 'ml') {
       hintSize = 13;
       buttonSize = 12;
