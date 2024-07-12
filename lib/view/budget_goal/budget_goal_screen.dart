@@ -694,7 +694,14 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Dialog();
+                                      },
+                                    );
+                                  },
                                   child: Text(
                                     'budget_goal_screen.buttons.edit'.tr(),
                                     style: TextStyle(
@@ -707,7 +714,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onTap: () {
                                   setState(() {
                                     enteredvalues.remove(
-                                        entry); // Remove the selected entry
+                                      entry,
+                                    ); // Remove the selected entry
                                   });
                                 },
                                 child: Text(
