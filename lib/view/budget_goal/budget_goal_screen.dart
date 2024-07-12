@@ -684,124 +684,19 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
+                                  /////////////////FOR EDIT DIALOG
                                   onTap: () {
                                     showDialog(
                                       context: context,
                                       builder: (context) {
                                         return Dialog(
-                                          child: Container(
-                                            height: 400,
-                                            width: 300,
-                                            child: Column(
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    Container(
-                                                      height: 50,
-                                                      width: 150,
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Colors.grey),
-                                                      ),
-                                                      child: DropdownButton<
-                                                          String>(
-                                                        icon: Icon(
-                                                          Icons
-                                                              .keyboard_arrow_down,
-                                                          color: Colors.black,
-                                                        ),
-                                                        underline: Container(),
-                                                        value: dropDownValue,
-                                                        items: numbers.map<
-                                                            DropdownMenuItem<
-                                                                String>>((String
-                                                            value) {
-                                                          return DropdownMenuItem<
-                                                              String>(
-                                                            value: value,
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(10),
-                                                              child: Text(
-                                                                value,
-                                                                style: TextStyle(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }).toList(),
-                                                        onChanged:
-                                                            (String? value) {
-                                                          setState(() {
-                                                            dropDownValue =
-                                                                value!;
-                                                          });
-                                                        },
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      // WEEK or MONTH Selection
-                                                      height: 50,
-                                                      width: 150,
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Colors.grey),
-                                                      ),
-                                                      child: DropdownButton<
-                                                          String>(
-                                                        icon: Icon(
-                                                          Icons
-                                                              .keyboard_arrow_down,
-                                                          color: Colors.black,
-                                                        ),
-                                                        underline: Container(),
-                                                        value:
-                                                            dropDownMonthOrWeekValue,
-                                                        items: MonthOrWeek.map<
-                                                            DropdownMenuItem<
-                                                                String>>((String
-                                                            value) {
-                                                          return DropdownMenuItem<
-                                                              String>(
-                                                            value: value,
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(10),
-                                                              child: Text(
-                                                                value,
-                                                                style: TextStyle(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    fontSize:
-                                                                        15),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }).toList(),
-                                                        onChanged:
-                                                            (String? value) {
-                                                          setState(() {
-                                                            dropDownMonthOrWeekValue =
-                                                                value!;
-                                                          });
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                SizedBox(height: 20),
-                                                if (dropDownMonthOrWeekValue ==
-                                                    "Monthly") ...[
+                                          child: Padding(
+                                            padding: EdgeInsets.only(top: 20),
+                                            child: Container(
+                                              height: 400,
+                                              width: 450,
+                                              child: Column(
+                                                children: [
                                                   Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -809,7 +704,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                     children: [
                                                       Container(
                                                         height: 50,
-                                                        width: 150,
+                                                        width: 140,
                                                         decoration:
                                                             BoxDecoration(
                                                           border: Border.all(
@@ -825,9 +720,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                           ),
                                                           underline:
                                                               Container(),
-                                                          value:
-                                                              dropDownMonthValue,
-                                                          items: months.map<
+                                                          value: dropDownValue,
+                                                          items: numbers.map<
                                                               DropdownMenuItem<
                                                                   String>>((String
                                                               value) {
@@ -854,237 +748,23 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                           onChanged:
                                                               (String? value) {
                                                             setState(() {
-                                                              dropDownMonthValue =
+                                                              dropDownValue =
                                                                   value!;
                                                             });
                                                           },
                                                         ),
                                                       ),
                                                       Container(
+                                                        // WEEK or MONTH Selection
                                                         height: 50,
-                                                        width: 150,
+                                                        width: 120,
                                                         decoration:
                                                             BoxDecoration(
                                                           border: Border.all(
                                                               color:
                                                                   Colors.grey),
                                                         ),
-                                                        child: Consumer<
-                                                            CategoryProvider>(
-                                                          builder: (context,
-                                                              categoryProvider,
-                                                              child) {
-                                                            bool
-                                                                categoriesAvailable =
-                                                                categoryProvider
-                                                                    .categories
-                                                                    .isNotEmpty;
-                                                            String
-                                                                categorydropdownValue =
-                                                                categoriesAvailable
-                                                                    ? categoryProvider
-                                                                        .categories[
-                                                                            0]
-                                                                        .title
-                                                                    : 'No categories available';
-
-                                                            return DropdownButton<
-                                                                String>(
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .keyboard_arrow_down,
-                                                                color: Colors
-                                                                    .black,
-                                                              ),
-                                                              underline:
-                                                                  Container(),
-                                                              value:
-                                                                  selectedCategory,
-                                                              items:
-                                                                  categoriesAvailable
-                                                                      ? categoryProvider
-                                                                          .categories
-                                                                          .map<DropdownMenuItem<String>>(
-                                                                              (category) {
-                                                                          return DropdownMenuItem<
-                                                                              String>(
-                                                                            value:
-                                                                                category.title,
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsets.all(10),
-                                                                              child: Text(
-                                                                                category.title,
-                                                                                style: TextStyle(
-                                                                                  fontWeight: FontWeight.bold,
-                                                                                  fontSize: 15,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        }).toList()
-                                                                      : [
-                                                                          DropdownMenuItem<
-                                                                              String>(
-                                                                            value:
-                                                                                'Add categories',
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: const EdgeInsets.all(10),
-                                                                              child: InkWell(
-                                                                                onTap: () {
-                                                                                  Navigator.push(
-                                                                                      context,
-                                                                                      MaterialPageRoute(
-                                                                                        builder: (context) => CategoriesScreen(),
-                                                                                      ));
-                                                                                },
-                                                                                child: Text(
-                                                                                  'Add categories',
-                                                                                  style: TextStyle(
-                                                                                    fontWeight: FontWeight.bold,
-                                                                                    fontSize: 14,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                              onChanged:
-                                                                  categoriesAvailable
-                                                                      ? (String?
-                                                                          value) {
-                                                                          setState(
-                                                                              () {
-                                                                            selectedCategory =
-                                                                                value!;
-                                                                          });
-                                                                        }
-                                                                      : null,
-                                                            );
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ] else if (dropDownMonthOrWeekValue ==
-                                                    "Weekly") ...[
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceEvenly,
-                                                    children: [
-                                                      Container(
-                                                        height: 50,
-                                                        width: 150,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                              color:
-                                                                  Colors.grey),
-                                                        ),
-                                                        child: TextField(
-                                                          controller:
-                                                              startDateController,
-                                                          decoration: InputDecoration(
-                                                              border:
-                                                                  InputBorder
-                                                                      .none,
-                                                              hintStyle:
-                                                                  TextStyle(
-                                                                      fontSize:
-                                                                          15),
-                                                              hintText:
-                                                                  "Start Date",
-                                                              contentPadding:
-                                                                  EdgeInsets.symmetric(
-                                                                      vertical:
-                                                                          10,
-                                                                      horizontal:
-                                                                          10)),
-                                                          onTap: () async {
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(
-                                                                    FocusNode());
-                                                            await _selectDate(
-                                                                context,
-                                                                startDateController);
-                                                          },
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        height: 50,
-                                                        width: 150,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                              color:
-                                                                  Colors.grey),
-                                                        ),
-                                                        child: TextField(
-                                                          controller:
-                                                              endDateController,
-                                                          decoration: InputDecoration(
-                                                              border:
-                                                                  InputBorder
-                                                                      .none,
-                                                              hintStyle:
-                                                                  TextStyle(
-                                                                      fontSize:
-                                                                          15),
-                                                              hintText:
-                                                                  "End Date",
-                                                              contentPadding:
-                                                                  EdgeInsets.symmetric(
-                                                                      vertical:
-                                                                          10,
-                                                                      horizontal:
-                                                                          10)),
-                                                          onTap: () async {
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(
-                                                                    FocusNode());
-                                                            await _selectDate(
-                                                                context,
-                                                                endDateController);
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  SizedBox(height: 20),
-                                                  Container(
-                                                    height: 50,
-                                                    width: 323,
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.grey),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                    ),
-                                                    child: Consumer<
-                                                        CategoryProvider>(
-                                                      builder: (context,
-                                                          categoryProvider,
-                                                          child) {
-                                                        bool
-                                                            categoriesAvailable =
-                                                            categoryProvider
-                                                                .categories
-                                                                .isNotEmpty;
-                                                        String
-                                                            categorydropdownValue =
-                                                            categoriesAvailable
-                                                                ? categoryProvider
-                                                                    .categories[
-                                                                        0]
-                                                                    .title
-                                                                : 'Add categories';
-
-                                                        return DropdownButton<
+                                                        child: DropdownButton<
                                                             String>(
                                                           icon: Icon(
                                                             Icons
@@ -1094,197 +774,523 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                           underline:
                                                               Container(),
                                                           value:
-                                                              selectedCategory,
-                                                          items:
+                                                              dropDownMonthOrWeekValue,
+                                                          items: MonthOrWeek.map<
+                                                              DropdownMenuItem<
+                                                                  String>>((String
+                                                              value) {
+                                                            return DropdownMenuItem<
+                                                                String>(
+                                                              value: value,
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                        .all(
+                                                                        10),
+                                                                child: Text(
+                                                                  value,
+                                                                  style: TextStyle(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      fontSize:
+                                                                          15),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }).toList(),
+                                                          onChanged:
+                                                              (String? value) {
+                                                            setState(() {
+                                                              dropDownMonthOrWeekValue =
+                                                                  value!;
+                                                            });
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(height: 20),
+                                                  if (dropDownMonthOrWeekValue ==
+                                                      "Monthly") ...[
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Container(
+                                                          height: 50,
+                                                          width: 140,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .grey),
+                                                          ),
+                                                          child: DropdownButton<
+                                                              String>(
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down,
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
+                                                            underline:
+                                                                Container(),
+                                                            value:
+                                                                dropDownMonthValue,
+                                                            items: months.map<
+                                                                DropdownMenuItem<
+                                                                    String>>((String
+                                                                value) {
+                                                              return DropdownMenuItem<
+                                                                  String>(
+                                                                value: value,
+                                                                child: Padding(
+                                                                  padding:
+                                                                      const EdgeInsets
+                                                                          .all(
+                                                                          10),
+                                                                  child: Text(
+                                                                    value,
+                                                                    style: TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            15),
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }).toList(),
+                                                            onChanged: (String?
+                                                                value) {
+                                                              setState(() {
+                                                                dropDownMonthValue =
+                                                                    value!;
+                                                              });
+                                                            },
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          height: 50,
+                                                          width: 120,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .grey),
+                                                          ),
+                                                          child: Consumer<
+                                                              CategoryProvider>(
+                                                            builder: (context,
+                                                                categoryProvider,
+                                                                child) {
+                                                              bool
+                                                                  categoriesAvailable =
+                                                                  categoryProvider
+                                                                      .categories
+                                                                      .isNotEmpty;
+                                                              String
+                                                                  categorydropdownValue =
+                                                                  categoriesAvailable
+                                                                      ? categoryProvider
+                                                                          .categories[
+                                                                              0]
+                                                                          .title
+                                                                      : 'No categories available';
+
+                                                              return DropdownButton<
+                                                                  String>(
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .keyboard_arrow_down,
+                                                                  color: Colors
+                                                                      .black,
+                                                                ),
+                                                                underline:
+                                                                    Container(),
+                                                                value:
+                                                                    selectedCategory,
+                                                                items:
+                                                                    categoriesAvailable
+                                                                        ? categoryProvider
+                                                                            .categories
+                                                                            .map<DropdownMenuItem<String>>((category) {
+                                                                            return DropdownMenuItem<String>(
+                                                                              value: category.title,
+                                                                              child: Padding(
+                                                                                padding: const EdgeInsets.all(10),
+                                                                                child: Text(
+                                                                                  category.title,
+                                                                                  style: TextStyle(
+                                                                                    fontWeight: FontWeight.bold,
+                                                                                    fontSize: 15,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }).toList()
+                                                                        : [
+                                                                            DropdownMenuItem<String>(
+                                                                              value: 'Add categories',
+                                                                              child: Padding(
+                                                                                padding: const EdgeInsets.all(10),
+                                                                                child: InkWell(
+                                                                                  onTap: () {
+                                                                                    Navigator.push(
+                                                                                        context,
+                                                                                        MaterialPageRoute(
+                                                                                          builder: (context) => CategoriesScreen(),
+                                                                                        ));
+                                                                                  },
+                                                                                  child: Text(
+                                                                                    'Add categories',
+                                                                                    style: TextStyle(
+                                                                                      fontWeight: FontWeight.bold,
+                                                                                      fontSize: 14,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                onChanged:
+                                                                    categoriesAvailable
+                                                                        ? (String?
+                                                                            value) {
+                                                                            setState(() {
+                                                                              selectedCategory = value!;
+                                                                            });
+                                                                          }
+                                                                        : null,
+                                                              );
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ] else if (dropDownMonthOrWeekValue ==
+                                                      "Weekly") ...[
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Container(
+                                                          height: 50,
+                                                          width: 120,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .grey),
+                                                          ),
+                                                          child: TextField(
+                                                            controller:
+                                                                startDateController,
+                                                            decoration: InputDecoration(
+                                                                border:
+                                                                    InputBorder
+                                                                        .none,
+                                                                hintStyle:
+                                                                    TextStyle(
+                                                                        fontSize:
+                                                                            15),
+                                                                hintText:
+                                                                    "Start Date",
+                                                                contentPadding:
+                                                                    EdgeInsets.symmetric(
+                                                                        vertical:
+                                                                            10,
+                                                                        horizontal:
+                                                                            10)),
+                                                            onTap: () async {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      FocusNode());
+                                                              await _selectDate(
+                                                                  context,
+                                                                  startDateController);
+                                                            },
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          height: 50,
+                                                          width: 120,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            border: Border.all(
+                                                                color: Colors
+                                                                    .grey),
+                                                          ),
+                                                          child: TextField(
+                                                            controller:
+                                                                endDateController,
+                                                            decoration: InputDecoration(
+                                                                border:
+                                                                    InputBorder
+                                                                        .none,
+                                                                hintStyle:
+                                                                    TextStyle(
+                                                                        fontSize:
+                                                                            15),
+                                                                hintText:
+                                                                    "End Date",
+                                                                contentPadding:
+                                                                    EdgeInsets.symmetric(
+                                                                        vertical:
+                                                                            10,
+                                                                        horizontal:
+                                                                            10)),
+                                                            onTap: () async {
+                                                              FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      FocusNode());
+                                                              await _selectDate(
+                                                                  context,
+                                                                  endDateController);
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    SizedBox(height: 20),
+                                                    Container(
+                                                      height: 50,
+                                                      width: 280,
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.grey),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      child: Consumer<
+                                                          CategoryProvider>(
+                                                        builder: (context,
+                                                            categoryProvider,
+                                                            child) {
+                                                          bool
+                                                              categoriesAvailable =
+                                                              categoryProvider
+                                                                  .categories
+                                                                  .isNotEmpty;
+                                                          String
+                                                              categorydropdownValue =
                                                               categoriesAvailable
                                                                   ? categoryProvider
-                                                                      .categories
-                                                                      .map<DropdownMenuItem<String>>(
-                                                                          (category) {
-                                                                      return DropdownMenuItem<
-                                                                          String>(
-                                                                        value: category
-                                                                            .title,
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: const EdgeInsets
-                                                                              .all(
-                                                                              10),
+                                                                      .categories[
+                                                                          0]
+                                                                      .title
+                                                                  : 'Add categories';
+
+                                                          return DropdownButton<
+                                                              String>(
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down,
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
+                                                            underline:
+                                                                Container(),
+                                                            value:
+                                                                selectedCategory,
+                                                            items:
+                                                                categoriesAvailable
+                                                                    ? categoryProvider
+                                                                        .categories
+                                                                        .map<DropdownMenuItem<String>>(
+                                                                            (category) {
+                                                                        return DropdownMenuItem<
+                                                                            String>(
+                                                                          value:
+                                                                              category.title,
                                                                           child:
-                                                                              Text(
-                                                                            category.title,
-                                                                            style:
-                                                                                TextStyle(
-                                                                              fontWeight: FontWeight.bold,
-                                                                              fontSize: 15,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      );
-                                                                    }).toList()
-                                                                  : [
-                                                                      DropdownMenuItem<
-                                                                          String>(
-                                                                        value:
-                                                                            'Add categories',
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: const EdgeInsets
-                                                                              .all(
-                                                                              10),
-                                                                          child:
-                                                                              InkWell(
-                                                                            onTap:
-                                                                                () {
-                                                                              Navigator.push(
-                                                                                  context,
-                                                                                  MaterialPageRoute(
-                                                                                    builder: (context) => CategoriesScreen(),
-                                                                                  ));
-                                                                            },
+                                                                              Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.all(10),
                                                                             child:
                                                                                 Text(
-                                                                              'Add categories',
+                                                                              category.title,
                                                                               style: TextStyle(
                                                                                 fontWeight: FontWeight.bold,
                                                                                 fontSize: 15,
                                                                               ),
                                                                             ),
                                                                           ),
+                                                                        );
+                                                                      }).toList()
+                                                                    : [
+                                                                        DropdownMenuItem<
+                                                                            String>(
+                                                                          value:
+                                                                              'Add categories',
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.all(10),
+                                                                            child:
+                                                                                InkWell(
+                                                                              onTap: () {
+                                                                                Navigator.push(
+                                                                                    context,
+                                                                                    MaterialPageRoute(
+                                                                                      builder: (context) => CategoriesScreen(),
+                                                                                    ));
+                                                                              },
+                                                                              child: Text(
+                                                                                'Add categories',
+                                                                                style: TextStyle(
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: 15,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                    ],
-                                                          onChanged:
-                                                              categoriesAvailable
-                                                                  ? (String?
-                                                                      value) {
-                                                                      setState(
-                                                                          () {
-                                                                        selectedCategory =
-                                                                            value!;
-                                                                      });
-                                                                    }
-                                                                  : null,
-                                                        );
-                                                      },
+                                                                      ],
+                                                            onChanged:
+                                                                categoriesAvailable
+                                                                    ? (String?
+                                                                        value) {
+                                                                        setState(
+                                                                            () {
+                                                                          selectedCategory =
+                                                                              value!;
+                                                                        });
+                                                                      }
+                                                                    : null,
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ],
+                                                  SizedBox(height: 20),
+                                                  Container(
+                                                    height: 50,
+                                                    width: 250,
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.grey),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5)),
+                                                    child: TextField(
+                                                      controller:
+                                                          amountController,
+                                                      decoration: InputDecoration(
+                                                          border: InputBorder
+                                                              .none,
+                                                          hintText:
+                                                              "Enter Amount",
+                                                          hintStyle: TextStyle(
+                                                              fontSize: 13),
+                                                          contentPadding:
+                                                              EdgeInsets
+                                                                  .symmetric(
+                                                                      vertical:
+                                                                          10,
+                                                                      horizontal:
+                                                                          25)),
                                                     ),
                                                   ),
-                                                ],
-                                                SizedBox(height: 20),
-                                                Container(
-                                                  height: 50,
-                                                  width: 323,
-                                                  decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.grey),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5)),
-                                                  child: TextField(
-                                                    controller:
-                                                        amountController,
-                                                    decoration: InputDecoration(
-                                                        border:
-                                                            InputBorder.none,
-                                                        hintText:
-                                                            "Enter Amount",
-                                                        hintStyle: TextStyle(
-                                                            fontSize: 13),
-                                                        contentPadding:
-                                                            EdgeInsets
-                                                                .symmetric(
-                                                                    vertical:
-                                                                        10,
-                                                                    horizontal:
-                                                                        25)),
-                                                  ),
-                                                ),
-                                                SizedBox(height: 20),
-                                                InkWell(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      String enteredAmount =
-                                                          amountController.text;
-                                                      if (editingIndex !=
-                                                          null) {
-                                                        // Update existing entry
-                                                        enteredvalues[
-                                                            editingIndex!] = {
-                                                          "amount":
-                                                              enteredAmount,
-                                                          "month": dropDownMonthOrWeekValue ==
-                                                                  'Monthly'
-                                                              ? "$dropDownMonthValue $dropDownValue"
-                                                              : '${startDateController.text} to ${endDateController.text}',
-                                                          "category":
-                                                              selectedCategory,
-                                                        };
-                                                        editingIndex = null;
-                                                      } else {
-                                                        // Add new entry
-                                                        if (dropDownMonthOrWeekValue ==
-                                                            'Monthly') {
-                                                          enteredvalues.add({
+                                                  SizedBox(height: 20),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        String enteredAmount =
+                                                            amountController
+                                                                .text;
+                                                        if (editingIndex !=
+                                                            null) {
+                                                          // Update existing entry
+                                                          enteredvalues[
+                                                              editingIndex!] = {
                                                             "amount":
                                                                 enteredAmount,
-                                                            "month":
-                                                                "$dropDownMonthValue  $dropDownValue",
+                                                            "month": dropDownMonthOrWeekValue ==
+                                                                    'Monthly'
+                                                                ? "$dropDownMonthValue $dropDownValue"
+                                                                : '${startDateController.text} to ${endDateController.text}',
                                                             "category":
                                                                 selectedCategory,
-                                                          });
-                                                          dropDownMonthValue =
-                                                              "Select Month";
-                                                          dropDownValue =
-                                                              "Select Year";
-                                                        } else if (dropDownMonthOrWeekValue ==
-                                                            'Weekly') {
-                                                          List<String> dates =
-                                                              getDatesInRange(
-                                                                  startDateController
-                                                                      .text,
-                                                                  endDateController
-                                                                      .text);
-                                                          for (String date
-                                                              in dates) {
+                                                          };
+                                                          editingIndex = null;
+                                                        } else {
+                                                          // Add new entry
+                                                          if (dropDownMonthOrWeekValue ==
+                                                              'Monthly') {
                                                             enteredvalues.add({
                                                               "amount":
                                                                   enteredAmount,
-                                                              "month": date,
+                                                              "month":
+                                                                  "$dropDownMonthValue  $dropDownValue",
                                                               "category":
                                                                   selectedCategory,
                                                             });
+                                                            dropDownMonthValue =
+                                                                "Select Month";
+                                                            dropDownValue =
+                                                                "Select Year";
+                                                          } else if (dropDownMonthOrWeekValue ==
+                                                              'Weekly') {
+                                                            List<String> dates =
+                                                                getDatesInRange(
+                                                                    startDateController
+                                                                        .text,
+                                                                    endDateController
+                                                                        .text);
+                                                            for (String date
+                                                                in dates) {
+                                                              enteredvalues
+                                                                  .add({
+                                                                "amount":
+                                                                    enteredAmount,
+                                                                "month": date,
+                                                                "category":
+                                                                    selectedCategory,
+                                                              });
+                                                            }
+                                                            startDateController
+                                                                .clear();
+                                                            endDateController
+                                                                .clear();
                                                           }
-                                                          startDateController
-                                                              .clear();
-                                                          endDateController
-                                                              .clear();
                                                         }
-                                                      }
-                                                      amountController.clear();
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    height: 45,
-                                                    width: 200,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.blue,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                    ),
-                                                    child: Center(
-                                                      child: Text(
-                                                        "Submit",
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontSize: 13),
+                                                        amountController
+                                                            .clear();
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      height: 45,
+                                                      width: 200,
+                                                      decoration: BoxDecoration(
+                                                        color: ColorConstant
+                                                            .defIndigo,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
+                                                      ),
+                                                      child: Center(
+                                                        child: Text(
+                                                          "Submit",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 13),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         );
