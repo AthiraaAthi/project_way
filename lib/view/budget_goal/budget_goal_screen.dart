@@ -92,6 +92,39 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
   List<Map<String, String>> enteredvalues = [];
   int? editingIndex;
+  //////////////
+  void _onSubmit() {
+    setState(() {
+      String enteredAmount = amountController.text;
+
+      if (dropDownMonthOrWeekValue == 'Monthly') {
+        Map<String, String> entry = {
+          "amount": enteredAmount,
+          "month": "$dropDownMonthValue $dropDownValue",
+          "category": selectedCategory,
+        };
+
+        if (editingIndex != null) {
+          enteredvalues[editingIndex!] = entry;
+          editingIndex = null;
+        } else {
+          enteredvalues.add(entry);
+        }
+      } else if (dropDownMonthOrWeekValue == 'Weekly') {
+        List<String> dates =
+            getDatesInRange(startDateController.text, endDateController.text);
+        for (String date in dates) {
+          enteredvalues.add({
+            "amount": enteredAmount,
+            "month": date,
+            "category": selectedCategory,
+          });
+        }
+      }
+    });
+  }
+
+  ///////
   String categorydropdownValue = '';
   String selectedCategory = '';
   @override
