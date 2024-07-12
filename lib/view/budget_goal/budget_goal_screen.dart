@@ -1239,6 +1239,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   }
 
   _editTap() {
+    String updatedYear = dropDownValue;
     showDialog(
       context: context,
       builder: (context) {
@@ -1265,7 +1266,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             color: Colors.black,
                           ),
                           underline: Container(),
-                          value: dropDownValue,
+                          value: updatedYear,
                           items: numbers
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
@@ -1283,7 +1284,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           }).toList(),
                           onChanged: (String? value) {
                             setState(() {
-                              dropDownValue = value!;
+                              updatedYear = value!;
                             });
                           },
                         ),
