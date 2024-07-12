@@ -1239,7 +1239,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   }
 
   _editTap() {
-    String updatedYear = dropDownValue;
+    String updatedYear = "$dropDownMonthValue  $dropDownValue";
+    String MonthWeek = dropDownMonthOrWeekValue;
+    String category = selectedCategory;
+    TextEditingController editStartDate = startDateController;
+    TextEditingController editEndDate = endDateController;
+    String MonthValue = dropDownMonthValue;
+
     showDialog(
       context: context,
       builder: (context) {
@@ -1302,7 +1308,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             color: Colors.black,
                           ),
                           underline: Container(),
-                          value: dropDownMonthOrWeekValue,
+                          value: MonthWeek,
                           items: MonthOrWeek.map<DropdownMenuItem<String>>(
                               (String value) {
                             return DropdownMenuItem<String>(
@@ -1320,7 +1326,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           }).toList(),
                           onChanged: (String? value) {
                             setState(() {
-                              dropDownMonthOrWeekValue = value!;
+                              MonthWeek = value!;
                             });
                           },
                         ),
@@ -1344,7 +1350,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               color: Colors.black,
                             ),
                             underline: Container(),
-                            value: dropDownMonthValue,
+                            value: MonthValue,
                             items: months
                                 .map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
@@ -1362,7 +1368,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             }).toList(),
                             onChanged: (String? value) {
                               setState(() {
-                                dropDownMonthValue = value!;
+                                MonthValue = value!;
                               });
                             },
                           ),
@@ -1387,7 +1393,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   color: Colors.black,
                                 ),
                                 underline: Container(),
-                                value: selectedCategory,
+                                value: category,
                                 items: categoriesAvailable
                                     ? categoryProvider.categories
                                         .map<DropdownMenuItem<String>>(
@@ -1434,7 +1440,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onChanged: categoriesAvailable
                                     ? (String? value) {
                                         setState(() {
-                                          selectedCategory = value!;
+                                          category = value!;
                                         });
                                       }
                                     : null,
@@ -1455,7 +1461,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: TextField(
-                            controller: startDateController,
+                            controller: editStartDate,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintStyle: TextStyle(fontSize: 15),
@@ -1475,7 +1481,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: TextField(
-                            controller: endDateController,
+                            controller: editEndDate,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintStyle: TextStyle(fontSize: 15),
@@ -1512,7 +1518,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               color: Colors.black,
                             ),
                             underline: Container(),
-                            value: selectedCategory,
+                            value: category,
                             items: categoriesAvailable
                                 ? categoryProvider.categories
                                     .map<DropdownMenuItem<String>>((category) {
@@ -1558,7 +1564,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             onChanged: categoriesAvailable
                                 ? (String? value) {
                                     setState(() {
-                                      selectedCategory = value!;
+                                      category = value!;
                                     });
                                   }
                                 : null,
