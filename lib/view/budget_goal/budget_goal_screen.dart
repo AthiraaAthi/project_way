@@ -674,7 +674,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 child: InkWell(
                                   /////////////////FOR EDIT DIALOG
                                   onTap: () {
-                                    _editTap();
+                                    editDialog();
                                   },
                                   child: Text(
                                     'budget_goal_screen.buttons.edit'.tr(),
@@ -1238,140 +1238,280 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     );
   }
 
-  ///NEW WIDGET FOR EDITING PURPOSE
-  Widget editDialog(Map<String, String> entry) {
-    // Extract values from entry
-    String currentMonth = entry['month'] ?? '';
-    String currentCategory = entry['category'] ?? '';
-    String currentAmount = entry['amount'] ?? '';
-
-    // Ensure controllers are initialized with current values
-    amountController.text = currentAmount;
-
-    return Dialog(
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Container(
-          height: 400,
-          width: 450,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  ///NEW WIDGET FOR EDITING PURPOSE/////////////////
+  editDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Container(
+              height: 400,
+              width: 450,
+              child: Column(
                 children: [
-                  Container(
-                    height: 50,
-                    width: 140,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: DropdownButton<String>(
-                      value: dropDownValue,
-                      items: numbers.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              value,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 140,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        child: DropdownButton<String>(
+                          icon: Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Colors.black,
                           ),
-                        );
-                      }).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          dropDownValue = value!;
-                        });
-                      },
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 120,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: DropdownButton<String>(
-                      value: dropDownMonthOrWeekValue,
-                      items: MonthOrWeek.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              value,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (String? value) {
-                        setState(() {
-                          dropDownMonthOrWeekValue = value!;
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              if (dropDownMonthOrWeekValue == 'Monthly') ...[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 140,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                      ),
-                      child: DropdownButton<String>(
-                        value: dropDownMonthValue,
-                        items: months.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Text(
-                                value,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
+                          underline: Container(),
+                          value: dropDownValue,
+                          items: numbers
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Text(
+                                  value,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
                                 ),
                               ),
-                            ),
-                          );
-                        }).toList(),
-                        onChanged: (String? value) {
-                          setState(() {
-                            dropDownMonthValue = value!;
-                          });
-                        },
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropDownValue = value!;
+                            });
+                          },
+                        ),
                       ),
-                    ),
-                    Consumer<CategoryProvider>(
-                      builder: (context, categoryProvider, child) {
-                        bool categoriesAvailable =
-                            categoryProvider.categories.isNotEmpty;
-                        String categorydropdownValue = categoriesAvailable
-                            ? categoryProvider.categories[0].title
-                            : 'No categories available';
-
-                        return Container(
+                      Container(
+                        // WEEK or MONTH Selection
+                        height: 50,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        child: DropdownButton<String>(
+                          icon: Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Colors.black,
+                          ),
+                          underline: Container(),
+                          value: dropDownMonthOrWeekValue,
+                          items: MonthOrWeek.map<DropdownMenuItem<String>>(
+                              (String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Text(
+                                  value,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropDownMonthOrWeekValue = value!;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  if (dropDownMonthOrWeekValue == "Monthly") ...[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 140,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                          ),
+                          child: DropdownButton<String>(
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                            ),
+                            underline: Container(),
+                            value: dropDownMonthValue,
+                            items: months
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? value) {
+                              setState(() {
+                                dropDownMonthValue = value!;
+                              });
+                            },
+                          ),
+                        ),
+                        Container(
                           height: 50,
                           width: 120,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
-                          child: DropdownButton<String>(
+                          child: Consumer<CategoryProvider>(
+                            builder: (context, categoryProvider, child) {
+                              bool categoriesAvailable =
+                                  categoryProvider.categories.isNotEmpty;
+                              String categorydropdownValue = categoriesAvailable
+                                  ? categoryProvider.categories[0].title
+                                  : 'No categories available';
+
+                              return DropdownButton<String>(
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Colors.black,
+                                ),
+                                underline: Container(),
+                                value: selectedCategory,
+                                items: categoriesAvailable
+                                    ? categoryProvider.categories
+                                        .map<DropdownMenuItem<String>>(
+                                            (category) {
+                                        return DropdownMenuItem<String>(
+                                          value: category.title,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: Text(
+                                              category.title,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }).toList()
+                                    : [
+                                        DropdownMenuItem<String>(
+                                          value: 'Add categories',
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(10),
+                                            child: InkWell(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          CategoriesScreen(),
+                                                    ));
+                                              },
+                                              child: Text(
+                                                'Add categories',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                onChanged: categoriesAvailable
+                                    ? (String? value) {
+                                        setState(() {
+                                          selectedCategory = value!;
+                                        });
+                                      }
+                                    : null,
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ] else if (dropDownMonthOrWeekValue == "Weekly") ...[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                          ),
+                          child: TextField(
+                            controller: startDateController,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintStyle: TextStyle(fontSize: 15),
+                                hintText: "Start Date",
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 10)),
+                            onTap: () async {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                              await _selectDate(context, startDateController);
+                            },
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                          ),
+                          child: TextField(
+                            controller: endDateController,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintStyle: TextStyle(fontSize: 15),
+                                hintText: "End Date",
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 10)),
+                            onTap: () async {
+                              FocusScope.of(context).requestFocus(FocusNode());
+                              await _selectDate(context, endDateController);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      height: 50,
+                      width: 280,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Consumer<CategoryProvider>(
+                        builder: (context, categoryProvider, child) {
+                          bool categoriesAvailable =
+                              categoryProvider.categories.isNotEmpty;
+                          String categorydropdownValue = categoriesAvailable
+                              ? categoryProvider.categories[0].title
+                              : 'Add categories';
+
+                          return DropdownButton<String>(
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                            ),
+                            underline: Container(),
                             value: selectedCategory,
                             items: categoriesAvailable
                                 ? categoryProvider.categories
@@ -1398,18 +1538,17 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         child: InkWell(
                                           onTap: () {
                                             Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    CategoriesScreen(),
-                                              ),
-                                            );
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CategoriesScreen(),
+                                                ));
                                           },
                                           child: Text(
                                             'Add categories',
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 14,
+                                              fontSize: 15,
                                             ),
                                           ),
                                         ),
@@ -1423,106 +1562,86 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     });
                                   }
                                 : null,
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                      ),
-                      child: TextField(
-                        controller: startDateController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Start Date',
-                          hintStyle: TextStyle(fontSize: 15),
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 50,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                      ),
-                      child: TextField(
-                        controller: endDateController,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'End Date',
-                          hintStyle: TextStyle(fontSize: 15),
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 10,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ],
-                ),
-              ],
-              SizedBox(height: 20),
-              Container(
-                height: 50,
-                width: 280,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: TextField(
-                  controller: amountController,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Enter Amount',
-                    hintStyle: TextStyle(fontSize: 13),
-                    contentPadding: EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 25,
+                  SizedBox(height: 20),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: TextField(
+                      controller: amountController,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Enter Amount",
+                          hintStyle: TextStyle(fontSize: 13),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 25)),
                     ),
                   ),
-                ),
+                  SizedBox(height: 20),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        String enteredAmount = amountController.text;
+                        if (dropDownMonthOrWeekValue == 'Monthly') {
+                          enteredvalues.add({
+                            "amount": enteredAmount,
+                            "month": "$dropDownMonthValue  $dropDownValue",
+                            "category": selectedCategory,
+                          });
+                          dropDownMonthValue =
+                              "budget_goal_screen.dropdowns.month_selection"
+                                  .tr();
+                          dropDownValue =
+                              "budget_goal_screen.dropdowns.year_selection"
+                                  .tr();
+                        } else if (dropDownMonthOrWeekValue == 'Weekly') {
+                          List<String> dates = getDatesInRange(
+                              startDateController.text, endDateController.text);
+                          for (String date in dates) {
+                            enteredvalues.add({
+                              "amount": enteredAmount,
+                              "month": date,
+                              "category": selectedCategory,
+                            });
+                          }
+                          startDateController.clear();
+                          endDateController.clear();
+                        }
+                        amountController
+                            .clear(); // Clear the text field after submission
+                      });
+                    },
+                    child: Container(
+                      height: 45,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: ColorConstant.defIndigo,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Submit",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    // Update the entry in enteredvalues list
-                    enteredvalues[editingIndex ?? 0] = {
-                      'month': dropDownMonthOrWeekValue == 'Monthly'
-                          ? '$dropDownMonthValue $dropDownValue'
-                          : '${startDateController.text} to ${endDateController.text}',
-                      'category': selectedCategory,
-                      'amount': amountController.text,
-                    };
-                    // Clear controllers
-                    amountController.clear();
-                    startDateController.clear();
-                    endDateController.clear();
-                    // Reset editingIndex
-                    editingIndex = null;
-                    // Close dialog
-                    Navigator.of(context).pop();
-                  });
-                },
-                child: Text('Submit'),
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
