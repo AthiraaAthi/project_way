@@ -1718,7 +1718,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     decoration:
                         BoxDecoration(border: Border.all(color: Colors.grey)),
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(16),
                       child: TextField(
                         controller: amountController,
                         decoration: InputDecoration(
