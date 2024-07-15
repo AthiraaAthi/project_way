@@ -1714,7 +1714,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         items: numbers.map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
-                            child: Text(value),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(value),
+                            ),
                           );
                         }).toList(),
                         onChanged: (String? newValue) {
@@ -1755,43 +1758,53 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Consumer<CategoryProvider>(
                     builder: (context, categoryProvider, child) {
                       bool categoriesAvailable =
                           categoryProvider.categories.isNotEmpty;
-                      return DropdownButton<String>(
-                        value: selectedCategory,
-                        items: categoriesAvailable
-                            ? categoryProvider.categories.map((category) {
-                                return DropdownMenuItem<String>(
-                                  value: category.title,
-                                  child: Text(category.title),
-                                );
-                              }).toList()
-                            : [
-                                DropdownMenuItem<String>(
-                                  value: 'Add categories',
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              CategoriesScreen(),
-                                        ),
-                                      );
-                                    },
-                                    child: Text('Add categories'),
+                      return Container(
+                        height: 50,
+                        width: 250,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey)),
+                        child: DropdownButton<String>(
+                          underline: Container(),
+                          value: selectedCategory,
+                          items: categoriesAvailable
+                              ? categoryProvider.categories.map((category) {
+                                  return DropdownMenuItem<String>(
+                                    value: category.title,
+                                    child: Text(category.title),
+                                  );
+                                }).toList()
+                              : [
+                                  DropdownMenuItem<String>(
+                                    value: 'Add categories',
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                CategoriesScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text('Add categories'),
+                                    ),
                                   ),
-                                ),
-                              ],
-                        onChanged: categoriesAvailable
-                            ? (String? newValue) {
-                                setState(() {
-                                  selectedCategory = newValue!;
-                                });
-                              }
-                            : null,
+                                ],
+                          onChanged: categoriesAvailable
+                              ? (String? newValue) {
+                                  setState(() {
+                                    selectedCategory = newValue!;
+                                  });
+                                }
+                              : null,
+                        ),
                       );
                     },
                   ),
