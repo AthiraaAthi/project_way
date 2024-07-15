@@ -591,6 +591,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           }
                           amountController
                               .clear(); // Clear the text field after submission
+                          // dropDownMonthOrWeekValue =
+                          //     "budget_goal_screen.dropdowns.monthly".tr();
                         });
                       },
                       child: Container(
