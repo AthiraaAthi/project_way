@@ -366,6 +366,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   Navigator.pop(context);
                                                   titleController.clear();
                                                   desController.clear();
+                                                  selectedColorName = "Green";
                                                 } else {
                                                   print(
                                                       "Please fill out all fields");
