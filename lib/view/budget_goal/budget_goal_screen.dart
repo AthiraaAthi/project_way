@@ -53,14 +53,14 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     "budget_goal_screen.dropdowns.weekly".tr()
   ]; // week or month selection
   String dropDownMonthOrWeekValue = "budget_goal_screen.dropdowns.monthly".tr();
-  List<String> Category = [
-    "budget_goal_screen.dropdowns.budgetCategory".tr(),
-    "budget_goal_screen.categoryValues.Food".tr(),
-    "budget_goal_screen.categoryValues.Notebooks".tr(),
-    "budget_goal_screen.categoryValues.Income".tr(),
-  ]; // category selection
-  String CategoryDropDownValue =
-      "budget_goal_screen.dropdowns.budgetCategory".tr();
+  // List<String> Category = [
+  //   "budget_goal_screen.dropdowns.budgetCategory".tr(),
+  //   "budget_goal_screen.categoryValues.Food".tr(),
+  //   "budget_goal_screen.categoryValues.Notebooks".tr(),
+  //   "budget_goal_screen.categoryValues.Income".tr(),
+  // ]; // category selection
+  // String CategoryDropDownValue =
+  //     "budget_goal_screen.dropdowns.budgetCategory".tr();
 
   final TextEditingController startDateController = TextEditingController();
   final TextEditingController endDateController = TextEditingController();
@@ -674,7 +674,9 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 child: InkWell(
                                   /////////////////FOR EDIT DIALOG
                                   onTap: () {
-                                    editDialog();
+                                    //editDialog();
+                                    _showEditDialog(
+                                        entry, enteredvalues.indexOf(entry));
                                   },
                                   child: Text(
                                     'budget_goal_screen.buttons.edit'.tr(),
@@ -1640,6 +1642,159 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
               ),
             ),
           ),
+        );
+      },
+    );
+  } /////////////////
+
+  void _showEditDialog(Map<String, String> entry, int index) {
+    final TextEditingController amountController =
+        TextEditingController(text: entry['amount']);
+    final TextEditingController startDateController =
+        TextEditingController(text: entry['month']);
+    final TextEditingController endDateController =
+        TextEditingController(text: entry['month']);
+    String selectedCategory = entry['category'] ?? '';
+    String editMonthValue = dropDownMonthValue;
+    String editYearValue = dropDownValue;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Edit Entry"),
+          content: StatefulBuilder(
+            builder: (context, setState) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (dropDownMonthOrWeekValue == 'Monthly') ...[
+                    DropdownButton<String>(
+                      value: editMonthValue,
+                      items: months.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          editMonthValue = newValue!;
+                        });
+                      },
+                    ),
+                    DropdownButton<String>(
+                      value: editYearValue,
+                      items: numbers.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          editYearValue = newValue!;
+                        });
+                      },
+                    ),
+                  ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
+                    TextField(
+                      controller: startDateController,
+                      decoration: InputDecoration(
+                        hintText: "Start Date",
+                      ),
+                      onTap: () async {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        await _selectDate(context, startDateController);
+                      },
+                    ),
+                  ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.grey)),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        controller: amountController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Enter Amount",
+                        ),
+                      ),
+                    ),
+                  ),
+                  Consumer<CategoryProvider>(
+                    builder: (context, categoryProvider, child) {
+                      bool categoriesAvailable =
+                          categoryProvider.categories.isNotEmpty;
+                      return DropdownButton<String>(
+                        value: selectedCategory,
+                        items: categoriesAvailable
+                            ? categoryProvider.categories.map((category) {
+                                return DropdownMenuItem<String>(
+                                  value: category.title,
+                                  child: Text(category.title),
+                                );
+                              }).toList()
+                            : [
+                                DropdownMenuItem<String>(
+                                  value: 'Add categories',
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              CategoriesScreen(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text('Add categories'),
+                                  ),
+                                ),
+                              ],
+                        onChanged: categoriesAvailable
+                            ? (String? newValue) {
+                                setState(() {
+                                  selectedCategory = newValue!;
+                                });
+                              }
+                            : null,
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  // Update the entry with new values
+                  entry['amount'] = amountController.text;
+                  entry['month'] = dropDownMonthOrWeekValue == 'Monthly'
+                      ? "$editMonthValue $editYearValue"
+                      : startDateController.text;
+                  entry['category'] = selectedCategory;
+                  enteredvalues[index] = entry;
+                });
+                Navigator.of(context).pop();
+              },
+              child: Text("Save"),
+            ),
+          ],
         );
       },
     );
