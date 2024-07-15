@@ -1676,33 +1676,53 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   if (dropDownMonthOrWeekValue == 'Monthly') ...[
-                    DropdownButton<String>(
-                      value: editMonthValue,
-                      items: months.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          editMonthValue = newValue!;
-                        });
-                      },
+                    Container(
+                      height: 50,
+                      width: 250,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: DropdownButton<String>(
+                        underline: Container(),
+                        value: editMonthValue,
+                        items: months.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Text(value),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            editMonthValue = newValue!;
+                          });
+                        },
+                      ),
                     ),
-                    DropdownButton<String>(
-                      value: editYearValue,
-                      items: numbers.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          editYearValue = newValue!;
-                        });
-                      },
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 50,
+                      width: 250,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: DropdownButton<String>(
+                        underline: Container(),
+                        value: editYearValue,
+                        items: numbers.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            editYearValue = newValue!;
+                          });
+                        },
+                      ),
                     ),
                   ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
                     TextField(
