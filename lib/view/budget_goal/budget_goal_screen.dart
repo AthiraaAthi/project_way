@@ -1662,7 +1662,14 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Edit Entry"),
+          title: Center(
+              child: Text(
+            "Edit your Budget Goal",
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: ColorConstant.defIndigo),
+          )),
           content: StatefulBuilder(
             builder: (context, setState) {
               return Column(
