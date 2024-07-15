@@ -1777,7 +1777,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               ? categoryProvider.categories.map((category) {
                                   return DropdownMenuItem<String>(
                                     value: category.title,
-                                    child: Text(category.title),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(category.title),
+                                    ),
                                   );
                                 }).toList()
                               : [
