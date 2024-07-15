@@ -1728,15 +1728,23 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     ),
                   ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
-                    TextField(
-                      controller: startDateController,
-                      decoration: InputDecoration(
-                        hintText: "Start Date",
+                    Container(
+                      height: 50,
+                      width: 250,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: startDateController,
+                          decoration: InputDecoration(
+                              hintText: "Start Date", border: InputBorder.none),
+                          onTap: () async {
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            await _selectDate(context, startDateController);
+                          },
+                        ),
                       ),
-                      onTap: () async {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        await _selectDate(context, startDateController);
-                      },
                     ),
                   ],
                   SizedBox(
