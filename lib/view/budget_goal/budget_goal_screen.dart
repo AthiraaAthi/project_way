@@ -1333,8 +1333,9 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                   ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
                     Container(
-                      height: 50,
-                      width: 250,
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
                       decoration:
                           BoxDecoration(border: Border.all(color: Colors.grey)),
                       child: Padding(
