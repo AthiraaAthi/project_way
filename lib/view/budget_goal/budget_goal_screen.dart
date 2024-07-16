@@ -1647,7 +1647,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
         );
       },
     );
-  } /////////////////
+  } ///////FOR EDITING//////////
 
   void _showEditDialog(Map<String, String> entry, int index) {
     final TextEditingController amountController =
