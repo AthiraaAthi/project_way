@@ -1219,7 +1219,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    _showEditDialog(
+                                        entry, enteredvalues.indexOf(entry));
+                                  },
                                   child: Text(
                                     'budget_goal_screen.buttons.edit'.tr(),
                                     style: TextStyle(
