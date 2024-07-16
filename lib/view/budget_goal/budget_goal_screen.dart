@@ -1435,7 +1435,12 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("Cancel"),
+              child: Text(
+                "Cancel",
+                style: TextStyle(
+                    fontSize:
+                        MediaQuery.of(context).size.width < 600 ? 18 : 30),
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -1450,7 +1455,12 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                 });
                 Navigator.of(context).pop();
               },
-              child: Text("Save"),
+              child: Text(
+                "Save",
+                style: TextStyle(
+                    fontSize:
+                        MediaQuery.of(context).size.width < 600 ? 18 : 30),
+              ),
             ),
           ],
         );
