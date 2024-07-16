@@ -1218,10 +1218,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'budget_goal_screen.buttons.edit'.tr(),
-                                  style: TextStyle(
-                                      color: Colors.green, fontSize: 18),
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'budget_goal_screen.buttons.edit'.tr(),
+                                    style: TextStyle(
+                                        color: Colors.green, fontSize: 18),
+                                  ),
                                 ),
                               ),
                               Text(
@@ -1242,7 +1245,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     );
   }
 
-  ///NEW WIDGET FOR EDITING PURPOSE/////////////////
+  ///NEW function FOR EDITING PURPOSE/////////////////
 
   void _showEditDialog(Map<String, String> entry, int index) {
     final TextEditingController amountController =
