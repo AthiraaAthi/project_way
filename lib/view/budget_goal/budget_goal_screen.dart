@@ -1296,8 +1296,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     final TextEditingController endDateController =
         TextEditingController(text: entry['month']);
     String selectedCategory = entry['category'] ?? '';
-    String editMonthValue = dropDownMonthValue;
-    String editYearValue = dropDownValue;
+    String editMonthValue =
+        entry['month']!.split(' ')[0]; // Initialize with month part
+    String editYearValue =
+        entry['month']!.split(' ')[1]; // Initialize with year part
 
     showDialog(
       context: context,
