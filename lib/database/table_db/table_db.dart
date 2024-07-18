@@ -43,18 +43,13 @@ class TableDb {
     );
   }
 
-  Future<void> deleteEntry(int id) async {
-    try {
-      final db = await database;
-      await db.delete(
-        'entries',
-        where: 'id = ?',
-        whereArgs: [id],
-      );
-    } catch (e) {
-      print('Error deleting entry: $e');
-      throw Exception('Failed to delete entry');
-    }
+  Future<void> deleteEntry(String amount, String month, String category) async {
+    final db = await database;
+    await db.delete(
+      'entries',
+      where: 'amount = ? AND month = ? AND category = ?',
+      whereArgs: [amount, month, category],
+    );
   }
 
   Future<List<Map<String, dynamic>>> getAllEntries() async {
