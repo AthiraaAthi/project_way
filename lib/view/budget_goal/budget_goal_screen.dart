@@ -590,7 +590,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         // });
                         setState(() async {
                           String enteredAmount = amountController.text;
-                          if (dropDownMonthOrWeekValue == 'monthly') {
+                          if (dropDownMonthOrWeekValue == 'Monthly') {
                             Map<String, String> entry = {
                               "amount": enteredAmount,
                               "month": "$dropDownMonthValue $dropDownValue",
@@ -600,11 +600,15 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             fetchData();
                             setState(() {
                               enteredvalues.add(entry);
-                              dropDownMonthValue = "month";
-                              dropDownValue = "year";
+                              dropDownMonthValue =
+                                  "budget_goal_screen.dropdowns.month_selection"
+                                      .tr();
+                              dropDownValue =
+                                  "budget_goal_screen.dropdowns.year_selection"
+                                      .tr();
                             });
                             amountController.clear();
-                          } else if (dropDownMonthOrWeekValue == 'weekly') {
+                          } else if (dropDownMonthOrWeekValue == 'Weekly') {
                             List<String> dates = getDatesInRange(
                                 startDateController.text,
                                 endDateController.text);
