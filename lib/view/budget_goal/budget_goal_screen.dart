@@ -556,29 +556,70 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        setState(() {
+                        // setState(() {
+                        //   String enteredAmount = amountController.text;
+                        //   if (dropDownMonthOrWeekValue == 'Monthly') {
+                        //     enteredvalues.add({
+                        //       "amount": enteredAmount,
+                        //       "month": "$dropDownMonthValue  $dropDownValue",
+                        //       "category": selectedCategory,
+                        //     });
+                        //     dropDownMonthValue =
+                        //         "budget_goal_screen.dropdowns.month_selection"
+                        //             .tr();
+                        //     dropDownValue =
+                        //         "budget_goal_screen.dropdowns.year_selection"
+                        //             .tr();
+                        //   } else if (dropDownMonthOrWeekValue == 'Weekly') {
+                        //     List<String> dates = getDatesInRange(
+                        //         startDateController.text,
+                        //         endDateController.text);
+                        //     for (String date in dates) {
+                        //       enteredvalues.add({
+                        //         "amount": enteredAmount,
+                        //         "month": date,
+                        //         "category": selectedCategory,
+                        //       });
+                        //     }
+                        //     startDateController.clear();
+                        //     endDateController.clear();
+                        //   }
+                        //   amountController
+                        //       .clear(); // Clear the text field after submission
+
+                        // });
+                        setState(() async {
                           String enteredAmount = amountController.text;
-                          if (dropDownMonthOrWeekValue == 'Monthly') {
-                            enteredvalues.add({
+                          if (dropDownMonthOrWeekValue == 'monthly') {
+                            Map<String, String> entry = {
                               "amount": enteredAmount,
-                              "month": "$dropDownMonthValue  $dropDownValue",
+                              "month": "$dropDownMonthValue $dropDownValue",
                               "category": selectedCategory,
+                            };
+                            await tableDb.insertEntry(entry);
+                            fetchData();
+                            setState(() {
+                              enteredvalues.add(entry);
+                              dropDownMonthValue = "month";
+                              dropDownValue = "year";
                             });
-                            dropDownMonthValue =
-                                "budget_goal_screen.dropdowns.month_selection"
-                                    .tr();
-                            dropDownValue =
-                                "budget_goal_screen.dropdowns.year_selection"
-                                    .tr();
-                          } else if (dropDownMonthOrWeekValue == 'Weekly') {
+                            amountController.clear();
+                          } else if (dropDownMonthOrWeekValue == 'weekly') {
                             List<String> dates = getDatesInRange(
                                 startDateController.text,
                                 endDateController.text);
                             for (String date in dates) {
-                              enteredvalues.add({
+                              Map<String, String> entry = {
                                 "amount": enteredAmount,
                                 "month": date,
                                 "category": selectedCategory,
+                              };
+
+                              await tableDb.insertEntry(entry);
+                              fetchData();
+
+                              setState(() {
+                                enteredvalues.add(entry);
                               });
                             }
                             startDateController.clear();
@@ -586,8 +627,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           }
                           amountController
                               .clear(); // Clear the text field after submission
-                          // dropDownMonthOrWeekValue =
-                          //     "budget_goal_screen.dropdowns.monthly".tr();
                         });
                       },
                       child: Container(
