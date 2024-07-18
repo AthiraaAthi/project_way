@@ -113,8 +113,13 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   fetchData() async {
     List<Map<String, dynamic>> entries = await tableDb.getAllEntries();
     setState(() {
-      enteredvalues =
-          entries.map((entry) => entry.cast<String, String>()).toList();
+      enteredvalues = entries.map((entry) {
+        return {
+          'amount': entry['amount'].toString(), // Ensure values are strings
+          'month': entry['month'].toString(),
+          'category': entry['category'].toString(),
+        };
+      }).toList();
     });
   }
 
@@ -1495,21 +1500,33 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
             ),
             TextButton(
               onPressed: () async {
-                entry['amount'] = amountController.text;
-                entry['month'] = dropDownMonthOrWeekValue == 'monthly'
-                    ? "$editMonthValue $editYearValue"
-                    : startDateController.text;
-                entry['category'] = selectedCategory;
+                Map<String, String> updatedEntry = {
+                  'amount': amountController.text,
+                  'month': dropDownMonthOrWeekValue == 'Monthly'
+                      ? "$editMonthValue $editYearValue"
+                      : startDateController.text,
+                  'category': selectedCategory,
+                };
+                int idToUpdate = index + 1;
+                await TableDb().updateEntry(idToUpdate, updatedEntry);
+                setState(() {
+                  // Update local UI state
+                  enteredvalues[index] = updatedEntry;
+                });
+                Navigator.of(context).pop();
+                // entry['amount'] = amountController.text;
+                // entry['month'] = dropDownMonthOrWeekValue == 'monthly'
+                //     ? "$editMonthValue $editYearValue"
+                //     : startDateController.text;
+                // entry['category'] = selectedCategory;
 
-                await TableDb().updateEntry(entry);
-                await fetchData();
+                // await TableDb().updateEntry(entry);
+                // await fetchData();
 
                 // // Update the local state
                 // setState(() {
                 //   enteredvalues[index] = entry;
                 // });
-
-                Navigator.of(context).pop();
               },
               child: Text(
                 "Save",
