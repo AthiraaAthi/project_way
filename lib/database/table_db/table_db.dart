@@ -1,54 +1,59 @@
-import 'package:project_way/model/table_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class TableDb {
-  static final TableDb _instance = TableDb._internal();
-  factory TableDb() => _instance;
-
   static Database? _database;
-
-  TableDb._internal();
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-    _database = await _initDatabase();
+
+    _database = await initDatabase();
     return _database!;
   }
 
-  Future<Database> _initDatabase() async {
-    String path = join(await getDatabasesPath(), 'budget.db');
-    return await openDatabase(
-      path,
+  Future<Database> initDatabase() async {
+    String path = await getDatabasesPath();
+    return openDatabase(
+      join(path, 'your_database.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          "CREATE TABLE entries(id INTEGER PRIMARY KEY AUTOINCREMENT, amount TEXT, month TEXT, category TEXT)",
+        );
+      },
       version: 1,
-      onCreate: _onCreate,
     );
   }
 
-  Future _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE budget(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        amount TEXT,
-        month TEXT,
-        category TEXT
-      )
-    ''');
+  Future<void> insertEntry(Map<String, dynamic> entry) async {
+    final db = await database;
+    await db.insert(
+      'entries',
+      entry,
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
-  Future<int> insertBudget(TableModel budget) async {
-    Database db = await database;
-    return await db.insert('budget', budget.toMap());
+  Future<void> updateEntry(Map<String, dynamic> entry) async {
+    final db = await database;
+    await db.update(
+      'entries',
+      entry,
+      where: 'id = ?',
+      whereArgs: [entry['id']],
+    );
   }
 
-  Future<List<TableModel>> fetchBudgets() async {
-    Database db = await database;
-    List<Map<String, dynamic>> result = await db.query('budget');
-    return result.map((budget) => TableModel.fromMap(budget)).toList();
+  Future<void> deleteEntry(int id) async {
+    final db = await database;
+    await db.delete(
+      'entries', // Ensure the correct table name here
+      where: 'id = ?',
+      whereArgs: [id],
+    );
   }
 
-  Future<int> deleteBudget(int id) async {
-    Database db = await database;
-    return await db.delete('budget', where: 'id = ?', whereArgs: [id]);
+  Future<List<Map<String, dynamic>>> getAllEntries() async {
+    final db = await database;
+    return db.query('entries');
   }
 }

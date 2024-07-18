@@ -91,6 +91,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
   }
 
   List<Map<String, String>> enteredvalues = [];
+  TableDb tableDb = TableDb();
   int? editingIndex;
   String categorydropdownValue = '';
   String selectedCategory = '';
@@ -106,7 +107,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
           : 'Add categories';
       selectedCategory = categorydropdownValue;
     });
-    _fetchData();
   }
 
   List<String> getDatesInRange(String start, String end) {
@@ -121,20 +121,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
       dates.add(dateFormat.format(date));
     }
     return dates;
-  }
-
-  Future<void> _fetchData() async {
-    TableDb db = TableDb();
-    List<TableModel> fetchedData = await db.fetchBudgets();
-    setState(() {
-      enteredvalues = fetchedData
-          .map((data) => {
-                "amount": data.amount,
-                "month": data.month,
-                "category": data.category,
-              })
-          .toList();
-    });
   }
 
   @override
