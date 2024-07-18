@@ -33,13 +33,24 @@ class TableDb {
     );
   }
 
-  Future<void> updateEntry(Map<String, String> entry) async {
+  Future<void> updateEntry(Map<String, String> updatedEntry) async {
     final db = await database;
+
+    // Prepare the update values
+    String amount = updatedEntry['amount']!;
+    String month = updatedEntry['month']!;
+    String category = updatedEntry['category']!;
+
+    // Define the where clause to identify the record to update
+    String whereClause = 'amount = ? AND month = ? AND category = ?';
+    List<dynamic> whereArgs = [amount, month, category];
+
+    // Perform the update operation
     await db.update(
       'entries',
-      entry,
-      where: 'id = ?',
-      whereArgs: [entry['id']],
+      updatedEntry,
+      where: whereClause,
+      whereArgs: whereArgs,
     );
   }
 
