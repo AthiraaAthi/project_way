@@ -727,12 +727,24 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 ),
                               ),
                               InkWell(
-                                onTap: () {
+                                onTap: () async {
+                                  String amountToDelete = entry['amount']!;
+                                  String monthToDelete = entry['month']!;
+                                  String categoryToDelete = entry['category']!;
+
+                                  await tableDb.deleteEntry(amountToDelete,
+                                      monthToDelete, categoryToDelete);
+                                  fetchData();
+
                                   setState(() {
                                     enteredvalues.remove(
-                                      entry,
-                                    ); // Remove the selected entry
+                                        entry); // Remove the selected entry
                                   });
+                                  // setState(() {
+                                  //   enteredvalues.remove(
+                                  //     entry,
+                                  //   ); // Remove the selected entry
+                                  // });
                                 },
                                 child: Text(
                                   'budget_goal_screen.buttons.delete'.tr(),
