@@ -33,7 +33,7 @@ class TableDb {
     );
   }
 
-  Future<void> updateEntry(Map<String, dynamic> entry) async {
+  Future<void> updateEntry(Map<String, String> entry) async {
     final db = await database;
     await db.update(
       'entries',
@@ -44,12 +44,17 @@ class TableDb {
   }
 
   Future<void> deleteEntry(int id) async {
-    final db = await database;
-    await db.delete(
-      'entries', // Ensure the correct table name here
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    try {
+      final db = await database;
+      await db.delete(
+        'entries',
+        where: 'id = ?',
+        whereArgs: [id],
+      );
+    } catch (e) {
+      print('Error deleting entry: $e');
+      throw Exception('Failed to delete entry');
+    }
   }
 
   Future<List<Map<String, dynamic>>> getAllEntries() async {
