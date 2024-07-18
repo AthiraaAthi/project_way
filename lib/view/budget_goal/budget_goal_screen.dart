@@ -107,6 +107,15 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
           : 'Add categories';
       selectedCategory = categorydropdownValue;
     });
+    fetchData();
+  }
+
+  fetchData() async {
+    List<Map<String, dynamic>> entries = await tableDb.getAllEntries();
+    setState(() {
+      enteredvalues =
+          entries.map((entry) => entry.cast<String, String>()).toList();
+    });
   }
 
   List<String> getDatesInRange(String start, String end) {
