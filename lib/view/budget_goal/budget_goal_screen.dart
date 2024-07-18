@@ -1481,16 +1481,21 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
               ),
             ),
             TextButton(
-              onPressed: () {
-                setState(() {
-                  // Update the entry with new values
-                  entry['amount'] = amountController.text;
-                  entry['month'] = dropDownMonthOrWeekValue == 'Monthly'
-                      ? "$editMonthValue $editYearValue"
-                      : startDateController.text;
-                  entry['category'] = selectedCategory;
-                  enteredvalues[index] = entry;
-                });
+              onPressed: () async {
+                entry['amount'] = amountController.text;
+                entry['month'] = dropDownMonthOrWeekValue == 'monthly'
+                    ? "$editMonthValue $editYearValue"
+                    : startDateController.text;
+                entry['category'] = selectedCategory;
+
+                await TableDb().updateEntry(entry);
+                await fetchData();
+
+                // // Update the local state
+                // setState(() {
+                //   enteredvalues[index] = entry;
+                // });
+
                 Navigator.of(context).pop();
               },
               child: Text(
