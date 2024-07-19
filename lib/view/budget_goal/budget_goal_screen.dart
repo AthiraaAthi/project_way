@@ -220,7 +220,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10),
+                                  padding: EdgeInsets.only(right: 50, left: 10),
                                   child: Text(
                                     value,
                                     style: TextStyle(
@@ -256,7 +256,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10),
+                                  padding: EdgeInsets.only(right: 50, left: 10),
                                   child: Text(
                                     value,
                                     style: TextStyle(
@@ -302,7 +302,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 return DropdownMenuItem<String>(
                                   value: value,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10),
+                                    padding:
+                                        EdgeInsets.only(right: 50, left: 10),
                                     child: Text(
                                       value,
                                       style: TextStyle(
@@ -350,7 +351,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                           return DropdownMenuItem<String>(
                                             value: category.title,
                                             child: Padding(
-                                              padding: const EdgeInsets.all(10),
+                                              padding: EdgeInsets.only(
+                                                  right: 50, left: 10),
                                               child: Text(
                                                 category.title,
                                                 style: TextStyle(
@@ -486,7 +488,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         return DropdownMenuItem<String>(
                                           value: category.title,
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10),
+                                            padding: EdgeInsets.only(
+                                                right: 200, left: 10),
                                             child: Text(
                                               category.title,
                                               style: TextStyle(
