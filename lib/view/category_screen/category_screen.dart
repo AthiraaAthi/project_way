@@ -999,31 +999,56 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             ),
                                             InkWell(
                                               onTap: () {
+                                                // final updatedTitle =
+                                                //     titleController2.text;
+                                                // final updatedDescription =
+                                                //     descriptionController2.text;
+                                                // final updatedColorName = Provider
+                                                //         .of<DropdownProvider>(
+                                                //             context,
+                                                //             listen: false)
+                                                //     .colorNameController;
+                                                // if (updatedTitle.isNotEmpty &&
+                                                //     updatedDescription
+                                                //         .isNotEmpty &&
+                                                //     updatedColorName
+                                                //         .isNotEmpty &&
+                                                //     updatedColorName
+                                                //         .isNotEmpty) {
+                                                //   categoryProvider
+                                                //       .updateCategory(Category(
+                                                //     id: category.id,
+                                                //     title: updatedTitle,
+                                                //     description:
+                                                //         updatedDescription,
+                                                //     colorName: updatedColorName,
+                                                //   ));
+
+                                                //   Navigator.of(context).pop();
+                                                // } else {
+                                                //   print(
+                                                //       "Please fill out all fields");
+                                                // }
                                                 final updatedTitle =
                                                     titleController2.text;
                                                 final updatedDescription =
                                                     descriptionController2.text;
-                                                final updatedColorName = Provider
-                                                        .of<DropdownProvider>(
-                                                            context,
-                                                            listen: false)
-                                                    .colorNameController;
                                                 if (updatedTitle.isNotEmpty &&
                                                     updatedDescription
                                                         .isNotEmpty &&
-                                                    updatedColorName
-                                                        .isNotEmpty &&
-                                                    updatedColorName
+                                                    selectedColorName
                                                         .isNotEmpty) {
-                                                  categoryProvider
+                                                  Provider.of<CategoryProvider>(
+                                                          context,
+                                                          listen: false)
                                                       .updateCategory(Category(
                                                     id: category.id,
                                                     title: updatedTitle,
                                                     description:
                                                         updatedDescription,
-                                                    colorName: updatedColorName,
+                                                    colorName:
+                                                        selectedColorName,
                                                   ));
-
                                                   Navigator.of(context).pop();
                                                 } else {
                                                   print(

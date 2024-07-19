@@ -607,8 +607,12 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           String endDate = endDateController.text;
                           if (dropDownMonthOrWeekValue == 'Monthly') {
                             if (enteredAmount.isEmpty ||
-                                dropDownMonthValue == null ||
-                                dropDownValue == null ||
+                                dropDownMonthValue ==
+                                    "budget_goal_screen.dropdowns.month_selection"
+                                        .tr() ||
+                                dropDownValue ==
+                                    "budget_goal_screen.dropdowns.year_selection"
+                                        .tr() ||
                                 selectedCategory == null) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
