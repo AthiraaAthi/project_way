@@ -659,109 +659,125 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    DataTable(
-                      dataRowMaxHeight: 60,
-                      columnSpacing: 25,
-                      border: TableBorder.all(color: Colors.grey, width: 0.5),
-                      columns: [
-                        DataColumn(
-                            label: Text(
-                          dropDownMonthOrWeekValue ==
-                                  "budget_goal_screen.dropdowns.monthly".tr()
-                              ? "budget_goal_screen.tableHeaders.month".tr()
-                              : "budget_goal_screen.tableHeaders.date"
-                                  .tr(), //changed table date column according to week or month selection
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13),
-                        )),
-                        DataColumn(
-                            label: Text(
-                          'budget_goal_screen.tableHeaders.category'.tr(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 13),
-                        )),
-                        DataColumn(
-                            label: InkWell(
-                          onTap: () {},
-                          child: Text(
-                            'budget_goal_screen.tableHeaders.amount'.tr(),
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w800,
-                                fontSize: 13),
-                          ),
-                        )),
-                        DataColumn(
-                            label: InkWell(
-                          onTap: () {},
-                          child: Text(
-                            'budget_goal_screen.tableHeaders.action'.tr(),
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w800,
-                                fontSize: 13),
-                          ),
-                        )),
-                      ],
-                      rows: enteredvalues.map<DataRow>((entry) {
-                        return DataRow(cells: [
-                          DataCell(Text(entry['month'] ?? '')),
-                          DataCell(Text(entry['category'] ?? '')),
-                          DataCell(Text(entry['amount'] ?? '')),
-                          DataCell(Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  /////////////////FOR EDIT DIALOG
-                                  onTap: () {
-                                    //editDialog();
-                                    _showEditDialog(
-                                        entry, enteredvalues.indexOf(entry));
-                                  },
-                                  child: Text(
-                                    'budget_goal_screen.buttons.edit'.tr(),
-                                    style: TextStyle(
-                                        color: Colors.green,
-                                        fontSize: buttonSize),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () async {
-                                  String amountToDelete = entry['amount']!;
-                                  String monthToDelete = entry['month']!;
-                                  String categoryToDelete = entry['category']!;
-
-                                  await tableDb.deleteEntry(amountToDelete,
-                                      monthToDelete, categoryToDelete);
-                                  fetchData();
-
-                                  setState(() {
-                                    enteredvalues.remove(
-                                        entry); // Remove the selected entry
-                                  });
-                                  // setState(() {
-                                  //   enteredvalues.remove(
-                                  //     entry,
-                                  //   ); // Remove the selected entry
-                                  // });
-                                },
+                    enteredvalues.isEmpty
+                        ? Center(
+                            child: Padding(
+                            padding: EdgeInsets.only(top: 100),
+                            child: Text("No Data Available"),
+                          ))
+                        : DataTable(
+                            dataRowMaxHeight: 60,
+                            columnSpacing: 25,
+                            border:
+                                TableBorder.all(color: Colors.grey, width: 0.5),
+                            columns: [
+                              DataColumn(
+                                  label: Text(
+                                dropDownMonthOrWeekValue ==
+                                        "budget_goal_screen.dropdowns.monthly"
+                                            .tr()
+                                    ? "budget_goal_screen.tableHeaders.month"
+                                        .tr()
+                                    : "budget_goal_screen.tableHeaders.date"
+                                        .tr(), //changed table date column according to week or month selection
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 13),
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'budget_goal_screen.tableHeaders.category'.tr(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 13),
+                              )),
+                              DataColumn(
+                                  label: InkWell(
+                                onTap: () {},
                                 child: Text(
-                                  'budget_goal_screen.buttons.delete'.tr(),
+                                  'budget_goal_screen.tableHeaders.amount'.tr(),
                                   style: TextStyle(
-                                      color: Colors.red, fontSize: buttonSize),
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 13),
                                 ),
-                              )
+                              )),
+                              DataColumn(
+                                  label: InkWell(
+                                onTap: () {},
+                                child: Text(
+                                  'budget_goal_screen.tableHeaders.action'.tr(),
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 13),
+                                ),
+                              )),
                             ],
-                          )),
-                        ]);
-                      }).toList(),
-                    ),
+                            rows: enteredvalues.map<DataRow>((entry) {
+                              return DataRow(cells: [
+                                DataCell(Text(entry['month'] ?? '')),
+                                DataCell(Text(entry['category'] ?? '')),
+                                DataCell(Text(entry['amount'] ?? '')),
+                                DataCell(Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        /////////////////FOR EDIT DIALOG
+                                        onTap: () {
+                                          //editDialog();
+                                          _showEditDialog(entry,
+                                              enteredvalues.indexOf(entry));
+                                        },
+                                        child: Text(
+                                          'budget_goal_screen.buttons.edit'
+                                              .tr(),
+                                          style: TextStyle(
+                                              color: Colors.green,
+                                              fontSize: buttonSize),
+                                        ),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        String amountToDelete =
+                                            entry['amount']!;
+                                        String monthToDelete = entry['month']!;
+                                        String categoryToDelete =
+                                            entry['category']!;
+
+                                        await tableDb.deleteEntry(
+                                            amountToDelete,
+                                            monthToDelete,
+                                            categoryToDelete);
+                                        fetchData();
+
+                                        setState(() {
+                                          enteredvalues.remove(
+                                              entry); // Remove the selected entry
+                                        });
+                                        // setState(() {
+                                        //   enteredvalues.remove(
+                                        //     entry,
+                                        //   ); // Remove the selected entry
+                                        // });
+                                      },
+                                      child: Text(
+                                        'budget_goal_screen.buttons.delete'
+                                            .tr(),
+                                        style: TextStyle(
+                                            color: Colors.red,
+                                            fontSize: buttonSize),
+                                      ),
+                                    )
+                                  ],
+                                )),
+                              ]);
+                            }).toList(),
+                          ),
                   ],
                 ),
               ),
@@ -1212,89 +1228,100 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     SizedBox(
                       height: 30,
                     ),
-                    DataTable(
-                      headingRowHeight: 70,
-                      dataRowMaxHeight: 100,
-                      columnSpacing: 100,
-                      border: TableBorder.all(color: Colors.grey, width: 1),
-                      columns: [
-                        DataColumn(
-                            label: Text(
-                          dropDownMonthOrWeekValue ==
-                                  "budget_goal_screen.dropdowns.monthly".tr()
-                              ? "budget_goal_screen.tableHeaders.month".tr()
-                              : "budget_goal_screen.tableHeaders.date"
-                                  .tr(), //changed tab table date column according to week or month selection
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 20),
-                        )),
-                        DataColumn(
-                            label: Text(
-                          'budget_goal_screen.tableHeaders.category'.tr(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 20),
-                        )),
-                        DataColumn(
-                            label: Text(
-                          'budget_goal_screen.tableHeaders.amount'.tr(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 20),
-                        )),
-                        DataColumn(
-                            label: Text(
-                          'budget_goal_screen.tableHeaders.action'.tr(),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w800,
-                              fontSize: 20),
-                        )),
-                      ],
-                      rows: enteredvalues.map<DataRow>((entry) {
-                        return DataRow(cells: [
-                          DataCell(Text(
-                            entry['month'] ?? '',
-                            style: TextStyle(fontSize: 18),
-                          )),
-                          DataCell(Text(
-                            entry['category'] ?? '',
-                            style: TextStyle(fontSize: 18),
-                          )),
-                          DataCell(Text(
-                            entry['amount'] ?? '',
-                            style: TextStyle(fontSize: 18),
-                          )),
-                          DataCell(Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    _showEditDialog(
-                                        entry, enteredvalues.indexOf(entry));
-                                  },
-                                  child: Text(
-                                    'budget_goal_screen.buttons.edit'.tr(),
-                                    style: TextStyle(
-                                        color: Colors.green, fontSize: 18),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                'budget_goal_screen.buttons.delete'.tr(),
-                                style:
-                                    TextStyle(color: Colors.red, fontSize: 18),
-                              )
+                    enteredvalues.isEmpty
+                        ? Center(
+                            child: Padding(
+                            padding: EdgeInsets.only(top: 100),
+                            child: Text("No Data Available"),
+                          ))
+                        : DataTable(
+                            headingRowHeight: 70,
+                            dataRowMaxHeight: 100,
+                            columnSpacing: 100,
+                            border:
+                                TableBorder.all(color: Colors.grey, width: 1),
+                            columns: [
+                              DataColumn(
+                                  label: Text(
+                                dropDownMonthOrWeekValue ==
+                                        "budget_goal_screen.dropdowns.monthly"
+                                            .tr()
+                                    ? "budget_goal_screen.tableHeaders.month"
+                                        .tr()
+                                    : "budget_goal_screen.tableHeaders.date"
+                                        .tr(), //changed tab table date column according to week or month selection
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 20),
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'budget_goal_screen.tableHeaders.category'.tr(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 20),
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'budget_goal_screen.tableHeaders.amount'.tr(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 20),
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'budget_goal_screen.tableHeaders.action'.tr(),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 20),
+                              )),
                             ],
-                          )),
-                        ]);
-                      }).toList(),
-                    ),
+                            rows: enteredvalues.map<DataRow>((entry) {
+                              return DataRow(cells: [
+                                DataCell(Text(
+                                  entry['month'] ?? '',
+                                  style: TextStyle(fontSize: 18),
+                                )),
+                                DataCell(Text(
+                                  entry['category'] ?? '',
+                                  style: TextStyle(fontSize: 18),
+                                )),
+                                DataCell(Text(
+                                  entry['amount'] ?? '',
+                                  style: TextStyle(fontSize: 18),
+                                )),
+                                DataCell(Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          _showEditDialog(entry,
+                                              enteredvalues.indexOf(entry));
+                                        },
+                                        child: Text(
+                                          'budget_goal_screen.buttons.edit'
+                                              .tr(),
+                                          style: TextStyle(
+                                              color: Colors.green,
+                                              fontSize: 18),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'budget_goal_screen.buttons.delete'.tr(),
+                                      style: TextStyle(
+                                          color: Colors.red, fontSize: 18),
+                                    )
+                                  ],
+                                )),
+                              ]);
+                            }).toList(),
+                          ),
                   ],
                 ),
               ),
