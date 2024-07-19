@@ -746,22 +746,65 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     ),
                                     InkWell(
                                       onTap: () async {
-                                        String amountToDelete =
-                                            entry['amount']!;
-                                        String monthToDelete = entry['month']!;
-                                        String categoryToDelete =
-                                            entry['category']!;
+                                        showDialog(
+                                          context: context,
+                                          builder: (context) => AlertDialog(
+                                            content: Text(
+                                              "Are you sure?",
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            title: Text(
+                                              "This will delete the whole Row",
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w700),
+                                            ),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text(
+                                                  "No",
+                                                  style: TextStyle(
+                                                      fontSize: 17,
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                              TextButton(
+                                                onPressed: () async {
+                                                  String amountToDelete =
+                                                      entry['amount']!;
+                                                  String monthToDelete =
+                                                      entry['month']!;
+                                                  String categoryToDelete =
+                                                      entry['category']!;
 
-                                        await tableDb.deleteEntry(
-                                            amountToDelete,
-                                            monthToDelete,
-                                            categoryToDelete);
-                                        fetchData();
+                                                  await tableDb.deleteEntry(
+                                                      amountToDelete,
+                                                      monthToDelete,
+                                                      categoryToDelete);
+                                                  fetchData();
 
-                                        setState(() {
-                                          enteredvalues.remove(
-                                              entry); // Remove the selected entry
-                                        });
+                                                  setState(() {
+                                                    enteredvalues.remove(
+                                                        entry); // Remove the selected entry
+                                                  });
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Text(
+                                                  "Yes",
+                                                  style: TextStyle(
+                                                      color: Colors.red,
+                                                      fontSize: 18),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                        ////
                                         // setState(() {
                                         //   enteredvalues.remove(
                                         //     entry,
