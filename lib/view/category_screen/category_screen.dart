@@ -243,6 +243,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   borderRadius:
                                                       BorderRadius.circular(5)),
                                               child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
                                                 children: [
                                                   Text(
                                                     "categoryscreen.addCategoryDialog.dropdownLabel"
