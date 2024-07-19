@@ -635,28 +635,39 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               amountController.clear();
                             }
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
-                            List<String> dates = getDatesInRange(
-                                startDateController.text,
-                                endDateController.text);
-                            for (String date in dates) {
-                              Map<String, String> entry = {
-                                "amount": enteredAmount,
-                                "month": date,
-                                "category": selectedCategory,
-                              };
+                            if (enteredAmount.isEmpty ||
+                                startDate.isEmpty ||
+                                endDate.isEmpty ||
+                                selectedCategory == null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('All fields are required!'),
+                                ),
+                              );
+                            } else {
+                              List<String> dates = getDatesInRange(
+                                  startDateController.text,
+                                  endDateController.text);
+                              for (String date in dates) {
+                                Map<String, String> entry = {
+                                  "amount": enteredAmount,
+                                  "month": date,
+                                  "category": selectedCategory,
+                                };
 
-                              await tableDb.insertEntry(entry);
-                              fetchData();
+                                await tableDb.insertEntry(entry);
+                                fetchData();
 
-                              setState(() {
-                                enteredvalues.add(entry);
-                              });
+                                setState(() {
+                                  enteredvalues.add(entry);
+                                });
+                              }
+                              startDateController.clear();
+                              endDateController.clear();
                             }
-                            startDateController.clear();
-                            endDateController.clear();
+                            amountController
+                                .clear(); // Clear the text field after submission
                           }
-                          amountController
-                              .clear(); // Clear the text field after submission
                         });
                       },
                       child: Container(
