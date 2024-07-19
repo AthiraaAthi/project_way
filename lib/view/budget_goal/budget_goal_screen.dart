@@ -661,7 +661,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                     DataTable(
                       dataRowMaxHeight: 60,
-                      columnSpacing: 30,
+                      columnSpacing: 25,
                       border: TableBorder.all(color: Colors.grey, width: 0.5),
                       columns: [
                         DataColumn(
