@@ -603,24 +603,37 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         // });
                         setState(() async {
                           String enteredAmount = amountController.text;
+                          String startDate = startDateController.text;
+                          String endDate = endDateController.text;
                           if (dropDownMonthOrWeekValue == 'Monthly') {
-                            Map<String, String> entry = {
-                              "amount": enteredAmount,
-                              "month": "$dropDownMonthValue $dropDownValue",
-                              "category": selectedCategory,
-                            };
-                            await tableDb.insertEntry(entry);
-                            fetchData();
-                            setState(() {
-                              enteredvalues.add(entry);
-                              dropDownMonthValue =
-                                  "budget_goal_screen.dropdowns.month_selection"
-                                      .tr();
-                              dropDownValue =
-                                  "budget_goal_screen.dropdowns.year_selection"
-                                      .tr();
-                            });
-                            amountController.clear();
+                            if (enteredAmount.isEmpty ||
+                                dropDownMonthValue == null ||
+                                dropDownValue == null ||
+                                selectedCategory == null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('All fields are required!'),
+                                ),
+                              );
+                            } else {
+                              Map<String, String> entry = {
+                                "amount": enteredAmount,
+                                "month": "$dropDownMonthValue $dropDownValue",
+                                "category": selectedCategory,
+                              };
+                              await tableDb.insertEntry(entry);
+                              fetchData();
+                              setState(() {
+                                enteredvalues.add(entry);
+                                dropDownMonthValue =
+                                    "budget_goal_screen.dropdowns.month_selection"
+                                        .tr();
+                                dropDownValue =
+                                    "budget_goal_screen.dropdowns.year_selection"
+                                        .tr();
+                              });
+                              amountController.clear();
+                            }
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
                             List<String> dates = getDatesInRange(
                                 startDateController.text,
