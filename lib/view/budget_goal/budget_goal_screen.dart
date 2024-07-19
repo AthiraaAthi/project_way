@@ -212,6 +212,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             icon: Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
+                              size: 30,
                             ),
                             underline: Container(),
                             value: dropDownValue,
@@ -220,7 +221,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Padding(
-                                  padding: EdgeInsets.only(right: 50, left: 10),
+                                  padding: EdgeInsets.only(right: 30, left: 10),
                                   child: Text(
                                     value,
                                     style: TextStyle(
@@ -248,6 +249,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             icon: Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
+                              size: 30,
                             ),
                             underline: Container(),
                             value: dropDownMonthOrWeekValue,
@@ -256,7 +258,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Padding(
-                                  padding: EdgeInsets.only(right: 50, left: 10),
+                                  padding: EdgeInsets.only(right: 40, left: 10),
                                   child: Text(
                                     value,
                                     style: TextStyle(
@@ -294,6 +296,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               icon: Icon(
                                 Icons.keyboard_arrow_down,
                                 color: Colors.black,
+                                size: 30,
                               ),
                               underline: Container(),
                               value: dropDownMonthValue,
@@ -303,7 +306,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   value: value,
                                   child: Padding(
                                     padding:
-                                        EdgeInsets.only(right: 50, left: 10),
+                                        EdgeInsets.only(right: 10, left: 10),
                                     child: Text(
                                       value,
                                       style: TextStyle(
@@ -341,6 +344,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   icon: Icon(
                                     Icons.keyboard_arrow_down,
                                     color: Colors.black,
+                                    size: 30,
                                   ),
                                   underline: Container(),
                                   value: selectedCategory,
@@ -352,7 +356,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             value: category.title,
                                             child: Padding(
                                               padding: EdgeInsets.only(
-                                                  right: 50, left: 10),
+                                                  right: 30, left: 10),
                                               child: Text(
                                                 category.title,
                                                 style: TextStyle(
@@ -478,6 +482,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 icon: Icon(
                                   Icons.keyboard_arrow_down,
                                   color: Colors.black,
+                                  size: 30,
                                 ),
                                 underline: Container(),
                                 value: selectedCategory,
@@ -489,7 +494,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                           value: category.title,
                                           child: Padding(
                                             padding: EdgeInsets.only(
-                                                right: 200, left: 10),
+                                                right: 180, left: 10),
                                             child: Text(
                                               category.title,
                                               style: TextStyle(
