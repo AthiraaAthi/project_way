@@ -675,7 +675,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   duration: Duration(seconds: 3),
                                   backgroundColor: Colors.red,
                                   content: Text(
-                                    'All fields are required!',
+                                    weekMessage.trim(),
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
