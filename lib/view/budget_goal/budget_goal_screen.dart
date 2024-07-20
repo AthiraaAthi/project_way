@@ -53,14 +53,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
     "budget_goal_screen.dropdowns.weekly".tr()
   ]; // week or month selection
   String dropDownMonthOrWeekValue = "budget_goal_screen.dropdowns.monthly".tr();
-  // List<String> Category = [
-  //   "budget_goal_screen.dropdowns.budgetCategory".tr(),
-  //   "budget_goal_screen.categoryValues.Food".tr(),
-  //   "budget_goal_screen.categoryValues.Notebooks".tr(),
-  //   "budget_goal_screen.categoryValues.Income".tr(),
-  // ]; // category selection
-  // String CategoryDropDownValue =
-  //     "budget_goal_screen.dropdowns.budgetCategory".tr();
 
   final TextEditingController startDateController = TextEditingController();
   final TextEditingController endDateController = TextEditingController();
