@@ -609,20 +609,20 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           String weekMessage = '';
                           if (dropDownMonthOrWeekValue == 'Monthly') {
                             if (enteredAmount.isEmpty) {
-                              monthMessage += 'Amount is required. ';
+                              monthMessage += 'Please Select the Amount';
                             }
                             if (dropDownMonthValue ==
                                 "budget_goal_screen.dropdowns.month_selection"
                                     .tr()) {
-                              monthMessage += 'Month is required. ';
+                              monthMessage += 'Please Select the Month';
                             }
                             if (dropDownValue ==
                                 "budget_goal_screen.dropdowns.year_selection"
                                     .tr()) {
-                              monthMessage += 'Year is required. ';
+                              monthMessage += 'Please Select the Year';
                             }
                             if (selectedCategory == null) {
-                              monthMessage += 'Category is required. ';
+                              monthMessage += 'Please Select the category';
                             }
                             if (monthMessage.isNotEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -657,16 +657,16 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             }
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
                             if (enteredAmount.isEmpty) {
-                              weekMessage += 'Amount is required. ';
+                              weekMessage += 'Please Enter the Amount';
                             }
                             if (startDate.isEmpty) {
-                              weekMessage += 'Start Date is required. ';
+                              weekMessage += 'Please Select the Start Date ';
                             }
                             if (endDate.isEmpty) {
-                              weekMessage += 'End Date is required. ';
+                              weekMessage += 'Please Select the End Date';
                             }
                             if (selectedCategory == null) {
-                              weekMessage += 'Category is required. ';
+                              weekMessage += 'Please Select the Category';
                             }
                             if (weekMessage.isNotEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
