@@ -554,6 +554,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5)),
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: amountController,
                         decoration: InputDecoration(
                             border: InputBorder.none,
