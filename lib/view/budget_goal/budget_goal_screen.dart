@@ -356,7 +356,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             value: category.title,
                                             child: Padding(
                                               padding: EdgeInsets.only(
-                                                  right: 30, left: 10),
+                                                  right: 10, left: 10),
                                               child: Text(
                                                 category.title,
                                                 style: TextStyle(
@@ -610,20 +610,20 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           String weekMessage = '';
                           if (dropDownMonthOrWeekValue == 'Monthly') {
                             if (enteredAmount.isEmpty) {
-                              monthMessage += 'Please Select the Amount';
+                              monthMessage += ' Amount,';
                             }
                             if (dropDownMonthValue ==
                                 "budget_goal_screen.dropdowns.month_selection"
                                     .tr()) {
-                              monthMessage += 'Please Select the Month';
+                              monthMessage += ' Month,';
                             }
                             if (dropDownValue ==
                                 "budget_goal_screen.dropdowns.year_selection"
                                     .tr()) {
-                              monthMessage += 'Please Select the Year';
+                              monthMessage += ' Year';
                             }
-                            if (selectedCategory == null) {
-                              monthMessage += 'Please Select the category';
+                            if (selectedCategory == "") {
+                              monthMessage += ' category';
                             }
                             if (monthMessage.isNotEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -632,7 +632,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   duration: Duration(seconds: 3),
                                   backgroundColor: Colors.red,
                                   content: Text(
-                                    monthMessage.trim(),
+                                    "Please Add the " + monthMessage.trim(),
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
@@ -1558,6 +1558,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     child: Padding(
                       padding: EdgeInsets.all(16),
                       child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: amountController,
                         decoration: InputDecoration(
                           border: InputBorder.none,

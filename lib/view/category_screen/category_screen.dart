@@ -551,11 +551,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       BorderRadius.circular(5)),
                                               child: Row(
                                                 children: [
-                                                  Text(
-                                                    "categoryscreen.addCategoryDialog.dropdownLabel"
-                                                        .tr(),
-                                                    style:
-                                                        TextStyle(fontSize: 20),
+                                                  Expanded(
+                                                    //flex: 1,
+                                                    child: Text(
+                                                      "categoryscreen.addCategoryDialog.dropdownLabel"
+                                                          .tr(),
+                                                      style: TextStyle(
+                                                          fontSize: 20),
+                                                    ),
                                                   ),
                                                   Container(
                                                     height: 70,
