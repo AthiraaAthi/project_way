@@ -45,7 +45,7 @@ class CategoryDialog extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        "categoryTitle",
+                        "categoryscreen.addCategoryDialog.Editcategory".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 14),
                       ),
@@ -64,7 +64,9 @@ class CategoryDialog extends StatelessWidget {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16.0, vertical: 12.0),
                             border: InputBorder.none,
-                            hintText: "categoryNameHint",
+                            hintText:
+                                "categoryscreen.addCategoryDialog.categoryNameHint"
+                                    .tr(),
                             hintStyle:
                                 TextStyle(fontSize: 12, color: Colors.grey),
                           ),
@@ -85,7 +87,9 @@ class CategoryDialog extends StatelessWidget {
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16.0, vertical: 12.0),
                             border: InputBorder.none,
-                            hintText: "DescriptionHint",
+                            hintText:
+                                "categoryscreen.addCategoryDialog.categoryDescriptionHint"
+                                    .tr(),
                             hintStyle: TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
@@ -149,7 +153,8 @@ class CategoryDialog extends StatelessWidget {
                         child: Row(
                           children: [
                             Text(
-                              "dropdownLabel",
+                              "categoryscreen.addCategoryDialog.dropdownLabel"
+                                  .tr(),
                               style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.bold,
@@ -252,7 +257,8 @@ class CategoryDialog extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              "submit",
+                              "categoryscreen.addCategoryDialog.submitButton"
+                                  .tr(),
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -282,7 +288,7 @@ class CategoryDialog extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        "categoryscreen.addCategoryDialog.categoryTitle".tr(),
+                        "categoryscreen.addCategoryDialog.Editcategory".tr(),
                         style: TextStyle(
                             fontWeight: FontWeight.w800, fontSize: 20),
                       ),
