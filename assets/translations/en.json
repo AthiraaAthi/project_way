@@ -141,7 +141,7 @@
             "Editcategory": "Edit Category",
             "categoryNameHint": "Category Name",
             "categoryDescriptionHint": "Category Description",
-            "dropdownLabel": "Color : ",
+            "dropdownLabel": "Select Color : ",
             "submitButton": "Submit",
             "categoryOptions": {
                 "incomeCategory": "Income",

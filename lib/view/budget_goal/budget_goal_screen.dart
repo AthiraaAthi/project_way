@@ -605,22 +605,33 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           String enteredAmount = amountController.text;
                           String startDate = startDateController.text;
                           String endDate = endDateController.text;
+                          String monthMessage = '';
+                          String weekMessage = '';
                           if (dropDownMonthOrWeekValue == 'Monthly') {
-                            if (enteredAmount.isEmpty ||
-                                dropDownMonthValue ==
-                                    "budget_goal_screen.dropdowns.month_selection"
-                                        .tr() ||
-                                dropDownValue ==
-                                    "budget_goal_screen.dropdowns.year_selection"
-                                        .tr() ||
-                                selectedCategory == null) {
+                            if (enteredAmount.isEmpty) {
+                              monthMessage += 'Amount is required. ';
+                            }
+                            if (dropDownMonthValue ==
+                                "budget_goal_screen.dropdowns.month_selection"
+                                    .tr()) {
+                              monthMessage += 'Month is required. ';
+                            }
+                            if (dropDownValue ==
+                                "budget_goal_screen.dropdowns.year_selection"
+                                    .tr()) {
+                              monthMessage += 'Year is required. ';
+                            }
+                            if (selectedCategory == null) {
+                              monthMessage += 'Category is required. ';
+                            }
+                            if (monthMessage.isNotEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   behavior: SnackBarBehavior.floating,
                                   duration: Duration(seconds: 3),
                                   backgroundColor: Colors.red,
                                   content: Text(
-                                    'All fields are required!',
+                                    monthMessage.trim(),
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
@@ -645,10 +656,19 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               amountController.clear();
                             }
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
-                            if (enteredAmount.isEmpty ||
-                                startDate.isEmpty ||
-                                endDate.isEmpty ||
-                                selectedCategory == null) {
+                            if (enteredAmount.isEmpty) {
+                              weekMessage += 'Amount is required. ';
+                            }
+                            if (startDate.isEmpty) {
+                              weekMessage += 'Start Date is required. ';
+                            }
+                            if (endDate.isEmpty) {
+                              weekMessage += 'End Date is required. ';
+                            }
+                            if (selectedCategory == null) {
+                              weekMessage += 'Category is required. ';
+                            }
+                            if (weekMessage.isNotEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   behavior: SnackBarBehavior.floating,
