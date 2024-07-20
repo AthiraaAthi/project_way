@@ -88,7 +88,9 @@
     },
     "budget_goal_screen": {
         "budget_goal_title": "ബജറ്റ് ലക്ഷ്യം",
-        "DeletMsg": "ഈ ബജറ്റ് ലക്ഷ്യം ഇല്ലാതാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?",
+        "DeletMsg": "ഈ ബജറ്റ് ലക്ഷ്യം ഇല്ലാതാക്കണോ?",
+        "Yes": "വേണം",
+        "No": "ഇല്ല",
         "dropdowns": {
             "year_selection": "വർഷം",
             "month_selection": "മാസം",
