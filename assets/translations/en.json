@@ -88,6 +88,7 @@
     },
     "budget_goal_screen": {
         "budget_goal_title": "Budget Goal",
+        "DeletMsg": "Do You want to delete this budget goal?",
         "dropdowns": {
             "year_selection": "Select year",
             "month_selection": "Select month",

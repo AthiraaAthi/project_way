@@ -817,7 +817,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             height: 200,
                                             child: AlertDialog(
                                               title: Text(
-                                                textAlign: TextAlign.justify,
                                                 "Do You want to delete this budget goal?",
                                                 style: TextStyle(
                                                   fontSize: 16,
