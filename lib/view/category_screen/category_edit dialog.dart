@@ -151,12 +151,13 @@ class CategoryDialog extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5)),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
                               "categoryscreen.addCategoryDialog.dropdownLabel"
                                   .tr(),
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

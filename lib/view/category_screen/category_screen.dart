@@ -552,7 +552,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                               child: Row(
                                                 children: [
                                                   Expanded(
-                                                    //flex: 1,
+                                                    flex: 1,
                                                     child: Text(
                                                       "categoryscreen.addCategoryDialog.dropdownLabel"
                                                           .tr(),
@@ -560,55 +560,58 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           fontSize: 20),
                                                     ),
                                                   ),
-                                                  Container(
-                                                    height: 70,
-                                                    width: 266.5,
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.grey),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                    ),
-                                                    child:
-                                                        DropdownButton<String>(
-                                                      icon: Icon(
-                                                        Icons
-                                                            .keyboard_arrow_down,
-                                                        color: Colors.black,
-                                                        size: 30,
+                                                  Expanded(
+                                                    child: Container(
+                                                      height: 70,
+                                                      width: 266.5,
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors.grey),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5),
                                                       ),
-                                                      underline: Container(),
-                                                      value: selectedColorName,
-                                                      items: colorNames.map<
-                                                              DropdownMenuItem<
-                                                                  String>>(
-                                                          (String colorName) {
-                                                        return DropdownMenuItem<
-                                                            String>(
-                                                          value: colorName,
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(8.0),
-                                                            child: Container(
-                                                              width: 200,
-                                                              height: 34,
-                                                              color: colors[
-                                                                  colorNames
-                                                                      .indexOf(
-                                                                          colorName)],
+                                                      child: DropdownButton<
+                                                          String>(
+                                                        icon: Icon(
+                                                          Icons
+                                                              .keyboard_arrow_down,
+                                                          color: Colors.black,
+                                                          size: 30,
+                                                        ),
+                                                        underline: Container(),
+                                                        value:
+                                                            selectedColorName,
+                                                        items: colorNames.map<
+                                                            DropdownMenuItem<
+                                                                String>>((String
+                                                            colorName) {
+                                                          return DropdownMenuItem<
+                                                              String>(
+                                                            value: colorName,
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
+                                                              child: Container(
+                                                                width: 200,
+                                                                height: 34,
+                                                                color: colors[
+                                                                    colorNames
+                                                                        .indexOf(
+                                                                            colorName)],
+                                                              ),
                                                             ),
-                                                          ),
-                                                        );
-                                                      }).toList(),
-                                                      onChanged:
-                                                          (String? newValue) {
-                                                        setState(() {
-                                                          selectedColorName =
-                                                              newValue!;
-                                                        });
-                                                      },
+                                                          );
+                                                        }).toList(),
+                                                        onChanged:
+                                                            (String? newValue) {
+                                                          setState(() {
+                                                            selectedColorName =
+                                                                newValue!;
+                                                          });
+                                                        },
+                                                      ),
                                                     ),
                                                   )
                                                 ],

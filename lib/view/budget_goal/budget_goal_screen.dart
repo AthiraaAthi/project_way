@@ -658,16 +658,16 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             }
                           } else if (dropDownMonthOrWeekValue == 'Weekly') {
                             if (enteredAmount.isEmpty) {
-                              weekMessage += 'Please Enter the Amount';
+                              weekMessage += ' Amount,';
                             }
                             if (startDate.isEmpty) {
-                              weekMessage += 'Please Select the Start Date ';
+                              weekMessage += ' Start Date,';
                             }
                             if (endDate.isEmpty) {
-                              weekMessage += 'Please Select the End Date';
+                              weekMessage += 'End Date';
                             }
                             if (selectedCategory == null) {
-                              weekMessage += 'Please Select the Category';
+                              weekMessage += ' Category';
                             }
                             if (weekMessage.isNotEmpty) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -676,7 +676,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   duration: Duration(seconds: 3),
                                   backgroundColor: Colors.red,
                                   content: Text(
-                                    weekMessage.trim(),
+                                    "Please Add the " + weekMessage.trim(),
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
