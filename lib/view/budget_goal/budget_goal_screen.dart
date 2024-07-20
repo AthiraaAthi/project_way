@@ -858,7 +858,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                     Navigator.pop(context);
                                                   },
                                                   child: Text(
-                                                    "Yes",
+                                                    "budget_goal_screen.Yes"
+                                                        .tr(),
                                                     style: TextStyle(
                                                         color: Colors.red,
                                                         fontSize: 18),
