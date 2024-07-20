@@ -138,6 +138,7 @@
         "categoryScreenTitle": "Category",
         "addCategoryDialog": {
             "categoryTitle": "Add Category",
+            "Editcategory": "Edit Category",
             "categoryNameHint": "Category Name",
             "categoryDescriptionHint": "Category Description",
             "dropdownLabel": "Indicator Color : ",

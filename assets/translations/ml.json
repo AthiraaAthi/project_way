@@ -138,6 +138,7 @@
         "categoryScreenTitle": "വിഭാഗം",
         "addCategoryDialog": {
             "categoryTitle": "വിഭാഗം ചേർക്കുക",
+            "Editcategory": "വിഭാഗം തിരുത്തുക",
             "categoryNameHint": "വിഭാഗത്തിന്റെ പേര്",
             "categoryDescriptionHint": "വിഭാഗത്തിന്റെ വിവരണം",
             "dropdownLabel": "നിറം  :   ",
