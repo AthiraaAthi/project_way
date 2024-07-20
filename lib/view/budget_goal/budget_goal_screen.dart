@@ -817,7 +817,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             height: 200,
                                             child: AlertDialog(
                                               title: Text(
-                                                "Do You want to delete this budget goal?",
+                                                "budget_goal_screen.DeletMsg"
+                                                    .tr(),
                                                 style: TextStyle(
                                                   fontSize: 16,
                                                 ),
@@ -828,7 +829,8 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                     Navigator.pop(context);
                                                   },
                                                   child: Text(
-                                                    "No",
+                                                    "budget_goal_screen.No"
+                                                        .tr(),
                                                     style: TextStyle(
                                                         fontSize: 16,
                                                         color: Colors.black),
