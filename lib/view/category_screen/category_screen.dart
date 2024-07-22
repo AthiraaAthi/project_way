@@ -793,9 +793,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       );
                     },
                     onDeleteTap: () {
-                      MediaQuery.of(context).size.width < 600
-                          ? categoryProvider.removeCategory(category.id!)
-                          : categoryProvider.removeCategory(category.id!);
                       InkWell(
                         onTap: () async {
                           showDialog(
@@ -821,7 +818,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                     ),
                                   ),
                                   TextButton(
-                                    onPressed: () async {},
+                                    onPressed: () async {
+                                      MediaQuery.of(context).size.width < 600
+                                          ? categoryProvider
+                                              .removeCategory(category.id!)
+                                          : categoryProvider
+                                              .removeCategory(category.id!);
+                                    },
                                     child: Text(
                                       "categoryscreen.Categoryyes".tr(),
                                       style: TextStyle(
