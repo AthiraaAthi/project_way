@@ -5,6 +5,7 @@ import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/database/table_db/table_db.dart';
 import 'package:project_way/model/table_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/view/budget_goal/weekly_budget_edit.dart';
 import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/screen/responsive.dart';
 import 'package:provider/provider.dart';
@@ -1520,25 +1521,9 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     ),
                   ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
-                    Container(
-                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                      width:
-                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                      decoration:
-                          BoxDecoration(border: Border.all(color: Colors.grey)),
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: TextField(
-                          controller: startDateController,
-                          decoration: InputDecoration(
-                              hintText: "Start Date", border: InputBorder.none),
-                          onTap: () async {
-                            FocusScope.of(context).requestFocus(FocusNode());
-                            await _selectDate(context, startDateController);
-                          },
-                        ),
-                      ),
-                    ),
+                    WeeklyBudgetEdit(
+                      startDateController: startDateController,
+                    )
                   ],
                   SizedBox(height: 20),
                   Container(
