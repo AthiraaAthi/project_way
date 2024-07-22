@@ -796,6 +796,48 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                       MediaQuery.of(context).size.width < 600
                           ? categoryProvider.removeCategory(category.id!)
                           : categoryProvider.removeCategory(category.id!);
+                      InkWell(
+                        onTap: () async {
+                          showDialog(
+                            context: context,
+                            builder: (context) => Container(
+                              height: 200,
+                              child: AlertDialog(
+                                title: Text(
+                                  "categoryscreen.CategoryDelete".tr(),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      "categoryscreen.CategoryNo".tr(),
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.black),
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () async {},
+                                    child: Text(
+                                      "categoryscreen.Categoryyes".tr(),
+                                      style: TextStyle(
+                                          color: Colors.red, fontSize: 18),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'budget_goal_screen.buttons.delete'.tr(),
+                          style: TextStyle(color: Colors.red, fontSize: 10),
+                        ),
+                      );
                     },
                   );
                 },
