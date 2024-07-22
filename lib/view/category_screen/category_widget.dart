@@ -20,7 +20,7 @@ class CategoryWidget extends StatelessWidget {
       mobile: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 99,
+          //height: 99,
           width: 345,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
@@ -57,8 +57,14 @@ class CategoryWidget extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(
-                      description,
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: Text(
+                          textAlign: TextAlign.justify,
+                          description,
+                        ),
+                      ),
                     ),
                   ],
                 ),
