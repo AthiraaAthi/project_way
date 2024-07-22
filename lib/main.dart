@@ -10,6 +10,7 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(
+      saveLocale: true,
       path: "assets/translations",
       supportedLocales: [
         //Locale("en", "US"),
