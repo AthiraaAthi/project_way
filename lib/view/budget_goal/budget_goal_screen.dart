@@ -1443,23 +1443,25 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
         TextEditingController(text: entry['month']);
 
     String selectedCategory = entry['category'] ?? '';
-    String editMonthValue = dropDownMonthValue;
-    // entry['month']!.split(' ')[0]; // Initialize with month part
-    String editYearValue = dropDownValue;
-    //entry['month']!.split(' ')[1]; // Initialize with year part
+    String editMonthValue =
+        entry['month']!.split(' ')[0]; // Initialize with month part
+    String editYearValue =
+        entry['month']!.split(' ')[1]; // Initialize with year part
 
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           title: Center(
-              child: Text(
-            "Edit your Budget Goal",
-            style: TextStyle(
+            child: Text(
+              "Edit your Budget Goal",
+              style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
-                color: ColorConstant.defIndigo),
-          )),
+                color: ColorConstant.defIndigo,
+              ),
+            ),
+          ),
           content: StatefulBuilder(
             builder: (context, setState) {
               return Column(
@@ -1491,12 +1493,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         },
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    SizedBox(height: 20),
                     Container(
-                      height: 50,
-                      width: 250,
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
                       decoration:
                           BoxDecoration(border: Border.all(color: Colors.grey)),
                       child: DropdownButton<String>(
@@ -1539,9 +1540,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     ),
                   ],
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Container(
                     height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                     width: MediaQuery.of(context).size.width < 600 ? 250 : 300,
@@ -1559,9 +1558,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Consumer<CategoryProvider>(
                     builder: (context, categoryProvider, child) {
                       bool categoriesAvailable =
@@ -1646,19 +1643,6 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                   enteredvalues[index] = updatedEntry;
                 });
                 Navigator.of(context).pop();
-                // entry['amount'] = amountController.text;
-                // entry['month'] = dropDownMonthOrWeekValue == 'monthly'
-                //     ? "$editMonthValue $editYearValue"
-                //     : startDateController.text;
-                // entry['category'] = selectedCategory;
-
-                // await TableDb().updateEntry(entry);
-                // await fetchData();
-
-                // // Update the local state
-                // setState(() {
-                //   enteredvalues[index] = entry;
-                // });
               },
               child: Text(
                 "Save",
