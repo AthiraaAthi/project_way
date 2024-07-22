@@ -168,6 +168,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       BorderRadius.circular(
                                                           10)),
                                               child: TextField(
+                                                maxLines: null,
                                                 textAlign: TextAlign.justify,
                                                 controller: desController,
                                                 decoration: InputDecoration(
