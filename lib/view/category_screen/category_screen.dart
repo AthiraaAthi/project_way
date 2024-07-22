@@ -372,8 +372,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   desController.clear();
                                                   // selectedColorName = "Green"; ////////////////
                                                 } else {
-                                                  print(
-                                                      "Please fill out all fields");
+                                                  SnackBar(
+                                                    behavior: SnackBarBehavior
+                                                        .floating,
+                                                    duration:
+                                                        Duration(seconds: 3),
+                                                    backgroundColor: Colors.red,
+                                                    content: Text(
+                                                      "Please add all fields",
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                  );
                                                 }
                                               },
                                               child: Container(
