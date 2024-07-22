@@ -124,7 +124,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
     for (DateTime date = startDate;
         date.isBefore(endDate) || date.isAtSameMomentAs(endDate);
-        date = date.add(Duration(days: 1))) {
+        date = date.add(const Duration(days: 1))) {
       dates.add(dateFormat.format(date));
     }
     return dates;
@@ -159,11 +159,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     Navigator.pop(context);
                   },
                   icon: MediaQuery.of(context).size.width < 600
-                      ? Icon(
+                      ? const Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
                           size: 30,
@@ -171,7 +171,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
               title: MediaQuery.of(context).size.width < 600
                   ? Text(
                       "budget_goal_screen.budget_goal_title".tr(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -179,7 +179,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     )
                   : Text(
                       "budget_goal_screen.budget_goal_title".tr(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.w600,
@@ -202,7 +202,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: DropdownButton<String>(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
                               size: 30,
@@ -214,10 +214,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Padding(
-                                  padding: EdgeInsets.only(right: 30, left: 10),
+                                  padding: const EdgeInsets.only(
+                                      right: 30, left: 10),
                                   child: Text(
                                     value,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   ),
@@ -239,7 +240,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: DropdownButton<String>(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
                               size: 30,
@@ -251,10 +252,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Padding(
-                                  padding: EdgeInsets.only(right: 40, left: 10),
+                                  padding: const EdgeInsets.only(
+                                      right: 40, left: 10),
                                   child: Text(
                                     value,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15),
                                   ),
@@ -270,7 +272,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                       ],
                     ), // first row dropdown
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     if (dropDownMonthOrWeekValue ==
@@ -286,7 +288,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               border: Border.all(color: Colors.grey),
                             ),
                             child: DropdownButton<String>(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.keyboard_arrow_down,
                                 color: Colors.black,
                                 size: 30,
@@ -298,11 +300,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 return DropdownMenuItem<String>(
                                   value: value,
                                   child: Padding(
-                                    padding:
-                                        EdgeInsets.only(right: 10, left: 10),
+                                    padding: const EdgeInsets.only(
+                                        right: 10, left: 10),
                                     child: Text(
                                       value,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 15),
                                     ),
@@ -334,7 +336,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         : 'No categories available';
 
                                 return DropdownButton<String>(
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.keyboard_arrow_down,
                                     color: Colors.black,
                                     size: 30,
@@ -348,11 +350,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                           return DropdownMenuItem<String>(
                                             value: category.title,
                                             child: Padding(
-                                              padding: EdgeInsets.only(
-                                                  right: 10, left: 10),
+                                              padding: const EdgeInsets.only(
+                                                  right: 40, left: 10),
                                               child: Text(
                                                 category.title,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 15,
                                                 ),
@@ -371,10 +373,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                       context,
                                                       MaterialPageRoute(
                                                         builder: (context) =>
-                                                            CategoriesScreen(),
+                                                            const CategoriesScreen(),
                                                       ));
                                                 },
-                                                child: Text(
+                                                child: const Text(
                                                   'Add categories',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.bold,
@@ -418,7 +420,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   hintStyle: TextStyle(fontSize: hintSize),
                                   hintText:
                                       "budget_goal_screen.hints.startDate".tr(),
-                                  contentPadding: EdgeInsets.symmetric(
+                                  contentPadding: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 10)),
                               onTap: () async {
                                 FocusScope.of(context)
@@ -440,7 +442,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   hintStyle: TextStyle(fontSize: hintSize),
                                   hintText:
                                       "budget_goal_screen.hints.endDate".tr(),
-                                  contentPadding: EdgeInsets.symmetric(
+                                  contentPadding: const EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 10)),
                               onTap: () async {
                                 FocusScope.of(context)
@@ -451,7 +453,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
@@ -472,7 +474,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   : 'Add categories';
 
                               return DropdownButton<String>(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.keyboard_arrow_down,
                                   color: Colors.black,
                                   size: 30,
@@ -486,11 +488,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         return DropdownMenuItem<String>(
                                           value: category.title,
                                           child: Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 right: 180, left: 10),
                                             child: Text(
                                               category.title,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,
                                               ),
@@ -509,10 +511,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          CategoriesScreen(),
+                                                          const CategoriesScreen(),
                                                     ));
                                               },
-                                              child: Text(
+                                              child: const Text(
                                                 'Add categories',
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
@@ -537,7 +539,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
                           ),
                     ],
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
@@ -553,12 +555,12 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: InputBorder.none,
                             hintText:
                                 "budget_goal_screen.hints.enterAmount".tr(),
-                            hintStyle: TextStyle(fontSize: 13),
-                            contentPadding: EdgeInsets.symmetric(
+                            hintStyle: const TextStyle(fontSize: 13),
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 25)),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     InkWell(
@@ -622,11 +624,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   behavior: SnackBarBehavior.floating,
-                                  duration: Duration(seconds: 3),
+                                  duration: const Duration(seconds: 3),
                                   backgroundColor: Colors.red,
                                   content: Text(
                                     "Please Add the " + monthMessage.trim(),
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
                                 ),
                               );
@@ -666,11 +668,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   behavior: SnackBarBehavior.floating,
-                                  duration: Duration(seconds: 3),
+                                  duration: const Duration(seconds: 3),
                                   backgroundColor: Colors.red,
                                   content: Text(
                                     "Please Add the " + weekMessage.trim(),
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
                                 ),
                               );
@@ -710,7 +712,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         child: Center(
                           child: Text(
                             "budget_goal_screen.buttons.submit".tr(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 13),
@@ -718,11 +720,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     enteredvalues.isEmpty
-                        ? Center(
+                        ? const Center(
                             child: Padding(
                             padding: EdgeInsets.only(top: 100),
                             child: Text("No Data Available"),
@@ -742,7 +744,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         .tr()
                                     : "budget_goal_screen.tableHeaders.date"
                                         .tr(), //changed table date column according to week or month selection
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 13),
@@ -750,7 +752,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               DataColumn(
                                   label: Text(
                                 'budget_goal_screen.tableHeaders.category'.tr(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 13),
@@ -760,7 +762,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onTap: () {},
                                 child: Text(
                                   'budget_goal_screen.tableHeaders.amount'.tr(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w800,
                                       fontSize: 13),
@@ -771,7 +773,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                 onTap: () {},
                                 child: Text(
                                   'budget_goal_screen.tableHeaders.action'.tr(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w800,
                                       fontSize: 13),
@@ -813,7 +815,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                               title: Text(
                                                 "budget_goal_screen.DeletMsg"
                                                     .tr(),
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                   fontSize: 16,
                                                 ),
                                               ),
@@ -825,7 +827,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                   child: Text(
                                                     "budget_goal_screen.No"
                                                         .tr(),
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         fontSize: 16,
                                                         color: Colors.black),
                                                   ),
@@ -854,7 +856,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                   child: Text(
                                                     "budget_goal_screen.Yes"
                                                         .tr(),
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: Colors.red,
                                                         fontSize: 18),
                                                   ),
@@ -905,7 +907,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: DropdownButton<String>(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
                               size: 30,
@@ -920,7 +922,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   padding: const EdgeInsets.all(10),
                                   child: Text(
                                     value,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 23),
                                   ),
@@ -943,7 +945,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: DropdownButton<String>(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
                               size: 30,
@@ -958,7 +960,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   padding: const EdgeInsets.all(10),
                                   child: Text(
                                     value,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 23),
                                   ),
@@ -974,7 +976,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                       ],
                     ), // first row dropdown
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     if (dropDownMonthOrWeekValue ==
@@ -991,7 +993,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               border: Border.all(color: Colors.grey),
                             ),
                             child: DropdownButton<String>(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.keyboard_arrow_down,
                                 color: Colors.black,
                                 size: 30,
@@ -1006,7 +1008,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     padding: const EdgeInsets.all(10),
                                     child: Text(
                                       value,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 23),
                                     ),
@@ -1039,7 +1041,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                           : 'Add categories';
 
                                   return DropdownButton<String>(
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.keyboard_arrow_down,
                                       color: Colors.black,
                                       size: 30,
@@ -1053,10 +1055,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             return DropdownMenuItem<String>(
                                               value: category.title,
                                               child: Padding(
-                                                padding: EdgeInsets.all(10),
+                                                padding:
+                                                    const EdgeInsets.all(10),
                                                 child: Text(
                                                   category.title,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 23,
                                                   ),
@@ -1076,10 +1079,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                         context,
                                                         MaterialPageRoute(
                                                           builder: (context) =>
-                                                              CategoriesScreen(),
+                                                              const CategoriesScreen(),
                                                         ));
                                                   },
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Add categories',
                                                     style: TextStyle(
                                                       fontWeight:
@@ -1161,7 +1164,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Container(
@@ -1183,7 +1186,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   : 'Add categories';
 
                               return DropdownButton<String>(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.keyboard_arrow_down,
                                   color: Colors.black,
                                   size: 30,
@@ -1200,7 +1203,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             padding: const EdgeInsets.all(10),
                                             child: Text(
                                               category.title,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 23,
                                               ),
@@ -1219,10 +1222,10 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          CategoriesScreen(),
+                                                          const CategoriesScreen(),
                                                     ));
                                               },
-                                              child: Text(
+                                              child: const Text(
                                                 'Add categories',
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.bold,
@@ -1246,7 +1249,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           ) //ADDED CATEGORY SCREEN  CATEGORIES DISPLAY ON BUDGET GOAL SCREEN for TAB ACCORDING TO WEEKLY
                           ),
                     ],
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Container(
@@ -1258,7 +1261,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: TextField(
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.bold,
                         ),
@@ -1266,7 +1269,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "budget_goal_screen.hints.enterAmount".tr(),
-                          hintStyle: TextStyle(fontSize: 20),
+                          hintStyle: const TextStyle(fontSize: 20),
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 10,
                               horizontal: context.locale.languageCode == 'en'
@@ -1275,7 +1278,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     InkWell(
@@ -1322,7 +1325,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         child: Center(
                           child: Text(
                             "budget_goal_screen.buttons.submit".tr(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 23),
@@ -1330,11 +1333,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     enteredvalues.isEmpty
-                        ? Center(
+                        ? const Center(
                             child: Padding(
                             padding: EdgeInsets.only(top: 100),
                             child: Text("No Data Available"),
@@ -1355,7 +1358,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         .tr()
                                     : "budget_goal_screen.tableHeaders.date"
                                         .tr(), //changed tab table date column according to week or month selection
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 20),
@@ -1363,7 +1366,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               DataColumn(
                                   label: Text(
                                 'budget_goal_screen.tableHeaders.category'.tr(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 20),
@@ -1371,7 +1374,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               DataColumn(
                                   label: Text(
                                 'budget_goal_screen.tableHeaders.amount'.tr(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 20),
@@ -1379,7 +1382,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               DataColumn(
                                   label: Text(
                                 'budget_goal_screen.tableHeaders.action'.tr(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w800,
                                     fontSize: 20),
@@ -1389,15 +1392,15 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                               return DataRow(cells: [
                                 DataCell(Text(
                                   entry['month'] ?? '',
-                                  style: TextStyle(fontSize: 18),
+                                  style: const TextStyle(fontSize: 18),
                                 )),
                                 DataCell(Text(
                                   entry['category'] ?? '',
-                                  style: TextStyle(fontSize: 18),
+                                  style: const TextStyle(fontSize: 18),
                                 )),
                                 DataCell(Text(
                                   entry['amount'] ?? '',
-                                  style: TextStyle(fontSize: 18),
+                                  style: const TextStyle(fontSize: 18),
                                 )),
                                 DataCell(Column(
                                   children: [
@@ -1411,7 +1414,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                         child: Text(
                                           'budget_goal_screen.buttons.edit'
                                               .tr(),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.green,
                                               fontSize: 18),
                                         ),
@@ -1419,7 +1422,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                     ),
                                     Text(
                                       'budget_goal_screen.buttons.delete'.tr(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.red, fontSize: 18),
                                     )
                                   ],
@@ -1444,11 +1447,16 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
         TextEditingController(text: entry['month']);
 
     String selectedCategory = entry['category'] ?? '';
-    String editMonthValue =
-        entry['month']!.split(' ')[0]; // Initialize with month part
-    String editYearValue =
-        entry['month']!.split(' ')[1]; // Initialize with year part
+    String editMonthValue = '';
+    String editYearValue = '';
+    bool isMonthly = entry['month']!.contains(' ');
 
+    if (isMonthly) {
+      editMonthValue = entry['month']!.split(' ')[0];
+      editYearValue = entry['month']!.split(' ')[1];
+    } else {
+      startDateController.text = entry['month']!;
+    }
     showDialog(
       context: context,
       builder: (context) {
@@ -1482,7 +1490,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Padding(
-                              padding: EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(8),
                               child: Text(value),
                             ),
                           );
@@ -1494,7 +1502,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                         },
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Container(
                       height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                       width:
@@ -1508,7 +1516,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(value),
                             ),
                           );
@@ -1521,29 +1529,45 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                     ),
                   ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
-                    WeeklyBudgetEdit(
-                      startDateController: startDateController,
-                    )
+                    Container(
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: startDateController,
+                          decoration: const InputDecoration(
+                              hintText: "Start Date", border: InputBorder.none),
+                          onTap: () async {
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            await _selectDate(context, startDateController);
+                          },
+                        ),
+                      ),
+                    ),
                   ],
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
                     height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                     width: MediaQuery.of(context).size.width < 600 ? 250 : 300,
                     decoration:
                         BoxDecoration(border: Border.all(color: Colors.grey)),
                     child: Padding(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       child: TextField(
                         keyboardType: TextInputType.number,
                         controller: amountController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Enter Amount",
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Consumer<CategoryProvider>(
                     builder: (context, categoryProvider, child) {
                       bool categoriesAvailable =
@@ -1563,7 +1587,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   return DropdownMenuItem<String>(
                                     value: category.title,
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(category.title),
                                     ),
                                   );
@@ -1577,11 +1601,11 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                CategoriesScreen(),
+                                                const CategoriesScreen(),
                                           ),
                                         );
                                       },
-                                      child: Text('Add categories'),
+                                      child: const Text('Add categories'),
                                     ),
                                   ),
                                 ],
