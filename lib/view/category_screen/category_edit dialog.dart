@@ -82,6 +82,8 @@ class CategoryDialog extends StatelessWidget {
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(10)),
                         child: TextField(
+                          maxLines: null,
+                          textAlign: TextAlign.justify,
                           controller: descriptionController,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
