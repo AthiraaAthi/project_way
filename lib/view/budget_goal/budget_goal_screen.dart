@@ -577,30 +577,12 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                             ],
                                       onChanged: categoriesAvailable
                                           ? (String? value) {
-                                              List<Category> categoryList =
-                                                  categoryProvider.categories;
                                               setState(() {
-                                                //categorydropdownValue = value!;
-
-                                                for (int i = 0;
-                                                    i < categoryList.length;
-                                                    i++) {
-                                                  //iterating over the categry list
-                                                  if (categoryList[i]
-                                                          .title
-                                                          .compareTo(value
-                                                              .toString()) ==
-                                                      0) {
-                                                    selectedCategory =
-                                                        categoryList[i]
-                                                            .id
-                                                            .toString();
-                                                    break;
-                                                  } //checking if the title is alrdy in the table
-                                                }
+                                                categorydropdownValue = value!;
+                                                selectedCategory = value;
                                               });
                                             }
-                                          : null,
+                                          : null, // Disable the dropdown if no categories are available
                                     )
                                   : Center(
                                       child: InkWell(
@@ -742,7 +724,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                             if (endDate.isEmpty) {
                               weekMessage += 'End Date';
                             }
-                            if (selectedCategory == null) {
+                            if (selectedCategory == "") {
                               weekMessage += ' Category';
                             }
                             if (weekMessage.isNotEmpty) {
