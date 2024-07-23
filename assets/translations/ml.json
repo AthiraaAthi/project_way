@@ -139,6 +139,7 @@
     "categoryscreen": {
         "addNew": "പുതിയത്",
         "categoryScreenTitle": "വിഭാഗം",
+        "addCategory": "വിഭാഗം",
         "CategoryDelete": "ഈ വിഭാഗം ഇല്ലാതാക്കണോ?",
         "Categoryyes": "വേണം",
         "CategoryNo": "വേണ്ട",

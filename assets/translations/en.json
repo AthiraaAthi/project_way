@@ -139,6 +139,7 @@
     "categoryscreen": {
         "addNew": "Add New",
         "categoryScreenTitle": "Category",
+        "addCategory": "Category",
         "CategoryDelete": "Do you want to Delete this Category?",
         "Categoryyes": "Yes",
         "CategoryNo": "No",
