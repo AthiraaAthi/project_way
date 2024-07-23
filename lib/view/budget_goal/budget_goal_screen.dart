@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/database/table_db/table_db.dart';
+import 'package:project_way/model/category_model.dart';
 import 'package:project_way/model/table_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/view/budget_goal/weekly_budget_edit.dart';
@@ -574,15 +575,32 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                                 ),
                                               ),
                                             ],
-
                                       onChanged: categoriesAvailable
                                           ? (String? value) {
+                                              List<Category> categoryList =
+                                                  categoryProvider.categories;
                                               setState(() {
                                                 //categorydropdownValue = value!;
-                                                selectedCategory = value!;
+
+                                                for (int i = 0;
+                                                    i < categoryList.length;
+                                                    i++) {
+                                                  //iterating over the categry list
+                                                  if (categoryList[i]
+                                                          .title
+                                                          .compareTo(value
+                                                              .toString()) ==
+                                                      0) {
+                                                    selectedCategory =
+                                                        categoryList[i]
+                                                            .id
+                                                            .toString();
+                                                    break;
+                                                  } //checking if the title is alrdy in the table
+                                                }
                                               });
                                             }
-                                          : null, // Disable the dropdown if no categories are available
+                                          : null,
                                     )
                                   : Center(
                                       child: InkWell(
@@ -1503,13 +1521,20 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
 
   ///NEW function FOR EDITING PURPOSE/////////////////
 
-  void _showEditDialog(Map<String, String> entry, int index) {
+  void _showEditDialog(Map<String, String> entry, int index) async {
+    final categoryprovider =
+        Provider.of<CategoryProvider>(context, listen: false);
     final TextEditingController amountController =
         TextEditingController(text: entry['amount']);
     final TextEditingController startDateController =
         TextEditingController(text: entry['month']);
+    String categoryId = entry['category'] ?? '';
+    List<Category> abc = await categoryprovider.categoryById(categoryId);
+    String selectedCategory = "";
+    if (abc.length > 0) {
+      selectedCategory = abc[0].id.toString(); //////////
+    }
 
-    String selectedCategory = entry['category'] ?? '';
     String editMonthValue = '';
     String editYearValue = '';
     bool isMonthly = entry['month']!.contains(' ');
@@ -1713,9 +1738,25 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                                   ),
                                 ],
                           onChanged: categoriesAvailable
-                              ? (String? newValue) {
+                              ? (String? value) {
+                                  List<Category> categoryList =
+                                      categoryProvider.categories;
                                   setState(() {
-                                    selectedCategory = newValue!;
+                                    //categorydropdownValue = value!;
+
+                                    for (int i = 0;
+                                        i < categoryList.length;
+                                        i++) {
+                                      //iterating over the categry list
+                                      if (categoryList[i]
+                                              .title
+                                              .compareTo(value.toString()) ==
+                                          0) {
+                                        selectedCategory =
+                                            categoryList[i].id.toString();
+                                        break;
+                                      } //checking if the title is alrdy in the table
+                                    }
                                   });
                                 }
                               : null,
