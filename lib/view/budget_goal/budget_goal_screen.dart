@@ -458,7 +458,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                       ),
                       Container(
                           height: 50,
-                          width: 323,
+                          width: 320,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(5),
@@ -544,7 +544,7 @@ class _BudgetGoalScreenState extends State<BudgetGoalScreen> {
                     ),
                     Container(
                       height: 50,
-                      width: 323,
+                      width: 320,
                       decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5)),
