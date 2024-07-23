@@ -29,7 +29,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   final List<Color> colors = [
     ColorConstant.defGreen,
     ColorConstant.defIndigo,
-    Color.fromARGB(255, 230, 57, 45),
+    const Color.fromARGB(255, 230, 57, 45),
     Colors.yellow
   ];
   final List<String> colorNames = [
@@ -68,7 +68,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 )
               : Text(
                   "categoryscreen.categoryScreenTitle".tr(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30,
                       fontWeight: FontWeight.w500),
@@ -78,11 +78,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 Navigator.pop(context);
               },
               icon: MediaQuery.of(context).size.width < 600
-                  ? Icon(
+                  ? const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
                     )
-                  : Icon(
+                  : const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
                       size: 30,
@@ -122,11 +122,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             Text(
                                               "categoryscreen.addCategoryDialog.categoryTitle"
                                                   .tr(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.w800,
                                                   fontSize: 14),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 20,
                                             ),
                                             Container(
@@ -142,20 +142,21 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 controller: titleController,
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.symmetric(
+                                                      const EdgeInsets
+                                                          .symmetric(
                                                           horizontal: 16.0,
                                                           vertical: 12.0),
                                                   border: InputBorder.none,
                                                   hintText:
                                                       "categoryscreen.addCategoryDialog.categoryNameHint"
                                                           .tr(),
-                                                  hintStyle: TextStyle(
+                                                  hintStyle: const TextStyle(
                                                       fontSize: 12,
                                                       color: Colors.grey),
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 15,
                                             ),
                                             Container(
@@ -173,21 +174,22 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 controller: desController,
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.symmetric(
+                                                      const EdgeInsets
+                                                          .symmetric(
                                                           horizontal: 16.0,
                                                           vertical: 12.0),
                                                   border: InputBorder.none,
                                                   hintText:
                                                       "categoryscreen.addCategoryDialog.categoryDescriptionHint"
                                                           .tr(),
-                                                  hintStyle: TextStyle(
+                                                  hintStyle: const TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.grey,
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 20,
                                             ),
                                             Container(
@@ -204,7 +206,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     const EdgeInsets.all(8.0),
                                                 child: DropdownButton<String>(
                                                   isExpanded: true,
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.keyboard_arrow_down,
                                                     color: Colors.black,
                                                   ),
@@ -219,7 +221,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       value: value,
                                                       child: Text(
                                                         value,
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             fontWeight:
                                                                 FontWeight.w900,
                                                             fontSize: 13),
@@ -236,7 +238,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 30,
                                             ),
                                             Container(
@@ -271,7 +273,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     ),
                                                     child:
                                                         DropdownButton<String>(
-                                                      icon: Icon(
+                                                      icon: const Icon(
                                                         Icons
                                                             .keyboard_arrow_down,
                                                         color: Colors.black,
@@ -315,7 +317,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 ],
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 30,
                                             ),
                                             InkWell(
@@ -374,7 +376,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   desController.clear();
                                                   // selectedColorName = "Green"; ////////////////
                                                 } else {
-                                                  SnackBar(
+                                                  const SnackBar(
                                                     behavior: SnackBarBehavior
                                                         .floating,
                                                     duration:
@@ -401,7 +403,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   child: Text(
                                                     "categoryscreen.addCategoryDialog.submitButton"
                                                         .tr(),
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: Colors.white,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -433,11 +435,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             Text(
                                               "categoryscreen.addCategoryDialog.categoryTitle"
                                                   .tr(),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.w800,
                                                   fontSize: 20),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 30,
                                             ),
                                             Container(
@@ -450,11 +452,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       BorderRadius.circular(
                                                           10)),
                                               child: TextField(
-                                                style: TextStyle(fontSize: 20),
+                                                style: const TextStyle(
+                                                    fontSize: 20),
                                                 controller: titleController,
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.symmetric(
+                                                      const EdgeInsets
+                                                          .symmetric(
                                                     horizontal: 150,
                                                     vertical: 20,
                                                   ),
@@ -462,13 +466,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   hintText:
                                                       "categoryscreen.addCategoryDialog.categoryNameHint"
                                                           .tr(),
-                                                  hintStyle: TextStyle(
+                                                  hintStyle: const TextStyle(
                                                       fontSize: 18,
                                                       color: Colors.grey),
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 25,
                                             ),
                                             Container(
@@ -481,25 +485,27 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       BorderRadius.circular(
                                                           10)),
                                               child: TextField(
-                                                style: TextStyle(fontSize: 20),
+                                                style: const TextStyle(
+                                                    fontSize: 20),
                                                 controller: desController,
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.symmetric(
+                                                      const EdgeInsets
+                                                          .symmetric(
                                                           horizontal: 120,
                                                           vertical: 100),
                                                   border: InputBorder.none,
                                                   hintText:
                                                       "categoryscreen.addCategoryDialog.categoryDescriptionHint"
                                                           .tr(),
-                                                  hintStyle: TextStyle(
+                                                  hintStyle: const TextStyle(
                                                     fontSize: 18,
                                                     color: Colors.grey,
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 25,
                                             ),
                                             Container(
@@ -516,7 +522,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     const EdgeInsets.all(8.0),
                                                 child: DropdownButton<String>(
                                                   isExpanded: true,
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.keyboard_arrow_down,
                                                     color: Colors.black,
                                                     size: 30,
@@ -531,11 +537,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                         value: value,
                                                         child: Text(
                                                           value,
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w900,
-                                                              fontSize: 20),
+                                                          style:
+                                                              const TextStyle(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w900,
+                                                                  fontSize: 20),
                                                         ),
                                                       );
                                                     },
@@ -552,7 +559,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 30,
                                             ),
                                             Container(
@@ -568,7 +575,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                     child: Text(
                                                       "categoryscreen.addCategoryDialog.dropdownLabel"
                                                           .tr(),
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                           fontSize: 20),
                                                     ),
                                                   ),
@@ -585,7 +592,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       ),
                                                       child: DropdownButton<
                                                           String>(
-                                                        icon: Icon(
+                                                        icon: const Icon(
                                                           Icons
                                                               .keyboard_arrow_down,
                                                           color: Colors.black,
@@ -629,7 +636,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                 ],
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 30,
                                             ),
                                             InkWell(
@@ -706,7 +713,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                   child: Text(
                                                     "categoryscreen.addCategoryDialog.submitButton"
                                                         .tr(),
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: Colors.white,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -729,12 +736,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 child: MediaQuery.of(context).size.width < 600
                     ? Text(
                         "categoryscreen.addNew".tr(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.white),
                       )
                     : Text(
                         "categoryscreen.addNew".tr(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontSize: 20),
@@ -801,7 +808,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           child: AlertDialog(
                             title: Text(
                               "categoryscreen.CategoryDelete".tr(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 16,
                               ),
                             ),
@@ -812,7 +819,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                 },
                                 child: Text(
                                   "categoryscreen.CategoryNo".tr(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 16, color: Colors.black),
                                 ),
                               ),
@@ -823,10 +830,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                           .removeCategory(category.id!)
                                       : categoryProvider
                                           .removeCategory(category.id!);
+                                  Navigator.pop(context);
                                 },
                                 child: Text(
                                   "categoryscreen.Categoryyes".tr(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.red, fontSize: 18),
                                 ),
                               ),
