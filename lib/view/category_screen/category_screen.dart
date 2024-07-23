@@ -360,18 +360,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                               CategoryProvider>(
                                                           context,
                                                           listen: false);
-                                                  categoryProvider.addCategory(
-                                                    Category(
-                                                      title:
-                                                          titleController.text,
-                                                      description:
-                                                          desController.text,
-                                                      colorName:
-                                                          selectedColorName,
-                                                    ),
+                                                  final newCategory = Category(
+                                                    title: titleController.text,
+                                                    description:
+                                                        desController.text,
+                                                    colorName:
+                                                        selectedColorName,
                                                   );
 
-                                                  Navigator.pop(context);
+                                                  categoryProvider
+                                                      .addCategory(newCategory);
+                                                  Navigator.pop(
+                                                      context, newCategory);
                                                   titleController.clear();
                                                   desController.clear();
                                                   // selectedColorName = "Green"; ////////////////
