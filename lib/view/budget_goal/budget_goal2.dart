@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
+import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:provider/provider.dart';
 
 class BudgetGoal2 extends StatefulWidget {
@@ -220,6 +221,152 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              if (dropDownMonthOrWeekValue ==
+                  "budget_goal_screen.dropdowns.monthly".tr()) ...[
+                //Mothly dropdowns
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: DropdownButton<String>(
+                        icon: const Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                        underline: Container(),
+                        value: dropDownMonthValue,
+                        items: months
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 10, left: 10),
+                              child: Text(
+                                value,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? value) {
+                          setState(() {
+                            dropDownMonthValue = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          DropdownButton<String>(
+                            icon: const Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                            underline: Container(),
+                            value: "",
+                            items: [],
+                            onChanged: (value) {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ] else if (dropDownMonthOrWeekValue ==
+                  "budget_goal_screen.dropdowns.weekly".tr()) ...[
+                //the extra dropdowns for weekly
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: TextField(
+                        controller: startDateController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(fontSize: 15),
+                            hintText: "budget_goal_screen.hints.startDate".tr(),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10)),
+                        onTap: () async {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          await _selectDate(context, startDateController);
+                        },
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 150,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: TextField(
+                        controller: endDateController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(fontSize: 15),
+                            hintText: "budget_goal_screen.hints.endDate".tr(),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 10)),
+                        onTap: () async {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          await _selectDate(context, endDateController);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 50,
+                  width: 320,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      DropdownButton<String>(
+                        icon: const Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                        underline: Container(),
+                        value: "",
+                        items: [],
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ],
           ),
         ),
