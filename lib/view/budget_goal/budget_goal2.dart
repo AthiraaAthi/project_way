@@ -367,6 +367,26 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                   ),
                 ),
               ],
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 50,
+                width: 320,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5)),
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  controller: amountController,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "budget_goal_screen.hints.enterAmount".tr(),
+                      hintStyle: const TextStyle(fontSize: 13),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 25)),
+                ),
+              ),
             ],
           ),
         ),
