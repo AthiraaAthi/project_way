@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
 import 'package:project_way/utils/image_constant/image_constant.dart';
+import 'package:project_way/view/budget_goal/budget_goal2.dart';
 import 'package:project_way/view/budget_goal/budget_goal_screen.dart';
 import 'package:project_way/view/category_screen/category_screen.dart';
 import 'package:project_way/view/chat_screen/chat_screen.dart';
@@ -45,7 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> Screens = [
     TrackBudgetScreen(),
-    BudgetGoalScreen(),
+    BudgetGoal2(),
+    //BudgetGoalScreen(),
     CategoriesScreen(),
     ReportsScreen(),
     PasswordsScreen(),
