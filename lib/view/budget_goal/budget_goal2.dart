@@ -80,21 +80,15 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
 
   List<Map<String, String>> enteredvalues = [];
   int? editingIndex;
-  String categorydropdownValue = '';
-  String selectedCategory = '';
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      final categoryProvider =
-          Provider.of<CategoryProvider>(context, listen: false);
-      bool categoriesAvailable = categoryProvider.categories.isNotEmpty;
-      categorydropdownValue = categoriesAvailable
-          ? categoryProvider.categories[0].title
-          : 'Add categories';
-      selectedCategory = categorydropdownValue;
-    });
-  }
+  String selectedCategory =
+      'Select category'; // Initial value (make sure it's one of your dropdown items or null)
+  final List<String> categoryDropdown = [
+    'Select category',
+    'Option 1',
+    'Option 2',
+    'Option 3',
+    // Add more items here
+  ];
 
   List<String> getDatesInRange(String start, String end) {
     List<String> dates = [];
@@ -282,9 +276,18 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                               size: 30,
                             ),
                             underline: Container(),
-                            value: "",
-                            items: [],
-                            onChanged: (value) {},
+                            value: selectedCategory,
+                            items: categoryDropdown.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                selectedCategory = newValue!;
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -359,9 +362,18 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           size: 30,
                         ),
                         underline: Container(),
-                        value: "",
-                        items: [],
-                        onChanged: (value) {},
+                        value: selectedCategory,
+                        items: categoryDropdown.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedCategory = newValue!;
+                          });
+                        },
                       ),
                     ],
                   ),
@@ -387,6 +399,258 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           vertical: 10, horizontal: 25)),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    String enteredAmount = amountController.text;
+                    String startDate = startDateController.text;
+                    String endDate = endDateController.text;
+                    String monthMessage = '';
+                    String weekMessage = '';
+                    if (dropDownMonthOrWeekValue == 'Monthly') {
+                      if (enteredAmount.isEmpty) {
+                        monthMessage += ' Amount,';
+                      }
+                      if (dropDownMonthValue ==
+                          "budget_goal_screen.dropdowns.month_selection".tr()) {
+                        monthMessage += ' Month,';
+                      }
+                      if (dropDownValue ==
+                          "budget_goal_screen.dropdowns.year_selection".tr()) {
+                        monthMessage += ' Year';
+                      }
+                      if (selectedCategory == "Select Category") {
+                        monthMessage += ' category';
+                      }
+                      if (monthMessage.isNotEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            behavior: SnackBarBehavior.floating,
+                            duration: const Duration(seconds: 3),
+                            backgroundColor: Colors.red,
+                            content: Text(
+                              "Please Add the " + monthMessage.trim(),
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        );
+                      } else {
+                        enteredvalues.add({
+                          "amount": enteredAmount,
+                          "month": "$dropDownMonthValue  $dropDownValue",
+                          "category": selectedCategory,
+                        });
+                        dropDownMonthValue =
+                            "budget_goal_screen.dropdowns.month_selection".tr();
+                        dropDownValue =
+                            "budget_goal_screen.dropdowns.year_selection".tr();
+                      }
+                    } else if (dropDownMonthOrWeekValue == 'Weekly') {
+                      if (enteredAmount.isEmpty) {
+                        weekMessage += ' Amount,';
+                      }
+                      if (startDate.isEmpty) {
+                        weekMessage += ' Start Date,';
+                      }
+                      if (endDate.isEmpty) {
+                        weekMessage += 'End Date';
+                      }
+                      if (selectedCategory == "Select Category") {
+                        weekMessage += ' Category';
+                      }
+                      if (weekMessage.isNotEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            behavior: SnackBarBehavior.floating,
+                            duration: const Duration(seconds: 3),
+                            backgroundColor: Colors.red,
+                            content: Text(
+                              "Please Add the " + weekMessage.trim(),
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        );
+                      } else {
+                        List<String> dates = getDatesInRange(
+                            startDateController.text, endDateController.text);
+                        for (String date in dates) {
+                          enteredvalues.add({
+                            "amount": enteredAmount,
+                            "month": date,
+                            "category": selectedCategory,
+                          });
+                        }
+                        startDateController.clear();
+                        endDateController.clear();
+                      }
+                      amountController
+                          .clear(); // Clear the text field after submission
+                    }
+                  });
+                },
+                child: Container(
+                  height: 45,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: ColorConstant.defIndigo,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "budget_goal_screen.buttons.submit".tr(),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              enteredvalues.isEmpty
+                  ? Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 100),
+                        child: Text("No Data Available"),
+                      ),
+                    )
+                  : DataTable(
+                      dataRowMaxHeight: 60,
+                      columnSpacing: 25,
+                      border: TableBorder.all(color: Colors.grey, width: 0.5),
+                      columns: [
+                        DataColumn(
+                            label: Text(
+                          dropDownMonthOrWeekValue ==
+                                  "budget_goal_screen.dropdowns.monthly".tr()
+                              ? "budget_goal_screen.tableHeaders.month".tr()
+                              : "budget_goal_screen.tableHeaders.date".tr(),
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13),
+                        )),
+                        DataColumn(
+                            label: Text(
+                          'budget_goal_screen.tableHeaders.category'.tr(),
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 13),
+                        )),
+                        DataColumn(
+                            label: InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'budget_goal_screen.tableHeaders.amount'.tr(),
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 13),
+                          ),
+                        )),
+                        DataColumn(
+                            label: InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'budget_goal_screen.tableHeaders.action'.tr(),
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 13),
+                          ),
+                        )),
+                      ],
+                      rows: enteredvalues.map<DataRow>((entry) {
+                        return DataRow(cells: [
+                          DataCell(Text(entry['month'] ?? '')),
+                          DataCell(Text(entry['category'] ?? '')),
+                          DataCell(Text(entry['amount'] ?? '')),
+                          DataCell(Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  /////////////////FOR EDIT DIALOG
+                                  onTap: () {
+                                    //editDialog();
+                                    // _showEditDialog(entry,
+                                    //     enteredvalues.indexOf(entry));
+                                  },
+                                  child: Text(
+                                    'budget_goal_screen.buttons.edit'.tr(),
+                                    style: TextStyle(
+                                        color: Colors.green, fontSize: 15),
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () async {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => Container(
+                                      height: 200,
+                                      child: AlertDialog(
+                                        title: Text(
+                                          "budget_goal_screen.DeletMsg".tr(),
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "budget_goal_screen.No".tr(),
+                                              style: const TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.black),
+                                            ),
+                                          ),
+                                          TextButton(
+                                            onPressed: () async {
+                                              setState(() {
+                                                enteredvalues.remove(
+                                                    entry); // Remove the selected entry
+                                              });
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              "budget_goal_screen.Yes".tr(),
+                                              style: const TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 18),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                  ////
+                                  // setState(() {
+                                  //   enteredvalues.remove(
+                                  //     entry,
+                                  //   ); // Remove the selected entry
+                                  // });
+                                },
+                                child: Text(
+                                  'budget_goal_screen.buttons.delete'.tr(),
+                                  style: TextStyle(
+                                      color: Colors.red, fontSize: 15),
+                                ),
+                              )
+                            ],
+                          )),
+                        ]);
+                      }).toList(),
+                    ),
             ],
           ),
         ),
