@@ -17,7 +17,7 @@ class TableDb {
       join(path, 'your_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE entries(id INTEGER PRIMARY KEY AUTOINCREMENT, amount TEXT, month TEXT, category TEXT)",
+          "CREATE TABLE budgetGoal(id INTEGER PRIMARY KEY AUTOINCREMENT, Year TEXT, budgetType TEXT, month TEXT, StartDate TEXT, endDate TEXT, categoryId TEXT, amount TEXT)",
         );
       },
       version: 1,
@@ -27,7 +27,7 @@ class TableDb {
   Future<void> insertEntry(Map<String, dynamic> entry) async {
     final db = await database;
     await db.insert(
-      'entries',
+      'budgetGoal',
       entry,
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
@@ -36,24 +36,24 @@ class TableDb {
   Future<void> updateEntry(int id, Map<String, dynamic> updatedEntry) async {
     final db = await database;
     await db.update(
-      'entries',
+      'budgetGoal',
       updatedEntry,
       where: 'id = ?',
       whereArgs: [id],
     );
   }
 
-  Future<void> deleteEntry(String amount, String month, String category) async {
+  Future<void> deleteEntry(String id) async {
     final db = await database;
     await db.delete(
-      'entries',
-      where: 'amount = ? AND month = ? AND category = ?',
-      whereArgs: [amount, month, category],
+      'budgetGoal',
+      where: 'id = ?',
+      whereArgs: [id],
     );
   }
 
   Future<List<Map<String, dynamic>>> getAllEntries() async {
     final db = await database;
-    return db.query('entries');
+    return db.query('budgetGoal');
   }
 }

@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
+import 'package:project_way/database/category_db/category_db.dart';
+
+import 'package:project_way/model/category_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
-import 'package:project_way/view/category_screen/category_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:project_way/model/category_model.dart' as DbCategory;
 
 class BudgetGoal2 extends StatefulWidget {
   const BudgetGoal2({super.key});
@@ -13,15 +15,9 @@ class BudgetGoal2 extends StatefulWidget {
 }
 
 class _BudgetGoal2State extends State<BudgetGoal2> {
-  List<String> numbers = [
+  List<String> years = [
     // for year
     "budget_goal_screen.dropdowns.year_selection".tr(),
-    "2024",
-    "2025",
-    "2026",
-    "2027",
-    "2028",
-    "2029",
   ];
 
   String dropDownValue = "budget_goal_screen.dropdowns.year_selection".tr();
@@ -80,8 +76,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
 
   List<Map<String, String>> enteredvalues = [];
   int? editingIndex;
-  String selectedCategory =
-      'Select category'; // Initial value (make sure it's one of your dropdown items or null)
+  String selectedCategory = "Select category";
+
+  List<String> categoryTitle = [];
   final List<String> categoryDropdown = [
     'Select category',
     'Option 1',
@@ -89,7 +86,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     'Option 3',
     // Add more items here
   ];
-
+  String categoryId = "0";
   List<String> getDatesInRange(String start, String end) {
     List<String> dates = [];
     DateFormat dateFormat = DateFormat('dd-MM-yyyy');
@@ -103,6 +100,47 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     }
     return dates;
   }
+
+  int monthly = 0;
+  int yearly = 1;
+  List<Category> listCategory = [];
+  categoryFetch() async {
+    categoryTitle.clear();
+    categoryTitle.add(selectedCategory);
+    CategoryDatabase categoryDb = CategoryDatabase();
+
+    List<Category> categoryList = await categoryDb.getCategories();
+
+    print(categoryList.length);
+    setState(() {
+      listCategory.clear();
+      listCategory.addAll(categoryList);
+
+      for (int i = 0; i < categoryList.length; i++) {
+        categoryTitle.add(categoryList[i].title); //for dropdown
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    createDynamicYear();
+    categoryFetch();
+  }
+
+  createDynamicYear() {
+    //creating object of datetime
+    DateTime now = new DateTime.now();
+    for (int i = 0; i < 6; i++) {
+      int curentYear = now.year;
+      curentYear = curentYear + i;
+
+      setState(() {
+        years.add(curentYear.toString());
+      });
+    }
+  } //for creating year without a static list
 
   @override
   Widget build(BuildContext context) {
@@ -157,7 +195,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       underline: Container(),
                       value: dropDownValue,
                       items:
-                          numbers.map<DropdownMenuItem<String>>((String value) {
+                          years.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Padding(
@@ -277,7 +315,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             ),
                             underline: Container(),
                             value: selectedCategory,
-                            items: categoryDropdown.map((String value) {
+                            items: categoryTitle.map((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
                                 child: Text(value),
@@ -286,6 +324,22 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             onChanged: (String? newValue) {
                               setState(() {
                                 selectedCategory = newValue!;
+
+                                for (int i = 0; i < listCategory.length; i++) {
+                                  if (listCategory[i]
+                                          .title
+                                          .compareTo(selectedCategory) ==
+                                      0) {
+                                    //if selected category&db categorytitle is same
+                                    categoryId = listCategory[i].id.toString();
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text("$categoryId"),
+                                      duration: Duration(seconds: 2),
+                                    ));
+                                    break;
+                                  }
+                                }
                               });
                             },
                           ),
@@ -756,9 +810,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         child: DropdownButton<String>(
                           underline: Container(),
                           value: editYearValue.isEmpty
-                              ? numbers.first
+                              ? years.first
                               : editYearValue, // Ensure a valid value
-                          items: numbers.map((String value) {
+                          items: years.map((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Padding(
