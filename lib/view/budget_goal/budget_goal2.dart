@@ -331,7 +331,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                           .compareTo(selectedCategory) ==
                                       0) {
                                     //if selected category&db categorytitle is same
-                                    categoryId = listCategory[i].id.toString();
+                                    categoryId = listCategory[i]
+                                        .id
+                                        .toString(); //to store categoryId
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(
                                       content: Text("$categoryId"),
