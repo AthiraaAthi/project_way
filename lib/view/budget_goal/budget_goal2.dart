@@ -729,6 +729,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                           ),
                                           TextButton(
                                             onPressed: () async {
+                                              await tableDb
+                                                  .deleteEntry(entry['id']);
                                               setState(() {
                                                 enteredvalues.remove(
                                                     entry); // Remove the selected entry
@@ -949,7 +951,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       ),
                       underline: Container(),
                       value: selectedCategory,
-                      items: categoryDropdown.map((String value) {
+                      items: categoryTitle.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Padding(
@@ -961,6 +963,23 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       onChanged: (String? newValue) {
                         setState(() {
                           selectedCategory = newValue!;
+                          for (int i = 0; i < listCategory.length; i++) {
+                            if (listCategory[i]
+                                    .title
+                                    .compareTo(selectedCategory) ==
+                                0) {
+                              //if selected category&db categorytitle is same
+                              categoryId = listCategory[i]
+                                  .id
+                                  .toString(); //to store categoryId
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text("$categoryId"),
+                                duration: Duration(seconds: 2),
+                              ));
+                              break;
+                            }
+                          }
                         });
                       },
                     ),
