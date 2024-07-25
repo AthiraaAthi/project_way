@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:project_way/controller/category_provider.dart';
 import 'package:project_way/database/category_db/category_db.dart';
+import 'package:project_way/database/table_db/table_db.dart';
 
 import 'package:project_way/model/category_model.dart';
 import 'package:project_way/utils/color_constant/color_constant.dart';
@@ -87,6 +88,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     // Add more items here
   ];
   String categoryId = "0";
+
   List<String> getDatesInRange(String start, String end) {
     List<String> dates = [];
     DateFormat dateFormat = DateFormat('dd-MM-yyyy');
@@ -104,23 +106,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
   int monthly = 0;
   int yearly = 1;
   List<Category> listCategory = [];
-  categoryFetch() async {
-    categoryTitle.clear();
-    categoryTitle.add(selectedCategory);
-    CategoryDatabase categoryDb = CategoryDatabase();
-
-    List<Category> categoryList = await categoryDb.getCategories();
-
-    print(categoryList.length);
-    setState(() {
-      listCategory.clear();
-      listCategory.addAll(categoryList);
-
-      for (int i = 0; i < categoryList.length; i++) {
-        categoryTitle.add(categoryList[i].title); //for dropdown
-      }
-    });
-  }
+  TableDb tableDb = TableDb();
 
   @override
   void initState() {
@@ -142,6 +128,25 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     }
   } //for creating year without a static list
 
+  categoryFetch() async {
+    categoryTitle.clear();
+    categoryTitle.add(selectedCategory);
+    CategoryDatabase categoryDb = CategoryDatabase();
+
+    List<Category> categoryList = await categoryDb.getCategories();
+
+    print(categoryList.length);
+    setState(() {
+      listCategory.clear();
+      listCategory.addAll(categoryList);
+
+      for (int i = 0; i < categoryList.length; i++) {
+        categoryTitle.add(categoryList[i].title); //for dropdown
+      }
+    });
+  }
+
+  fetchData() async {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -458,7 +463,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
               ),
               InkWell(
                 onTap: () {
-                  setState(() {
+                  setState(() async {
                     String enteredAmount = amountController.text;
                     String startDate = startDateController.text;
                     String endDate = endDateController.text;
@@ -492,15 +497,27 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         );
                       } else {
-                        enteredvalues.add({
-                          "amount": enteredAmount,
+                        Map<String, String> entry = {
+                          "year": dropDownValue,
+                          "BudgetType": "",
                           "month": "$dropDownMonthValue  $dropDownValue",
+                          "StartDate": "",
+                          "endDate": "",
+                          "categoryId": categoryId,
+                          "amount": enteredAmount,
                           "category": selectedCategory,
+                        };
+
+                        await tableDb.insertEntry(entry);
+                        setState(() {
+                          enteredvalues.add(entry);
+                          dropDownMonthValue =
+                              "budget_goal_screen.dropdowns.month_selection"
+                                  .tr();
+                          dropDownValue =
+                              "budget_goal_screen.dropdowns.year_selection"
+                                  .tr();
                         });
-                        dropDownMonthValue =
-                            "budget_goal_screen.dropdowns.month_selection".tr();
-                        dropDownValue =
-                            "budget_goal_screen.dropdowns.year_selection".tr();
                       }
                       amountController.clear();
                       selectedCategory = "Select category";
@@ -537,6 +554,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             "amount": enteredAmount,
                             "month": date,
                             "category": selectedCategory,
+                            "categoryId": categoryId,
                           });
                         }
                         startDateController.clear();

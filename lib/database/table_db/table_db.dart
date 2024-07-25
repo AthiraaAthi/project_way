@@ -17,7 +17,7 @@ class TableDb {
       join(path, 'your_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE budgetGoal(id INTEGER PRIMARY KEY AUTOINCREMENT, Year TEXT, budgetType TEXT, month TEXT, StartDate TEXT, endDate TEXT, categoryId TEXT, amount TEXT)",
+          "CREATE TABLE budgetGoal(id INTEGER PRIMARY KEY AUTOINCREMENT, year TEXT, budgetType TEXT, month TEXT, StartDate TEXT, endDate TEXT, categoryId TEXT, amount TEXT, category TEXT)",
         );
       },
       version: 1,
