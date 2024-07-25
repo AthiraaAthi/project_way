@@ -447,9 +447,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             "budget_goal_screen.dropdowns.month_selection".tr();
                         dropDownValue =
                             "budget_goal_screen.dropdowns.year_selection".tr();
-
-                        selectedCategory = "'Select category'";
                       }
+                      amountController.clear();
+                      selectedCategory = "Select category";
                     } else if (dropDownMonthOrWeekValue == 'Weekly') {
                       if (enteredAmount.isEmpty) {
                         weekMessage += ' Amount,';
