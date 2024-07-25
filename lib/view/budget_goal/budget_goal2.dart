@@ -509,6 +509,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         };
 
                         await tableDb.insertEntry(entry);
+
                         setState(() {
                           enteredvalues.add(entry);
                           dropDownMonthValue =
@@ -550,11 +551,19 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         List<String> dates = getDatesInRange(
                             startDateController.text, endDateController.text);
                         for (String date in dates) {
-                          enteredvalues.add({
-                            "amount": enteredAmount,
+                          Map<String, String> entry = {
+                            "year": "",
+                            "budgetType": "",
                             "month": date,
-                            "category": selectedCategory,
+                            "StartDate": startDateController.text,
+                            "endDate": endDateController.text,
                             "categoryId": categoryId,
+                            "amount": enteredAmount,
+                            "category": selectedCategory,
+                          };
+                          await tableDb.insertEntry(entry);
+                          setState(() {
+                            enteredvalues.add(entry);
                           });
                         }
                         startDateController.clear();
