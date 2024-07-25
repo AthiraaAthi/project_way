@@ -628,12 +628,6 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                       ),
                                     ),
                                   );
-                                  ////
-                                  // setState(() {
-                                  //   enteredvalues.remove(
-                                  //     entry,
-                                  //   ); // Remove the selected entry
-                                  // });
                                 },
                                 child: Text(
                                   'budget_goal_screen.buttons.delete'.tr(),
