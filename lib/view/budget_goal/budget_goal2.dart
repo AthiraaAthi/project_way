@@ -75,7 +75,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     }
   }
 
-  List<Map<String, String>> enteredvalues = [];
+  List<Map<String, dynamic>> enteredvalues = [];
   int? editingIndex;
   String selectedCategory = "Select category";
 
@@ -104,7 +104,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
   }
 
   int monthly = 0;
-  int yearly = 1;
+  int weekly = 1;
   List<Category> listCategory = [];
   TableDb tableDb = TableDb();
 
@@ -497,9 +497,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         );
                       } else {
-                        Map<String, String> entry = {
+                        Map<String, dynamic> entry = {
                           "year": dropDownValue,
-                          "budgetType": "",
+                          "budgetType": monthly,
                           "month": "$dropDownMonthValue  $dropDownValue",
                           "StartDate": "",
                           "endDate": "",
@@ -509,6 +509,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         };
 
                         await tableDb.insertEntry(entry);
+                        print(tableDb.insertEntry(entry));
 
                         setState(() {
                           enteredvalues.add(entry);
@@ -551,9 +552,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         List<String> dates = getDatesInRange(
                             startDateController.text, endDateController.text);
                         for (String date in dates) {
-                          Map<String, String> entry = {
+                          Map<String, dynamic> entry = {
                             "year": "",
-                            "budgetType": "",
+                            "budgetType": weekly,
                             "month": date,
                             "StartDate": startDateController.text,
                             "endDate": endDateController.text,
@@ -728,7 +729,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     );
   }
 
-  void _showEditDialog(Map<String, String> entry, int index) {
+  void _showEditDialog(Map<String, dynamic> entry, int index) {
     final TextEditingController amountController =
         TextEditingController(text: entry['amount']);
     final TextEditingController startDateController =
