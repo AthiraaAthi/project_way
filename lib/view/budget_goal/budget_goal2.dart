@@ -499,7 +499,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       } else {
                         Map<String, String> entry = {
                           "year": dropDownValue,
-                          "BudgetType": "",
+                          "budgetType": "",
                           "month": "$dropDownMonthValue  $dropDownValue",
                           "StartDate": "",
                           "endDate": "",
