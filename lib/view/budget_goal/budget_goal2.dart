@@ -113,6 +113,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     super.initState();
     createDynamicYear();
     categoryFetch();
+    fetchData();
   }
 
   createDynamicYear() {
@@ -146,7 +147,24 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     });
   }
 
-  fetchData() async {}
+  fetchData() async {
+    List<Map<String, dynamic>> entries = await tableDb.getAllEntries();
+    setState(() {
+      enteredvalues = entries.map((entry) {
+        return {
+          'year': entry['year'],
+          'budgetType': entry['budgetType'],
+          'month': entry['month'],
+          'StartDate': entry['StartDate'],
+          'endDate': entry['endDate'],
+          'categoryId': entry['categoryId'],
+          'amount': entry['amount'], // Ensure values are strings
+          'category': entry['category'],
+        };
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -421,7 +439,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     ),
                     underline: Container(),
                     value: selectedCategory,
-                    items: categoryDropdown.map((String value) {
+                    items: categoryTitle.map((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Padding(
@@ -433,6 +451,23 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     onChanged: (String? newValue) {
                       setState(() {
                         selectedCategory = newValue!;
+
+                        for (int i = 0; i < listCategory.length; i++) {
+                          if (listCategory[i]
+                                  .title
+                                  .compareTo(selectedCategory) ==
+                              0) {
+                            //if selected category&db categorytitle is same
+                            categoryId = listCategory[i]
+                                .id
+                                .toString(); //to store categoryId
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("$categoryId"),
+                              duration: Duration(seconds: 2),
+                            ));
+                            break;
+                          }
+                        }
                       });
                     },
                   ),
@@ -509,7 +544,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         };
 
                         await tableDb.insertEntry(entry);
-                        print(tableDb.insertEntry(entry));
+                        fetchData();
+                        print('Inserting entry: $entry');
 
                         setState(() {
                           enteredvalues.add(entry);

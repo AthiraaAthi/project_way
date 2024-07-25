@@ -14,7 +14,7 @@ class TableDb {
   Future<Database> initDatabase() async {
     String path = await getDatabasesPath();
     return openDatabase(
-      join(path, 'your_database.db'),
+      join(path, 'demo.db'),
       onCreate: (db, version) {
         return db.execute(
           "CREATE TABLE budgetGoal(id INTEGER PRIMARY KEY AUTOINCREMENT, year TEXT, budgetType TEXT, month TEXT, StartDate TEXT, endDate TEXT, categoryId TEXT, amount TEXT, category TEXT)",
