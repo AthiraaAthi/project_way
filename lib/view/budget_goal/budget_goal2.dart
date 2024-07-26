@@ -103,8 +103,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     return dates;
   }
 
-  int monthly = 0;
-  int weekly = 1;
+  String monthly = '0';
+  String weekly = '1';
   List<Category> listCategory = [];
   TableDb tableDb = TableDb();
 
@@ -149,6 +149,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
 
   fetchData() async {
     List<Map<String, dynamic>> entries = await tableDb.getAllEntries();
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(entries.toString())));
+    print(entries);
 
     setState(() {
       enteredvalues = entries.map((entry) {
@@ -687,8 +690,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       rows: enteredvalues.map<DataRow>((entry) {
                         return DataRow(cells: [
                           DataCell(
-                            dropDownMonthOrWeekValue ==
-                                    "budget_goal_screen.dropdowns.monthly".tr()
+                            entry['budgetType'] == monthly
                                 ? Text('${entry['month']} ${entry['year']}')
                                 : Text(entry['StartDate']),
                           ),
@@ -787,13 +789,12 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
     final TextEditingController startDateController =
         TextEditingController(text: entry['StartDate']);
 
-    String selectedCategory =
-        entry['category'] ?? categoryTitle.first; // Ensure a valid value
+    String selectedCategory = entry['category'] ?? categoryTitle.first;
     String editMonthValue = '';
     String editYearValue = '';
-    bool isMonthly = entry['month'] != null && entry['month']!.contains(' ');
+    String isMonthly = entry['budgetType'];
 
-    if (isMonthly) {
+    if (isMonthly == monthly) {
       editMonthValue = entry['month']!;
       editYearValue = entry['year']!;
     } else {
@@ -821,7 +822,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                 children: [
                   if (dropDownMonthOrWeekValue ==
                       "budget_goal_screen.dropdowns.monthly".tr()) ...[
-                    if (!isMonthly) ...[
+                    if (isMonthly != monthly) ...[
                       Container(
                         height:
                             MediaQuery.of(context).size.width < 600 ? 50 : 70,
@@ -914,7 +915,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     ],
                   ] else if (dropDownMonthOrWeekValue ==
                       "budget_goal_screen.dropdowns.weekly".tr()) ...[
-                    if (isMonthly) ...[
+                    if (isMonthly == monthly) ...[
                       Container(
                         height:
                             MediaQuery.of(context).size.width < 600 ? 50 : 70,
@@ -1067,15 +1068,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
             TextButton(
               onPressed: () {
                 Map<String, dynamic> updatedEntry = {
-                  "year": dropDownMonthOrWeekValue ==
-                          "budget_goal_screen.dropdowns.monthly"
-                      ? editYearValue
-                      : "",
-                  "budgetType": dropDownMonthOrWeekValue ==
-                          "budget_goal_screen.dropdowns.monthly"
-                      ? monthly
-                      : weekly,
-                  'month': "$editMonthValue $editYearValue",
+                  "year": editYearValue,
+                  "budgetType": isMonthly == monthly ? monthly : weekly,
+                  'month': editMonthValue,
                   "StartDate": dropDownMonthOrWeekValue ==
                           "budget_goal_screen.dropdowns.monthly"
                       ? ""
