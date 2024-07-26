@@ -149,10 +149,12 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
 
   fetchData() async {
     List<Map<String, dynamic>> entries = await tableDb.getAllEntries();
+
     setState(() {
       enteredvalues = entries.map((entry) {
         return {
           'year': entry['year'],
+          "id": entry["id"],
           'budgetType': entry['budgetType'],
           'month': entry['month'],
           'StartDate': entry['StartDate'],
@@ -535,7 +537,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         Map<String, dynamic> entry = {
                           "year": dropDownValue,
                           "budgetType": monthly,
-                          "month": "$dropDownMonthValue  $dropDownValue",
+                          "month": dropDownMonthValue,
                           "StartDate": "",
                           "endDate": "",
                           "categoryId": categoryId,
@@ -591,7 +593,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           Map<String, dynamic> entry = {
                             "year": "",
                             "budgetType": weekly,
-                            "month": date,
+                            "month": "",
                             "StartDate": startDateController.text,
                             "endDate": endDateController.text,
                             "categoryId": categoryId,
@@ -682,7 +684,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       ],
                       rows: enteredvalues.map<DataRow>((entry) {
                         return DataRow(cells: [
-                          DataCell(Text(entry['month'] ?? '')),
+                          DataCell(
+                              Text(entry['month'] + " " + entry['year'] ?? '')),
                           DataCell(Text(entry['category'] ?? '')),
                           DataCell(Text(entry['amount'] ?? '')),
                           DataCell(Column(
@@ -729,8 +732,13 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                           ),
                                           TextButton(
                                             onPressed: () async {
-                                              await tableDb
-                                                  .deleteEntry(entry['id']);
+                                              // ScaffoldMessenger.of(context)
+                                              //     .showSnackBar(SnackBar(
+                                              //         content: Text(
+                                              //             "the id for for deleting :$entry")));
+                                              await tableDb.deleteEntry(
+                                                  entry['id'].toString());
+                                              fetchData();
                                               setState(() {
                                                 enteredvalues.remove(
                                                     entry); // Remove the selected entry
@@ -770,21 +778,20 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
   void _showEditDialog(Map<String, dynamic> entry, int index) {
     final TextEditingController amountController =
         TextEditingController(text: entry['amount']);
-    final TextEditingController startDateController =
-        TextEditingController(text: entry['month']);
+    // final TextEditingController startDateController =
+    //     TextEditingController(text: entry['month']);
 
     String selectedCategory =
-        entry['category'] ?? categoryDropdown.first; // Ensure a valid value
+        entry['category'] ?? categoryTitle.first; // Ensure a valid value
     String editMonthValue = '';
     String editYearValue = '';
     bool isMonthly = entry['month']!.contains(' ');
 
     if (isMonthly) {
-      List<String> monthYear = entry['month']!.split(' ');
-      editMonthValue = monthYear[0];
-      editYearValue = monthYear[1];
+      editMonthValue = entry['month']!;
+      editYearValue = entry['year']!;
     } else {
-      startDateController.text = entry['month']!;
+      startDateController.text = entry['StartDate']!;
     }
 
     showDialog(
@@ -963,23 +970,23 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       onChanged: (String? newValue) {
                         setState(() {
                           selectedCategory = newValue!;
-                          for (int i = 0; i < listCategory.length; i++) {
-                            if (listCategory[i]
-                                    .title
-                                    .compareTo(selectedCategory) ==
-                                0) {
-                              //if selected category&db categorytitle is same
-                              categoryId = listCategory[i]
-                                  .id
-                                  .toString(); //to store categoryId
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                content: Text("$categoryId"),
-                                duration: Duration(seconds: 2),
-                              ));
-                              break;
-                            }
-                          }
+                          // for (int i = 0; i < listCategory.length; i++) {
+                          //   if (listCategory[i]
+                          //           .title
+                          //           .compareTo(selectedCategory) ==
+                          //       0) {
+                          //     //if selected category&db categorytitle is same
+                          //     categoryId = listCategory[i]
+                          //         .id
+                          //         .toString(); //to store categoryId
+                          //     ScaffoldMessenger.of(context)
+                          //         .showSnackBar(SnackBar(
+                          //       content: Text("$categoryId"),
+                          //       duration: Duration(seconds: 2),
+                          //     ));
+                          //     break;
+                          //   }
+                          // }
                         });
                       },
                     ),

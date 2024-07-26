@@ -47,7 +47,7 @@ class TableDb {
     final db = await database;
     await db.delete(
       'budgetGoal',
-      where: 'id = ?',
+      where: 'id=?',
       whereArgs: [id],
     );
   }
