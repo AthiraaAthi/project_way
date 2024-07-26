@@ -1023,31 +1023,29 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     width: MediaQuery.of(context).size.width < 600 ? 250 : 300,
                     decoration:
                         BoxDecoration(border: Border.all(color: Colors.grey)),
-                    child: Expanded(
-                      child: DropdownButton<String>(
-                        icon: const Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                        underline: Container(),
-                        value: selectedCategory,
-                        items: categoryTitle.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(value),
-                            )),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedCategory = newValue!;
-                          });
-                        },
+                    child: DropdownButton<String>(
+                      icon: const Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                        size: 30,
                       ),
+                      underline: Container(),
+                      value: selectedCategory,
+                      items: categoryTitle.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Expanded(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(value),
+                          )),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedCategory = newValue!;
+                        });
+                      },
                     ),
                   ),
                 ],
