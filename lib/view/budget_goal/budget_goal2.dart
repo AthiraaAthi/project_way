@@ -791,7 +791,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
         entry['category'] ?? categoryTitle.first; // Ensure a valid value
     String editMonthValue = '';
     String editYearValue = '';
-    bool isMonthly = entry['month']!.contains(' ');
+    bool isMonthly = entry['month'] != null && entry['month']!.contains(' ');
 
     if (isMonthly) {
       editMonthValue = entry['month']!;
