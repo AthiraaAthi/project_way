@@ -594,8 +594,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             "year": "",
                             "budgetType": weekly,
                             "month": "",
-                            "StartDate": startDateController.text,
-                            "endDate": endDateController.text,
+                            "StartDate": date,
+                            "endDate": date,
                             "categoryId": categoryId,
                             "amount": enteredAmount,
                             "category": selectedCategory,
@@ -685,7 +685,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       rows: enteredvalues.map<DataRow>((entry) {
                         return DataRow(cells: [
                           DataCell(
-                              Text(entry['month'] + " " + entry['year'] ?? '')),
+                            dropDownMonthOrWeekValue == "Monthly"
+                                ? Text('${entry['month']} ${entry['year']}')
+                                : Text(entry['StartDate']),
+                          ),
                           DataCell(Text(entry['category'] ?? '')),
                           DataCell(Text(entry['amount'] ?? '')),
                           DataCell(Column(
@@ -777,22 +780,17 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
 
   void _showEditDialog(Map<String, dynamic> entry, int index) {
     final TextEditingController amountController =
-        TextEditingController(text: entry['amount']);
-    // final TextEditingController startDateController =
-    //     TextEditingController(text: entry['month']);
+        TextEditingController(text: entry['amount'].toString());
+    final TextEditingController startDateController =
+        TextEditingController(text: entry['StartDate'] ?? '');
+    final TextEditingController endDateController =
+        TextEditingController(text: entry['endDate'] ?? '');
 
-    String selectedCategory =
-        entry['category'] ?? categoryTitle.first; // Ensure a valid value
-    String editMonthValue = '';
-    String editYearValue = '';
+    String selectedCategory = entry['category'] ?? categoryTitle.first;
+    String editMonthValue = entry['month'] ?? '';
+    String editYearValue = entry['year'] ?? '';
     bool isMonthly = entry['month']!.contains(' ');
-
-    if (isMonthly) {
-      editMonthValue = entry['month']!;
-      editYearValue = entry['year']!;
-    } else {
-      startDateController.text = entry['StartDate']!;
-    }
+    ;
 
     showDialog(
       context: context,
@@ -813,97 +811,62 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (dropDownMonthOrWeekValue == 'Monthly') ...[
-                    if (!isMonthly)
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextField(
-                            controller: startDateController,
-                            decoration: const InputDecoration(
-                              hintText: "Start Date",
-                              border: InputBorder.none,
+                  if (isMonthly) ...[
+                    Container(
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: DropdownButton<String>(
+                        underline: Container(),
+                        value: editMonthValue.isEmpty
+                            ? months.first
+                            : editMonthValue,
+                        items: months.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Text(value),
                             ),
-                            onTap: () async {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              DateTime? selectedDate = await _selectDate(
-                                  context, startDateController);
-                              if (selectedDate != null) {
-                                setState(() {
-                                  startDateController.text =
-                                      selectedDate.toString().split(' ')[0];
-                                });
-                              }
-                            },
-                          ),
-                        ),
-                      )
-                    else
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: DropdownButton<String>(
-                          underline: Container(),
-                          value: editMonthValue.isEmpty
-                              ? months.first
-                              : editMonthValue, // Ensure a valid value
-                          items: months.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Text(value),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              editMonthValue = newValue!;
-                            });
-                          },
-                        ),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            editMonthValue = newValue!;
+                          });
+                        },
                       ),
+                    ),
                     const SizedBox(height: 20),
-                    if (isMonthly)
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: DropdownButton<String>(
-                          underline: Container(),
-                          value: editYearValue.isEmpty
-                              ? years.first
-                              : editYearValue, // Ensure a valid value
-                          items: years.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(value),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              editYearValue = newValue!;
-                            });
-                          },
-                        ),
-                      )
-                  ] else if (dropDownMonthOrWeekValue == 'Weekly') ...[
+                    Container(
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: DropdownButton<String>(
+                        underline: Container(),
+                        value:
+                            editYearValue.isEmpty ? years.first : editYearValue,
+                        items: years.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(value),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            editYearValue = newValue!;
+                          });
+                        },
+                      ),
+                    ),
+                  ] else ...[
                     Container(
                       height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                       width:
@@ -920,7 +883,14 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                           onTap: () async {
                             FocusScope.of(context).requestFocus(FocusNode());
-                            await _selectDate(context, startDateController);
+                            DateTime? selectedDate =
+                                await _selectDate(context, startDateController);
+                            if (selectedDate != null) {
+                              setState(() {
+                                startDateController.text =
+                                    selectedDate.toString().split(' ')[0];
+                              });
+                            }
                           },
                         ),
                       ),
@@ -970,23 +940,6 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       onChanged: (String? newValue) {
                         setState(() {
                           selectedCategory = newValue!;
-                          // for (int i = 0; i < listCategory.length; i++) {
-                          //   if (listCategory[i]
-                          //           .title
-                          //           .compareTo(selectedCategory) ==
-                          //       0) {
-                          //     //if selected category&db categorytitle is same
-                          //     categoryId = listCategory[i]
-                          //         .id
-                          //         .toString(); //to store categoryId
-                          //     ScaffoldMessenger.of(context)
-                          //         .showSnackBar(SnackBar(
-                          //       content: Text("$categoryId"),
-                          //       duration: Duration(seconds: 2),
-                          //     ));
-                          //     break;
-                          //   }
-                          // }
                         });
                       },
                     ),
@@ -1009,15 +962,16 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
             ),
             TextButton(
               onPressed: () {
-                Map<String, String> updatedEntry = {
+                Map<String, dynamic> updatedEntry = {
                   'amount': amountController.text,
-                  'month': dropDownMonthOrWeekValue == 'Monthly'
-                      ? "$editMonthValue $editYearValue"
-                      : startDateController.text,
+                  'month': isMonthly ? editMonthValue : '',
+                  'year': isMonthly ? editYearValue : '',
+                  'StartDate': !isMonthly ? startDateController.text : '',
+                  'endDate': !isMonthly ? endDateController.text : '',
                   'category': selectedCategory,
+                  'categoryId': categoryId, // Ensure categoryId is set properly
                 };
                 setState(() {
-                  // Update local UI state
                   enteredvalues[index] = updatedEntry;
                 });
                 Navigator.of(context).pop();
