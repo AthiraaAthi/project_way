@@ -817,239 +817,251 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
           ),
           content: StatefulBuilder(
             builder: (context, setState) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (dropDownMonthOrWeekValue ==
-                      "budget_goal_screen.dropdowns.monthly".tr()) ...[
-                    if (isMonthly != monthly) ...[
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextField(
-                            controller: startDateController,
-                            decoration: const InputDecoration(
-                              hintText: "Start Date",
-                              border: InputBorder.none,
-                            ),
-                            onTap: () async {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              DateTime? selectedDate = await _selectDate(
-                                  context, startDateController);
-                              if (selectedDate != null) {
-                                setState(() {
-                                  startDateController.text =
-                                      selectedDate.toString().split(' ')[0];
-                                });
-                              }
-                            },
-                          ),
-                        ),
-                      )
-                    ] else ...[
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: DropdownButton<String>(
-                          underline: Container(),
-                          value: editMonthValue.isEmpty
-                              ? months.first
-                              : editMonthValue, // Ensure a valid value
-                          items: months.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Text(value),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              editMonthValue = newValue!;
-                            });
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: DropdownButton<String>(
-                          underline: Container(),
-                          value: editYearValue.isEmpty
-                              ? years.first
-                              : editYearValue, // Ensure a valid value
-                          items: years.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(value),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              editYearValue = newValue!;
-                            });
-                          },
-                        ),
-                      )
-                    ],
-                  ] else if (dropDownMonthOrWeekValue ==
-                      "budget_goal_screen.dropdowns.weekly".tr()) ...[
-                    if (isMonthly == monthly) ...[
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: DropdownButton<String>(
-                          underline: Container(),
-                          value: editMonthValue.isEmpty
-                              ? months.first
-                              : editMonthValue, // Ensure a valid value
-                          items: months.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Text(value),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              editMonthValue = newValue!;
-                            });
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: DropdownButton<String>(
-                          underline: Container(),
-                          value: editYearValue.isEmpty
-                              ? years.first
-                              : editYearValue, // Ensure a valid value
-                          items: years.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(value),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              editYearValue = newValue!;
-                            });
-                          },
-                        ),
-                      )
-                    ] else ...[
-                      Container(
-                        height:
-                            MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                        width:
-                            MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextField(
-                            controller: startDateController,
-                            decoration: const InputDecoration(
-                              hintText: "Start Date",
-                              border: InputBorder.none,
-                            ),
-                            onTap: () async {
-                              FocusScope.of(context).requestFocus(FocusNode());
-                              await _selectDate(context, startDateController);
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
-                  const SizedBox(height: 20),
-                  Container(
-                    height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                    width: MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                    decoration:
-                        BoxDecoration(border: Border.all(color: Colors.grey)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        controller: amountController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Enter Amount",
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Container(
-                    height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
-                    width: MediaQuery.of(context).size.width < 600 ? 250 : 300,
-                    decoration:
-                        BoxDecoration(border: Border.all(color: Colors.grey)),
-                    child: DropdownButton<String>(
-                      icon: const Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                      underline: Container(),
-                      value: selectedCategory,
-                      items: categoryTitle.map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Expanded(
-                              child: Padding(
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (dropDownMonthOrWeekValue ==
+                        "budget_goal_screen.dropdowns.monthly".tr()) ...[
+                      if (isMonthly != monthly) ...[
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? 250
+                              : 300,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey)),
+                          child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(value),
-                          )),
-                        );
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          selectedCategory = newValue!;
-                        });
-                      },
+                            child: TextField(
+                              controller: startDateController,
+                              decoration: const InputDecoration(
+                                hintText: "Start Date",
+                                border: InputBorder.none,
+                              ),
+                              onTap: () async {
+                                FocusScope.of(context)
+                                    .requestFocus(FocusNode());
+                                DateTime? selectedDate = await _selectDate(
+                                    context, startDateController);
+                                if (selectedDate != null) {
+                                  setState(() {
+                                    startDateController.text =
+                                        selectedDate.toString().split(' ')[0];
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        )
+                      ] else ...[
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? 250
+                              : 300,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey)),
+                          child: DropdownButton<String>(
+                            underline: Container(),
+                            value: editMonthValue.isEmpty
+                                ? months.first
+                                : editMonthValue, // Ensure a valid value
+                            items: months.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Text(value),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                editMonthValue = newValue!;
+                              });
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? 250
+                              : 300,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey)),
+                          child: DropdownButton<String>(
+                            underline: Container(),
+                            value: editYearValue.isEmpty
+                                ? years.first
+                                : editYearValue, // Ensure a valid value
+                            items: years.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(value),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                editYearValue = newValue!;
+                              });
+                            },
+                          ),
+                        )
+                      ],
+                    ] else if (dropDownMonthOrWeekValue ==
+                        "budget_goal_screen.dropdowns.weekly".tr()) ...[
+                      if (isMonthly == monthly) ...[
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? 250
+                              : 300,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey)),
+                          child: DropdownButton<String>(
+                            underline: Container(),
+                            value: editMonthValue.isEmpty
+                                ? months.first
+                                : editMonthValue, // Ensure a valid value
+                            items: months.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Text(value),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                editMonthValue = newValue!;
+                              });
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? 250
+                              : 300,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey)),
+                          child: DropdownButton<String>(
+                            underline: Container(),
+                            value: editYearValue.isEmpty
+                                ? years.first
+                                : editYearValue, // Ensure a valid value
+                            items: years.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(value),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                editYearValue = newValue!;
+                              });
+                            },
+                          ),
+                        )
+                      ] else ...[
+                        Container(
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? 250
+                              : 300,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextField(
+                              controller: startDateController,
+                              decoration: const InputDecoration(
+                                hintText: "Start Date",
+                                border: InputBorder.none,
+                              ),
+                              onTap: () async {
+                                FocusScope.of(context)
+                                    .requestFocus(FocusNode());
+                                await _selectDate(context, startDateController);
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                    const SizedBox(height: 20),
+                    Container(
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                          controller: amountController,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Enter Amount",
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 20),
+                    Container(
+                      height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
+                      width:
+                          MediaQuery.of(context).size.width < 600 ? 250 : 300,
+                      decoration:
+                          BoxDecoration(border: Border.all(color: Colors.grey)),
+                      child: DropdownButton<String>(
+                        icon: const Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                        underline: Container(),
+                        value: selectedCategory,
+                        items: categoryTitle.map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(value),
+                            )),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectedCategory = newValue!;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               );
             },
           ),
