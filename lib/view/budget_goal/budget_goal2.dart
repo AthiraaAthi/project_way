@@ -1333,11 +1333,25 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             return DataRow(cells: [
                               DataCell(
                                 entry['budgetType'] == monthly
-                                    ? Text('${entry['month']} ${entry['year']}')
-                                    : Text(entry['StartDate']),
+                                    ? Text(
+                                        '${entry['month']} ${entry['year']}',
+                                        style: const TextStyle(fontSize: 18),
+                                      )
+                                    : Text(
+                                        entry['StartDate'],
+                                        style: const TextStyle(fontSize: 18),
+                                      ),
                               ),
-                              DataCell(Text(entry['category'] ?? '')),
-                              DataCell(Text(entry['amount'] ?? '')),
+                              DataCell(
+                                Text(
+                                  entry['category'] ?? '',
+                                  style: const TextStyle(fontSize: 18),
+                                ),
+                              ),
+                              DataCell(Text(
+                                entry['amount'] ?? '',
+                                style: const TextStyle(fontSize: 18),
+                              )),
                               DataCell(Column(
                                 children: [
                                   Padding(
@@ -1351,7 +1365,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                       child: Text(
                                         'budget_goal_screen.buttons.edit'.tr(),
                                         style: TextStyle(
-                                            color: Colors.green, fontSize: 15),
+                                            color: Colors.green, fontSize: 18),
                                       ),
                                     ),
                                   ),
@@ -1366,7 +1380,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                               "budget_goal_screen.DeletMsg"
                                                   .tr(),
                                               style: const TextStyle(
-                                                fontSize: 16,
+                                                fontSize: 18,
                                               ),
                                             ),
                                             actions: [
@@ -1377,7 +1391,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                                 child: Text(
                                                   "budget_goal_screen.No".tr(),
                                                   style: const TextStyle(
-                                                      fontSize: 16,
+                                                      fontSize: 18,
                                                       color: Colors.black),
                                                 ),
                                               ),
@@ -1400,7 +1414,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                                   "budget_goal_screen.Yes".tr(),
                                                   style: const TextStyle(
                                                       color: Colors.red,
-                                                      fontSize: 18),
+                                                      fontSize: 23),
                                                 ),
                                               ),
                                             ],
@@ -1411,7 +1425,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                     child: Text(
                                       'budget_goal_screen.buttons.delete'.tr(),
                                       style: TextStyle(
-                                          color: Colors.red, fontSize: 15),
+                                          color: Colors.red, fontSize: 23),
                                     ),
                                   )
                                 ],
