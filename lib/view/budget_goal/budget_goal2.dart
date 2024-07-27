@@ -1466,9 +1466,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
             child: Text(
               "Edit your Budget Goal",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 23,
                 fontWeight: FontWeight.w600,
-                color: Colors.indigo,
+                color: ColorConstant.defIndigo,
               ),
             ),
           ),
