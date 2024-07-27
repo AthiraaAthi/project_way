@@ -1302,7 +1302,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                               style: const TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w800,
-                                  fontSize: 13),
+                                  fontSize: 23),
                             )),
                             DataColumn(
                                 label: Text(
@@ -1310,7 +1310,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                               style: const TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w800,
-                                  fontSize: 13),
+                                  fontSize: 23),
                             )),
                             DataColumn(
                                 label: Text(
@@ -1318,7 +1318,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                               style: const TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w800,
-                                  fontSize: 13),
+                                  fontSize: 23),
                             )),
                             DataColumn(
                                 label: Text(
@@ -1326,7 +1326,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                               style: const TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w800,
-                                  fontSize: 13),
+                                  fontSize: 23),
                             )),
                           ],
                           rows: enteredvalues.map<DataRow>((entry) {
