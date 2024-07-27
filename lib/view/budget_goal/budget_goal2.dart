@@ -833,7 +833,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                   value,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                                      fontSize: 23),
                                 ),
                               ),
                             );
@@ -847,8 +847,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       ),
                       Container(
                         // WEEK or MONTH Selection
-                        height: 50,
-                        width: 150,
+                        height: 70,
+                        width: 250,
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.grey),
                         ),
@@ -871,7 +871,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                   value,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                                      fontSize: 23),
                                 ),
                               ),
                             );
@@ -895,8 +895,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          height: 50,
-                          width: 150,
+                          height: 70,
+                          width: 250,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -919,7 +919,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                     value,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 15),
+                                        fontSize: 23),
                                   ),
                                 ),
                               );
@@ -932,8 +932,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         ),
                         Container(
-                          height: 50,
-                          width: 150,
+                          height: 70,
+                          width: 250,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -951,7 +951,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 items: categoryTitle.map((String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
-                                    child: Text(value),
+                                    child: Text(
+                                      value,
+                                      style: TextStyle(fontSize: 23),
+                                    ),
                                   );
                                 }).toList(),
                                 onChanged: (String? newValue) {
