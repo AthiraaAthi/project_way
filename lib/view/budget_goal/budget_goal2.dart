@@ -1021,6 +1021,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: TextField(
+                            style: TextStyle(fontSize: 22),
                             controller: startDateController,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -1043,6 +1044,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             border: Border.all(color: Colors.grey),
                           ),
                           child: TextField(
+                            style: TextStyle(fontSize: 22),
                             controller: endDateController,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -1589,7 +1591,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 value: value,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text(value),
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 23),
+                                  ),
                                 ),
                               );
                             }).toList(),
@@ -1610,9 +1615,14 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           width: MediaQuery.of(context).size.width < 600
                               ? 250
                               : 300,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey)),
                           child: DropdownButton<String>(
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              size: 40,
+                            ),
                             underline: Container(),
                             value: editMonthValue.isEmpty
                                 ? months.first
@@ -1622,7 +1632,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 value: value,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8),
-                                  child: Text(value),
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 23),
+                                  ),
                                 ),
                               );
                             }).toList(),
@@ -1634,7 +1647,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
                         Container(
                           height:
@@ -1642,9 +1655,11 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           width: MediaQuery.of(context).size.width < 600
                               ? 250
                               : 300,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey)),
                           child: DropdownButton<String>(
+                            icon: Icon(Icons.key),
                             underline: Container(),
                             value: editYearValue.isEmpty
                                 ? years.first
@@ -1654,7 +1669,12 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 value: value,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text(value),
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(
+                                      fontSize: 23,
+                                    ),
+                                  ),
                                 ),
                               );
                             }).toList(),
@@ -1672,11 +1692,13 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           width: MediaQuery.of(context).size.width < 600
                               ? 250
                               : 300,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey)),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: TextField(
+                              style: TextStyle(fontSize: 23),
                               controller: startDateController,
                               decoration: const InputDecoration(
                                 hintText: "Start Date",
@@ -1692,8 +1714,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         ),
                       ],
                     ],
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     Container(
+                      alignment: Alignment.center,
                       height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                       width:
                           MediaQuery.of(context).size.width < 600 ? 250 : 300,
@@ -1702,6 +1725,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       child: Padding(
                         padding: const EdgeInsets.all(16),
                         child: TextField(
+                          style: TextStyle(fontSize: 23),
                           keyboardType: TextInputType.number,
                           controller: amountController,
                           decoration: const InputDecoration(
@@ -1711,8 +1735,9 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 30),
                     Container(
+                      alignment: Alignment.center,
                       height: MediaQuery.of(context).size.width < 600 ? 50 : 70,
                       width:
                           MediaQuery.of(context).size.width < 600 ? 250 : 300,
@@ -1722,7 +1747,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         icon: const Icon(
                           Icons.keyboard_arrow_down,
                           color: Colors.black,
-                          size: 30,
+                          size: 40,
                         ),
                         underline: Container(),
                         value: selectedCategory,
@@ -1732,7 +1757,12 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             child: Expanded(
                                 child: Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(value),
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                  fontSize: 23,
+                                ),
+                              ),
                             )),
                           );
                         }).toList(),
@@ -1757,7 +1787,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                 "Cancel",
                 style: TextStyle(
                     fontSize:
-                        MediaQuery.of(context).size.width < 600 ? 18 : 30),
+                        MediaQuery.of(context).size.width < 600 ? 18 : 25),
               ),
             ),
             TextButton(
@@ -1787,7 +1817,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                 "Save",
                 style: TextStyle(
                     fontSize:
-                        MediaQuery.of(context).size.width < 600 ? 18 : 30),
+                        MediaQuery.of(context).size.width < 600 ? 18 : 25),
               ),
             ),
           ],
