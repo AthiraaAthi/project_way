@@ -173,6 +173,21 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
 
   @override
   Widget build(BuildContext context) {
+    double hintSize = 12;
+    double buttonSize = 15;
+    double tabhint = 18;
+    double tabPadding = 80;
+    if (context.locale.languageCode == 'en') {
+      hintSize = 15;
+      buttonSize = 13;
+      tabhint = 20;
+      tabPadding = 70;
+    } else if (context.locale.languageCode == 'ml') {
+      hintSize = 13;
+      buttonSize = 12;
+      tabhint = 18;
+      tabPadding = 30;
+    }
     return Scaffold(
         backgroundColor: ColorConstant.bgBlue,
         appBar: AppBar(
@@ -995,8 +1010,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
-                          height: 50,
-                          width: 150,
+                          height: 70,
+                          width: 250,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -1004,11 +1019,11 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             controller: startDateController,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintStyle: TextStyle(fontSize: 15),
+                                hintStyle: TextStyle(fontSize: 23),
                                 hintText:
                                     "budget_goal_screen.hints.startDate".tr(),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 10)),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: tabPadding)),
                             onTap: () async {
                               FocusScope.of(context).requestFocus(FocusNode());
                               await _selectDate(context, startDateController);
@@ -1016,8 +1031,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         ),
                         Container(
-                          height: 50,
-                          width: 150,
+                          height: 70,
+                          width: 250,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -1025,11 +1040,11 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             controller: endDateController,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintStyle: TextStyle(fontSize: 15),
+                                hintStyle: TextStyle(fontSize: 23),
                                 hintText:
                                     "budget_goal_screen.hints.endDate".tr(),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 10)),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: tabPadding)),
                             onTap: () async {
                               FocusScope.of(context).requestFocus(FocusNode());
                               await _selectDate(context, endDateController);
@@ -1042,7 +1057,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       height: 20,
                     ),
                     Container(
-                      height: 50,
+                      height: 70,
                       width: 320,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
@@ -1062,7 +1077,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(right: 120, left: 10),
-                              child: Text(value),
+                              child: Text(
+                                value,
+                                style: TextStyle(fontSize: 23),
+                              ),
                             ),
                           );
                         }).toList(),
@@ -1096,8 +1114,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     height: 20,
                   ),
                   Container(
-                    height: 50,
-                    width: 320,
+                    height: 70,
+                    width: 423,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5)),
@@ -1105,15 +1123,19 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       keyboardType: TextInputType.number,
                       controller: amountController,
                       decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "budget_goal_screen.hints.enterAmount".tr(),
-                          hintStyle: const TextStyle(fontSize: 13),
-                          contentPadding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 25)),
+                        border: InputBorder.none,
+                        hintText: "budget_goal_screen.hints.enterAmount".tr(),
+                        hintStyle: const TextStyle(fontSize: 20),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal:
+                              context.locale.languageCode == 'en' ? 130 : 100,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
                   InkWell(
                     onTap: () {
@@ -1236,8 +1258,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       });
                     },
                     child: Container(
-                      height: 45,
-                      width: 200,
+                      height: 70,
+                      width: 300,
                       decoration: BoxDecoration(
                         color: ColorConstant.defIndigo,
                         borderRadius: BorderRadius.circular(5),
@@ -1246,15 +1268,16 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         child: Text(
                           "budget_goal_screen.buttons.submit".tr(),
                           style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 23,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   enteredvalues.isEmpty
                       ? Center(
@@ -1264,8 +1287,8 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         )
                       : DataTable(
-                          dataRowMaxHeight: 60,
-                          columnSpacing: 25,
+                          dataRowMaxHeight: 100,
+                          columnSpacing: 100,
                           border:
                               TableBorder.all(color: Colors.grey, width: 0.5),
                           columns: [
