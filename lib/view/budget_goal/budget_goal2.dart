@@ -1064,7 +1064,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     ),
                     Container(
                       height: 70,
-                      width: 520,
+                      width: 580,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
@@ -1118,25 +1118,29 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     ),
                   ],
                   const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Container(
                     height: 70,
-                    width: 423,
+                    width: 580,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5)),
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      controller: amountController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "budget_goal_screen.hints.enterAmount".tr(),
-                        hintStyle: const TextStyle(fontSize: 20),
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal:
-                              context.locale.languageCode == 'en' ? 130 : 100,
+                    child: Center(
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        controller: amountController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "budget_goal_screen.hints.enterAmount".tr(),
+                          hintStyle: const TextStyle(
+                            fontSize: 22,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal:
+                                context.locale.languageCode == 'en' ? 180 : 100,
+                          ),
                         ),
                       ),
                     ),
@@ -1266,10 +1270,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     },
                     child: Container(
                       height: 70,
-                      width: 300,
+                      width: 350,
                       decoration: BoxDecoration(
                         color: ColorConstant.defIndigo,
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
                         child: Text(
