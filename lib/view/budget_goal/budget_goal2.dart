@@ -824,6 +824,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
+                        alignment: Alignment.center,
                         height: 70,
                         width: 250,
                         decoration: BoxDecoration(
@@ -833,7 +834,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           icon: const Icon(
                             Icons.keyboard_arrow_down,
                             color: Colors.black,
-                            size: 30,
+                            size: 40,
                           ),
                           underline: Container(),
                           value: dropDownValue,
@@ -843,12 +844,12 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                               value: value,
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.only(right: 30, left: 10),
+                                    const EdgeInsets.only(right: 50, left: 10),
                                 child: Text(
                                   value,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 23),
+                                      fontSize: 25),
                                 ),
                               ),
                             );
@@ -862,6 +863,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       ),
                       Container(
                         // WEEK or MONTH Selection
+                        alignment: Alignment.center,
                         height: 70,
                         width: 250,
                         decoration: BoxDecoration(
@@ -871,7 +873,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           icon: const Icon(
                             Icons.keyboard_arrow_down,
                             color: Colors.black,
-                            size: 30,
+                            size: 40,
                           ),
                           underline: Container(),
                           value: dropDownMonthOrWeekValue,
@@ -886,7 +888,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                   value,
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 23),
+                                      fontSize: 25),
                                 ),
                               ),
                             );
@@ -912,6 +914,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         Container(
                           height: 70,
                           width: 250,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -919,7 +922,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             icon: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.black,
-                              size: 30,
+                              size: 40,
                             ),
                             underline: Container(),
                             value: dropDownMonthValue,
@@ -934,7 +937,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                     value,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 23),
+                                        fontSize: 25),
                                   ),
                                 ),
                               );
@@ -949,6 +952,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         Container(
                           height: 70,
                           width: 250,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -959,7 +963,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 icon: const Icon(
                                   Icons.keyboard_arrow_down,
                                   color: Colors.black,
-                                  size: 30,
+                                  size: 40,
                                 ),
                                 underline: Container(),
                                 value: selectedCategory,
@@ -968,7 +972,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                     value: value,
                                     child: Text(
                                       value,
-                                      style: TextStyle(fontSize: 23),
+                                      style: TextStyle(fontSize: 25),
                                     ),
                                   );
                                 }).toList(),
@@ -1012,6 +1016,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         Container(
                           height: 70,
                           width: 250,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -1019,7 +1024,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             controller: startDateController,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintStyle: TextStyle(fontSize: 23),
+                                hintStyle: TextStyle(fontSize: 22),
                                 hintText:
                                     "budget_goal_screen.hints.startDate".tr(),
                                 contentPadding: EdgeInsets.symmetric(
@@ -1033,6 +1038,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         Container(
                           height: 70,
                           width: 250,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                           ),
@@ -1040,7 +1046,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                             controller: endDateController,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintStyle: TextStyle(fontSize: 23),
+                                hintStyle: TextStyle(fontSize: 22),
                                 hintText:
                                     "budget_goal_screen.hints.endDate".tr(),
                                 contentPadding: EdgeInsets.symmetric(
@@ -1054,11 +1060,12 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                       ],
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     Container(
                       height: 70,
-                      width: 320,
+                      width: 520,
+                      alignment: Alignment.center,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(5),
@@ -1067,7 +1074,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         icon: const Icon(
                           Icons.keyboard_arrow_down,
                           color: Colors.black,
-                          size: 30,
+                          size: 40,
                         ),
                         underline: Container(),
                         value: selectedCategory,
@@ -1079,7 +1086,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                   const EdgeInsets.only(right: 120, left: 10),
                               child: Text(
                                 value,
-                                style: TextStyle(fontSize: 23),
+                                style: TextStyle(fontSize: 25),
                               ),
                             ),
                           );
