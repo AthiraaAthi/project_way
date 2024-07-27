@@ -1128,13 +1128,14 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: TextField(
+                        style: TextStyle(fontSize: 25),
                         keyboardType: TextInputType.number,
                         controller: amountController,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "budget_goal_screen.hints.enterAmount".tr(),
                           hintStyle: const TextStyle(
-                            fontSize: 22,
+                            fontSize: 25,
                           ),
                           contentPadding: EdgeInsets.symmetric(
                             vertical: 10,
@@ -1346,22 +1347,22 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 entry['budgetType'] == monthly
                                     ? Text(
                                         '${entry['month']} ${entry['year']}',
-                                        style: const TextStyle(fontSize: 18),
+                                        style: const TextStyle(fontSize: 22),
                                       )
                                     : Text(
                                         entry['StartDate'],
-                                        style: const TextStyle(fontSize: 18),
+                                        style: const TextStyle(fontSize: 22),
                                       ),
                               ),
                               DataCell(
                                 Text(
                                   entry['category'] ?? '',
-                                  style: const TextStyle(fontSize: 18),
+                                  style: const TextStyle(fontSize: 22),
                                 ),
                               ),
                               DataCell(Text(
                                 entry['amount'] ?? '',
-                                style: const TextStyle(fontSize: 18),
+                                style: const TextStyle(fontSize: 22),
                               )),
                               DataCell(Column(
                                 children: [
@@ -1376,7 +1377,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                       child: Text(
                                         'budget_goal_screen.buttons.edit'.tr(),
                                         style: TextStyle(
-                                            color: Colors.green, fontSize: 18),
+                                            color: Colors.green, fontSize: 23),
                                       ),
                                     ),
                                   ),
@@ -1385,13 +1386,14 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                       showDialog(
                                         context: context,
                                         builder: (context) => Container(
-                                          height: 200,
+                                          width: 300,
+                                          height: 300,
                                           child: AlertDialog(
                                             title: Text(
                                               "budget_goal_screen.DeletMsg"
                                                   .tr(),
                                               style: const TextStyle(
-                                                fontSize: 18,
+                                                fontSize: 25,
                                               ),
                                             ),
                                             actions: [
@@ -1402,7 +1404,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                                 child: Text(
                                                   "budget_goal_screen.No".tr(),
                                                   style: const TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 23,
                                                       color: Colors.black),
                                                 ),
                                               ),
