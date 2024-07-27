@@ -1479,7 +1479,7 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
             child: Text(
               "Edit your Budget Goal",
               style: TextStyle(
-                fontSize: 23,
+                fontSize: 25,
                 fontWeight: FontWeight.w600,
                 color: ColorConstant.defIndigo,
               ),
@@ -1532,9 +1532,14 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           width: MediaQuery.of(context).size.width < 600
                               ? 250
                               : 300,
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey)),
                           child: DropdownButton<String>(
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              size: 40,
+                            ),
                             underline: Container(),
                             value: editMonthValue.isEmpty
                                 ? months.first
@@ -1544,7 +1549,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                                 value: value,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8),
-                                  child: Text(value),
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 23),
+                                  ),
                                 ),
                               );
                             }).toList(),
@@ -1556,9 +1564,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 30,
                         ),
                         Container(
+                          alignment: Alignment.center,
                           height:
                               MediaQuery.of(context).size.width < 600 ? 50 : 70,
                           width: MediaQuery.of(context).size.width < 600
@@ -1567,6 +1576,10 @@ class _BudgetGoal2State extends State<BudgetGoal2> {
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey)),
                           child: DropdownButton<String>(
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              size: 40,
+                            ),
                             underline: Container(),
                             value: editYearValue.isEmpty
                                 ? years.first
